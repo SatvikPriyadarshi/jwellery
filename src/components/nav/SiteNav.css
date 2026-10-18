@@ -144,6 +144,38 @@
   transform: translateY(-5.5px) rotate(-45deg);
 }
 
+@media (max-width: 640px) {
+  .site-nav-wrap {
+    padding: 0.85rem 1rem;
+  }
+
+  .site-nav-brand {
+    gap: 0.55rem;
+  }
+
+  .site-nav-brand__logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .site-nav-brand__name {
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+  }
+
+  .site-nav-brand__est {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+  }
+
+  .site-nav-toggle {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    gap: 0.45rem;
+  }
+}
+
 /* =========================================================================
    COLLAPSIBLE DRAWER / FULLSCREEN LUXURY OVERLAY
    ========================================================================= */

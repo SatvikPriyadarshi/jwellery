@@ -93,42 +93,50 @@
   outline: none;
 }
 
-/* Phones: keep the native banner ratio so the full photo stays visible */
-@media (max-width: 720px) {
+/* Phones: luxurious viewport height framing the model and jewellery */
+@media (max-width: 768px) {
   .hero {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: var(--hero-ratio);
+    height: 90svh;
+    min-height: 560px;
+    max-height: 840px;
+    aspect-ratio: auto;
   }
 
   .hero__img {
-    object-position: center center;
-  }
-
-  .hero__content {
-    align-items: flex-end;
-    padding: 4.25rem 1.1rem 1.1rem;
-  }
-
-  .hero__copy {
-    max-width: 72%;
-  }
-
-  .hero__title {
-    font-size: clamp(1.15rem, 5.6vw, 1.55rem);
-    letter-spacing: 0.05em;
-  }
-
-  .hero__cta {
-    padding: 0.65rem 1.15rem;
+    object-position: 72% 22%;
   }
 
   .hero__scrim {
     background: linear-gradient(
       180deg,
-      rgba(7, 22, 18, 0.35) 0%,
-      rgba(7, 22, 18, 0.15) 40%,
-      rgba(7, 22, 18, 0.55) 100%
+      rgba(7, 22, 18, 0.88) 0%,
+      rgba(7, 22, 18, 0.45) 24%,
+      rgba(7, 22, 18, 0.15) 50%,
+      rgba(7, 22, 18, 0.88) 100%
     );
+  }
+
+  .hero__content {
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 6.5rem 1.35rem 3.25rem;
+  }
+
+  .hero__copy {
+    max-width: 100%;
+  }
+
+  .hero__title {
+    font-size: clamp(1.45rem, 6.8vw, 2.1rem);
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero__cta {
+    margin-top: 1.15rem;
+    min-height: 44px;
+    padding: 0.75rem 1.6rem;
+    font-size: 0.72rem;
   }
 }
