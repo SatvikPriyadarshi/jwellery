@@ -445,28 +445,44 @@
   .lookbook {
     height: auto;
     min-height: 100svh;
-    padding: 4.5rem 0.5rem 4rem;
+    padding: 3.5rem 0 3.25rem;
   }
 
   .lookbook-book {
-    width: calc(100% - 4.5rem);
-    height: 70svh;
-    min-height: 420px;
+    width: 100%;
+    height: min(78svh, 36rem);
+    min-height: 22rem;
+    box-shadow: none;
   }
 
   .lookbook-book--closed {
-    width: calc((100% - 4.5rem) / 2);
+    width: 50%;
+  }
+
+  .lookbook-nav--prev {
+    left: 0.5rem;
+  }
+
+  .lookbook-nav--next {
+    right: 0.5rem;
   }
 
   .lookbook-headline,
   .lookbook-copy,
   .lookbook-quote,
   .lookbook-columns p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .lookbook-gutter {
     width: min(11rem, 70%);
+  }
+
+  .lookbook-caption {
+    left: 1rem;
+    right: 1rem;
+    letter-spacing: 0.18em;
+    font-size: 0.6rem;
   }
 }
 

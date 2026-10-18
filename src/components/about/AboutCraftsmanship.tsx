@@ -172,6 +172,7 @@ export default function AboutCraftsmanship() {
                     alt={craft.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    quality={85}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#081814]/70 via-transparent to-transparent pointer-events-none" />

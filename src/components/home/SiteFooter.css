@@ -352,16 +352,37 @@
     grid-template-columns: 1fr;
   }
 
+  .site-footer__top {
+    padding-left: 0;
+    padding-right: 0;
+    gap: 1.5rem;
+  }
+
   .site-footer__box {
-    height: 12rem;
-    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 0;
+  }
+
+  .site-footer__contact,
+  .site-footer__connect,
+  .site-footer__aside {
+    padding-left: var(--mobile-gutter, 1.15rem);
+    padding-right: var(--mobile-gutter, 1.15rem);
+  }
+
+  .site-footer__band {
+    margin-left: var(--mobile-gutter, 1.15rem);
+    margin-right: var(--mobile-gutter, 1.15rem);
   }
 
   .site-footer__mark {
     justify-self: start;
   }
 
-  .site-footer__stones {
+  .site-footer__stones,
+  .site-footer__wash {
     display: none;
   }
 }

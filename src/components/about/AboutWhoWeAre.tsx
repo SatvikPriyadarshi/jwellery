@@ -63,13 +63,11 @@ export default function AboutWhoWeAre() {
     <section
       ref={sectionRef}
       id="who-we-are"
-      className="relative bg-[var(--color-ivory)] py-24 sm:py-32 text-[var(--color-charcoal)] overflow-hidden"
+      className="relative bg-[var(--color-ivory)] py-16 sm:py-32 text-[var(--color-charcoal)] overflow-hidden"
     >
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-center">
-          
-          {/* Narrative Column */}
-          <div className="who-text-col lg:col-span-6 space-y-6">
+      <div className="relative mx-auto max-w-7xl px-0 sm:px-10 md:px-14">
+        <div className="grid grid-cols-1 gap-10 sm:gap-16 lg:grid-cols-12 lg:items-center">
+          <div className="who-text-col lg:col-span-6 space-y-6 px-6 sm:px-0">
             <p className="font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-medium">
               Who We Are
             </p>
@@ -135,24 +133,20 @@ export default function AboutWhoWeAre() {
 
           {/* Visual Column */}
           <div className="who-visual-col lg:col-span-6 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Backing Border */}
-              <div className="absolute -inset-4 sm:-inset-6 border border-[var(--color-champagne)]/30 pointer-events-none" />
-              
-              {/* Main Editorial Image */}
+            <div className="relative mx-auto w-full max-w-none">
+              <div className="absolute -inset-4 sm:-inset-6 border border-[var(--color-champagne)]/30 pointer-events-none hidden sm:block" />
+
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0c241c] shadow-2xl shadow-[#102a31]/20">
                 <Image
                   src="/images/jewellery/about-us-editorial.jpg"
                   alt="Fine jewelry emerald and diamond creation worn with dark velvet"
                   fill
-                  sizes="(max-width: 1024px) 90vw, 45vw"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover object-center transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c241c]/50 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Inset Macro Detail Image */}
               <div className="absolute -bottom-8 -left-6 sm:-bottom-10 sm:-left-10 w-36 sm:w-48 aspect-square border border-[var(--color-champagne)] bg-[#0b1914] shadow-2xl overflow-hidden hidden sm:block">
                 <Image
                   src="/images/jewellery/about-emerald-detail.jpg"
@@ -166,8 +160,7 @@ export default function AboutWhoWeAre() {
                 </div>
               </div>
 
-              {/* Provenance Badge */}
-              <div className="absolute -top-6 -right-4 sm:-right-8 bg-[#0b211c] border border-[var(--color-champagne)]/50 p-4 text-[var(--color-ivory)] shadow-xl max-w-[200px]">
+              <div className="absolute -top-6 -right-4 sm:-right-8 bg-[#0b211c] border border-[var(--color-champagne)]/50 p-4 text-[var(--color-ivory)] shadow-xl max-w-[200px] hidden sm:block">
                 <p className="text-[var(--color-champagne)] text-[11px] tracking-widest uppercase font-medium font-sans">
                   Provenance
                 </p>
@@ -175,7 +168,6 @@ export default function AboutWhoWeAre() {
                   Responsibly sourced, cut by master lapidaries, set in 18K gold.
                 </p>
               </div>
-
             </div>
           </div>
 

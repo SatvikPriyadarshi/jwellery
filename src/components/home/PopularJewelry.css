@@ -261,6 +261,10 @@
 }
 
 @media (max-width: 720px) {
+  .pj-section {
+    padding: 2rem var(--mobile-gutter, 1.15rem) 2.25rem;
+  }
+
   .pj-heading {
     flex-direction: column;
     align-items: flex-start;
@@ -268,16 +272,24 @@
   }
 
   .pj-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 0.85rem;
-    padding-bottom: 0.5rem;
+    overflow: visible;
   }
 
   .pj-card {
-    flex: 0 0 min(78vw, 17rem);
-    scroll-snap-align: start;
+    width: 100%;
+  }
+
+  .pj-card__link {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: 0;
+  }
+
+  .pj-card__name {
+    white-space: normal;
   }
 }
 

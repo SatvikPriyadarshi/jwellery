@@ -159,12 +159,12 @@ export default function AboutPhilosophy() {
               </p>
             </div>
 
-            <div className="lg:col-span-4 relative aspect-square max-w-[280px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#071612]">
+            <div className="lg:col-span-4 relative aspect-[4/5] sm:aspect-square max-w-none lg:max-w-[320px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#071612]">
               <Image
                 src="/images/jewellery/double-strand-necklace.jpg"
                 alt="Exquisite double strand diamond and gemstone necklace"
                 fill
-                sizes="(max-width: 1024px) 280px, 320px"
+                sizes="(max-width: 1024px) 100vw, 320px"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b211c]/70 via-transparent to-transparent pointer-events-none" />

@@ -181,7 +181,7 @@ function Photo({
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 1100px) 50vw, 640px"
+        sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 640px"
         style={{ objectFit: "cover", objectPosition: position }}
       />
     </div>

@@ -305,7 +305,7 @@ export default function AboutTimeline() {
                         src={milestone.image}
                         alt={milestone.alt}
                         fill
-                        sizes="(max-width: 860px) 90vw, 480px"
+                        sizes="(max-width: 860px) 100vw, 480px"
                         className="timeline-card__img"
                       />
                       <figcaption className="timeline-card__visual-stamp">

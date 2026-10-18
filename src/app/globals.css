@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -46,6 +47,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-outfit), ui-sans-serif, sans-serif;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --mobile-gutter: 1.15rem;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
+  }
 }
 
 ::selection {

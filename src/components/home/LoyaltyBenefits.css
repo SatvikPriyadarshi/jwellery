@@ -206,12 +206,20 @@
 }
 
 @media (max-width: 720px) {
+  .lb-section {
+    padding: 2rem var(--mobile-gutter, 1.15rem);
+  }
+
   .lb-cards {
     grid-template-columns: 1fr;
   }
 
   .lb-backdrop {
     display: none;
+  }
+
+  .lb-lede {
+    max-width: none;
   }
 }
 

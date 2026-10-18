@@ -586,7 +586,7 @@ export default function CollectionStage() {
                           alt={slide.name}
                           fill
                           priority={slide.name === "Rings"}
-                          sizes="(max-width: 960px) 84vw, 38vw"
+                          sizes="(max-width: 960px) 100vw, 38vw"
                           quality={92}
                           className="cs-media-square__img"
                           style={{ objectPosition: slide.squarePosition }}

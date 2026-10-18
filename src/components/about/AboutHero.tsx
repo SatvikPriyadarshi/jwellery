@@ -106,7 +106,7 @@ export default function AboutHero() {
   return (
     <section
       ref={rootRef}
-      className="relative overflow-hidden bg-gradient-to-b from-[#0b211c] via-[#102a31] to-[#0c241c] pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[var(--color-ivory)]"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0b211c] via-[#102a31] to-[#0c241c] pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[var(--color-ivory)]"
     >
       {/* Caustic Lighting Ambient Glow (NO botanical flower on right) */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.14)_0%,transparent_70%)] blur-3xl" />

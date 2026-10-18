@@ -189,7 +189,7 @@ export default function AboutStory() {
               src="/images/jewellery/about-us-editorial.jpg"
               alt="Emerald and diamond earrings, ring, and bracelet worn with deep green velvet"
               fill
-              sizes="(max-width: 900px) 92vw, 48vw"
+              sizes="(max-width: 900px) 100vw, 48vw"
               className="about-photo__img"
             />
           </figure>
