@@ -17,13 +17,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#0b211c]">
-      {/* Fixed/Floating Navigation */}
       <div className="relative">
         <SiteNav activeHref="/about" />
+        <AboutHero />
       </div>
-
-      {/* 1. Hero: A Legacy of Craftsmanship Since 1965 */}
-      <AboutHero />
 
       {/* 2. Who We Are: Deep Family Stewardship & Narrative */}
       <AboutWhoWeAre />

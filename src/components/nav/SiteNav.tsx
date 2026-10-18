@@ -72,42 +72,26 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
 
   return (
     <>
-      {/* Compact Top Navigation Bar */}
+      {/* Floating Header with No Strip / No Pill Container */}
       <header className="site-nav-wrap">
         <nav className="site-nav-bar" aria-label="Main Navigation">
-          {/* Logo & Wordmark */}
-          <Link href="/" className="site-nav-logo">
+          {/* Logo & Brand Wordmark on Left */}
+          <Link href="/" className="site-nav-brand">
             <Image
               src="/images/Logo.webp"
-              alt="UNI Fine Jewelry"
-              width={30}
-              height={30}
-              className="site-nav-logo__img"
+              alt="Uni Fine Jewelry Logo"
+              width={38}
+              height={38}
+              className="site-nav-brand__logo"
               priority
             />
-            <span className="site-nav-logo__text">Uni Fine Jewelry</span>
+            <div className="site-nav-brand__text">
+              <span className="site-nav-brand__name">Uni Fine Jewelry</span>
+              <span className="site-nav-brand__est">Est. 1965</span>
+            </div>
           </Link>
 
-          {/* Desktop Nav Links (Compact) */}
-          <ul className="site-nav-links">
-            {NAV_ITEMS.map((item) => {
-              const isActive = activeHref === item.href;
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`site-nav-link ${
-                      isActive ? "site-nav-link--active" : ""
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Collapsible Menu Button */}
+          {/* Right Side: Just the Collapsible Menu Button */}
           <button
             type="button"
             className="site-nav-toggle"
@@ -136,17 +120,20 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
         <div className="site-menu-header">
           <Link
             href="/"
-            className="site-nav-logo"
+            className="site-nav-brand"
             onClick={() => setIsOpen(false)}
           >
             <Image
               src="/images/Logo.webp"
-              alt="UNI Fine Jewelry"
-              width={32}
-              height={32}
-              className="site-nav-logo__img"
+              alt="Uni Fine Jewelry Logo"
+              width={38}
+              height={38}
+              className="site-nav-brand__logo"
             />
-            <span className="site-nav-logo__text">Uni Fine Jewelry</span>
+            <div className="site-nav-brand__text">
+              <span className="site-nav-brand__name">Uni Fine Jewelry</span>
+              <span className="site-nav-brand__est">Est. 1965</span>
+            </div>
           </Link>
 
           <button
@@ -190,7 +177,7 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
             <div>
               <h4>Private Salons</h4>
               <p>Jaipur Atelier &bull; Purohit Ji Ka Bagh, M.I. Road</p>
-              <p>Kuala Lumpur &bull; Menara Mutiara Bangsar</p>
+              <p>Kuala Lumpur Salon &bull; Menara Mutiara Bangsar</p>
             </div>
             <div>
               <h4>Direct Inquiries</h4>
