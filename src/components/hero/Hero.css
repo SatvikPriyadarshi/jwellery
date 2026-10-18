@@ -1,0 +1,134 @@
+.hero {
+  --hero-ratio: 1983 / 793;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100svh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #0b211c;
+  color: var(--color-ivory);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__img {
+  object-fit: cover;
+  /* Prefer upper/mid frame so the subject isn’t cut off at the bottom */
+  object-position: center 28%;
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(7, 22, 18, 0.72) 0%,
+    rgba(7, 22, 18, 0.42) 38%,
+    rgba(7, 22, 18, 0.08) 68%,
+    transparent 100%
+  );
+}
+
+.hero__content {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: clamp(3.5rem, 12vw, 5.5rem) clamp(1.15rem, 5vw, 5rem)
+    clamp(1.25rem, 4vw, 3rem);
+  pointer-events: none;
+}
+
+.hero__copy {
+  max-width: min(22rem, 58%);
+  pointer-events: auto;
+}
+
+.hero__title {
+  margin: 0;
+  color: var(--color-ivory);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.35rem, 3.8vw, 3.25rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.12;
+  text-transform: uppercase;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(0.85rem, 2vw, 1.35rem);
+  min-height: 44px;
+  padding: 0.7rem 1.35rem;
+  background: var(--color-dark-forest);
+  border: 1px solid color-mix(in srgb, var(--color-champagne) 45%, transparent);
+  color: var(--color-ivory);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(0.62rem, 1.4vw, 0.72rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  background: var(--color-champagne);
+  color: #0b211c;
+  border-color: var(--color-champagne);
+  outline: none;
+}
+
+/* Phones: keep the native banner ratio so the full photo stays visible */
+@media (max-width: 720px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: var(--hero-ratio);
+  }
+
+  .hero__img {
+    object-position: center center;
+  }
+
+  .hero__content {
+    align-items: flex-end;
+    padding: 4.25rem 1.1rem 1.1rem;
+  }
+
+  .hero__copy {
+    max-width: 72%;
+  }
+
+  .hero__title {
+    font-size: clamp(1.15rem, 5.6vw, 1.55rem);
+    letter-spacing: 0.05em;
+  }
+
+  .hero__cta {
+    padding: 0.65rem 1.15rem;
+  }
+
+  .hero__scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 22, 18, 0.35) 0%,
+      rgba(7, 22, 18, 0.15) 40%,
+      rgba(7, 22, 18, 0.55) 100%
+    );
+  }
+}
