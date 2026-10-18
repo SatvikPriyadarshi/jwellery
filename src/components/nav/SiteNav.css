@@ -1,0 +1,322 @@
+/* =========================================================================
+   COMPACT LUXURY SITE NAVIGATION WITH COLLAPSIBLE MENU
+   ========================================================================= */
+
+.site-nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 1.5rem;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .site-nav-wrap {
+    padding: 1.25rem 2.5rem;
+  }
+}
+
+.site-nav-bar {
+  pointer-events: auto;
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1.25rem;
+  background: rgba(11, 33, 28, 0.78);
+  border: 1px solid rgba(198, 161, 91, 0.28);
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 10px 30px -10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.site-nav-bar:hover {
+  border-color: rgba(198, 161, 91, 0.45);
+}
+
+/* Brand Logo & Wordmark */
+.site-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-ivory);
+}
+
+.site-nav-logo__img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.site-nav-logo__text {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ivory);
+}
+
+/* Desktop Links (Compact) */
+.site-nav-links {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 860px) {
+  .site-nav-links {
+    display: flex;
+  }
+}
+
+.site-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.95rem;
+  color: rgba(247, 243, 234, 0.78);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.site-nav-link:hover {
+  color: var(--color-champagne);
+  background: rgba(198, 161, 91, 0.08);
+}
+
+.site-nav-link--active {
+  color: #0b211c;
+  background: var(--color-champagne);
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(198, 161, 91, 0.35);
+}
+
+.site-nav-link--active:hover {
+  color: #0b211c;
+  background: #d4af66;
+}
+
+/* Collapsible Menu Toggle Button */
+.site-nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.95rem;
+  background: rgba(16, 42, 49, 0.6);
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  border-radius: 9999px;
+  color: var(--color-champagne);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.site-nav-toggle:hover,
+.site-nav-toggle:focus-visible {
+  background: var(--color-champagne);
+  color: #0b211c;
+  border-color: var(--color-champagne);
+}
+
+.site-nav-burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 16px;
+  height: 14px;
+}
+
+.site-nav-burger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.site-nav-toggle[aria-expanded="true"] .site-nav-burger span:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.site-nav-toggle[aria-expanded="true"] .site-nav-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-nav-toggle[aria-expanded="true"] .site-nav-burger span:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* =========================================================================
+   COLLAPSIBLE DRAWER / MODAL MENU
+   ========================================================================= */
+
+.site-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(7, 22, 18, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 3rem;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.site-menu-overlay--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.2);
+}
+
+.site-menu-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.15rem;
+  background: transparent;
+  border: 1px solid var(--color-champagne);
+  border-radius: 9999px;
+  color: var(--color-champagne);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.site-menu-close:hover {
+  background: var(--color-champagne);
+  color: #0b211c;
+}
+
+.site-menu-body {
+  max-width: 72rem;
+  width: 100%;
+  margin: auto;
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+}
+
+@media (min-width: 860px) {
+  .site-menu-body {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 5rem;
+  }
+}
+
+.site-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-menu-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.site-menu-link {
+  display: inline-block;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 400;
+  color: var(--color-ivory);
+  text-decoration: none;
+  line-height: 1.1;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.site-menu-link:hover {
+  color: var(--color-champagne);
+  transform: translateX(8px);
+}
+
+.site-menu-link--active {
+  color: var(--color-champagne);
+  font-style: italic;
+}
+
+.site-menu-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  border-top: 1px solid rgba(198, 161, 91, 0.2);
+  padding-top: 2rem;
+}
+
+@media (min-width: 860px) {
+  .site-menu-aside {
+    border-top: none;
+    border-left: 1px solid rgba(198, 161, 91, 0.2);
+    padding-top: 0;
+    padding-left: 3rem;
+  }
+}
+
+.site-menu-aside h4 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+}
+
+.site-menu-aside p,
+.site-menu-aside a {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.88rem;
+  color: rgba(247, 243, 234, 0.82);
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.site-menu-aside a:hover {
+  color: var(--color-champagne);
+}

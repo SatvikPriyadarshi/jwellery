@@ -172,7 +172,6 @@ export default function PopularJewelry() {
         <div className="pj-heading__left">
           <p className="pj-eyebrow">
             Our Collection
-            <span className="pj-eyebrow__rule" aria-hidden="true" />
           </p>
           <h2 id="popular-heading" className="pj-title">
             Popular Jewelry
@@ -222,14 +221,6 @@ export default function PopularJewelry() {
           </li>
         ))}
       </ul>
-
-      <div className="pj-ornament" aria-hidden="true">
-        <span className="pj-ornament__line" />
-        <span className="pj-ornament__diamond">
-          <span className="pj-ornament__dot" />
-        </span>
-        <span className="pj-ornament__line" />
-      </div>
     </section>
   );
 }

@@ -225,7 +225,6 @@ export default function LoyaltyBenefits() {
         <header className="lb-intro">
           <p className="lb-eyebrow">
             More Than Just Jewellery
-            <span className="lb-eyebrow__rule" aria-hidden="true" />
           </p>
           <h2 id="care-heading" className="lb-title">
             Your Loyalty Deserves

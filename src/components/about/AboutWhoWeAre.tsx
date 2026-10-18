@@ -1,34 +1,87 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function AboutWhoWeAre() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reduce) return;
+
+      const textCol = section.querySelector(".who-text-col");
+      const visualCol = section.querySelector(".who-visual-col");
+
+      gsap.fromTo(
+        textCol,
+        { autoAlpha: 0, y: 35 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: textCol,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        visualCol,
+        { autoAlpha: 0, y: 40 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.95,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: visualCol,
+            start: "top 78%",
+            once: true,
+          },
+        }
+      );
+    },
+    { scope: sectionRef }
+  );
+
   return (
     <section
+      ref={sectionRef}
       id="who-we-are"
       className="relative bg-[var(--color-ivory)] py-24 sm:py-32 text-[var(--color-charcoal)] overflow-hidden"
     >
-      {/* Subtle background flourishes */}
-      <div className="pointer-events-none absolute top-12 right-0 -mr-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.12)_0%,transparent_70%)]" />
-
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-center">
           
           {/* Narrative Column */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-3">
-              <span className="font-sans text-xs tracking-[0.28em] uppercase text-[var(--color-champagne)] font-semibold">
-                Who We Are
-              </span>
-              <span className="h-[1px] w-12 bg-[var(--color-champagne)]" />
-            </div>
+          <div className="who-text-col lg:col-span-6 space-y-6">
+            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-medium">
+              Who We Are
+            </p>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[1.12] text-[var(--color-dark-forest)] font-normal">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-[1.12] text-[var(--color-dark-forest)] font-light">
               A Family Devotion to Nature’s <br />
-              <span className="font-display italic text-[var(--color-champagne)]">
+              <span className="italic font-normal text-[var(--color-champagne)]">
                 Rarest Treasures
               </span>
             </h2>
 
-            <p className="font-sans text-lg sm:text-xl font-light text-[var(--color-emerald)] leading-relaxed italic font-display">
+            <p className="font-serif text-lg sm:text-xl font-normal text-[var(--color-emerald)] leading-relaxed italic">
               &ldquo;Uni Fine Jewelry is a family-owned business built on a legacy of passion, expertise, and an enduring appreciation for the beauty of fine gemstones.&rdquo;
             </p>
 
@@ -65,28 +118,27 @@ export default function AboutWhoWeAre() {
             </div>
 
             {/* Signature & Seal */}
-            <div className="pt-6 border-t border-[var(--color-champagne)]/30 flex items-center justify-between">
+            <div className="pt-6 border-t border-[var(--color-champagne)]/25 flex items-center justify-between">
               <div>
-                <p className="font-display italic text-lg text-[var(--color-emerald)]">
+                <p className="font-serif italic text-lg text-[var(--color-emerald)]">
                   The Uni Fine Jewelry Family
                 </p>
-                <p className="text-xs tracking-wider uppercase text-[#738078] mt-0.5">
+                <p className="text-xs tracking-wider uppercase text-[#738078] mt-0.5 font-sans">
                   Jaipur &bull; Kuala Lumpur
                 </p>
               </div>
-              <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-[var(--color-champagne)] font-medium">
-                <span className="w-2 h-2 rotate-45 border border-[var(--color-champagne)] bg-[var(--color-champagne)]/20" />
-                <span>Handcrafted Heirlooms</span>
+              <div className="text-xs tracking-widest uppercase text-[var(--color-champagne)] font-medium font-sans">
+                Handcrafted Heirlooms
               </div>
             </div>
           </div>
 
           {/* Visual Column */}
-          <div className="lg:col-span-6 relative">
+          <div className="who-visual-col lg:col-span-6 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Backing Architectural Border */}
-              <div className="absolute -inset-4 sm:-inset-6 border border-[var(--color-champagne)]/40 pointer-events-none" />
+              {/* Backing Border */}
+              <div className="absolute -inset-4 sm:-inset-6 border border-[var(--color-champagne)]/30 pointer-events-none" />
               
               {/* Main Editorial Image */}
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0c241c] shadow-2xl shadow-[#102a31]/20">
@@ -97,11 +149,11 @@ export default function AboutWhoWeAre() {
                   sizes="(max-width: 1024px) 90vw, 45vw"
                   className="object-cover object-center transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c241c]/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c241c]/50 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Inset Macro Detail Image */}
-              <div className="absolute -bottom-8 -left-6 sm:-bottom-10 sm:-left-10 w-36 sm:w-48 aspect-square border-2 border-[var(--color-champagne)] bg-[#0b1914] shadow-2xl overflow-hidden hidden sm:block">
+              <div className="absolute -bottom-8 -left-6 sm:-bottom-10 sm:-left-10 w-36 sm:w-48 aspect-square border border-[var(--color-champagne)] bg-[#0b1914] shadow-2xl overflow-hidden hidden sm:block">
                 <Image
                   src="/images/jewellery/about-emerald-detail.jpg"
                   alt="Emerald cut gemstone detail with vivid green saturation"
@@ -109,18 +161,17 @@ export default function AboutWhoWeAre() {
                   sizes="192px"
                   className="object-cover"
                 />
-                <div className="absolute bottom-0 inset-x-0 bg-[#0b211c]/80 backdrop-blur-xs py-1 px-2 text-[10px] tracking-widest uppercase text-[var(--color-champagne)] text-center font-sans">
+                <div className="absolute bottom-0 inset-x-0 bg-[#0b211c]/85 py-1 px-2 text-[10px] tracking-widest uppercase text-[var(--color-champagne)] text-center font-sans">
                   Zambian Emerald
                 </div>
               </div>
 
               {/* Provenance Badge */}
-              <div className="absolute -top-6 -right-4 sm:-right-8 bg-[#0b211c] border border-[var(--color-champagne)] p-4 text-[var(--color-ivory)] shadow-xl max-w-[200px]">
-                <div className="flex items-center gap-1.5 text-[var(--color-champagne)] text-[11px] tracking-widest uppercase font-medium">
-                  <span className="w-1.5 h-1.5 rotate-45 bg-[var(--color-champagne)]" />
-                  <span>Provenance</span>
-                </div>
-                <p className="mt-1 text-xs text-[var(--color-ivory)]/80 font-light leading-snug">
+              <div className="absolute -top-6 -right-4 sm:-right-8 bg-[#0b211c] border border-[var(--color-champagne)]/50 p-4 text-[var(--color-ivory)] shadow-xl max-w-[200px]">
+                <p className="text-[var(--color-champagne)] text-[11px] tracking-widest uppercase font-medium font-sans">
+                  Provenance
+                </p>
+                <p className="mt-1 text-xs text-[var(--color-ivory)]/80 font-light leading-snug font-sans">
                   Responsibly sourced, cut by master lapidaries, set in 18K gold.
                 </p>
               </div>

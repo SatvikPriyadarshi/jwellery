@@ -1,42 +1,134 @@
-import Image from "next/image";
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function AboutHero() {
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#0b211c] via-[#102a31] to-[#0c241c] pt-36 pb-20 sm:pt-44 sm:pb-28 lg:pt-48 lg:pb-32 text-[var(--color-ivory)]">
-      {/* Decorative Botanical & Caustic Background Overlays */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.18)_0%,transparent_70%)] blur-3xl" />
-      <div className="pointer-events-none absolute top-1/2 -right-24 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(18,60,50,0.5)_0%,transparent_70%)] blur-3xl" />
+  const rootRef = useRef<HTMLElement>(null);
+  const yearCountRef = useRef<HTMLSpanElement>(null);
+  const experienceCountRef = useRef<HTMLSpanElement>(null);
+  const genCountRef = useRef<HTMLSpanElement>(null);
 
-      <Image
-        src="/images/jewellery/footer-botanical.jpg"
-        alt=""
-        width={600}
-        height={600}
-        className="pointer-events-none absolute top-0 right-0 w-80 md:w-[480px] opacity-15 mix-blend-screen"
-        priority
-      />
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      if (!root) return;
+
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reduce) return;
+
+      const eyebrow = root.querySelector(".hero-eyebrow");
+      const title = root.querySelector(".hero-title");
+      const copy = root.querySelector(".hero-copy");
+      const ctas = root.querySelectorAll(".hero-cta");
+      const statBlocks = root.querySelectorAll(".hero-stat");
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.fromTo(
+        eyebrow,
+        { autoAlpha: 0, y: 16 },
+        { autoAlpha: 1, y: 0, duration: 0.7, delay: 0.15 }
+      )
+        .fromTo(
+          title,
+          { autoAlpha: 0, y: 28 },
+          { autoAlpha: 1, y: 0, duration: 0.9 },
+          "-=0.4"
+        )
+        .fromTo(
+          copy,
+          { autoAlpha: 0, y: 20 },
+          { autoAlpha: 1, y: 0, duration: 0.8 },
+          "-=0.5"
+        )
+        .fromTo(
+          ctas,
+          { autoAlpha: 0, y: 16 },
+          { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1 },
+          "-=0.4"
+        )
+        .fromTo(
+          statBlocks,
+          { autoAlpha: 0, y: 20 },
+          { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.1 },
+          "-=0.3"
+        );
+
+      // GSAP Number Counters
+      const yearObj = { val: 1920 };
+      gsap.to(yearObj, {
+        val: 1965,
+        duration: 2,
+        ease: "power2.out",
+        onUpdate: () => {
+          if (yearCountRef.current) {
+            yearCountRef.current.textContent = Math.round(yearObj.val).toString();
+          }
+        },
+      });
+
+      const expObj = { val: 0 };
+      gsap.to(expObj, {
+        val: 60,
+        duration: 1.8,
+        delay: 0.2,
+        ease: "power2.out",
+        onUpdate: () => {
+          if (experienceCountRef.current) {
+            experienceCountRef.current.textContent = Math.round(expObj.val).toString();
+          }
+        },
+      });
+
+      const genObj = { val: 0 };
+      gsap.to(genObj, {
+        val: 3,
+        duration: 1.5,
+        delay: 0.3,
+        ease: "power2.out",
+        onUpdate: () => {
+          if (genCountRef.current) {
+            genCountRef.current.textContent = Math.round(genObj.val).toString();
+          }
+        },
+      });
+    },
+    { scope: rootRef }
+  );
+
+  return (
+    <section
+      ref={rootRef}
+      className="relative overflow-hidden bg-gradient-to-b from-[#0b211c] via-[#102a31] to-[#0c241c] pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[var(--color-ivory)]"
+    >
+      {/* Caustic Lighting Ambient Glow (NO botanical flower on right) */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.14)_0%,transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute top-1/2 right-0 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(18,60,50,0.45)_0%,transparent_70%)] blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
-        {/* Eyebrow / Provenance Tag */}
-        <div className="flex items-center gap-3">
-          <span className="h-[1px] w-8 sm:w-12 bg-[var(--color-champagne)]" />
-          <p className="font-sans text-[0.72rem] sm:text-xs tracking-[0.28em] uppercase text-[var(--color-champagne)] font-medium">
-            Uni Fine Jewelry &bull; Est. 1965
-          </p>
-          <span className="h-[1px] w-8 sm:w-12 bg-[var(--color-champagne)]" />
-        </div>
+        {/* Eyebrow - Clean Typographic Badge with NO artificial lines */}
+        <p className="hero-eyebrow font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-medium">
+          Uni Fine Jewelry &bull; Est. 1965
+        </p>
 
         {/* Hero Title & Opening Statement */}
-        <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
+        <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-tight text-[var(--color-ivory)]">
+            <h1 className="hero-title font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[var(--color-ivory)]">
               A Legacy of <br className="hidden sm:inline" />
-              <span className="italic font-normal text-[var(--color-champagne)] font-display">
+              <span className="italic font-normal text-[var(--color-champagne)]">
                 Craftsmanship
               </span>{" "}
               Since 1965
             </h1>
-            <p className="mt-6 max-w-2xl font-sans text-base sm:text-lg text-[var(--color-ivory)]/80 leading-relaxed font-light">
+            <p className="hero-copy mt-6 max-w-2xl font-sans text-base sm:text-lg text-[var(--color-ivory)]/80 leading-relaxed font-light">
               Built on a foundation of passion, expertise, and an enduring
               reverence for nature’s most extraordinary creations. For three
               generations, we have sourced, cut, and transformed rough gemstones
@@ -48,14 +140,14 @@ export default function AboutHero() {
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4 sm:items-center lg:items-start lg:justify-end">
             <a
               href="#timeline"
-              className="inline-flex items-center justify-center gap-3 border border-[var(--color-champagne)] px-7 py-3.5 text-xs tracking-[0.24em] uppercase text-[var(--color-champagne)] transition-all duration-300 hover:bg-[var(--color-champagne)] hover:text-[#0b211c] w-full sm:w-auto"
+              className="hero-cta inline-flex items-center justify-center gap-3 border border-[var(--color-champagne)] px-7 py-3.5 text-xs tracking-[0.24em] uppercase text-[var(--color-champagne)] transition-all duration-300 hover:bg-[var(--color-champagne)] hover:text-[#0b211c] w-full sm:w-auto"
             >
               <span>Explore The Journey</span>
               <span aria-hidden="true" className="text-sm">↓</span>
             </a>
             <a
               href="#who-we-are"
-              className="inline-flex items-center justify-center gap-2 text-xs tracking-[0.2em] uppercase text-[var(--color-ivory)]/70 hover:text-[var(--color-champagne)] transition-colors py-2 px-2"
+              className="hero-cta inline-flex items-center justify-center gap-2 text-xs tracking-[0.2em] uppercase text-[var(--color-ivory)]/70 hover:text-[var(--color-champagne)] transition-colors py-2 px-2"
             >
               <span>Who We Are</span>
               <span aria-hidden="true">→</span>
@@ -63,38 +155,38 @@ export default function AboutHero() {
           </div>
         </div>
 
-        {/* Heritage Stats Strip */}
-        <div className="mt-16 sm:mt-20 pt-10 border-t border-[rgba(198,161,91,0.25)] grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)]">
-              1965
+        {/* Heritage Stats Strip with GSAP Animated Counters */}
+        <div className="mt-16 sm:mt-20 pt-10 border-t border-[rgba(198,161,91,0.2)] grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="hero-stat">
+            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)] font-light">
+              <span ref={yearCountRef}>1965</span>
             </div>
             <p className="mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/60 font-sans">
               Founded in Jaipur
             </p>
           </div>
-          <div>
-            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)]">
-              60+ Years
+          <div className="hero-stat">
+            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)] font-light">
+              <span ref={experienceCountRef}>60</span>+ Years
             </div>
             <p className="mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/60 font-sans">
               Gemstone Mastery
             </p>
           </div>
-          <div>
-            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)]">
+          <div className="hero-stat">
+            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)] font-light">
               Zambian
             </div>
             <p className="mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/60 font-sans">
               Emerald Specialization
             </p>
           </div>
-          <div>
-            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)]">
-              3 Generations
+          <div className="hero-stat">
+            <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)] font-light">
+              <span ref={genCountRef}>3</span> Generations
             </div>
             <p className="mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/60 font-sans">
-              Family-Owned Stewardship
+              Family Stewardship
             </p>
           </div>
         </div>

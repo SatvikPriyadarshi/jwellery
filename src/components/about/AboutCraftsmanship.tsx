@@ -1,4 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const CRAFT_STEPS = [
   {
@@ -40,24 +48,91 @@ const CRAFT_STEPS = [
 ];
 
 export default function AboutCraftsmanship() {
-  return (
-    <section className="relative bg-[#0c241c] py-28 sm:py-36 text-[var(--color-ivory)] overflow-hidden">
-      {/* Subtle Radial Glow */}
-      <div className="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.18)_0%,transparent_70%)]" />
+  const rootRef = useRef<HTMLElement>(null);
 
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      if (!root) return;
+
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reduce) return;
+
+      const header = root.querySelector(".craft-header");
+      const cards = root.querySelectorAll(".craft-card");
+      const quote = root.querySelector(".craft-quote");
+
+      gsap.fromTo(
+        header,
+        { autoAlpha: 0, y: 30 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: header,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        cards,
+        { autoAlpha: 0, y: 35 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cards[0],
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      if (quote) {
+        gsap.fromTo(
+          quote,
+          { autoAlpha: 0, y: 25 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: quote,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
+    },
+    { scope: rootRef }
+  );
+
+  return (
+    <section
+      ref={rootRef}
+      className="relative bg-[#0c241c] py-28 sm:py-36 text-[var(--color-ivory)] overflow-hidden"
+    >
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
-        {/* Section Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        {/* Section Header with NO artificial lines */}
+        <div className="craft-header grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-3">
-              <span className="h-[1px] w-8 sm:w-12 bg-[var(--color-champagne)]" />
-              <p className="font-sans text-[0.72rem] tracking-[0.28em] uppercase text-[var(--color-champagne)] font-medium">
-                Atelier Artistry
-              </p>
-            </div>
-            <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[var(--color-ivory)] leading-[1.12]">
+            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-medium">
+              Atelier Artistry
+            </p>
+            <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[var(--color-ivory)] leading-[1.12]">
               Crafted Through Generations: <br />
-              <span className="font-display italic text-[var(--color-champagne)]">
+              <span className="italic font-normal text-[var(--color-champagne)]">
                 The Four Pillars of Mastery
               </span>
             </h2>
@@ -77,7 +152,7 @@ export default function AboutCraftsmanship() {
           {CRAFT_STEPS.map((craft) => (
             <div
               key={craft.step}
-              className="group relative bg-[#081814]/80 border border-[rgba(198,161,91,0.25)] p-6 transition-all duration-500 hover:border-[var(--color-champagne)] hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#102a31]/50 flex flex-col justify-between"
+              className="craft-card group relative bg-[#081814]/80 border border-[rgba(198,161,91,0.25)] p-6 transition-all duration-500 hover:border-[var(--color-champagne)] hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#102a31]/50 flex flex-col justify-between"
             >
               <div>
                 {/* Step Number & Subtitle */}
@@ -111,18 +186,17 @@ export default function AboutCraftsmanship() {
                 </p>
               </div>
 
-              {/* Bottom decorative flourish */}
-              <div className="mt-6 pt-3 border-t border-[rgba(198,161,91,0.15)] flex items-center justify-between text-[11px] text-[var(--color-champagne)] tracking-widest uppercase">
+              {/* Bottom tag */}
+              <div className="mt-6 pt-3 border-t border-[rgba(198,161,91,0.15)] flex items-center justify-between text-[11px] text-[var(--color-champagne)] tracking-widest uppercase font-sans">
                 <span>Atelier Standard</span>
-                <span className="w-1.5 h-1.5 rotate-45 bg-[var(--color-champagne)] group-hover:scale-125 transition-transform" />
               </div>
             </div>
           ))}
         </div>
 
         {/* Editorial Quote Statement */}
-        <div className="mt-20 border-t border-[rgba(198,161,91,0.25)] pt-12 text-center max-w-2xl mx-auto">
-          <p className="font-serif text-xl sm:text-2xl italic text-[var(--color-champagne)] font-display">
+        <div className="craft-quote mt-20 border-t border-[rgba(198,161,91,0.2)] pt-12 text-center max-w-2xl mx-auto">
+          <p className="font-serif text-xl sm:text-2xl italic text-[var(--color-champagne)]">
             &ldquo;At Uni Fine Jewelry, we aspire to create more than beautiful objects.
             We create pieces that hold meaning, celebrate individuality, and stand the test of time.&rdquo;
           </p>

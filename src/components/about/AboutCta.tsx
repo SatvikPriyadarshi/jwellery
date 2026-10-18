@@ -1,21 +1,60 @@
-export default function AboutCta() {
-  return (
-    <section className="relative bg-[var(--color-ivory)] py-20 sm:py-28 text-[var(--color-charcoal)] border-t border-[var(--color-champagne)]/30">
-      <div className="relative mx-auto max-w-5xl px-6 text-center">
-        {/* Diamond mark */}
-        <div className="flex items-center justify-center gap-3">
-          <span className="h-[1px] w-10 sm:w-16 bg-[var(--color-champagne)]" />
-          <span className="w-2.5 h-2.5 rotate-45 border border-[var(--color-champagne)] bg-[var(--color-champagne)]/30" />
-          <span className="h-[1px] w-10 sm:w-16 bg-[var(--color-champagne)]" />
-        </div>
+"use client";
 
-        <p className="mt-4 font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-semibold">
+import Link from "next/link";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+export default function AboutCta() {
+  const rootRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      if (!root) return;
+
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reduce) return;
+
+      const content = root.querySelector(".cta-inner");
+
+      gsap.fromTo(
+        content,
+        { autoAlpha: 0, y: 30 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: content,
+            start: "top 82%",
+            once: true,
+          },
+        }
+      );
+    },
+    { scope: rootRef }
+  );
+
+  return (
+    <section
+      ref={rootRef}
+      className="relative bg-[var(--color-ivory)] py-20 sm:py-28 text-[var(--color-charcoal)] border-t border-[var(--color-champagne)]/25"
+    >
+      <div className="cta-inner relative mx-auto max-w-5xl px-6 text-center">
+        <p className="font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-medium">
           Begin Your Chapter
         </p>
 
-        <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[var(--color-dark-forest)] leading-tight">
+        <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[var(--color-dark-forest)] leading-tight">
           A Legacy of Brilliance, <br />
-          <span className="font-display italic text-[var(--color-champagne)]">
+          <span className="italic font-normal text-[var(--color-champagne)]">
             Crafted to be Cherished.
           </span>
         </h2>
@@ -27,20 +66,20 @@ export default function AboutCta() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-          <a
+          <Link
             href="/#collection"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[var(--color-emerald)] text-[var(--color-ivory)] px-9 py-4 font-sans text-xs tracking-[0.24em] uppercase transition-all duration-300 hover:bg-[#0b211c] hover:shadow-xl hover:shadow-[#102a31]/20"
           >
             <span>Explore The Collection</span>
-            <span aria-hidden="true">→</span>
-          </a>
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
 
           <a
             href="#contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 border border-[var(--color-champagne)] text-[var(--color-dark-forest)] px-9 py-4 font-sans text-xs tracking-[0.24em] uppercase transition-all duration-300 hover:bg-[var(--color-champagne)] hover:text-[#0b211c]"
           >
             <span>Book Private Appointment</span>
-            <span aria-hidden="true">↓</span>
+            <span aria-hidden="true">&darr;</span>
           </a>
         </div>
 

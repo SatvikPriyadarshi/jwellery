@@ -1,4 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function AdamasCrest() {
   return (
@@ -9,7 +17,6 @@ function AdamasCrest() {
       stroke="currentColor"
       aria-hidden="true"
     >
-      {/* Faceted Brilliant Octagonal Star */}
       <polygon
         points="50,6 64,22 84,22 84,42 96,50 84,58 84,78 64,78 50,94 36,78 16,78 16,58 4,50 16,42 16,22 36,22"
         strokeWidth="1.2"
@@ -28,30 +35,92 @@ function AdamasCrest() {
 }
 
 export default function AboutPhilosophy() {
+  const rootRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      if (!root) return;
+
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reduce) return;
+
+      const header = root.querySelector(".phil-header");
+      const banner = root.querySelector(".phil-banner");
+      const cards = root.querySelectorAll(".phil-card");
+
+      gsap.fromTo(
+        header,
+        { autoAlpha: 0, y: 30 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: header,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        banner,
+        { autoAlpha: 0, y: 35 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: banner,
+            start: "top 78%",
+            once: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        cards,
+        { autoAlpha: 0, y: 30 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cards[0],
+            start: "top 82%",
+            once: true,
+          },
+        }
+      );
+    },
+    { scope: rootRef }
+  );
+
   return (
     <section
+      ref={rootRef}
       id="legacy"
       className="relative bg-[var(--color-ivory)] py-28 sm:py-36 text-[var(--color-charcoal)] overflow-hidden"
     >
-      {/* Decorative Radial Backdrop */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(198,161,91,0.14)_0%,transparent_70%)]" />
-
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
-        {/* Crest & Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
+        {/* Crest & Section Header with NO artificial lines */}
+        <div className="phil-header text-center max-w-3xl mx-auto">
           <AdamasCrest />
 
-          <div className="mt-6 inline-flex items-center gap-3">
-            <span className="h-[1px] w-8 bg-[var(--color-champagne)]" />
-            <p className="font-sans text-[0.72rem] tracking-[0.28em] uppercase text-[var(--color-champagne)] font-semibold">
-              The Meaning Behind Every Creation
-            </p>
-            <span className="h-[1px] w-8 bg-[var(--color-champagne)]" />
-          </div>
+          <p className="mt-6 font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-medium">
+            The Meaning Behind Every Creation
+          </p>
 
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[var(--color-dark-forest)] font-normal leading-[1.12]">
+          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[var(--color-dark-forest)] font-light leading-[1.12]">
             More Than Jewelry. <br />
-            <span className="font-display italic text-[var(--color-champagne)]">
+            <span className="italic font-normal text-[var(--color-champagne)]">
               A Living Legacy.
             </span>
           </h2>
@@ -64,17 +133,16 @@ export default function AboutPhilosophy() {
         </div>
 
         {/* Adamas Callout Banner */}
-        <div className="mt-16 relative bg-[#0b211c] text-[var(--color-ivory)] border border-[var(--color-champagne)]/40 p-8 sm:p-12 lg:p-16 shadow-2xl shadow-[#102a31]/20">
+        <div className="phil-banner mt-16 relative bg-[#0b211c] text-[var(--color-ivory)] border border-[var(--color-champagne)]/35 p-8 sm:p-12 lg:p-16 shadow-2xl shadow-[#102a31]/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-4">
-              <div className="flex items-center gap-2 text-[var(--color-champagne)] text-xs tracking-[0.28em] uppercase font-sans">
-                <span className="w-1.5 h-1.5 rotate-45 bg-[var(--color-champagne)]" />
-                <span>Etymology &bull; Adamas (ἀδάμας)</span>
-              </div>
-              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-tight text-[var(--color-ivory)]">
+              <p className="text-[var(--color-champagne)] text-xs tracking-[0.28em] uppercase font-sans font-medium">
+                Etymology &bull; Adamas (ἀδάμας)
+              </p>
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light leading-tight text-[var(--color-ivory)]">
                 &ldquo;Indestructible. Unconquerable. <br className="hidden sm:inline" />
-                <span className="italic font-display text-[var(--color-champagne)]">
+                <span className="italic font-normal text-[var(--color-champagne)]">
                   The Spirit of Brilliance.
                 </span>&rdquo;
               </h3>
@@ -111,7 +179,7 @@ export default function AboutPhilosophy() {
         {/* Three Pillars of Legacy */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          <div className="bg-white/70 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
+          <div className="phil-card bg-white/75 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
             <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)] text-[var(--color-champagne)] mb-6">
               <span className="font-serif text-lg">I</span>
             </div>
@@ -125,7 +193,7 @@ export default function AboutPhilosophy() {
             </p>
           </div>
 
-          <div className="bg-white/70 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
+          <div className="phil-card bg-white/75 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
             <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)] text-[var(--color-champagne)] mb-6">
               <span className="font-serif text-lg">II</span>
             </div>
@@ -139,7 +207,7 @@ export default function AboutPhilosophy() {
             </p>
           </div>
 
-          <div className="bg-white/70 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
+          <div className="phil-card bg-white/75 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
             <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)] text-[var(--color-champagne)] mb-6">
               <span className="font-serif text-lg">III</span>
             </div>

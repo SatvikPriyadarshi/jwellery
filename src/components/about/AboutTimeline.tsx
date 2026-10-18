@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import "./AboutTimeline.css";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Milestone = {
   id: string;
@@ -10,7 +15,6 @@ type Milestone = {
   navLabel: string;
   chapter: string;
   title: string;
-  titleHighlight?: string;
   image: string;
   alt: string;
   stamp: string;
@@ -26,8 +30,8 @@ const MILESTONES: Milestone[] = [
   {
     id: "era-1965",
     year: "1965",
-    navLabel: "1965 &bull; Origins",
-    chapter: "Milestone I &bull; Foundations",
+    navLabel: "1965 • Origins",
+    chapter: "Milestone I • Foundations",
     title: "Trading of Coloured Gemstones & Diamonds",
     image: "/images/jewellery/about-1965-trading.jpg",
     alt: "Historic gemstone and rough diamond trading ledger and sorting trays",
@@ -45,8 +49,8 @@ const MILESTONES: Milestone[] = [
   {
     id: "era-1990",
     year: "1990",
-    navLabel: "1990 &bull; Zambian Emeralds",
-    chapter: "Milestone II &bull; Lapidary Mastery",
+    navLabel: "1990 • Zambian Emeralds",
+    chapter: "Milestone II • Lapidary Mastery",
     title: "Expansion into Zambian Emerald Manufacturing",
     image: "/images/jewellery/about-1990-emeralds.jpg",
     alt: "Deep green Zambian emeralds cut and polished in our manufacturing lapidary",
@@ -64,8 +68,8 @@ const MILESTONES: Milestone[] = [
   {
     id: "era-2018",
     year: "2018",
-    navLabel: "2018 &bull; The Atelier",
-    chapter: "Milestone III &bull; Haute Joaillerie",
+    navLabel: "2018 • The Atelier",
+    chapter: "Milestone III • Haute Joaillerie",
     title: "Fine Jewelry Manufacturing & Master Goldsmithing",
     image: "/images/jewellery/about-2018-atelier.jpg",
     alt: "Artisan master jeweler crafting fine jewelry on the jeweler bench",
@@ -83,8 +87,8 @@ const MILESTONES: Milestone[] = [
   {
     id: "era-today",
     year: "TODAY",
-    navLabel: "Today &bull; A Legacy",
-    chapter: "Milestone IV &bull; Eternal Brilliance",
+    navLabel: "Today • A Legacy",
+    chapter: "Milestone IV • Eternal Brilliance",
     title: "Timeless Heirlooms for Generations to Come",
     image: "/images/jewellery/about-today-jewelry.jpg",
     alt: "Exquisite finished fine jewelry combining gold, diamonds, and emeralds",
@@ -102,65 +106,111 @@ const MILESTONES: Milestone[] = [
 ];
 
 export default function AboutTimeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
+  const treeFillRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+  useGSAP(
+    () => {
+      const root = containerRef.current;
+      const treeFill = treeFillRef.current;
+      if (!root) return;
 
-    const items = container.querySelectorAll<HTMLElement>(".timeline-list li");
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reduce) return;
 
-    // Viewport check matching the user's provided logic
-    function isElementInViewport(el: HTMLElement) {
-      const rect = el.getBoundingClientRect();
-      const windowHeight =
-        window.innerHeight || document.documentElement.clientHeight;
-      // Trigger when item is comfortably within view
-      return rect.top <= windowHeight * 0.85 && rect.bottom >= windowHeight * 0.12;
-    }
-
-    function checkVisibility() {
-      items.forEach((item) => {
-        if (isElementInViewport(item)) {
-          if (!item.classList.contains("in-view")) {
-            item.classList.add("in-view");
+      // Animate the tree stem line filling downwards as user scrolls
+      if (treeFill) {
+        gsap.fromTo(
+          treeFill,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".timeline-tree-wrapper",
+              start: "top 65%",
+              end: "bottom 80%",
+              scrub: 0.6,
+            },
           }
+        );
+      }
+
+      // Animate each milestone item
+      const items = root.querySelectorAll(".timeline-list li");
+      items.forEach((item, index) => {
+        const isOdd = index % 2 === 0;
+        const node = item.querySelector(".timeline-node");
+        const connector = item.querySelector(".timeline-connector");
+        const card = item.querySelector(".timeline-card");
+        const timeBadge = item.querySelector(".timeline-card time");
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "top 78%",
+            once: true,
+          },
+        });
+
+        if (node) {
+          tl.fromTo(
+            node,
+            { scale: 0, rotation: 0 },
+            {
+              scale: 1,
+              rotation: 45,
+              duration: 0.5,
+              ease: "back.out(1.8)",
+              onComplete: () => {
+                node.classList.add("timeline-node--active");
+              },
+            }
+          );
+        }
+
+        if (connector) {
+          tl.fromTo(
+            connector,
+            { scaleX: 0 },
+            { scaleX: 1, duration: 0.4, ease: "power2.out" },
+            "-=0.2"
+          );
+        }
+
+        if (card) {
+          tl.fromTo(
+            card,
+            {
+              autoAlpha: 0,
+              y: 40,
+              x: isOdd ? -30 : 30,
+            },
+            {
+              autoAlpha: 1,
+              y: 0,
+              x: 0,
+              duration: 0.8,
+              ease: "power3.out",
+            },
+            "-=0.3"
+          );
+        }
+
+        if (timeBadge) {
+          tl.fromTo(
+            timeBadge,
+            { scale: 0.8, autoAlpha: 0 },
+            { scale: 1, autoAlpha: 1, duration: 0.4, ease: "back.out(1.5)" },
+            "-=0.5"
+          );
         }
       });
-    }
-
-    // Modern IntersectionObserver with smooth fallbacks
-    let observer: IntersectionObserver | null = null;
-    if (typeof IntersectionObserver !== "undefined") {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-            }
-          });
-        },
-        {
-          rootMargin: "0px 0px -10% 0px",
-          threshold: 0.15,
-        },
-      );
-      items.forEach((item) => observer?.observe(item));
-    }
-
-    // Run on initial mount
-    checkVisibility();
-
-    // Scroll & resize listeners matching user's specification
-    window.addEventListener("scroll", checkVisibility, { passive: true });
-    window.addEventListener("resize", checkVisibility);
-
-    return () => {
-      observer?.disconnect();
-      window.removeEventListener("scroll", checkVisibility);
-      window.removeEventListener("resize", checkVisibility);
-    };
-  }, []);
+    },
+    { scope: containerRef }
+  );
 
   return (
     <section
@@ -169,44 +219,24 @@ export default function AboutTimeline() {
       className="timeline-section"
       aria-label="Uni Fine Jewelry Heritage Chronology"
     >
-      {/* Decorative ambient textures */}
-      <Image
-        src="/images/jewellery/footer-botanical.jpg"
-        alt=""
-        width={540}
-        height={540}
-        className="timeline-section__wash timeline-section__wash--top"
-      />
-      <Image
-        src="/images/jewellery/footer-botanical.jpg"
-        alt=""
-        width={540}
-        height={540}
-        className="timeline-section__wash timeline-section__wash--bottom"
-      />
-
       <div className="timeline-container">
-        {/* Section Header */}
+        {/* Section Header with NO artificial lines */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-3">
-            <span className="h-[1px] w-8 sm:w-12 bg-[var(--tl-gold)]" />
-            <p className="font-sans text-[0.72rem] tracking-[0.28em] uppercase text-[var(--tl-gold)] font-medium">
-              Chronology of Craft
-            </p>
-            <span className="h-[1px] w-8 sm:w-12 bg-[var(--tl-gold)]" />
-          </div>
+          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[var(--tl-gold)] font-medium">
+            Chronology of Craft
+          </p>
 
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[var(--tl-text-light)]">
-            Our Journey Through <br />
-            <span className="font-display italic text-[var(--tl-gold)]">
+          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[var(--tl-text-light)]">
+            Our Journey Through{" "}
+            <span className="italic font-normal text-[var(--tl-gold)]">
               Time &amp; Brilliance
             </span>
           </h2>
 
           <p className="mt-4 font-sans text-sm sm:text-base text-[var(--tl-text-light)]/75 font-light leading-relaxed">
             From the raw gemstone bazaars of 1965 to modern bespoke high jewelry,
-            every decade has deepened our mastery, sharpened our craft, and reaffirmed
-            our dedication to timeless beauty.
+            every decade has deepened our mastery, sharpened our craft, and
+            reaffirmed our dedication to timeless beauty.
           </p>
         </div>
 
@@ -225,91 +255,104 @@ export default function AboutTimeline() {
                 const target = document.getElementById(m.id);
                 if (target) {
                   target.scrollIntoView({ behavior: "smooth", block: "center" });
-                  target.classList.add("in-view");
                 }
               }}
             >
               <span className="timeline-quicknav__dot" aria-hidden="true" />
-              <span dangerouslySetInnerHTML={{ __html: m.navLabel }} />
+              <span>{m.navLabel}</span>
             </a>
           ))}
         </nav>
 
-        {/* Top Finial on Center Line */}
-        <div className="timeline-finial" aria-hidden="true" />
+        {/* GSAP Dynamic Tree Structure */}
+        <div className="timeline-tree-wrapper">
+          {/* Static Guide Track */}
+          <div className="timeline-tree-track" aria-hidden="true" />
 
-        {/* Central Alternating Timeline List */}
-        <ul className="timeline-list">
-          {MILESTONES.map((milestone) => (
-            <li key={milestone.id} id={milestone.id}>
-              <div className="timeline-card">
-                {/* Connector hairline to central stem */}
-                <div
-                  className="timeline-card__connector"
-                  aria-hidden="true"
-                />
+          {/* GSAP Animated Tree Line */}
+          <div
+            ref={treeFillRef}
+            className="timeline-tree-fill"
+            aria-hidden="true"
+          />
 
-                {/* Floating Date Badge */}
-                <time dateTime={milestone.year === "TODAY" ? "2026" : milestone.year}>
-                  {milestone.year}
-                </time>
+          {/* Milestones List */}
+          <ul className="timeline-list">
+            {MILESTONES.map((milestone, index) => {
+              const isOdd = index % 2 === 0;
+              return (
+                <li
+                  key={milestone.id}
+                  id={milestone.id}
+                  className={isOdd ? "timeline-item--odd" : "timeline-item--even"}
+                >
+                  {/* GSAP Animated Diamond Facet Node */}
+                  <div className="timeline-node" aria-hidden="true" />
 
-                {/* Archival Photography Window */}
-                <figure className="timeline-card__visual">
-                  <Image
-                    src={milestone.image}
-                    alt={milestone.alt}
-                    fill
-                    sizes="(max-width: 860px) 90vw, 480px"
-                    className="timeline-card__img"
-                  />
-                  <figcaption className="timeline-card__visual-stamp">
-                    {milestone.stamp}
-                  </figcaption>
-                </figure>
+                  {/* GSAP Animated Connector Branch */}
+                  <div className="timeline-connector" aria-hidden="true" />
 
-                {/* Chapter & Title */}
-                <span
-                  className="timeline-card__chapter"
-                  dangerouslySetInnerHTML={{ __html: milestone.chapter }}
-                />
+                  {/* Milestone Card */}
+                  <div className="timeline-card">
+                    {/* Floating Date Badge */}
+                    <time dateTime={milestone.year === "TODAY" ? "2026" : milestone.year}>
+                      {milestone.year}
+                    </time>
 
-                <h3 className="timeline-card__title">
-                  {milestone.title}
-                </h3>
+                    {/* Archival Photography Window */}
+                    <figure className="timeline-card__visual">
+                      <Image
+                        src={milestone.image}
+                        alt={milestone.alt}
+                        fill
+                        sizes="(max-width: 860px) 90vw, 480px"
+                        className="timeline-card__img"
+                      />
+                      <figcaption className="timeline-card__visual-stamp">
+                        {milestone.stamp}
+                      </figcaption>
+                    </figure>
 
-                {/* Narrative Copy from prompt */}
-                <p className="timeline-card__desc">
-                  {milestone.description}
-                </p>
-
-                {/* Discovery & Artisan Grid (Elevated from user's science example) */}
-                <div className="timeline-card__meta">
-                  <div className="timeline-card__meta-col">
-                    <h4>{milestone.discoveryTitle}</h4>
-                    <p>{milestone.discoveryText}</p>
-                  </div>
-                  <div className="timeline-card__meta-col">
-                    <h4>{milestone.artisanTitle}</h4>
-                    <p>{milestone.artisanText}</p>
-                  </div>
-                </div>
-
-                {/* Heritage Tags */}
-                <div className="timeline-card__tags">
-                  {milestone.tags.map((tag) => (
-                    <span key={tag} className="timeline-card__tag">
-                      {tag}
+                    {/* Chapter & Title */}
+                    <span className="timeline-card__chapter">
+                      {milestone.chapter}
                     </span>
-                  ))}
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
 
-        {/* Bottom Terminal Finial on Center Line */}
-        <div className="timeline-list-end" aria-hidden="true" />
+                    <h3 className="timeline-card__title">
+                      {milestone.title}
+                    </h3>
+
+                    {/* Narrative Copy */}
+                    <p className="timeline-card__desc">
+                      {milestone.description}
+                    </p>
+
+                    {/* Discovery & Artisan Grid */}
+                    <div className="timeline-card__meta">
+                      <div className="timeline-card__meta-col">
+                        <h4>{milestone.discoveryTitle}</h4>
+                        <p>{milestone.discoveryText}</p>
+                      </div>
+                      <div className="timeline-card__meta-col">
+                        <h4>{milestone.artisanTitle}</h4>
+                        <p>{milestone.artisanText}</p>
+                      </div>
+                    </div>
+
+                    {/* Heritage Tags */}
+                    <div className="timeline-card__tags">
+                      {milestone.tags.map((tag) => (
+                        <span key={tag} className="timeline-card__tag">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   );

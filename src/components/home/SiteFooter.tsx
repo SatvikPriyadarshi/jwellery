@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import "./SiteFooter.css";
 
 function PinIcon() {
@@ -186,10 +187,10 @@ export default function SiteFooter() {
         <nav aria-label="Information">
           <h2>Information</h2>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About us</a></li>
-            <li><a href="/#collection">Shop</a></li>
-            <li><a href="/about#legacy">Our Legacy</a></li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/about">About us</Link></li>
+            <li><Link href="/#collection">Shop</Link></li>
+            <li><Link href="/about#legacy">Our Legacy</Link></li>
             <li><a href="#contact">Contact us</a></li>
           </ul>
         </nav>
@@ -204,13 +205,11 @@ export default function SiteFooter() {
         <div className="site-footer__mark">
           <Crest />
           <div className="site-footer__mark-line">
-            <span />
             <p>
               Timeless beauty
               <br />
               in every detail
             </p>
-            <span />
           </div>
         </div>
         <p className="site-footer__copy">

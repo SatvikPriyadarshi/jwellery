@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -25,13 +26,12 @@ export default function AboutStory() {
       const title = root.querySelector(".about-title");
       const copy = root.querySelector(".about-copy");
       const cta = root.querySelector(".about-cta");
-      const ornament = root.querySelector(".about-ornament");
       const visual = root.querySelector(".about-visual");
       const photo = root.querySelector(".about-photo__img");
       const arrow = root.querySelector(".about-cta__arrow");
 
       if (reduce) {
-        gsap.set([eyebrow, title, copy, cta, ornament, visual], {
+        gsap.set([eyebrow, title, copy, cta, visual], {
           clearProps: "all",
         });
         return;
@@ -41,7 +41,6 @@ export default function AboutStory() {
       gsap.set(title, { autoAlpha: 0, y: 22 });
       gsap.set(copy, { autoAlpha: 0, y: 16 });
       gsap.set(cta, { autoAlpha: 0, y: 12 });
-      gsap.set(ornament, { autoAlpha: 0 });
       gsap.set(visual, { autoAlpha: 0, y: 18 });
 
       const tl = gsap.timeline({
@@ -68,7 +67,6 @@ export default function AboutStory() {
           { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" },
           "-=0.3",
         )
-        .to(ornament, { autoAlpha: 1, duration: 0.4, ease: "power2.out" }, "-=0.2")
         .to(
           visual,
           { autoAlpha: 1, y: 0, duration: 0.85, ease: "power2.out" },
@@ -141,7 +139,6 @@ export default function AboutStory() {
         <div className="about-copycol">
           <p className="about-eyebrow">
             About Us
-            <span className="about-eyebrow__rule" aria-hidden="true" />
           </p>
           <h2 id="about-heading" className="about-title">
             The Art of Jewelry:
@@ -156,17 +153,12 @@ export default function AboutStory() {
             or diamond jewelry, we take pride in our delivery of exquisite
             pieces that you will cherish for years to come.
           </p>
-          <a href="/about" className="about-cta">
+          <Link href="/about" className="about-cta">
             View More
             <span className="about-cta__arrow" aria-hidden="true">
               →
             </span>
-          </a>
-          <div className="about-ornament" aria-hidden="true">
-            <span className="about-ornament__line" />
-            <span className="about-ornament__diamond" />
-            <span className="about-ornament__line" />
-          </div>
+          </Link>
         </div>
 
         <div className="about-visual">
