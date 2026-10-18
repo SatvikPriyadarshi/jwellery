@@ -1,0 +1,240 @@
+.about-section {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 40rem;
+  display: flex;
+  align-items: stretch;
+  background:
+    radial-gradient(
+      ellipse 50% 80% at 12% 0%,
+      rgba(198, 161, 91, 0.16) 0%,
+      transparent 62%
+    ),
+    linear-gradient(105deg, #0c241c 0%, #123c32 48%, #0a1c17 100%);
+  color: var(--color-ivory);
+  overflow: hidden;
+}
+
+.about-shell {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.92fr) minmax(20rem, 1.08fr);
+  align-items: center;
+  padding: clamp(1.5rem, 4vh, 3rem) clamp(1.75rem, 4.5vw, 5rem);
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0;
+  color: var(--color-champagne);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.about-eyebrow__rule {
+  width: 3.25rem;
+  height: 1px;
+  background: var(--color-champagne);
+}
+
+.about-title {
+  margin: 1.1rem 0 0;
+  color: var(--color-ivory);
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.4rem, 4.2vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.about-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-champagne);
+}
+
+.about-copy {
+  margin: 1.5rem 0 0;
+  max-width: 34rem;
+  color: color-mix(in srgb, var(--color-ivory) 82%, transparent);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.75rem;
+  min-height: 44px;
+  padding: 0.7rem 1.15rem;
+  background: transparent;
+  border: 1px solid var(--color-champagne);
+  color: var(--color-ivory);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.about-cta:hover,
+.about-cta:focus-visible {
+  background: var(--color-champagne);
+  color: #123c32;
+  outline: 2px solid var(--color-champagne);
+  outline-offset: 3px;
+}
+
+.about-cta__arrow {
+  display: inline-block;
+}
+
+.about-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 2.25rem;
+}
+
+.about-ornament__line {
+  width: 1.6rem;
+  height: 1px;
+  background: color-mix(in srgb, var(--color-champagne) 70%, transparent);
+}
+
+.about-ornament__diamond {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  border: 1px solid var(--color-champagne);
+}
+
+.about-visual {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  align-self: stretch;
+}
+
+.about-panel {
+  position: absolute;
+  top: -8%;
+  right: -12%;
+  bottom: -8%;
+  width: 46%;
+  background: #071612;
+}
+
+.about-arc {
+  position: absolute;
+  z-index: 2;
+  left: 4%;
+  top: 6%;
+  width: 9rem;
+  height: 9rem;
+  pointer-events: none;
+}
+
+.about-inset {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  top: 28%;
+  width: clamp(6.5rem, 11vw, 8.5rem);
+  aspect-ratio: 1;
+  margin: 0;
+  border: 1px solid var(--color-champagne);
+  background: #0b1914;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(18, 36, 28, 0.18);
+}
+
+.about-inset__img {
+  object-fit: cover;
+}
+
+.about-photo {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 12%;
+  margin: 0;
+  overflow: hidden;
+  background: #0b1914;
+}
+
+.about-photo__img {
+  object-fit: cover;
+  object-position: center 30%;
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    height: auto;
+    min-height: 0;
+  }
+
+  .about-shell {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3.5rem 1.5rem;
+  }
+
+  .about-visual {
+    height: 70vw;
+    min-height: 22rem;
+    max-height: 32rem;
+  }
+
+  .about-panel {
+    right: -6%;
+  }
+
+  .about-inset {
+    top: 18%;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-inset,
+  .about-arc {
+    display: none;
+  }
+
+  .about-photo {
+    left: 0;
+  }
+
+  .about-panel {
+    width: 28%;
+  }
+
+  .about-title {
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-photo__img {
+    will-change: auto;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --color-emerald: #123c32;
+  --color-dark-forest: #0b211c;
+  --color-champagne: #c6a15b;
+  --color-ivory: #f7f3ea;
+  --color-charcoal: #202722;
+  --color-warm-stone: #e7e0d3;
+  --color-deep-teal: #102a31;
+  --background: var(--color-deep-teal);
+  --foreground: var(--color-ivory);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-emerald: var(--color-emerald);
+  --color-dark-forest: var(--color-dark-forest);
+  --color-champagne: var(--color-champagne);
+  --color-ivory: var(--color-ivory);
+  --color-charcoal: var(--color-charcoal);
+  --color-warm-stone: var(--color-warm-stone);
+  --color-deep-teal: var(--color-deep-teal);
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-bodoni);
+  --font-display: var(--font-cormorant);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-image-inner {
+    transform: none;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), ui-sans-serif, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-champagne) 35%, transparent);
+  color: var(--color-ivory);
+}
+

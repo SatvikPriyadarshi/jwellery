@@ -1,0 +1,593 @@
+/* =========================================================================
+   UNI FINE JEWELRY — HERITAGE CHRONOLOGY TIMELINE
+   Architected for luxury high-jewelry storytelling with 3D scroll physics.
+   ========================================================================= */
+
+:root {
+  --tl-gold: #c6a15b;
+  --tl-gold-light: #e7c88b;
+  --tl-gold-glow: rgba(198, 161, 91, 0.4);
+  --tl-emerald: #123c32;
+  --tl-dark: #0b211c;
+  --tl-deep-teal: #102a31;
+  --tl-card-bg: rgba(12, 36, 28, 0.88);
+  --tl-card-border: rgba(198, 161, 91, 0.32);
+  --tl-text-light: #f7f3ea;
+  --tl-card-width: clamp(400px, 42vw, 560px);
+  --tl-gap: 52px;
+}
+
+.timeline-section {
+  position: relative;
+  width: 100%;
+  padding: 7rem 0 9rem;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 15%, rgba(18, 60, 50, 0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 85% 65%, rgba(198, 161, 91, 0.12) 0%, transparent 65%),
+    linear-gradient(180deg, #0b211c 0%, #102a31 40%, #0c241c 100%);
+  color: var(--tl-text-light);
+  overflow-x: clip;
+}
+
+/* Subtle botanical ambient texture */
+.timeline-section__wash {
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.12;
+}
+
+.timeline-section__wash--top {
+  top: 0;
+  left: 0;
+  width: clamp(320px, 35vw, 540px);
+}
+
+.timeline-section__wash--bottom {
+  bottom: 0;
+  right: 0;
+  width: clamp(320px, 35vw, 540px);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Timeline Quick Navigation Pills */
+.timeline-quicknav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 3.5rem auto 5.5rem;
+  max-width: 48rem;
+}
+
+.timeline-quicknav__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.15rem;
+  background: rgba(16, 42, 49, 0.7);
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  border-radius: 9999px;
+  color: var(--tl-text-light);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.timeline-quicknav__btn:hover,
+.timeline-quicknav__btn:focus-visible {
+  background: var(--tl-gold);
+  color: var(--tl-dark);
+  border-color: var(--tl-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(198, 161, 91, 0.3);
+}
+
+.timeline-quicknav__dot {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: var(--tl-gold);
+  transition: background 0.3s ease;
+}
+
+.timeline-quicknav__btn:hover .timeline-quicknav__dot {
+  background: var(--tl-dark);
+}
+
+/* =========================================================================
+   CORE TIMELINE STEM & NODES (Enhanced from user snippet)
+   ========================================================================= */
+
+.timeline-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Top Finial Ornament on Stem */
+.timeline-finial {
+  position: relative;
+  width: 4px;
+  height: 48px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, transparent 0%, var(--tl-gold) 100%);
+}
+
+.timeline-finial::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background: var(--tl-gold);
+  border: 1px solid var(--tl-gold-light);
+  box-shadow: 0 0 16px var(--tl-gold-glow);
+}
+
+.timeline-list li {
+  position: relative;
+  width: 4px;
+  margin: 0 auto;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+  background: linear-gradient(
+    180deg,
+    var(--tl-gold) 0%,
+    var(--tl-gold-light) 50%,
+    var(--tl-gold) 100%
+  );
+  box-shadow: 0 0 12px rgba(198, 161, 91, 0.35);
+}
+
+/* Diamond Facet Node in Center (Derived from user's ::after) */
+.timeline-list li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) rotate(45deg);
+  width: 24px;
+  height: 24px;
+  z-index: 5;
+  background: var(--tl-dark);
+  border: 2px solid var(--tl-gold);
+  box-shadow: 0 0 0 4px rgba(11, 33, 28, 0.9), 0 0 14px rgba(198, 161, 91, 0.35);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Inner faceted pip of the node */
+.timeline-list li::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  z-index: 6;
+  background: var(--tl-gold);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Bottom Terminal Finial */
+.timeline-list-end {
+  position: relative;
+  width: 4px;
+  height: 60px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--tl-gold) 0%, transparent 100%);
+}
+
+.timeline-list-end::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--tl-gold);
+  border: 1px solid var(--tl-gold-light);
+  box-shadow: 0 0 12px var(--tl-gold-glow);
+}
+
+/* =========================================================================
+   TIMELINE CARD (Derived from user's `div` with high jewelry elevation)
+   ========================================================================= */
+
+.timeline-card {
+  position: relative;
+  bottom: 0;
+  width: var(--tl-card-width);
+  padding: 2.25rem 2.25rem 2.5rem;
+  background: var(--tl-card-bg);
+  border: 1px solid var(--tl-card-border);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.65),
+    0 4px 16px -4px rgba(18, 60, 50, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  will-change: transform, opacity;
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.timeline-card:hover {
+  border-color: rgba(198, 161, 91, 0.65);
+  box-shadow:
+    0 32px 64px -16px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(198, 161, 91, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+/* Floating Date Badge (Derived from user's `time`) */
+.timeline-card time {
+  position: absolute;
+  top: -18px;
+  background: linear-gradient(135deg, #f3d79b 0%, #c6a15b 60%, #a87e38 100%);
+  color: #0b211c;
+  padding: 0 1.25rem;
+  height: 36px;
+  border-radius: 2px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-bodoni), Georgia, serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(198, 161, 91, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 4;
+}
+
+/* Connecting Arm from spine to card */
+.timeline-card__connector {
+  position: absolute;
+  top: 50%;
+  width: var(--tl-gap);
+  height: 1px;
+  background: linear-gradient(90deg, var(--tl-gold) 0%, rgba(198, 161, 91, 0.1) 100%);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+
+/* Card Visual Window */
+.timeline-card__visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9.5;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(198, 161, 91, 0.25);
+  background: #081612;
+}
+
+.timeline-card__img {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-card:hover .timeline-card__img {
+  transform: scale(1.05);
+}
+
+.timeline-card__visual-stamp {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background: rgba(11, 33, 28, 0.85);
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  backdrop-filter: blur(6px);
+  padding: 0.2rem 0.55rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tl-gold);
+  z-index: 2;
+}
+
+/* Header & Eyebrow */
+.timeline-card__chapter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tl-gold);
+}
+
+.timeline-card__title {
+  margin: 0.65rem 0 0.85rem;
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--tl-text-light);
+  letter-spacing: -0.01em;
+}
+
+.timeline-card__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--tl-gold-light);
+}
+
+.timeline-card__desc {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.68;
+  color: rgba(247, 243, 234, 0.82);
+}
+
+/* Discovery & Scientist / Craft Pillars Section (Reimagining user's two-column block) */
+.timeline-card__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(198, 161, 91, 0.2);
+}
+
+.timeline-card__meta-col h4 {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tl-gold);
+}
+
+.timeline-card__meta-col p {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(247, 243, 234, 0.9);
+  line-height: 1.4;
+}
+
+/* Provenance Tags Row */
+.timeline-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+}
+
+.timeline-card__tag {
+  display: inline-block;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: rgba(198, 161, 91, 0.9);
+  background: rgba(198, 161, 91, 0.08);
+  border: 1px solid rgba(198, 161, 91, 0.2);
+  padding: 0.18rem 0.6rem;
+  border-radius: 2px;
+}
+
+/* =========================================================================
+   ALTERNATING PLACEMENT (From user snippet)
+   - nth-of-type(odd) places card on right (left: 52px)
+   - nth-of-type(even) places card on left (left: -calc(width + 52px))
+   ========================================================================= */
+
+.timeline-list li:nth-of-type(odd) > .timeline-card {
+  left: var(--tl-gap);
+}
+
+.timeline-list li:nth-of-type(odd) .timeline-card time {
+  left: 2rem;
+}
+
+.timeline-list li:nth-of-type(odd) .timeline-card__connector {
+  left: calc(-1 * var(--tl-gap));
+  transform: rotate(180deg);
+}
+
+.timeline-list li:nth-of-type(even) > .timeline-card {
+  left: calc(-1 * (var(--tl-card-width) + var(--tl-gap)));
+}
+
+.timeline-list li:nth-of-type(even) .timeline-card time {
+  right: 2rem;
+}
+
+.timeline-list li:nth-of-type(even) .timeline-card__connector {
+  right: calc(-1 * var(--tl-gap));
+}
+
+/* =========================================================================
+   ANIMATION STATES (Derived from user snippet with GPU acceleration)
+   ========================================================================= */
+
+.timeline-list li .timeline-card {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.timeline-list li:nth-of-type(odd) .timeline-card {
+  transform: translate3d(70px, -15px, 0) rotate(3deg);
+}
+
+.timeline-list li:nth-of-type(even) .timeline-card {
+  transform: translate3d(-70px, -15px, 0) rotate(-3deg);
+}
+
+/* Active in-view state */
+.timeline-list li.in-view .timeline-card {
+  transform: translate3d(0, 0, 0) rotate(0deg);
+  visibility: visible;
+  opacity: 1;
+}
+
+.timeline-list li.in-view::after {
+  background: var(--tl-emerald);
+  border-color: var(--tl-gold-light);
+  box-shadow:
+    0 0 0 4px var(--tl-dark),
+    0 0 24px var(--tl-gold-glow),
+    0 0 40px rgba(18, 60, 50, 0.6);
+}
+
+.timeline-list li.in-view::before {
+  background: var(--tl-gold-light);
+}
+
+.timeline-list li.in-view .timeline-card__connector {
+  opacity: 1;
+}
+
+/* =========================================================================
+   RESPONSIVE DESIGN (Elevating user's 900px and 600px media queries)
+   ========================================================================= */
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --tl-card-width: 380px;
+    --tl-gap: 36px;
+  }
+
+  .timeline-card {
+    padding: 1.75rem 1.75rem 2rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  :root {
+    --tl-gap: 30px;
+  }
+
+  .timeline-section {
+    padding: 5rem 0 6rem;
+  }
+
+  /* Shift the vertical stem to the left side */
+  .timeline-finial,
+  .timeline-list-end {
+    margin-left: 28px;
+  }
+
+  .timeline-list li {
+    margin-left: 28px;
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* Keep diamond node anchored to the shifted spine */
+  .timeline-list li::after {
+    left: 2px;
+  }
+
+  .timeline-list li::before {
+    left: 2px;
+  }
+
+  /* Both odd and even cards snap gracefully to the right of the spine */
+  .timeline-list li:nth-of-type(odd) > .timeline-card,
+  .timeline-list li:nth-of-type(even) > .timeline-card {
+    left: var(--tl-gap);
+    width: calc(100vw - 96px);
+    max-width: 520px;
+  }
+
+  .timeline-list li:nth-of-type(even) .timeline-card time {
+    right: auto;
+    left: 1.5rem;
+  }
+
+  .timeline-list li:nth-of-type(even) .timeline-card__connector {
+    right: auto;
+    left: calc(-1 * var(--tl-gap));
+    transform: rotate(180deg);
+  }
+
+  /* Mobile entrance animation: smooth slide in from right */
+  .timeline-list li:nth-of-type(odd) .timeline-card,
+  .timeline-list li:nth-of-type(even) .timeline-card {
+    transform: translate3d(40px, -10px, 0) rotate(1.5deg);
+  }
+
+  .timeline-list li.in-view .timeline-card {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .timeline-finial,
+  .timeline-list-end {
+    margin-left: 20px;
+  }
+
+  .timeline-list li {
+    margin-left: 20px;
+  }
+
+  .timeline-list li:nth-of-type(odd) > .timeline-card,
+  .timeline-list li:nth-of-type(even) > .timeline-card {
+    left: 24px;
+    width: calc(100vw - 74px);
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  .timeline-card__meta {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+}
+
+/* Accessibility: Preload and smooth fallbacks for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-card {
+    transition: none !important;
+    transform: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .timeline-list li:nth-of-type(odd) .timeline-card,
+  .timeline-list li:nth-of-type(even) .timeline-card {
+    transform: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .timeline-card__img {
+    transition: none !important;
+    transform: none !important;
+  }
+}

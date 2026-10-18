@@ -1,0 +1,454 @@
+.cs-stage {
+  --cs-accent: #c6a15b;
+  --cs-surface: #142d21;
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 42rem;
+  overflow: hidden;
+  color: var(--color-ivory);
+  background-color: #0e2118;
+  user-select: none;
+}
+
+/* =========================================
+   TOP BAR
+   ========================================= */
+.cs-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.75rem, 5vw, 5rem) 1.15rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ivory) 10%, transparent);
+}
+
+.cs-topbar__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cs-topbar__eyebrow {
+  color: var(--cs-accent);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  transition: color 0.6s ease;
+}
+
+.cs-topbar__title {
+  margin: 0;
+  color: var(--color-ivory);
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.85rem, 2.8vw, 2.65rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.cs-topbar__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--color-ivory) 88%, var(--cs-accent));
+}
+
+.cs-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 2.6vw, 2.5rem);
+}
+
+.cs-nav__item {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0.4rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: color-mix(in srgb, var(--color-ivory) 52%, transparent);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.cs-nav__item:hover {
+  color: color-mix(in srgb, var(--color-ivory) 88%, transparent);
+}
+
+.cs-nav__item--active {
+  color: var(--color-ivory);
+}
+
+.cs-nav__diamond {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg) scale(0.6);
+  border: 1px solid var(--cs-accent);
+  background: transparent;
+  opacity: 0.45;
+  transition:
+    transform 0.35s ease,
+    background-color 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.cs-nav__item--active .cs-nav__diamond {
+  transform: rotate(45deg) scale(1);
+  background: var(--cs-accent);
+  opacity: 1;
+}
+
+.cs-nav__item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1.22rem;
+  height: 1px;
+  background: var(--cs-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+.cs-nav__item--active::after {
+  transform: scaleX(1);
+}
+
+/* =========================================
+   SLIDE LAYOUT
+   ========================================= */
+.cs-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.cs-slide__outer,
+.cs-slide__inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cs-slide__layout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(20rem, 40%) 1fr;
+  align-items: center;
+  gap: clamp(2rem, 4.5vw, 5rem);
+  padding: 6.75rem clamp(1.75rem, 5vw, 5rem) 3.75rem;
+}
+
+.cs-slide__text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 28rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Large editorial display title with letter masks for GSAP */
+.cs-slide__category {
+  margin: 0;
+  color: var(--color-ivory);
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(4.25rem, 9vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  overflow: hidden;
+}
+
+.cs-letters {
+  display: inline-flex;
+}
+
+.cs-letter-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 0.92;
+}
+
+.cs-letter {
+  display: inline-block;
+  will-change: transform;
+}
+
+.cs-slide__copy {
+  margin: 1.65rem 0 0;
+  max-width: 22rem;
+  color: color-mix(in srgb, var(--color-ivory) 84%, transparent);
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+.cs-slide__note {
+  margin: 1.35rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--color-ivory) 14%, transparent);
+  max-width: 16rem;
+  color: var(--cs-accent);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cs-slide__cta {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 1.35rem;
+  padding-bottom: 0.35rem;
+  color: var(--color-ivory);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--cs-accent);
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.cs-slide__cta:hover,
+.cs-slide__cta:focus-visible {
+  color: var(--cs-accent);
+  border-color: var(--color-ivory);
+}
+
+/* =========================================
+   MEDIA: SQUARE + CIRCLE
+   ========================================= */
+.cs-slide__visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-media-pair {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 46rem);
+  height: min(68svh, 34rem);
+}
+
+.cs-media-square {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  width: min(62svh, 30rem);
+  aspect-ratio: 1 / 1;
+  padding: 0.6rem;
+  background: var(--cs-surface);
+  border: 1px solid color-mix(in srgb, var(--cs-accent) 34%, transparent);
+  box-shadow: 0 26px 64px rgba(0, 0, 0, 0.45);
+  margin-right: clamp(4.5rem, 9vw, 8.5rem);
+  transition:
+    background-color 0.8s ease,
+    border-color 0.8s ease;
+}
+
+.cs-media-square__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b1410;
+}
+
+.cs-media-square__img {
+  object-fit: cover;
+  display: block;
+}
+
+.cs-media-circle {
+  margin: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem;
+  z-index: 2;
+  width: clamp(11.5rem, 19vw, 15.5rem);
+  aspect-ratio: 1 / 1;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--cs-surface);
+  border: 1px solid color-mix(in srgb, var(--cs-accent) 55%, transparent);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.55),
+    0 0 0 6px rgba(10, 18, 14, 0.35);
+  transition:
+    background-color 0.8s ease,
+    border-color 0.8s ease;
+}
+
+.cs-media-circle__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0b1410;
+}
+
+.cs-media-circle__img {
+  object-fit: cover;
+  display: block;
+  transform: scale(1.35);
+  transform-origin: center;
+}
+
+/* =========================================
+   BOTTOM BAR
+   ========================================= */
+.cs-bottombar {
+  position: absolute;
+  left: clamp(1.75rem, 5vw, 5rem);
+  right: clamp(1.75rem, 5vw, 5rem);
+  bottom: 1.35rem;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.cs-bottombar__track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cs-bottombar__tick {
+  width: 1.75rem;
+  height: 1px;
+  background: color-mix(in srgb, var(--color-ivory) 24%, transparent);
+  transition:
+    width 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.cs-bottombar__tick--active {
+  width: 3.25rem;
+  height: 2px;
+  background: var(--cs-accent);
+}
+
+.cs-bottombar__hint {
+  color: color-mix(in srgb, var(--color-ivory) 54%, transparent);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.64rem;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 960px) {
+  .cs-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 1.25rem 1.5rem 0.9rem;
+  }
+
+  .cs-nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .cs-nav__item {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+  }
+
+  .cs-nav__item::after {
+    bottom: -0.95rem;
+  }
+
+  .cs-slide__layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 1.15rem;
+    padding: 7.25rem 1.5rem 3.1rem;
+  }
+
+  .cs-slide__visual {
+    grid-row: 1 / 2;
+  }
+
+  .cs-media-pair {
+    height: min(44svh, 20rem);
+    width: min(100%, 24rem);
+  }
+
+  .cs-media-square {
+    width: min(38svh, 16.5rem);
+    margin-right: 3.25rem;
+  }
+
+  .cs-media-circle {
+    width: clamp(7.5rem, 28vw, 9.5rem);
+    bottom: 0.25rem;
+  }
+
+  .cs-slide__text {
+    grid-row: 2 / 3;
+    max-width: 100%;
+  }
+
+  .cs-slide__category {
+    font-size: clamp(3.25rem, 14vw, 4.5rem);
+  }
+
+  .cs-slide__copy {
+    margin-top: 0.85rem;
+    font-size: clamp(1.15rem, 4.2vw, 1.4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-stage {
+    touch-action: auto;
+  }
+
+  .cs-letter {
+    transform: none !important;
+  }
+}
