@@ -4,11 +4,9 @@ import SiteNav from "@/components/nav/SiteNav";
 
 export default function Home() {
   return (
-    <main>
-      <div className="relative">
-        <SiteNav />
-        <Hero />
-      </div>
+    <main className="relative">
+      <SiteNav />
+      <Hero />
       <HomeContent />
     </main>
   );

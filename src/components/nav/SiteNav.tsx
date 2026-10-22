@@ -8,7 +8,7 @@ import "./SiteNav.css";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "Collection", href: "/#collection" },
+  { label: "Collection", href: "/shop" },
   { label: "Our Story", href: "/about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -73,10 +73,19 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
   return (
     <>
       {/* Floating Header with No Strip / No Pill Container */}
-      <header className="site-nav-wrap">
+      <header
+        className={`site-nav-wrap ${isOpen ? "site-nav-wrap--open" : ""}`}
+      >
         <nav className="site-nav-bar" aria-label="Main Navigation">
           {/* Logo & Brand Wordmark on Left */}
-          <Link href="/" className="site-nav-brand">
+          <Link
+            href="/"
+            prefetch={false}
+            className="site-nav-brand"
+            onClick={() => {
+              if (isOpen) setIsOpen(false);
+            }}
+          >
             <Image
               src="/images/Logo.webp"
               alt="Uni Fine Jewelry Logo"
@@ -91,7 +100,7 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
             </div>
           </Link>
 
-          {/* Right Side: Just the Collapsible Menu Button */}
+          {/* Right Side: Just the Collapsible Menu / Close Button at Identical Coordinates */}
           <button
             type="button"
             className="site-nav-toggle"
@@ -116,36 +125,12 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
           isOpen ? "site-menu-overlay--open" : ""
         }`}
         aria-hidden={!isOpen}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            setIsOpen(false);
+          }
+        }}
       >
-        <div className="site-menu-header">
-          <Link
-            href="/"
-            className="site-nav-brand"
-            onClick={() => setIsOpen(false)}
-          >
-            <Image
-              src="/images/Logo.webp"
-              alt="Uni Fine Jewelry Logo"
-              width={38}
-              height={38}
-              className="site-nav-brand__logo"
-            />
-            <div className="site-nav-brand__text">
-              <span className="site-nav-brand__name">Uni Fine Jewelry</span>
-              <span className="site-nav-brand__est">Est. 1965</span>
-            </div>
-          </Link>
-
-          <button
-            type="button"
-            className="site-menu-close"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close menu"
-          >
-            <span>Close</span>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
 
         <div className="site-menu-body">
           <ul className="site-menu-nav">
@@ -161,6 +146,7 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
                 >
                   <Link
                     href={item.href}
+                    prefetch={false}
                     className={`site-menu-link ${
                       isActive ? "site-menu-link--active" : ""
                     }`}

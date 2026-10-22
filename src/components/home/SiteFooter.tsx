@@ -187,10 +187,10 @@ export default function SiteFooter() {
         <nav aria-label="Information">
           <h2>Information</h2>
           <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/about">About us</Link></li>
-            <li><Link href="/#collection">Shop</Link></li>
-            <li><Link href="/about#legacy">Our Legacy</Link></li>
+            <li><Link href="/" prefetch={false}>Home</Link></li>
+            <li><Link href="/about" prefetch={false}>About us</Link></li>
+            <li><Link href="/shop" prefetch={false}>Shop</Link></li>
+            <li><Link href="/about#legacy" prefetch={false}>Our Legacy</Link></li>
             <li><a href="#contact">Contact us</a></li>
           </ul>
         </nav>

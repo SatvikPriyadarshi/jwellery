@@ -11,10 +11,8 @@ export default function HomeContent() {
     <div className="bg-[var(--color-ivory)] text-[var(--color-charcoal)]">
       <CollectionStage />
 
-      <div className="flex flex-col lg:h-svh lg:max-h-svh lg:overflow-hidden">
-        <LoyaltyBenefits />
-        <PopularJewelry />
-      </div>
+      <LoyaltyBenefits />
+      <PopularJewelry />
 
       <AboutStory />
 

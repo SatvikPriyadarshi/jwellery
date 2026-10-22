@@ -153,7 +153,7 @@ export default function AboutStory() {
             or diamond jewelry, we take pride in our delivery of exquisite
             pieces that you will cherish for years to come.
           </p>
-          <Link href="/about" className="about-cta">
+          <Link href="/about" prefetch={false} className="about-cta">
             View More
             <span className="about-cta__arrow" aria-hidden="true">
               →
