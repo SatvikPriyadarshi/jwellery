@@ -195,7 +195,7 @@ export default function PopularJewelry() {
                 src={product.image}
                 alt={`${product.name} ${product.category}`}
                 fill
-                sizes="(max-width: 720px) 100vw, (max-width: 1024px) 46vw, 24vw"
+                sizes="(max-width: 720px) 50vw, (max-width: 1024px) 46vw, 24vw"
                 className="pj-card__img"
               />
 

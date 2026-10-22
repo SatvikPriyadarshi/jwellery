@@ -101,66 +101,29 @@ export default function CollectionStage() {
 
   const [activeIdx, setActiveIdx] = useState(0);
 
-  // Mobile touch swiping
-  const touchStartY = useRef(0);
+  // Mobile horizontal swipe gestures
   const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
   const touchStartTime = useRef(0);
-  const isMobileTransitioning = useRef(false);
 
-  // Jump to specific slide (both desktop scrub and mobile swiper)
-  const gotoSlide = useCallback(
-    (index: number) => {
-      const clamped = Math.max(0, Math.min(slides.length - 1, index));
+  // Jump to specific collection slide (by scrolling to its pinned hold position)
+  const gotoSlide = useCallback((index: number) => {
+    const clamped = Math.max(0, Math.min(slides.length - 1, index));
+    const st = scrollTriggerRef.current;
+    if (st) {
+      const totalDistance = st.end - st.start;
+      // Midpoints of hold phases across the 4 slides
+      const slideFractions = [0, 0.35, 0.66, 0.94];
+      const fraction =
+        slideFractions[clamped] ?? clamped / (slides.length - 1);
+      const targetY = st.start + fraction * totalDistance;
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    } else if (rootRef.current) {
+      rootRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
-      if (typeof window !== "undefined" && window.innerWidth >= 768) {
-        const st = scrollTriggerRef.current;
-        if (st) {
-          const totalDistance = st.end - st.start;
-          const targetY =
-            st.start + (clamped / (slides.length - 1)) * totalDistance;
-          window.scrollTo({ top: targetY, behavior: "smooth" });
-        }
-      } else {
-        // Mobile swiper transition
-        if (isMobileTransitioning.current || clamped === activeIdx) return;
-        isMobileTransitioning.current = true;
-
-        const currentSlide = slidesRef.current[activeIdx];
-        const nextSlide = slidesRef.current[clamped];
-        const direction = clamped > activeIdx ? 1 : -1;
-
-        if (currentSlide && nextSlide) {
-          gsap.to(currentSlide, {
-            x: direction * -70,
-            autoAlpha: 0,
-            duration: 0.38,
-            ease: "power2.inOut",
-          });
-
-          gsap.fromTo(
-            nextSlide,
-            { x: direction * 70, autoAlpha: 0 },
-            {
-              x: 0,
-              autoAlpha: 1,
-              duration: 0.42,
-              ease: "power2.out",
-              onComplete: () => {
-                setActiveIdx(clamped);
-                isMobileTransitioning.current = false;
-              },
-            }
-          );
-        } else {
-          setActiveIdx(clamped);
-          isMobileTransitioning.current = false;
-        }
-      }
-    },
-    [activeIdx]
-  );
-
-  // Desktop Master Timeline Scrubbing & Mobile Swiper Setup
+  // Universal Window-Locking Scrubbed Storytelling Master Timeline (Desktop & Phone)
   useGSAP(
     () => {
       const root = rootRef.current;
@@ -169,190 +132,171 @@ export default function CollectionStage() {
       const reduce = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       ).matches;
-      const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 768px)", () => {
-        // Set initial slide visibility: only Slide 0 is visible
-        slidesRef.current.forEach((slide, i) => {
-          if (slide) {
-            gsap.set(slide, {
-              autoAlpha: i === 0 ? 1 : 0,
-              scale: i === 0 ? 1 : 0.25,
-              y: 0,
-              pointerEvents: i === 0 ? "auto" : "none",
-            });
-          }
-        });
+      // Set initial slide visibility: Slide 0 is visible, other slides staged
+      slidesRef.current.forEach((slide, i) => {
+        if (slide) {
+          gsap.set(slide, {
+            autoAlpha: i === 0 ? 1 : 0,
+            scale: i === 0 ? 1 : 0.25,
+            y: 0,
+            pointerEvents: i === 0 ? "auto" : "none",
+          });
+        }
+      });
 
-        if (reduce) return;
+      if (reduce) return;
 
-        // Master Timeline tied to vertical scroll with scrub: 1 smoothing
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            id: "collection-scroll-scrub",
-            trigger: root,
-            pin: true,
-            scrub: 1,
-            start: "top top",
-            end: () => `+=${Math.round(window.innerHeight * 3.5)}`,
-            onUpdate: (self) => {
-              const rawProgress = self.progress * (slides.length - 1);
-              const computed = Math.min(
-                slides.length - 1,
-                Math.max(0, Math.round(rawProgress))
-              );
-              setActiveIdx(computed);
-            },
+      const isMobile = window.innerWidth < 768;
+      const scrubSpeed = isMobile ? 0.6 : 1;
+      const scrollDistance = isMobile
+        ? Math.round(window.innerHeight * 2.8)
+        : Math.round(window.innerHeight * 3.5);
+
+      // Master Timeline tied to vertical scroll with window locking (pin: true)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: "collection-scroll-scrub",
+          trigger: root,
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          scrub: scrubSpeed,
+          start: "top top",
+          end: () => `+=${scrollDistance}`,
+          onUpdate: (self) => {
+            const p = self.progress;
+            let computed = 0;
+            if (p < 0.22) computed = 0;
+            else if (p < 0.54) computed = 1;
+            else if (p < 0.82) computed = 2;
+            else computed = 3;
+            setActiveIdx(computed);
           },
-        });
+        },
+      });
 
-        scrollTriggerRef.current = tl.scrollTrigger || null;
+      scrollTriggerRef.current = tl.scrollTrigger || null;
 
-        // Build transitions between the 4 collections
-        for (let i = 0; i < slides.length - 1; i++) {
-          const current = slidesRef.current[i];
-          const next = slidesRef.current[i + 1];
+      // Build transitions between the 4 collections
+      for (let i = 0; i < slides.length - 1; i++) {
+        const current = slidesRef.current[i];
+        const next = slidesRef.current[i + 1];
 
-          // 1. Hold pause on current slide
-          tl.to({}, { duration: 0.85 });
+        // 1. Hold pause on current slide
+        tl.to({}, { duration: 0.85 });
 
-          // 2. Outgoing slide: scales up (1.85x) + fades out
-          tl.to(
-            current,
-            {
-              scale: 1.85,
-              autoAlpha: 0,
-              duration: 1,
-              ease: "power3.out",
-              onStart: () => {
-                if (current) current.style.pointerEvents = "none";
-              },
-            },
-            `trans-${i}`
-          );
+        // 2. Outgoing slide: scales up (1.85x) + fades out
+        tl.to(
+          current,
+          {
+            scale: 1.85,
+            autoAlpha: 0,
+            duration: 1,
+            ease: "power3.out",
+          },
+          `trans-${i}`
+        );
 
-          // 3. Incoming slide: scales from 0.25 to 1 + fades in
-          tl.fromTo(
-            next,
-            {
-              scale: 0.25,
-              autoAlpha: 0,
-              y: 50,
-            },
-            {
-              scale: 1,
-              autoAlpha: 1,
-              y: 0,
-              duration: 1,
-              ease: "power2.out",
-              onComplete: () => {
-                if (next) next.style.pointerEvents = "auto";
-              },
-            },
-            `trans-${i}`
-          );
+        // 3. Incoming slide: scales from 0.25 to 1 + fades in
+        tl.fromTo(
+          next,
+          {
+            scale: 0.25,
+            autoAlpha: 0,
+            y: isMobile ? 35 : 50,
+          },
+          {
+            scale: 1,
+            autoAlpha: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+          },
+          `trans-${i}`
+        );
 
-          // Animate letters and copy on the incoming slide
-          if (next) {
-            const letters = next.querySelectorAll(".cs-letter");
-            const copy = next.querySelector(".cs-slide__copy");
-            const note = next.querySelector(".cs-slide__note");
-            const cta = next.querySelector(".cs-slide__cta");
-
-            if (letters.length > 0) {
-              tl.fromTo(
-                letters,
-                { yPercent: 100 },
-                {
-                  yPercent: 0,
-                  duration: 0.75,
-                  stagger: 0.03,
-                  ease: "power3.out",
-                },
-                `trans-${i}+=0.35`
-              );
-            }
-
-            if (copy && note && cta) {
-              tl.fromTo(
-                [copy, note, cta],
-                { y: 20, autoAlpha: 0 },
-                {
-                  y: 0,
-                  autoAlpha: 1,
-                  duration: 0.65,
-                  stagger: 0.08,
-                  ease: "power3.out",
-                },
-                `trans-${i}+=0.45`
-              );
-            }
-          }
+        // Toggle pointer events at transition midpoint
+        if (current && next) {
+          tl.set(next, { pointerEvents: "auto" }, `trans-${i}+=0.5`);
+          tl.set(current, { pointerEvents: "none" }, `trans-${i}+=0.5`);
         }
 
-        // Final hold period for Slide 3 (Necklaces)
-        tl.to({}, { duration: 1.1 });
-      });
+        // Animate letters and copy on the incoming slide
+        if (next) {
+          const letters = next.querySelectorAll(".cs-letter");
+          const copy = next.querySelector(".cs-slide__copy");
+          const note = next.querySelector(".cs-slide__note");
+          const cta = next.querySelector(".cs-slide__cta");
 
-      mm.add("(max-width: 767px)", () => {
-        // Mobile swiper: active slide is visible, others hidden
-        slidesRef.current.forEach((slide, i) => {
-          if (slide) {
-            gsap.set(slide, {
-              autoAlpha: i === activeIdx ? 1 : 0,
-              scale: 1,
-              y: 0,
-              pointerEvents: i === activeIdx ? "auto" : "none",
-            });
+          if (letters.length > 0) {
+            tl.fromTo(
+              letters,
+              { yPercent: 100 },
+              {
+                yPercent: 0,
+                duration: 0.75,
+                stagger: 0.03,
+                ease: "power3.out",
+              },
+              `trans-${i}+=0.35`
+            );
           }
-        });
-      });
+
+          if (copy && note && cta) {
+            tl.fromTo(
+              [copy, note, cta],
+              { y: 20, autoAlpha: 0 },
+              {
+                y: 0,
+                autoAlpha: 1,
+                duration: 0.65,
+                stagger: 0.08,
+                ease: "power3.out",
+              },
+              `trans-${i}+=0.45`
+            );
+          }
+        }
+      }
+
+      // Final hold period for Slide 3 (Necklaces)
+      tl.to({}, { duration: 1.1 });
 
       return () => {
-        mm.revert();
+        tl.kill();
+        if (scrollTriggerRef.current) {
+          scrollTriggerRef.current.kill();
+        }
       };
     },
     { scope: rootRef }
   );
 
-  // Mobile Touch Gestures
+  // Mobile Horizontal Touch Swipe Gestures
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (window.innerWidth >= 768) return;
-    touchStartY.current = e.touches[0].clientY;
     touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
     touchStartTime.current = Date.now();
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (window.innerWidth >= 768 || isMobileTransitioning.current) return;
-    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
     const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
     const deltaTime = Date.now() - touchStartTime.current;
 
-    // Horizontal swipe (most natural on mobile touch screen)
+    // Horizontal swipe gesture to step through collections
     if (
-      Math.abs(deltaX) > 32 &&
-      Math.abs(deltaX) > Math.abs(deltaY) &&
-      deltaTime < 700
+      Math.abs(deltaX) > 42 &&
+      Math.abs(deltaX) > Math.abs(deltaY) * 1.3 &&
+      deltaTime < 600
     ) {
       if (deltaX < 0 && activeIdx < slides.length - 1) {
         // Swipe Left -> Next collection
         gotoSlide(activeIdx + 1);
       } else if (deltaX > 0 && activeIdx > 0) {
         // Swipe Right -> Prev collection
-        gotoSlide(activeIdx - 1);
-      }
-    } else if (
-      Math.abs(deltaY) > 42 &&
-      Math.abs(deltaY) > Math.abs(deltaX) &&
-      deltaTime < 700
-    ) {
-      // Vertical swipe fallback
-      if (deltaY < 0 && activeIdx < slides.length - 1) {
-        // Swipe Up -> Next collection
-        gotoSlide(activeIdx + 1);
-      } else if (deltaY > 0 && activeIdx > 0) {
-        // Swipe Down -> Prev collection
         gotoSlide(activeIdx - 1);
       }
     }
