@@ -112,154 +112,22 @@ export default function AboutTimeline() {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const [activeEraIndex, setActiveEraIndex] = useState(0);
 
-  // GSAP Horizontal Pinned ScrollTrigger
-  useGSAP(
-    () => {
-      const pinSection = pinSectionRef.current;
-      const track = trackRef.current;
-      const stemFill = stemFillRef.current;
-      const progressBar = progressBarRef.current;
+  // Mobile touch gestures
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const touchStartTime = useRef(0);
 
-      if (!pinSection || !track) return;
-
-      const mm = gsap.matchMedia();
-
-      // Desktop & Tablet: Cinematic Horizontal Pinned Scroll
-      mm.add("(min-width: 861px)", () => {
-        const getScrollDistance = () =>
-          Math.max(0, track.scrollWidth - window.innerWidth);
-
-        // Master horizontal translation pinned tween
-        const scrollTween = gsap.to(track, {
-          x: () => -getScrollDistance(),
-          ease: "none",
-          scrollTrigger: {
-            id: "timeline-horizontal-scroll",
-            trigger: pinSection,
-            pin: true,
-            start: "top top",
-            end: () => `+=${getScrollDistance() * 1.25}`,
-            scrub: 0.8,
-            invalidateOnRefresh: true,
-            anticipatePin: 1,
-            onUpdate: (self) => {
-              // Update master gold progress indicator
-              if (progressBar) {
-                gsap.set(progressBar, { scaleX: self.progress });
-              }
-
-              // Update the golden tree stem fill across the track
-              if (stemFill) {
-                gsap.set(stemFill, { scaleX: self.progress });
-              }
-
-              // Determine active milestone index (0 to 3)
-              const count = MILESTONES.length;
-              const idx = Math.min(
-                count - 1,
-                Math.floor(self.progress * count * 0.999)
-              );
-              setActiveEraIndex(idx);
-
-              // Update active node diamond states
-              const nodes = track.querySelectorAll(".htl-node");
-              nodes.forEach((node, nodeIdx) => {
-                if (nodeIdx <= idx) {
-                  node.classList.add("htl-node--active");
-                } else {
-                  node.classList.remove("htl-node--active");
-                }
-              });
-            },
-          },
-        });
-
-        // Parallax image floating inside each card as it passes through the viewport
-        const cards = track.querySelectorAll(".htl-card");
-        cards.forEach((card) => {
-          const img = card.querySelector(".htl-card__img");
-          if (img) {
-            gsap.fromTo(
-              img,
-              { scale: 1.12, x: 25 },
-              {
-                scale: 1,
-                x: -25,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: card,
-                  containerAnimation: scrollTween,
-                  start: "left right",
-                  end: "right left",
-                  scrub: true,
-                },
-              }
-            );
-          }
-        });
-
-        return () => {
-          scrollTween.kill();
-        };
-      });
-
-      // Mobile screens: Native horizontal snap with scroll observation
-      mm.add("(max-width: 860px)", () => {
-        const handleMobileScroll = () => {
-          const scrollLeft = track.scrollLeft;
-          const maxScroll = track.scrollWidth - track.clientWidth;
-          const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
-
-          if (progressBar) {
-            gsap.set(progressBar, { scaleX: progress });
-          }
-          if (stemFill) {
-            gsap.set(stemFill, { scaleX: progress });
-          }
-
-          const cardWidth = track.clientWidth * 0.88;
-          const activeIdx = Math.min(
-            MILESTONES.length - 1,
-            Math.max(0, Math.round(scrollLeft / cardWidth))
-          );
-          setActiveEraIndex(activeIdx);
-        };
-
-        track.addEventListener("scroll", handleMobileScroll, { passive: true });
-
-        return () => {
-          track.removeEventListener("scroll", handleMobileScroll);
-        };
-      });
-    },
-    { scope: pinSectionRef }
-  );
-
-  // Jump to specific milestone (supports both desktop pinned scroll and mobile native scroll)
+  // Jump to specific milestone (universal across desktop & mobile)
   const jumpToMilestone = (index: number) => {
-    if (window.innerWidth >= 861) {
-      const st = ScrollTrigger.getById("timeline-horizontal-scroll");
-      if (st) {
-        const totalItems = MILESTONES.length + 0.4; // account for outro card
-        const targetProgress = Math.min(1, index / (totalItems - 1));
-        const targetScroll = st.start + targetProgress * (st.end - st.start);
-        window.scrollTo({
-          top: targetScroll,
-          behavior: "smooth",
-        });
-      }
-    } else {
-      const track = trackRef.current;
-      if (track) {
-        const cards = track.querySelectorAll(".htl-card");
-        if (cards[index]) {
-          cards[index].scrollIntoView({
-            behavior: "smooth",
-            inline: "start",
-            block: "nearest",
-          });
-        }
-      }
+    const st = ScrollTrigger.getById("timeline-horizontal-scroll");
+    if (st) {
+      const totalItems = MILESTONES.length + 0.35; // account for outro card
+      const targetProgress = Math.min(1, Math.max(0, index / (totalItems - 1)));
+      const targetScroll = st.start + targetProgress * (st.end - st.start);
+      window.scrollTo({
+        top: targetScroll,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -273,12 +141,135 @@ export default function AboutTimeline() {
     jumpToMilestone(nextIdx);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    touchStartTime.current = Date.now();
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+    const deltaTime = Date.now() - touchStartTime.current;
+
+    // Horizontal swipe gesture steps between milestones
+    if (
+      Math.abs(deltaX) > 42 &&
+      Math.abs(deltaX) > Math.abs(deltaY) * 1.3 &&
+      deltaTime < 600
+    ) {
+      if (deltaX < 0 && activeEraIndex < MILESTONES.length - 1) {
+        jumpToMilestone(activeEraIndex + 1);
+      } else if (deltaX > 0 && activeEraIndex > 0) {
+        jumpToMilestone(activeEraIndex - 1);
+      }
+    }
+  };
+
+  // Universal GSAP Horizontal Pinned ScrollTrigger (Desktop & Phone)
+  useGSAP(
+    () => {
+      const pinSection = pinSectionRef.current;
+      const track = trackRef.current;
+      const stemFill = stemFillRef.current;
+      const progressBar = progressBarRef.current;
+
+      if (!pinSection || !track) return;
+
+      const getScrollDistance = () =>
+        Math.max(0, track.scrollWidth - window.innerWidth);
+
+      const isMobile = window.innerWidth <= 860;
+      const scrubSpeed = isMobile ? 0.6 : 0.8;
+      const scrollMultiplier = isMobile ? 1.15 : 1.25;
+
+      // Master horizontal translation pinned tween
+      const scrollTween = gsap.to(track, {
+        x: () => -getScrollDistance(),
+        ease: "none",
+        scrollTrigger: {
+          id: "timeline-horizontal-scroll",
+          trigger: pinSection,
+          pin: true,
+          pinSpacing: true,
+          start: "top top",
+          end: () => `+=${Math.round(getScrollDistance() * scrollMultiplier)}`,
+          scrub: scrubSpeed,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            // Update master gold progress indicator
+            if (progressBar) {
+              gsap.set(progressBar, { scaleX: self.progress });
+            }
+
+            // Update the golden tree stem fill across the track
+            if (stemFill) {
+              gsap.set(stemFill, { scaleX: self.progress });
+            }
+
+            // Determine active milestone index (0 to 3)
+            const count = MILESTONES.length;
+            const idx = Math.min(
+              count - 1,
+              Math.floor(self.progress * (count + 0.2))
+            );
+            setActiveEraIndex(idx);
+
+            // Update active node diamond states
+            const nodes = track.querySelectorAll(".htl-node");
+            nodes.forEach((node, nodeIdx) => {
+              if (nodeIdx <= idx) {
+                node.classList.add("htl-node--active");
+              } else {
+                node.classList.remove("htl-node--active");
+              }
+            });
+          },
+        },
+      });
+
+      // Parallax image floating inside each card as it passes through the viewport
+      const cards = track.querySelectorAll(".htl-card");
+      cards.forEach((card) => {
+        const img = card.querySelector(".htl-card__img");
+        if (img) {
+          gsap.fromTo(
+            img,
+            { scale: 1.1, x: isMobile ? 14 : 25 },
+            {
+              scale: 1,
+              x: isMobile ? -14 : -25,
+              ease: "none",
+              scrollTrigger: {
+                trigger: card,
+                containerAnimation: scrollTween,
+                start: "left right",
+                end: "right left",
+                scrub: true,
+              },
+            }
+          );
+        }
+      });
+
+      return () => {
+        scrollTween.kill();
+        const st = ScrollTrigger.getById("timeline-horizontal-scroll");
+        if (st) st.kill();
+      };
+    },
+    { scope: pinSectionRef }
+  );
+
   return (
     <section
       ref={pinSectionRef}
       id="timeline"
       className="htl-section"
       aria-label="Uni Fine Jewelry Heritage Chronology"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Top Header Deck & Controls */}
       <div className="htl-header-deck">
