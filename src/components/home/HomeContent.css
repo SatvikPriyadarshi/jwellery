@@ -1,0 +1,21 @@
+/* =========================================================================
+   COMBINED HOME DUAL STAGE (Loyalty Benefits + Popular Jewelry)
+   Combines LoyaltyBenefits (top 43%) and PopularJewelry (bottom 57%) into
+   a single full-window screen stage that occupies exactly 100% of the
+   viewport height (100dvh / 100vh) on desktop screens.
+   ========================================================================= */
+
+.home-dual-stage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1025px) {
+  .home-dual-stage {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 38rem;
+    overflow: hidden;
+  }
+}
