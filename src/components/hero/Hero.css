@@ -1,33 +1,71 @@
 .hero {
-  --hero-ratio: 1024 / 520;
+  --hero-ratio: 1983 / 793;
   position: relative;
   isolation: isolate;
   width: 100%;
-  aspect-ratio: var(--hero-ratio);
-  max-height: 85svh;
+  height: 100svh;
+  min-height: 100svh;
   overflow: hidden;
-  background: #f7f3ea;
+  background: #0b211c;
+  color: var(--color-ivory);
 }
 
 .hero__media {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .hero__img {
   object-fit: cover;
-  object-position: center center;
+  /* Prefer upper/mid frame so the subject isn't cut off at the bottom */
+  object-position: center 28%;
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 22, 18, 0.88) 0%,
+    rgba(7, 22, 18, 0.62) 28%,
+    rgba(7, 22, 18, 0.22) 48%,
+    transparent 64%
+  );
 }
 
 .hero__content {
   position: absolute;
+  z-index: 2;
   inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(5.5rem, 14vh, 8rem) clamp(2rem, 6vw, 5.5rem)
+    clamp(2rem, 6vh, 4rem);
   pointer-events: none;
 }
 
-/* Phones: wide reference banner ratio without cutoffs or shop now button */
+.hero__copy {
+  width: min(36rem, 46vw);
+  max-width: 48%;
+  pointer-events: auto;
+}
+
+.hero__mesh-wrap {
+  width: 100%;
+  aspect-ratio: 3.5 / 1;
+  min-height: 9.5rem;
+  position: relative;
+}
+
+.hero__mesh-lettering {
+  width: 100%;
+  height: 100%;
+}
+
+/* Phones: wide banner ratio (1983×793) matching the horizontal banner format */
 @media (max-width: 768px) {
   .hero {
     height: auto;
@@ -37,7 +75,33 @@
   }
 
   .hero__img {
-    object-fit: cover;
     object-position: center center;
+  }
+
+  .hero__scrim {
+    display: block;
+    background: linear-gradient(
+      90deg,
+      rgba(7, 22, 18, 0.82) 0%,
+      rgba(7, 22, 18, 0.5) 45%,
+      rgba(7, 22, 18, 0.1) 68%,
+      transparent 100%
+    );
+  }
+
+  .hero__content {
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.6rem 0.9rem 1rem;
+  }
+
+  .hero__copy {
+    width: 68%;
+    max-width: 68%;
+  }
+
+  .hero__mesh-wrap {
+    aspect-ratio: 2.5 / 1;
+    min-height: 0;
   }
 }
