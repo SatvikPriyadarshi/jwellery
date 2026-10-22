@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -9,7 +9,7 @@ import "./AboutTimeline.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-type Milestone = {
+export type Milestone = {
   id: string;
   year: string;
   navLabel: string;
@@ -26,12 +26,12 @@ type Milestone = {
   tags: string[];
 };
 
-const MILESTONES: Milestone[] = [
+export const MILESTONES: Milestone[] = [
   {
     id: "era-1965",
     year: "1965",
     navLabel: "1965 • Origins",
-    chapter: "Milestone I • Foundations",
+    chapter: "Chapter I • Foundations",
     title: "Trading of Coloured Gemstones & Diamonds",
     image: "/images/jewellery/about-1965-trading.jpg",
     alt: "Historic gemstone and rough diamond trading ledger and sorting trays",
@@ -49,8 +49,8 @@ const MILESTONES: Milestone[] = [
   {
     id: "era-1990",
     year: "1990",
-    navLabel: "1990 • Zambian Emeralds",
-    chapter: "Milestone II • Lapidary Mastery",
+    navLabel: "1990 • Emeralds",
+    chapter: "Chapter II • Lapidary Mastery",
     title: "Expansion into Zambian Emerald Manufacturing",
     image: "/images/jewellery/about-1990-emeralds.jpg",
     alt: "Deep green Zambian emeralds cut and polished in our manufacturing lapidary",
@@ -69,7 +69,7 @@ const MILESTONES: Milestone[] = [
     id: "era-2018",
     year: "2018",
     navLabel: "2018 • The Atelier",
-    chapter: "Milestone III • Haute Joaillerie",
+    chapter: "Chapter III • Haute Joaillerie",
     title: "Fine Jewelry Manufacturing & Master Goldsmithing",
     image: "/images/jewellery/about-2018-atelier.jpg",
     alt: "Artisan master jeweler crafting fine jewelry on the jeweler bench",
@@ -88,7 +88,7 @@ const MILESTONES: Milestone[] = [
     id: "era-today",
     year: "TODAY",
     navLabel: "Today • A Legacy",
-    chapter: "Milestone IV • Eternal Brilliance",
+    chapter: "Chapter IV • Eternal Brilliance",
     title: "Timeless Heirlooms for Generations to Come",
     image: "/images/jewellery/about-today-jewelry.jpg",
     alt: "Exquisite finished fine jewelry combining gold, diamonds, and emeralds",
@@ -98,7 +98,7 @@ const MILESTONES: Milestone[] = [
     discoveryTitle: "Modern Heirloom",
     discoveryText:
       "Pieces designed as personal talismans of resilience, milestone achievements, and family legacy.",
-    artisanTitle: "Global Presence",
+    artisanTitle: "Global Salons",
     artisanText:
       "Private viewing salons in Jaipur and Kuala Lumpur, serving collectors worldwide.",
     tags: ["#BespokeHeirlooms", "#GenerationalCraft", "#FineJewelry", "#UniFineJewelry"],
@@ -106,252 +106,443 @@ const MILESTONES: Milestone[] = [
 ];
 
 export default function AboutTimeline() {
-  const containerRef = useRef<HTMLElement>(null);
-  const treeFillRef = useRef<HTMLDivElement>(null);
+  const pinSectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const stemFillRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const [activeEraIndex, setActiveEraIndex] = useState(0);
 
+  // GSAP Horizontal Pinned ScrollTrigger
   useGSAP(
     () => {
-      const root = containerRef.current;
-      const treeFill = treeFillRef.current;
-      if (!root) return;
+      const pinSection = pinSectionRef.current;
+      const track = trackRef.current;
+      const stemFill = stemFillRef.current;
+      const progressBar = progressBarRef.current;
 
-      const reduce = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      if (reduce) return;
+      if (!pinSection || !track) return;
 
-      // Animate the tree stem line filling downwards as user scrolls
-      if (treeFill) {
-        gsap.fromTo(
-          treeFill,
-          { scaleY: 0 },
-          {
-            scaleY: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".timeline-tree-wrapper",
-              start: "top 65%",
-              end: "bottom 80%",
-              scrub: 0.6,
-            },
-          }
-        );
-      }
+      const mm = gsap.matchMedia();
 
-      // Animate each milestone item
-      const items = root.querySelectorAll(".timeline-list li");
-      items.forEach((item, index) => {
-        const isOdd = index % 2 === 0;
-        const node = item.querySelector(".timeline-node");
-        const connector = item.querySelector(".timeline-connector");
-        const card = item.querySelector(".timeline-card");
-        const timeBadge = item.querySelector(".timeline-card time");
+      // Desktop & Tablet: Cinematic Horizontal Pinned Scroll
+      mm.add("(min-width: 861px)", () => {
+        const getScrollDistance = () =>
+          Math.max(0, track.scrollWidth - window.innerWidth);
 
-        const tl = gsap.timeline({
+        // Master horizontal translation pinned tween
+        const scrollTween = gsap.to(track, {
+          x: () => -getScrollDistance(),
+          ease: "none",
           scrollTrigger: {
-            trigger: item,
-            start: "top 78%",
-            once: true,
+            id: "timeline-horizontal-scroll",
+            trigger: pinSection,
+            pin: true,
+            start: "top top",
+            end: () => `+=${getScrollDistance() * 1.25}`,
+            scrub: 0.8,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+            onUpdate: (self) => {
+              // Update master gold progress indicator
+              if (progressBar) {
+                gsap.set(progressBar, { scaleX: self.progress });
+              }
+
+              // Update the golden tree stem fill across the track
+              if (stemFill) {
+                gsap.set(stemFill, { scaleX: self.progress });
+              }
+
+              // Determine active milestone index (0 to 3)
+              const count = MILESTONES.length;
+              const idx = Math.min(
+                count - 1,
+                Math.floor(self.progress * count * 0.999)
+              );
+              setActiveEraIndex(idx);
+
+              // Update active node diamond states
+              const nodes = track.querySelectorAll(".htl-node");
+              nodes.forEach((node, nodeIdx) => {
+                if (nodeIdx <= idx) {
+                  node.classList.add("htl-node--active");
+                } else {
+                  node.classList.remove("htl-node--active");
+                }
+              });
+            },
           },
         });
 
-        if (node) {
-          tl.fromTo(
-            node,
-            { scale: 0, rotation: 0 },
-            {
-              scale: 1,
-              rotation: 45,
-              duration: 0.5,
-              ease: "back.out(1.8)",
-              onComplete: () => {
-                node.classList.add("timeline-node--active");
-              },
-            }
-          );
-        }
+        // Parallax image floating inside each card as it passes through the viewport
+        const cards = track.querySelectorAll(".htl-card");
+        cards.forEach((card) => {
+          const img = card.querySelector(".htl-card__img");
+          if (img) {
+            gsap.fromTo(
+              img,
+              { scale: 1.12, x: 25 },
+              {
+                scale: 1,
+                x: -25,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: card,
+                  containerAnimation: scrollTween,
+                  start: "left right",
+                  end: "right left",
+                  scrub: true,
+                },
+              }
+            );
+          }
+        });
 
-        if (connector) {
-          tl.fromTo(
-            connector,
-            { scaleX: 0 },
-            { scaleX: 1, duration: 0.4, ease: "power2.out" },
-            "-=0.2"
-          );
-        }
+        return () => {
+          scrollTween.kill();
+        };
+      });
 
-        if (card) {
-          tl.fromTo(
-            card,
-            {
-              autoAlpha: 0,
-              y: 40,
-              x: isOdd ? -30 : 30,
-            },
-            {
-              autoAlpha: 1,
-              y: 0,
-              x: 0,
-              duration: 0.8,
-              ease: "power3.out",
-            },
-            "-=0.3"
-          );
-        }
+      // Mobile screens: Native horizontal snap with scroll observation
+      mm.add("(max-width: 860px)", () => {
+        const handleMobileScroll = () => {
+          const scrollLeft = track.scrollLeft;
+          const maxScroll = track.scrollWidth - track.clientWidth;
+          const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
 
-        if (timeBadge) {
-          tl.fromTo(
-            timeBadge,
-            { scale: 0.8, autoAlpha: 0 },
-            { scale: 1, autoAlpha: 1, duration: 0.4, ease: "back.out(1.5)" },
-            "-=0.5"
+          if (progressBar) {
+            gsap.set(progressBar, { scaleX: progress });
+          }
+          if (stemFill) {
+            gsap.set(stemFill, { scaleX: progress });
+          }
+
+          const cardWidth = track.clientWidth * 0.88;
+          const activeIdx = Math.min(
+            MILESTONES.length - 1,
+            Math.max(0, Math.round(scrollLeft / cardWidth))
           );
-        }
+          setActiveEraIndex(activeIdx);
+        };
+
+        track.addEventListener("scroll", handleMobileScroll, { passive: true });
+
+        return () => {
+          track.removeEventListener("scroll", handleMobileScroll);
+        };
       });
     },
-    { scope: containerRef }
+    { scope: pinSectionRef }
   );
+
+  // Jump to specific milestone (supports both desktop pinned scroll and mobile native scroll)
+  const jumpToMilestone = (index: number) => {
+    if (window.innerWidth >= 861) {
+      const st = ScrollTrigger.getById("timeline-horizontal-scroll");
+      if (st) {
+        const totalItems = MILESTONES.length + 0.4; // account for outro card
+        const targetProgress = Math.min(1, index / (totalItems - 1));
+        const targetScroll = st.start + targetProgress * (st.end - st.start);
+        window.scrollTo({
+          top: targetScroll,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      const track = trackRef.current;
+      if (track) {
+        const cards = track.querySelectorAll(".htl-card");
+        if (cards[index]) {
+          cards[index].scrollIntoView({
+            behavior: "smooth",
+            inline: "start",
+            block: "nearest",
+          });
+        }
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    const nextIdx = Math.max(0, activeEraIndex - 1);
+    jumpToMilestone(nextIdx);
+  };
+
+  const handleNext = () => {
+    const nextIdx = Math.min(MILESTONES.length - 1, activeEraIndex + 1);
+    jumpToMilestone(nextIdx);
+  };
 
   return (
     <section
-      ref={containerRef}
+      ref={pinSectionRef}
       id="timeline"
-      className="timeline-section"
+      className="htl-section"
       aria-label="Uni Fine Jewelry Heritage Chronology"
     >
-      <div className="timeline-container">
-        {/* Section Header with NO artificial lines */}
-        <div className="text-center max-w-3xl mx-auto">
-          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[var(--tl-gold)] font-medium">
-            Chronology of Craft
-          </p>
+      {/* Top Header Deck & Controls */}
+      <div className="htl-header-deck">
+        <div className="htl-header-top">
+          <div className="htl-header-titles">
+            <p className="htl-eyebrow">
+              Chronology of Craft &bull; 1965 &mdash; Today
+            </p>
+            <h2 className="htl-title">
+              Our Journey Through{" "}
+              <span className="htl-title__accent">Time &amp; Brilliance</span>
+            </h2>
+          </div>
 
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[var(--tl-text-light)]">
-            Our Journey Through{" "}
-            <span className="italic font-normal text-[var(--tl-gold)]">
-              Time &amp; Brilliance
-            </span>
-          </h2>
+          {/* Interactive Navigation Deck */}
+          <div className="htl-controls">
+            {/* Quick-Jump Era Buttons */}
+            <div
+              className="htl-era-pills"
+              role="tablist"
+              aria-label="Jump to timeline era"
+            >
+              {MILESTONES.map((milestone, idx) => {
+                const isActive = activeEraIndex === idx;
+                return (
+                  <button
+                    key={milestone.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => jumpToMilestone(idx)}
+                    className={`htl-era-pill ${
+                      isActive ? "htl-era-pill--active" : ""
+                    }`}
+                  >
+                    <span className="htl-era-pill__diamond" aria-hidden="true" />
+                    <span>{milestone.year}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-          <p className="mt-4 font-sans text-sm sm:text-base text-[var(--tl-text-light)]/75 font-light leading-relaxed">
+            {/* Navigation Arrow buttons */}
+            <div className="htl-stepper">
+              <div className="htl-stepper__arrows">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  disabled={activeEraIndex === 0}
+                  className="htl-arrow-btn"
+                  aria-label="Previous milestone"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  disabled={activeEraIndex === MILESTONES.length - 1}
+                  className="htl-arrow-btn"
+                  aria-label="Next milestone"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Narrative Description & Instructions */}
+        <div className="htl-header-sub">
+          <p className="htl-intro-copy">
             From the raw gemstone bazaars of 1965 to modern bespoke high jewelry,
             every decade has deepened our mastery, sharpened our craft, and
             reaffirmed our dedication to timeless beauty.
           </p>
+
+          <div className="htl-scroll-hint" aria-hidden="true">
+            <span className="htl-scroll-hint__label">Scroll to travel</span>
+            <span className="htl-scroll-hint__track">
+              <span className="htl-scroll-hint__bar" />
+            </span>
+          </div>
         </div>
 
-        {/* Quick Nav Timeline Selector */}
-        <nav
-          className="timeline-quicknav"
-          aria-label="Quick jump to timeline eras"
-        >
-          {MILESTONES.map((m) => (
-            <a
-              key={m.id}
-              href={`#${m.id}`}
-              className="timeline-quicknav__btn"
-              onClick={(e) => {
-                e.preventDefault();
-                const target = document.getElementById(m.id);
-                if (target) {
-                  target.scrollIntoView({ behavior: "smooth", block: "center" });
-                }
-              }}
-            >
-              <span className="timeline-quicknav__dot" aria-hidden="true" />
-              <span>{m.navLabel}</span>
-            </a>
-          ))}
-        </nav>
+        {/* Gold Scrubber Progress Line */}
+        <div className="htl-progress-track" aria-hidden="true">
+          <div ref={progressBarRef} className="htl-progress-fill" />
+        </div>
+      </div>
 
-        {/* GSAP Dynamic Tree Structure */}
-        <div className="timeline-tree-wrapper">
-          {/* Static Guide Track */}
-          <div className="timeline-tree-track" aria-hidden="true" />
+      {/* Main Horizontal Track Area */}
+      <div className="htl-track-container">
+        <div ref={trackRef} className="htl-track">
+          {/* Continuous Tree of Craft: Horizontal Trunk Axis */}
+          <div className="htl-tree-axis" aria-hidden="true">
+            <div className="htl-tree-stem-track" />
+            <div ref={stemFillRef} className="htl-tree-stem-fill" />
+          </div>
 
-          {/* GSAP Animated Tree Line */}
-          <div
-            ref={treeFillRef}
-            className="timeline-tree-fill"
-            aria-hidden="true"
-          />
+          {/* Milestone Exhibition Cards */}
+          {MILESTONES.map((milestone, index) => {
+            const isActive = activeEraIndex === index;
+            return (
+              <article
+                key={milestone.id}
+                id={milestone.id}
+                className={`htl-card ${isActive ? "htl-card--active" : ""}`}
+              >
+                {/* Tree Branch Anchor Node */}
+                <div className="htl-branch-anchor" aria-hidden="true">
+                  <div className="htl-node">
+                    <span className="htl-node__core" />
+                    <span className="htl-node__ring" />
+                  </div>
+                  <div className="htl-branch-line" />
+                </div>
 
-          {/* Milestones List */}
-          <ul className="timeline-list">
-            {MILESTONES.map((milestone, index) => {
-              const isOdd = index % 2 === 0;
-              return (
-                <li
-                  key={milestone.id}
-                  id={milestone.id}
-                  className={isOdd ? "timeline-item--odd" : "timeline-item--even"}
-                >
-                  {/* GSAP Animated Diamond Facet Node */}
-                  <div className="timeline-node" aria-hidden="true" />
+                <div className="htl-card__inner">
+                  {/* Watermark Year Background */}
+                  <span className="htl-card__watermark" aria-hidden="true">
+                    {milestone.year}
+                  </span>
 
-                  {/* GSAP Animated Connector Branch */}
-                  <div className="timeline-connector" aria-hidden="true" />
-
-                  {/* Milestone Card */}
-                  <div className="timeline-card">
-                    {/* Floating Date Badge */}
-                    <time dateTime={milestone.year === "TODAY" ? "2026" : milestone.year}>
-                      {milestone.year}
-                    </time>
-
-                    {/* Archival Photography Window */}
-                    <figure className="timeline-card__visual">
+                  {/* Left Column: Archival Photography Vitrine */}
+                  <div className="htl-card__media-side">
+                    <figure className="htl-card__figure">
                       <Image
                         src={milestone.image}
                         alt={milestone.alt}
                         fill
-                        sizes="(max-width: 860px) 100vw, 480px"
-                        className="timeline-card__img"
+                        sizes="(max-width: 860px) 85vw, 460px"
+                        className="htl-card__img"
                       />
-                      <figcaption className="timeline-card__visual-stamp">
+                      <div className="htl-card__vignette" aria-hidden="true" />
+                      <figcaption className="htl-card__stamp">
                         {milestone.stamp}
                       </figcaption>
+
+                      {/* Year Floating Plaque */}
+                      <div className="htl-card__year-badge">
+                        <span>{milestone.year}</span>
+                      </div>
                     </figure>
+                  </div>
 
-                    {/* Chapter & Title */}
-                    <span className="timeline-card__chapter">
-                      {milestone.chapter}
-                    </span>
+                  {/* Right Column: Narrative & Gemological Dossier */}
+                  <div className="htl-card__content-side">
+                    <div className="htl-card__header">
+                      <span className="htl-card__chapter">
+                        {milestone.chapter}
+                      </span>
+                      <h3 className="htl-card__title">{milestone.title}</h3>
+                    </div>
 
-                    <h3 className="timeline-card__title">
-                      {milestone.title}
-                    </h3>
-
-                    {/* Narrative Copy */}
-                    <p className="timeline-card__desc">
+                    <p className="htl-card__description">
                       {milestone.description}
                     </p>
 
-                    {/* Discovery & Artisan Grid */}
-                    <div className="timeline-card__meta">
-                      <div className="timeline-card__meta-col">
-                        <h4>{milestone.discoveryTitle}</h4>
-                        <p>{milestone.discoveryText}</p>
+                    {/* Dual Dossier Cards */}
+                    <div className="htl-card__dossier">
+                      <div className="htl-dossier-box">
+                        <h4 className="htl-dossier-box__title">
+                          {milestone.discoveryTitle}
+                        </h4>
+                        <p className="htl-dossier-box__text">
+                          {milestone.discoveryText}
+                        </p>
                       </div>
-                      <div className="timeline-card__meta-col">
-                        <h4>{milestone.artisanTitle}</h4>
-                        <p>{milestone.artisanText}</p>
+
+                      <div className="htl-dossier-box">
+                        <h4 className="htl-dossier-box__title">
+                          {milestone.artisanTitle}
+                        </h4>
+                        <p className="htl-dossier-box__text">
+                          {milestone.artisanText}
+                        </p>
                       </div>
                     </div>
 
-                    {/* Heritage Tags */}
-                    <div className="timeline-card__tags">
+                    {/* Curated Tags */}
+                    <div className="htl-card__tags">
                       {milestone.tags.map((tag) => (
-                        <span key={tag} className="timeline-card__tag">
+                        <span key={tag} className="htl-tag">
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
-                </li>
-              );
-            })}
-          </ul>
+                </div>
+              </article>
+            );
+          })}
+
+          {/* Outro Finale Card: The Living Legacy */}
+          <div className="htl-card htl-card--outro">
+            <div className="htl-outro__inner">
+              <div className="htl-outro__crest" aria-hidden="true">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--color-champagne)"
+                  strokeWidth="1.2"
+                >
+                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
+                  <polygon points="12 6 18 10 18 14 12 18 6 14 6 10 12 6" />
+                </svg>
+              </div>
+
+              <span className="htl-card__chapter">A Living Heritage</span>
+
+              <h3 className="htl-outro__title">
+                Crafted to Be Cherished, <br />
+                <span className="htl-title__accent">Now &amp; Always</span>
+              </h3>
+
+              <p className="htl-outro__desc">
+                From 1965 to this very moment, each Uni Fine Jewelry creation is
+                infused with sixty years of stone expertise, precision cutting,
+                and goldsmith artistry. An enduring talisman of your own
+                extraordinary journey.
+              </p>
+
+              <div className="htl-outro__actions">
+                <a
+                  href="#contact"
+                  className="htl-outro__cta htl-outro__cta--primary"
+                >
+                  Book Private Salon
+                </a>
+                <a
+                  href="/#collection"
+                  className="htl-outro__cta htl-outro__cta--secondary"
+                >
+                  View Collection &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,114 +1,137 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import Link from "next/link";
+import { useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import "./AboutCraftsmanship.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const CRAFT_STEPS = [
+interface PillarItem {
+  id: string;
+  title: string;
+  tagline: string;
+  detail: string;
+  image: string;
+  alt: string;
+}
+
+const PILLARS_DATA: PillarItem[] = [
   {
-    step: "01",
+    id: "ethical-sourcing",
     title: "Ethical Gem Sourcing",
-    subtitle: "From Earth to Atelier",
-    image: "/images/jewellery/footer-stones.jpg",
-    alt: "Rare cut and rough gemstones carefully sorted on a jeweler tray",
-    description:
-      "Direct relationships with certified mines worldwide, hand-selecting only rough diamonds and coloured gemstones with exceptional crystalline fire and pure saturation.",
+    tagline: "Responsibly sourced, naturally extraordinary.",
+    detail:
+      "Every gemstone is traced directly to certified conflict-free artisanal mines, hand-selected for crystalline fire, density, and natural saturation.",
+    image: "/images/jewellery/pillar-1.jpg",
+    alt: "Pear-cut emerald drop earrings ethically sourced and hand-finished",
   },
   {
-    step: "02",
+    id: "lapidary-precision",
     title: "Lapidary Precision",
-    subtitle: "Zambian Emerald Mastery",
-    image: "/images/jewellery/about-emerald-detail.jpg",
-    alt: "Macro emerald facet detail revealing brilliant geometric symmetry",
-    description:
-      "Decades of gemstone cutting expertise. Our lapidary artisans cut and polish each rough emerald to maximize optical refraction and showcase its velvety inner green hue.",
+    tagline: "Expertly cut for unmatched brilliance.",
+    detail:
+      "Master cutters orient each crystal along its natural optical axis, precision-faceting every plane to maximize fire and velvety green saturation.",
+    image: "/images/jewellery/pillar-2.jpg",
+    alt: "Precision octagonal faceted Zambian emerald jewel",
   },
   {
-    step: "03",
+    id: "haute-goldsmithing",
     title: "Haute Goldsmithing",
-    subtitle: "Solid 18K Gold Metallurgy",
-    image: "/images/jewellery/loyalty-atelier.jpg",
-    alt: "Goldsmith hand-working fine jewelry with jeweler torch and pliers",
-    description:
-      "Each setting is individually hand-fabricated in rich 18K yellow, white, or rose gold. Prongs, bezels, and galleries are calibrated to the micron to protect each stone for decades.",
+    tagline: "Handcrafted with care, made to last.",
+    detail:
+      "Fabricated by hand in solid 18K gold. Bezels, prongs, and galleries are sculpted individually to protect precious stones for lifetimes to come.",
+    image: "/images/jewellery/pillar-3.jpg",
+    alt: "Artisan handcrafted 18K solid gold jewelry with fine floral detailing",
   },
   {
-    step: "04",
+    id: "cherished-heirloom",
     title: "The Cherished Heirloom",
-    subtitle: "Crafted for Generations",
-    image: "/images/jewellery/footer-box.jpg",
-    alt: "Fine emerald necklace presented in an elegant velvet jewelry box",
-    description:
-      "Every finished piece undergoes rigorous quality appraisal and gemological certification, prepared to be presented, treasured, and passed down as an enduring family heirloom.",
+    tagline: "Timeless pieces for generations.",
+    detail:
+      "Individually appraised, hallmarked, and gemologically certified, created to commemorate milestones and be treasured through generations.",
+    image: "/images/jewellery/pillar-4.jpg",
+    alt: "High jewelry emerald and diamond collar necklace statement piece",
   },
 ];
 
 export default function AboutCraftsmanship() {
   const rootRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  const toggleCard = (id: string) => {
+    setExpandedCards((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   useGSAP(
     () => {
       const root = rootRef.current;
       if (!root) return;
 
-      const reduce = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduce) return;
 
-      const header = root.querySelector(".craft-header");
-      const cards = root.querySelectorAll(".craft-card");
-      const quote = root.querySelector(".craft-quote");
+      const header = root.querySelector(".pillars-header");
+      const cards = root.querySelectorAll(".pillar-card");
+      const footer = root.querySelector(".pillars-footer");
 
-      gsap.fromTo(
-        header,
-        { autoAlpha: 0, y: 30 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: header,
-            start: "top 80%",
-            once: true,
-          },
-        }
-      );
-
-      gsap.fromTo(
-        cards,
-        { autoAlpha: 0, y: 35 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.75,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: cards[0],
-            start: "top 80%",
-            once: true,
-          },
-        }
-      );
-
-      if (quote) {
+      if (header) {
         gsap.fromTo(
-          quote,
-          { autoAlpha: 0, y: 25 },
+          header,
+          { autoAlpha: 0, y: 24 },
           {
             autoAlpha: 1,
             y: 0,
             duration: 0.8,
-            ease: "power3.out",
+            ease: "power2.out",
             scrollTrigger: {
-              trigger: quote,
-              start: "top 85%",
+              trigger: root,
+              start: "top 75%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      if (cards.length > 0) {
+        gsap.fromTo(
+          cards,
+          { autoAlpha: 0, y: 30 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 70%",
+              once: true,
+            },
+          }
+        );
+      }
+
+      if (footer) {
+        gsap.fromTo(
+          footer,
+          { autoAlpha: 0, y: 18 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: root,
+              start: "top 65%",
               once: true,
             },
           }
@@ -118,90 +141,153 @@ export default function AboutCraftsmanship() {
     { scope: rootRef }
   );
 
+  const handleScroll = (direction: "left" | "right") => {
+    if (!gridRef.current) return;
+    const cardWidth = gridRef.current.clientWidth / 4;
+    const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+    gridRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
+
   return (
     <section
       ref={rootRef}
-      className="relative bg-[#0c241c] py-28 sm:py-36 text-[var(--color-ivory)] overflow-hidden"
+      id="pillars-of-mastery"
+      className="pillars-section"
+      aria-labelledby="pillars-heading"
     >
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
-        {/* Section Header with NO artificial lines */}
-        <div className="craft-header grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-          <div className="lg:col-span-8">
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-[var(--color-champagne)] font-medium">
-              Atelier Artistry
-            </p>
-            <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[var(--color-ivory)] leading-[1.12]">
+      <div className="pillars-container">
+        {/* Header Row */}
+        <header className="pillars-header">
+          <div className="pillars-header__titles">
+            <div className="pillars-eyebrow-wrap">
+              <p className="pillars-eyebrow">Atelier Artistry</p>
+            </div>
+            <h2 id="pillars-heading" className="pillars-title">
               Crafted Through Generations: <br />
-              <span className="italic font-normal text-[var(--color-champagne)]">
+              <span className="pillars-title__accent">
                 The Four Pillars of Mastery
               </span>
             </h2>
           </div>
-          <div className="lg:col-span-4">
-            <p className="font-sans text-sm text-[var(--color-ivory)]/80 font-light leading-relaxed">
+
+          <div className="pillars-header__narrative">
+            <p className="pillars-narrative-text">
               Our heritage is our foundation, our expertise is our strength, and
               our commitment to excellence guides everything we do. Every stage of
               our evolution has been shaped by a deep respect for the materials we
               work with and the people who place their trust in us.
             </p>
+            <Link href="#who-we-are" prefetch={false} className="pillars-story-link">
+              <span>SEE OUR STORY</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
-        </div>
+        </header>
 
-        {/* 4 Pillars Card Grid */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {CRAFT_STEPS.map((craft) => (
-            <div
-              key={craft.step}
-              className="craft-card group relative bg-[#081814]/80 border border-[rgba(198,161,91,0.25)] p-6 transition-all duration-500 hover:border-[var(--color-champagne)] hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#102a31]/50 flex flex-col justify-between"
+        {/* 4 Pillars Vitrine Row Flanked by Nav Outline Arrows */}
+        <div className="pillars-row-wrapper">
+          <button
+            type="button"
+            className="pillars-nav-btn"
+            aria-label="Previous pillar"
+            onClick={() => handleScroll("left")}
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <div>
-                {/* Step Number & Subtitle */}
-                <div className="flex items-center justify-between border-b border-[rgba(198,161,91,0.2)] pb-3 mb-4">
-                  <span className="font-serif text-2xl text-[var(--color-champagne)] font-light">
-                    {craft.step}
-                  </span>
-                  <span className="text-[10px] tracking-widest uppercase text-[var(--color-ivory)]/60 font-sans">
-                    {craft.subtitle}
-                  </span>
-                </div>
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
 
-                {/* Photo window */}
-                <div className="relative aspect-square w-full overflow-hidden border border-[rgba(198,161,91,0.2)] bg-[#040c09] mb-4">
-                  <Image
-                    src={craft.image}
-                    alt={craft.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    quality={85}
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#081814]/70 via-transparent to-transparent pointer-events-none" />
-                </div>
+          <div ref={gridRef} className="pillars-grid" role="list">
+            {PILLARS_DATA.map((pillar) => {
+              const isExpanded = Boolean(expandedCards[pillar.id]);
 
-                {/* Title & Copy */}
-                <h3 className="font-serif text-lg sm:text-xl font-normal text-[var(--color-ivory)]">
-                  {craft.title}
-                </h3>
-                <p className="mt-2 font-sans text-xs sm:text-sm text-[var(--color-ivory)]/75 font-light leading-relaxed">
-                  {craft.description}
-                </p>
-              </div>
+              return (
+                <article
+                  key={pillar.id}
+                  className="pillar-card"
+                  role="listitem"
+                >
+                  <div className="pillar-card__figure">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.alt}
+                      fill
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
+                      quality={90}
+                      className="pillar-card__img"
+                    />
+                  </div>
 
-              {/* Bottom tag */}
-              <div className="mt-6 pt-3 border-t border-[rgba(198,161,91,0.15)] flex items-center justify-between text-[11px] text-[var(--color-champagne)] tracking-widest uppercase font-sans">
-                <span>Atelier Standard</span>
-              </div>
-            </div>
-          ))}
+                  <div className="pillar-card__content">
+                    <div className="pillar-card__body">
+                      <h3 className="pillar-card__title">{pillar.title}</h3>
+                      <p className="pillar-card__desc">{pillar.tagline}</p>
+
+                      <div
+                        id={`pillar-detail-${pillar.id}`}
+                        className={`pillar-card__detail-wrap ${isExpanded ? "is-expanded" : ""}`}
+                        aria-hidden={!isExpanded}
+                      >
+                        <p className="pillar-card__detail-text">
+                          {pillar.detail}
+                        </p>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      className="pillar-card__action"
+                      onClick={() => toggleCard(pillar.id)}
+                      aria-expanded={isExpanded}
+                      aria-controls={`pillar-detail-${pillar.id}`}
+                    >
+                      {isExpanded ? "SEE LESS" : "SEE MORE"}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            className="pillars-nav-btn"
+            aria-label="Next pillar"
+            onClick={() => handleScroll("right")}
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
 
-        {/* Editorial Quote Statement */}
-        <div className="craft-quote mt-20 border-t border-[rgba(198,161,91,0.2)] pt-12 text-center max-w-2xl mx-auto">
-          <p className="font-serif text-xl sm:text-2xl italic text-[var(--color-champagne)]">
+        {/* Bottom Editorial Quote */}
+        <footer className="pillars-footer">
+          <blockquote className="pillars-quote">
             &ldquo;At Uni Fine Jewelry, we aspire to create more than beautiful objects.
             We create pieces that hold meaning, celebrate individuality, and stand the test of time.&rdquo;
-          </p>
-        </div>
+          </blockquote>
+        </footer>
       </div>
     </section>
   );

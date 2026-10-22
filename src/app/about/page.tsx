@@ -6,7 +6,6 @@ import AboutWhoWeAre from "@/components/about/AboutWhoWeAre";
 import AboutTimeline from "@/components/about/AboutTimeline";
 import AboutPhilosophy from "@/components/about/AboutPhilosophy";
 import AboutCraftsmanship from "@/components/about/AboutCraftsmanship";
-import AboutCta from "@/components/about/AboutCta";
 
 export const metadata: Metadata = {
   title: "About Us | A Legacy of Craftsmanship Since 1965 | Uni Fine Jewelry",
@@ -16,11 +15,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#0b211c]">
-      <div className="relative">
-        <SiteNav activeHref="/about" />
-        <AboutHero />
-      </div>
+    <main className="min-h-screen bg-[#0b211c] relative">
+      <SiteNav activeHref="/about" />
+      <AboutHero />
 
       {/* 2. Who We Are: Deep Family Stewardship & Narrative */}
       <AboutWhoWeAre />
@@ -34,10 +31,7 @@ export default function AboutPage() {
       {/* 5. Crafted Through Generations: Four Pillars of Atelier Artistry */}
       <AboutCraftsmanship />
 
-      {/* 6. Crescendo Invitation & Action */}
-      <AboutCta />
-
-      {/* 7. Comprehensive Site Footer & Contacts */}
+      {/* 6. Comprehensive Site Footer & Contacts */}
       <SiteFooter />
     </main>
   );

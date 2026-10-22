@@ -180,8 +180,10 @@ export default function AboutPhilosophy() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           
           <div className="phil-card bg-white/75 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
-            <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)] text-[var(--color-champagne)] mb-6">
-              <span className="font-serif text-lg">I</span>
+            <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)]/60 text-[var(--color-champagne)] mb-6" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <polygon points="12 2 22 12 12 22 2 12" />
+              </svg>
             </div>
             <h4 className="font-serif text-xl sm:text-2xl text-[var(--color-dark-forest)] font-normal">
               An Act of Trust
@@ -194,8 +196,10 @@ export default function AboutPhilosophy() {
           </div>
 
           <div className="phil-card bg-white/75 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
-            <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)] text-[var(--color-champagne)] mb-6">
-              <span className="font-serif text-lg">II</span>
+            <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)]/60 text-[var(--color-champagne)] mb-6" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <polygon points="12 2 22 12 12 22 2 12" />
+              </svg>
             </div>
             <h4 className="font-serif text-xl sm:text-2xl text-[var(--color-dark-forest)] font-normal">
               Unconquerable Spirit
@@ -208,8 +212,10 @@ export default function AboutPhilosophy() {
           </div>
 
           <div className="phil-card bg-white/75 backdrop-blur-xs border border-[var(--color-champagne)]/30 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-champagne)]">
-            <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)] text-[var(--color-champagne)] mb-6">
-              <span className="font-serif text-lg">III</span>
+            <div className="w-10 h-10 flex items-center justify-center border border-[var(--color-champagne)]/60 text-[var(--color-champagne)] mb-6" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <polygon points="12 2 22 12 12 22 2 12" />
+              </svg>
             </div>
             <h4 className="font-serif text-xl sm:text-2xl text-[var(--color-dark-forest)] font-normal">
               Generational Heirlooms
