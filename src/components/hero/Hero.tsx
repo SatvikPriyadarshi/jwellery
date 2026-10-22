@@ -21,7 +21,7 @@ export default function Hero() {
     <section className="hero" aria-label="Jewellery hero">
       <div className="hero__media">
         <Image
-          src="/images/jewellery-hero.png"
+          src="/images/jewellery-hero.jpg"
           alt="Model wearing an emerald and diamond collar necklace, matching drop earrings, and a triangular emerald ring"
           fill
           priority
@@ -33,7 +33,7 @@ export default function Hero() {
         {enableEffect ? (
           <div className="pointer-events-none absolute inset-0">
             <AcidSquares
-              imageSrc="/images/jewellery-hero.png"
+              imageSrc="/images/jewellery-hero.jpg"
               waves={0}
               pulse={0}
               grain={0}

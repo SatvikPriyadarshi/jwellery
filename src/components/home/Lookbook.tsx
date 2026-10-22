@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import "./Lookbook.css";
 
-const PHOTO = "/images/jewellery-hero.png";
+const PHOTO = "/images/jewellery-hero.jpg";
 
 type Face =
   | {
