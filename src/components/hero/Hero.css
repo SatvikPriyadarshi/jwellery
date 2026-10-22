@@ -1,106 +1,43 @@
 .hero {
-  --hero-ratio: 1983 / 793;
+  --hero-ratio: 1024 / 520;
   position: relative;
   isolation: isolate;
   width: 100%;
-  height: 100svh;
-  min-height: 100svh;
+  aspect-ratio: var(--hero-ratio);
+  max-height: 85svh;
   overflow: hidden;
-  background: #0b211c;
-  color: var(--color-ivory);
+  background: #f7f3ea;
 }
 
 .hero__media {
   position: absolute;
   inset: 0;
-}
-
-.hero__img {
-  object-fit: cover;
-  /* Prefer upper/mid frame so the subject isn’t cut off at the bottom */
-  object-position: center 28%;
-}
-
-.hero__scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    rgba(7, 22, 18, 0.88) 0%,
-    rgba(7, 22, 18, 0.62) 28%,
-    rgba(7, 22, 18, 0.22) 48%,
-    transparent 64%
-  );
-}
-
-.hero__content {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: clamp(5.5rem, 14vh, 8rem) clamp(2rem, 6vw, 5.5rem)
-    clamp(2rem, 6vh, 4rem);
-  pointer-events: none;
-}
-
-.hero__copy {
-  width: min(36rem, 46vw);
-  max-width: 48%;
-  pointer-events: auto;
-}
-
-.hero__mesh-wrap {
-  width: 100%;
-  aspect-ratio: 3.5 / 1;
-  min-height: 9.5rem;
-  position: relative;
-}
-
-.hero__mesh-lettering {
   width: 100%;
   height: 100%;
 }
 
-/* Phones: framed portrait view so model, jewelry, and mesh lettering fit comfortably */
+.hero__img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Phones: wide reference banner ratio without cutoffs or shop now button */
 @media (max-width: 768px) {
   .hero {
-    height: 75svh;
-    min-height: 440px;
-    max-height: 600px;
-    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: var(--hero-ratio);
   }
 
   .hero__img {
-    object-position: center 25%;
-  }
-
-  .hero__scrim {
-    background: linear-gradient(
-      180deg,
-      rgba(7, 22, 18, 0.42) 0%,
-      rgba(7, 22, 18, 0.2) 35%,
-      rgba(7, 22, 18, 0.65) 75%,
-      rgba(7, 22, 18, 0.88) 100%
-    );
-  }
-
-  .hero__content {
-    align-items: flex-end;
-    justify-content: center;
-    padding: 5.5rem 1.25rem 2.25rem;
-  }
-
-  .hero__copy {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .hero__mesh-wrap {
-    aspect-ratio: 2.2 / 1;
-    min-height: 6.5rem;
+    object-fit: cover;
+    object-position: center center;
   }
 }

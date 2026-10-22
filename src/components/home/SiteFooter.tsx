@@ -81,6 +81,7 @@ export default function SiteFooter() {
       />
 
       <div className="site-footer__top">
+        {/* Left Column: Velvet box photo (Desktop only) */}
         <figure className="site-footer__box">
           <Image
             src="/images/jewellery/footer-box.jpg"
@@ -91,56 +92,53 @@ export default function SiteFooter() {
           />
         </figure>
 
+        {/* Column 2: Boutiques & Contact */}
         <address className="site-footer__contact">
-          <p>
+          <div className="site-footer__contact-item">
             <span className="site-footer__icon"><PinIcon /></span>
-            <span>
-              <strong>India Office</strong>
-              N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd, Jaipur, Rajasthan 302001
-            </span>
-          </p>
-          <p>
+            <div className="site-footer__contact-text">
+              <strong>India Atelier</strong>
+              <span>N K Towers, Purohit Ji Ka Bagh, M.I. Rd, Jaipur 302001</span>
+              <a href="tel:+919829056388" className="site-footer__tel">
+                <PhoneIcon /> +91 9829056388
+              </a>
+            </div>
+          </div>
+
+          <div className="site-footer__contact-item">
             <span className="site-footer__icon"><PinIcon /></span>
-            <span>
-              <strong>Malaysia Office</strong>
-              8-12-2, Menara Mutiara Bangsar, Jalan Liku Off Jalan Bangsar, 59100 Kuala Lumpur
-            </span>
-          </p>
-          <p>
-            <span className="site-footer__icon"><MailIcon /></span>
-            <span>
-              <strong>Mail</strong>
-              <a href="mailto:info@unifinejewelry.com">info@unifinejewelry.com</a>
-            </span>
-          </p>
-          <p>
-            <span className="site-footer__icon"><CameraIcon /></span>
-            <span>
-              <strong>Social Media</strong>
-              Instagram
-            </span>
-          </p>
-          <p>
-            <span className="site-footer__icon"><PhoneIcon /></span>
-            <span>
-              <strong>India</strong>
-              <a href="tel:+919829056388">+91 9829056388</a>
-            </span>
-          </p>
-          <p>
-            <span className="site-footer__icon"><PhoneIcon /></span>
-            <span>
-              <strong>Malaysia</strong>
-              <a href="tel:+60122032941">+60 122032941</a>
-            </span>
-          </p>
+            <div className="site-footer__contact-text">
+              <strong>Malaysia Boutique</strong>
+              <span>8-12-2, Menara Mutiara Bangsar, Jalan Liku, 59100 KL</span>
+              <a href="tel:+60122032941" className="site-footer__tel">
+                <PhoneIcon /> +60 122032941
+              </a>
+            </div>
+          </div>
+
+          <div className="site-footer__direct-pills">
+            <a href="mailto:info@unifinejewelry.com" className="site-footer__pill-link">
+              <span className="site-footer__icon"><MailIcon /></span>
+              <span>info@unifinejewelry.com</span>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="site-footer__pill-link"
+            >
+              <span className="site-footer__icon"><CameraIcon /></span>
+              <span>Instagram @unifinejewelry</span>
+            </a>
+          </div>
         </address>
 
+        {/* Column 3: Newsletter Privileges */}
         <div className="site-footer__connect">
           <p className="site-footer__eyebrow">Stay Connected</p>
-          <h2>Check out now &amp; your first order</h2>
+          <h2>Enjoy 5% Off Your First Order</h2>
           <p className="site-footer__lede">
-            Enjoy a 5% Discount on Your First Order as Our Welcome Gift to You.
+            Join the Uni Fine Jewelry atelier list for private collections and bespoke updates.
           </p>
           <form className="site-footer__form">
             <label className="site-footer__field">
@@ -156,14 +154,15 @@ export default function SiteFooter() {
             <label className="site-footer__field">
               <span className="sr-only">Email</span>
               <span className="site-footer__field-icon" aria-hidden="true"><MailIcon /></span>
-              <input id="email" name="email" type="email" placeholder="Email" />
+              <input id="email" name="email" type="email" placeholder="Email Address" />
             </label>
-            <button type="button">
-              Send <span aria-hidden="true">→</span>
+            <button type="button" className="site-footer__submit-btn">
+              Claim Privilege <span aria-hidden="true">→</span>
             </button>
           </form>
         </div>
 
+        {/* Column 4: Motto and Stones (Desktop) */}
         <div className="site-footer__aside">
           <div className="site-footer__motto">
             <Crest />
@@ -184,7 +183,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="site-footer__band">
-        <nav aria-label="Information">
+        <nav aria-label="Information" className="site-footer__nav-col">
           <h2>Information</h2>
           <ul>
             <li><Link href="/" prefetch={false}>Home</Link></li>
@@ -194,7 +193,7 @@ export default function SiteFooter() {
             <li><a href="#contact">Contact us</a></li>
           </ul>
         </nav>
-        <nav aria-label="Useful links">
+        <nav aria-label="Useful links" className="site-footer__nav-col">
           <h2>Useful Links</h2>
           <ul>
             <li><a href="#contact">Privacy Policy</a></li>
@@ -205,11 +204,13 @@ export default function SiteFooter() {
         <div className="site-footer__mark">
           <Crest />
           <div className="site-footer__mark-line">
+            <span aria-hidden="true" />
             <p>
               Timeless beauty
               <br />
               in every detail
             </p>
+            <span aria-hidden="true" />
           </div>
         </div>
         <p className="site-footer__copy">

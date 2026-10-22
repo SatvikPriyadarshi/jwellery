@@ -131,7 +131,7 @@ export default function CollectionStage() {
 
         if (currentSlide && nextSlide) {
           gsap.to(currentSlide, {
-            y: direction * -50,
+            x: direction * -70,
             autoAlpha: 0,
             duration: 0.38,
             ease: "power2.inOut",
@@ -139,9 +139,9 @@ export default function CollectionStage() {
 
           gsap.fromTo(
             nextSlide,
-            { y: direction * 70, autoAlpha: 0 },
+            { x: direction * 70, autoAlpha: 0 },
             {
-              y: 0,
+              x: 0,
               autoAlpha: 1,
               duration: 0.42,
               ease: "power2.out",
@@ -329,12 +329,25 @@ export default function CollectionStage() {
     const deltaX = e.changedTouches[0].clientX - touchStartX.current;
     const deltaTime = Date.now() - touchStartTime.current;
 
-    // Vertical swipe threshold > 48px
+    // Horizontal swipe (most natural on mobile touch screen)
     if (
-      Math.abs(deltaY) > 48 &&
-      Math.abs(deltaY) > Math.abs(deltaX) &&
-      deltaTime < 650
+      Math.abs(deltaX) > 32 &&
+      Math.abs(deltaX) > Math.abs(deltaY) &&
+      deltaTime < 700
     ) {
+      if (deltaX < 0 && activeIdx < slides.length - 1) {
+        // Swipe Left -> Next collection
+        gotoSlide(activeIdx + 1);
+      } else if (deltaX > 0 && activeIdx > 0) {
+        // Swipe Right -> Prev collection
+        gotoSlide(activeIdx - 1);
+      }
+    } else if (
+      Math.abs(deltaY) > 42 &&
+      Math.abs(deltaY) > Math.abs(deltaX) &&
+      deltaTime < 700
+    ) {
+      // Vertical swipe fallback
       if (deltaY < 0 && activeIdx < slides.length - 1) {
         // Swipe Up -> Next collection
         gotoSlide(activeIdx + 1);
@@ -453,20 +466,42 @@ export default function CollectionStage() {
         </article>
       ))}
 
-      {/* Bottom Bar: Indicators & Hint */}
-      <div className="cs-bottombar" aria-hidden="true">
-        <div className="cs-bottombar__track">
-          {slides.map((slide, idx) => (
-            <button
-              key={slide.name}
-              type="button"
-              onClick={() => gotoSlide(idx)}
-              className={`cs-bottombar__tick ${
-                activeIdx === idx ? "cs-bottombar__tick--active" : ""
-              }`}
-              aria-label={`Go to ${slide.name}`}
-            />
-          ))}
+      {/* Bottom Bar: Indicators & Navigation Controls */}
+      <div className="cs-bottombar">
+        <div className="cs-bottombar__controls">
+          <button
+            type="button"
+            onClick={() => gotoSlide(activeIdx - 1)}
+            disabled={activeIdx === 0}
+            className="cs-bottombar__arrow"
+            aria-label="Previous collection"
+          >
+            ‹
+          </button>
+
+          <div className="cs-bottombar__track" role="tablist" aria-label="Collections">
+            {slides.map((slide, idx) => (
+              <button
+                key={slide.name}
+                type="button"
+                onClick={() => gotoSlide(idx)}
+                className={`cs-bottombar__tick ${
+                  activeIdx === idx ? "cs-bottombar__tick--active" : ""
+                }`}
+                aria-label={`Go to ${slide.name}`}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => gotoSlide(activeIdx + 1)}
+            disabled={activeIdx === slides.length - 1}
+            className="cs-bottombar__arrow"
+            aria-label="Next collection"
+          >
+            ›
+          </button>
         </div>
         <span className="cs-bottombar__hint">Scroll to explore</span>
       </div>
