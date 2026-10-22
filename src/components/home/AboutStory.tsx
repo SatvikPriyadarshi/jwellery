@@ -22,6 +22,71 @@ export default function AboutStory() {
         "(prefers-reduced-motion: reduce)",
       ).matches;
 
+      const isMobile = window.innerWidth <= 900;
+
+      if (isMobile) {
+        const mobEyebrow = root.querySelector(".about-mob-eyebrow");
+        const mobTitle = root.querySelector(".about-mob-title");
+        const mobCopy = root.querySelector(".about-mob-copy");
+        const mobActions = root.querySelector(".about-mob-actions");
+        const mobPortal = root.querySelector(".about-mob-portal");
+        const mobArrow = root.querySelector(".about-mob-cta__arrow");
+        const mobCta = root.querySelector(".about-mob-cta");
+
+        if (reduce) {
+          gsap.set(
+            [mobEyebrow, mobTitle, mobCopy, mobActions, mobPortal],
+            { clearProps: "all" }
+          );
+          return;
+        }
+
+        gsap.set(
+          [mobEyebrow, mobTitle, mobCopy, mobActions, mobPortal],
+          { autoAlpha: 0, y: 18 }
+        );
+
+        const tlMob = gsap.timeline({
+          scrollTrigger: {
+            trigger: root,
+            start: "top 82%",
+            once: true,
+          },
+        });
+
+        tlMob
+          .to(mobEyebrow, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" })
+          .to(
+            mobTitle,
+            { autoAlpha: 1, y: 0, duration: 0.65, ease: "power2.out" },
+            "-=0.25"
+          )
+          .to(
+            mobCopy,
+            { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" },
+            "-=0.35"
+          )
+          .to(
+            mobActions,
+            { autoAlpha: 1, y: 0, duration: 0.55, ease: "power2.out" },
+            "-=0.3"
+          )
+          .to(
+            mobPortal,
+            { autoAlpha: 1, y: 0, duration: 0.75, ease: "power2.out" },
+            "-=0.2"
+          );
+
+        if (mobCta && mobArrow) {
+          const enter = () => gsap.to(mobArrow, { x: 4, duration: 0.3, ease: "power2.out" });
+          const leave = () => gsap.to(mobArrow, { x: 0, duration: 0.3, ease: "power2.out" });
+          mobCta.addEventListener("pointerenter", enter);
+          mobCta.addEventListener("pointerleave", leave);
+        }
+
+        return;
+      }
+
       const eyebrow = root.querySelector(".about-eyebrow");
       const title = root.querySelector(".about-title");
       const copy = root.querySelector(".about-copy");
@@ -135,9 +200,11 @@ export default function AboutStory() {
       className="about-section"
       aria-labelledby="about-heading"
     >
-      <div className="about-shell">
+      {/* Desktop Layout (≥ 901px) */}
+      <div className="about-shell about-desktop-only">
         <div className="about-copycol">
           <p className="about-eyebrow">
+            <span className="about-eyebrow__bar" aria-hidden="true" />
             About Us
           </p>
           <h2 id="about-heading" className="about-title">
@@ -146,7 +213,7 @@ export default function AboutStory() {
             <em>Our Journey</em>
           </h2>
           <p className="about-copy">
-            Uni Fine Jewelry is a family owned business that specializes in
+            Uni Fine Jewelry is a family-owned business that specializes in
             hand-crafted fine jewelry that is both timeless and precious. Using
             superior quality materials, our artisans create classic pieces with
             unparalleled artistic and luxury value. Whether it’s gold, emerald,
@@ -154,7 +221,7 @@ export default function AboutStory() {
             pieces that you will cherish for years to come.
           </p>
           <Link href="/about" prefetch={false} className="about-cta">
-            View More
+            <span>View More</span>
             <span className="about-cta__arrow" aria-hidden="true">
               →
             </span>
@@ -193,6 +260,159 @@ export default function AboutStory() {
               className="about-photo__img"
             />
           </figure>
+        </div>
+      </div>
+
+      {/* Mobile Reference UI Layout (< 901px) */}
+      <div className="about-mob-container">
+        {/* Upper Hero Stage: Model Editorial Background + Scrim + Text Overlay */}
+        <div className="about-mob-hero">
+          <div className="about-mob-hero__media">
+            <Image
+              src="/images/jewellery/about-us-editorial.jpg"
+              alt="Model wearing emerald earrings, ring, and bracelet with emerald velvet dress"
+              fill
+              priority
+              sizes="100vw"
+              quality={92}
+              className="about-mob-hero__img"
+            />
+            <div className="about-mob-hero__scrim" aria-hidden="true" />
+          </div>
+
+          <div className="about-mob-hero__content">
+            <p className="about-mob-eyebrow">
+              <span className="about-mob-eyebrow__bar" aria-hidden="true" />
+              <span>About Us</span>
+            </p>
+
+            <h2 className="about-mob-title">
+              The Art of
+              <br />
+              Jewelry:
+              <br />
+              <em>Our Journey</em>
+            </h2>
+
+            <p className="about-mob-copy">
+              Uni Fine Jewelry is a family-owned business that specializes in
+              hand-crafted fine jewelry that is both timeless and precious.
+              Using superior quality materials, our artisans create classic
+              pieces with unparalleled artistic and luxury value.
+            </p>
+
+            <div className="about-mob-actions">
+              <Link
+                href="/about"
+                prefetch={false}
+                className="about-mob-cta"
+                aria-label="See more about our journey"
+              >
+                <span>SEE MORE</span>
+                <span className="about-mob-cta__arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+
+              <div
+                className="about-mob-chapter"
+                aria-label="Chapter 01 of 03: Our Story"
+              >
+                <div className="about-mob-chapter__badge">
+                  <span className="about-mob-chapter__num">01</span>
+                  <span
+                    className="about-mob-chapter__divider"
+                    aria-hidden="true"
+                  />
+                  <span className="about-mob-chapter__num">03</span>
+                </div>
+                <span
+                  className="about-mob-chapter__line"
+                  aria-hidden="true"
+                />
+                <span className="about-mob-chapter__label">
+                  OUR
+                  <br />
+                  STORY
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Lower Curved Stage: Warm Marble Base + Sweeping Portal framing Glowing Cut Emerald */}
+        <div className="about-mob-portal">
+          <div className="about-mob-portal__base">
+            {/* Left Emblem: Gold 4-Point Diamond Star + Vertical Hairline + TIMELESS CRAFTSMANSHIP */}
+            <div className="about-mob-emblem" aria-hidden="true">
+              <svg
+                className="about-mob-emblem__star"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 2L13.8 9.5L21.3 12L13.8 14.5L12 22L10.2 14.5L2.7 12L10.2 9.5L12 2Z"
+                  fill="#C6A15B"
+                />
+              </svg>
+              <span className="about-mob-emblem__line" />
+              <p className="about-mob-emblem__text">
+                <span>TIMELESS</span>
+                <span>CRAFTSMANSHIP</span>
+              </p>
+            </div>
+
+            {/* Sweeping Arched Curved Portal with Glowing Cut Emerald Detail */}
+            <div className="about-mob-portal__frame">
+              <svg
+                viewBox="0 0 472 380"
+                className="about-mob-portal__svg"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <clipPath id="about-mob-curve-clip">
+                    <path d="M 0 0 C 35 15 56 45 56 95 C 56 145 92 190 140 235 C 195 285 270 325 472 355 L 472 0 Z" />
+                  </clipPath>
+                  <linearGradient
+                    id="about-mob-gold-stroke"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stopColor="#F6E2B8" />
+                    <stop offset="45%" stopColor="#C6A15B" />
+                    <stop offset="100%" stopColor="#8E6C2E" />
+                  </linearGradient>
+                </defs>
+
+                {/* Glowing Faceted Emerald Gemstone on Green Marble */}
+                <image
+                  href="/images/jewellery/about-emerald-detail.jpg"
+                  width="472"
+                  height="380"
+                  preserveAspectRatio="xMidYMid slice"
+                  clipPath="url(#about-mob-curve-clip)"
+                />
+
+                {/* Deep Emerald Velvet Tint Overlay inside Portal */}
+                <path
+                  d="M 0 0 C 35 15 56 45 56 95 C 56 145 92 190 140 235 C 195 285 270 325 472 355 L 472 0 Z"
+                  fill="rgba(6, 20, 15, 0.16)"
+                />
+
+                {/* Gold Boundary Stroke outlining the sweeping curve */}
+                <path
+                  d="M 0 0 C 35 15 56 45 56 95 C 56 145 92 190 140 235 C 195 285 270 325 472 355"
+                  fill="none"
+                  stroke="url(#about-mob-gold-stroke)"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </section>

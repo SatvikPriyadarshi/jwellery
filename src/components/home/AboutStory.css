@@ -186,63 +186,320 @@
   will-change: transform;
 }
 
+.about-eyebrow__bar {
+  width: 1.5px;
+  height: 1.15rem;
+  background: var(--color-champagne);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   MOBILE REFERENCE UI (< 901px)
+   ========================================= */
+.about-mob-container {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .about-desktop-only {
+    display: grid;
+  }
+
+  .about-mob-container {
+    display: none !important;
+  }
+}
+
 @media (max-width: 900px) {
   .about-section {
     height: auto;
     min-height: 0;
-  }
-
-  .about-shell {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3rem 1.25rem 2.5rem;
-  }
-
-  .about-visual {
-    width: 100%;
-    margin-left: 0;
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    aspect-ratio: 4 / 4.5;
-    border-radius: 12px;
+    padding: 0;
+    background: #071712;
     overflow: hidden;
   }
 
-  .about-panel {
-    display: none;
+  .about-desktop-only {
+    display: none !important;
   }
 
-  .about-photo {
-    left: 0;
+  .about-mob-container {
+    display: block;
+    width: 100%;
+    position: relative;
+    background: #071712;
+    color: var(--color-ivory);
+  }
+
+  /* --- Top Hero Stage: Model Photo Background + Scrim + Content --- */
+  .about-mob-hero {
+    position: relative;
+    width: 100%;
+    min-height: clamp(38rem, 88vh, 46rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(3.5rem, 8vh, 5.5rem) var(--mobile-gutter, 1.25rem) 2.25rem;
+    overflow: hidden;
+  }
+
+  .about-mob-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .about-mob-hero__img {
+    object-fit: cover;
+    object-position: 72% 22%;
+  }
+
+  .about-mob-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 14, 10, 0.96) 0%,
+        rgba(5, 16, 12, 0.88) 46%,
+        rgba(6, 18, 13, 0.46) 74%,
+        rgba(6, 18, 13, 0.12) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(5, 14, 10, 0.45) 0%,
+        transparent 28%,
+        rgba(5, 16, 12, 0.72) 80%,
+        #071712 100%
+      );
+  }
+
+  .about-mob-hero__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .about-mob-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 0;
+    color: var(--color-champagne);
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .about-mob-eyebrow__bar {
+    width: 1.5px;
+    height: 1.15rem;
+    background: var(--color-champagne);
+    flex-shrink: 0;
+  }
+
+  .about-mob-title {
+    margin: 0.95rem 0 0;
+    color: var(--color-ivory);
+    font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2.35rem, 9.2vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .about-mob-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: #d8b26e;
+  }
+
+  .about-mob-copy {
+    margin: 1.15rem 0 0;
+    max-width: 22.5rem;
+    color: color-mix(in srgb, var(--color-ivory) 88%, transparent);
+    font-family: var(--font-outfit), sans-serif;
+    font-size: clamp(0.82rem, 3.2vw, 0.92rem);
+    font-weight: 300;
+    line-height: 1.62;
+    letter-spacing: 0.01em;
+  }
+
+  .about-mob-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.85rem;
+    flex-wrap: wrap;
+  }
+
+  .about-mob-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.65rem 1.45rem;
+    border-radius: 999px;
+    border: 1px solid rgba(198, 161, 91, 0.8);
+    background: rgba(7, 22, 17, 0.45);
+    backdrop-filter: blur(8px);
+    color: var(--color-ivory);
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .about-mob-cta:active,
+  .about-mob-cta:hover {
+    border-color: var(--color-ivory);
+    background: rgba(198, 161, 91, 0.25);
+  }
+
+  .about-mob-cta__arrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-champagne);
+    transition: transform 0.3s ease;
+  }
+
+  .about-mob-chapter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+
+  .about-mob-chapter__badge {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 1px solid rgba(198, 161, 91, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(7, 22, 17, 0.45);
+    backdrop-filter: blur(6px);
+    color: var(--color-ivory);
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .about-mob-chapter__divider {
+    width: 0.95rem;
+    height: 1px;
+    background: rgba(198, 161, 91, 0.6);
+    margin: 2px 0;
+  }
+
+  .about-mob-chapter__line {
+    width: 1px;
+    height: 1.85rem;
+    background: rgba(198, 161, 91, 0.6);
+    flex-shrink: 0;
+  }
+
+  .about-mob-chapter__label {
+    color: var(--color-champagne);
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    line-height: 1.25;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* --- Lower Curved Stage: Warm Marble Base + Sweeping Portal --- */
+  .about-mob-portal {
+    position: relative;
+    width: 100%;
+    height: clamp(19rem, 42vh, 23rem);
+    background:
+      radial-gradient(
+        circle at 18% 35%,
+        #f7f3ec 0%,
+        #eee6d8 52%,
+        #e5dccd 100%
+      );
+    overflow: hidden;
+  }
+
+  .about-mob-portal__base {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about-mob-emblem {
+    position: absolute;
+    left: var(--mobile-gutter, 1.25rem);
+    top: clamp(2rem, 5vh, 3.25rem);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    pointer-events: none;
+  }
+
+  .about-mob-emblem__star {
+    width: 1.2rem;
+    height: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+  }
+
+  .about-mob-emblem__line {
+    width: 1px;
+    height: 2.25rem;
+    background: #c6a15b;
+    margin: 0.45rem 0 0.65rem 0.58rem;
+    opacity: 0.85;
+  }
+
+  .about-mob-emblem__text {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 0.54rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    color: #8f7645;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .about-mob-portal__frame {
+    position: absolute;
     right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
   }
 
-  .about-inset {
-    top: 18%;
-  }
-}
-
-@media (max-width: 640px) {
-  .about-inset,
-  .about-arc {
-    display: none;
-  }
-
-  .about-shell {
-    padding: 2.5rem var(--mobile-gutter, 1.15rem) 2rem;
-  }
-
-  .about-copy {
-    max-width: none;
-  }
-
-  .about-title {
-    font-size: clamp(2.1rem, 9vw, 2.7rem);
-  }
-
-  .about-photo__img {
-    object-position: center center;
+  .about-mob-portal__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(-8px 12px 24px rgba(0, 0, 0, 0.25));
   }
 }
 
