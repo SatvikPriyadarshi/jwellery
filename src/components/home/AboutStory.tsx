@@ -29,20 +29,19 @@ export default function AboutStory() {
         const mobTitle = root.querySelector(".about-mob-title");
         const mobCopy = root.querySelector(".about-mob-copy");
         const mobActions = root.querySelector(".about-mob-actions");
-        const mobPortal = root.querySelector(".about-mob-portal");
         const mobArrow = root.querySelector(".about-mob-cta__arrow");
         const mobCta = root.querySelector(".about-mob-cta");
 
         if (reduce) {
           gsap.set(
-            [mobEyebrow, mobTitle, mobCopy, mobActions, mobPortal],
+            [mobEyebrow, mobTitle, mobCopy, mobActions],
             { clearProps: "all" }
           );
           return;
         }
 
         gsap.set(
-          [mobEyebrow, mobTitle, mobCopy, mobActions, mobPortal],
+          [mobEyebrow, mobTitle, mobCopy, mobActions],
           { autoAlpha: 0, y: 18 }
         );
 
@@ -70,11 +69,6 @@ export default function AboutStory() {
             mobActions,
             { autoAlpha: 1, y: 0, duration: 0.55, ease: "power2.out" },
             "-=0.3"
-          )
-          .to(
-            mobPortal,
-            { autoAlpha: 1, y: 0, duration: 0.75, ease: "power2.out" },
-            "-=0.2"
           );
 
         if (mobCta && mobArrow) {
@@ -336,81 +330,6 @@ export default function AboutStory() {
                   STORY
                 </span>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Lower Curved Stage: Warm Marble Base + Sweeping Portal framing Glowing Cut Emerald */}
-        <div className="about-mob-portal">
-          <div className="about-mob-portal__base">
-            {/* Left Emblem: Gold 4-Point Diamond Star + Vertical Hairline + TIMELESS CRAFTSMANSHIP */}
-            <div className="about-mob-emblem" aria-hidden="true">
-              <svg
-                className="about-mob-emblem__star"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M12 2L13.8 9.5L21.3 12L13.8 14.5L12 22L10.2 14.5L2.7 12L10.2 9.5L12 2Z"
-                  fill="#C6A15B"
-                />
-              </svg>
-              <span className="about-mob-emblem__line" />
-              <p className="about-mob-emblem__text">
-                <span>TIMELESS</span>
-                <span>CRAFTSMANSHIP</span>
-              </p>
-            </div>
-
-            {/* Sweeping Arched Curved Portal with Glowing Cut Emerald Detail */}
-            <div className="about-mob-portal__frame">
-              <svg
-                viewBox="0 0 472 380"
-                className="about-mob-portal__svg"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <defs>
-                  <clipPath id="about-mob-curve-clip">
-                    <path d="M 0 0 C 35 15 56 45 56 95 C 56 145 92 190 140 235 C 195 285 270 325 472 355 L 472 0 Z" />
-                  </clipPath>
-                  <linearGradient
-                    id="about-mob-gold-stroke"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stopColor="#F6E2B8" />
-                    <stop offset="45%" stopColor="#C6A15B" />
-                    <stop offset="100%" stopColor="#8E6C2E" />
-                  </linearGradient>
-                </defs>
-
-                {/* Glowing Faceted Emerald Gemstone on Green Marble */}
-                <image
-                  href="/images/jewellery/about-emerald-detail.jpg"
-                  width="472"
-                  height="380"
-                  preserveAspectRatio="xMidYMid slice"
-                  clipPath="url(#about-mob-curve-clip)"
-                />
-
-                {/* Deep Emerald Velvet Tint Overlay inside Portal */}
-                <path
-                  d="M 0 0 C 35 15 56 45 56 95 C 56 145 92 190 140 235 C 195 285 270 325 472 355 L 472 0 Z"
-                  fill="rgba(6, 20, 15, 0.16)"
-                />
-
-                {/* Gold Boundary Stroke outlining the sweeping curve */}
-                <path
-                  d="M 0 0 C 35 15 56 45 56 95 C 56 145 92 190 140 235 C 195 285 270 325 472 355"
-                  fill="none"
-                  stroke="url(#about-mob-gold-stroke)"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                />
-              </svg>
             </div>
           </div>
         </div>

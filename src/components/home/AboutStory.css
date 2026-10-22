@@ -236,11 +236,11 @@
   .about-mob-hero {
     position: relative;
     width: 100%;
-    min-height: clamp(38rem, 88vh, 46rem);
+    min-height: clamp(36rem, 85vh, 46rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: clamp(3.5rem, 8vh, 5.5rem) var(--mobile-gutter, 1.25rem) 2.25rem;
+    padding: clamp(3.5rem, 8vh, 5.5rem) var(--mobile-gutter, 1.25rem) clamp(2.5rem, 6vh, 3.5rem);
     overflow: hidden;
   }
 
@@ -423,83 +423,6 @@
     line-height: 1.25;
     text-transform: uppercase;
     white-space: nowrap;
-  }
-
-  /* --- Lower Curved Stage: Warm Marble Base + Sweeping Portal --- */
-  .about-mob-portal {
-    position: relative;
-    width: 100%;
-    height: clamp(19rem, 42vh, 23rem);
-    background:
-      radial-gradient(
-        circle at 18% 35%,
-        #f7f3ec 0%,
-        #eee6d8 52%,
-        #e5dccd 100%
-      );
-    overflow: hidden;
-  }
-
-  .about-mob-portal__base {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .about-mob-emblem {
-    position: absolute;
-    left: var(--mobile-gutter, 1.25rem);
-    top: clamp(2rem, 5vh, 3.25rem);
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    pointer-events: none;
-  }
-
-  .about-mob-emblem__star {
-    width: 1.2rem;
-    height: 1.2rem;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
-  }
-
-  .about-mob-emblem__line {
-    width: 1px;
-    height: 2.25rem;
-    background: #c6a15b;
-    margin: 0.45rem 0 0.65rem 0.58rem;
-    opacity: 0.85;
-  }
-
-  .about-mob-emblem__text {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-outfit), sans-serif;
-    font-size: 0.54rem;
-    font-weight: 500;
-    letter-spacing: 0.24em;
-    color: #8f7645;
-    line-height: 1.45;
-    text-transform: uppercase;
-  }
-
-  .about-mob-portal__frame {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .about-mob-portal__svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    filter: drop-shadow(-8px 12px 24px rgba(0, 0, 0, 0.25));
   }
 }
 
