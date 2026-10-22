@@ -133,7 +133,7 @@ export default function AboutPhilosophy() {
         </div>
 
         {/* Adamas Callout Banner */}
-        <div className="phil-banner mt-16 relative bg-[#0b211c] text-[var(--color-ivory)] border border-[var(--color-champagne)]/35 p-8 sm:p-12 lg:p-16 shadow-2xl shadow-[#102a31]/20">
+        <div className="phil-banner mt-16 relative bg-[#0b211c] text-[var(--color-ivory)] border border-[var(--color-champagne)]/35 rounded-lg p-5 sm:p-12 lg:p-16 shadow-2xl shadow-[#102a31]/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-4">

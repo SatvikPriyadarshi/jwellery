@@ -79,10 +79,10 @@ const thirdColumn = testimonials.slice(6, 9);
 export default function Testimonials() {
   return (
     <section
-      className="relative flex h-svh min-h-[40rem] w-full flex-col justify-center overflow-hidden bg-[#E7E0D3] text-[#202722]"
+      className="relative flex min-h-[32rem] md:h-svh md:min-h-[40rem] w-full flex-col justify-center overflow-hidden bg-[#E7E0D3] text-[#202722] py-12 md:py-0"
       aria-labelledby="testimonial-heading"
     >
-      <div className="mx-auto flex w-full max-w-none flex-col px-[clamp(1.5rem,4vw,4.5rem)]">
+      <div className="mx-auto flex w-full max-w-none flex-col px-4 sm:px-[clamp(1.5rem,4vw,4.5rem)]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,13 +95,13 @@ export default function Testimonials() {
           </p>
           <h2
             id="testimonial-heading"
-            className="mt-3 font-[family-name:var(--font-cormorant)] text-[clamp(2.2rem,4vw,3.4rem)] leading-none font-medium tracking-tight text-[#123C32]"
+            className="mt-3 font-[family-name:var(--font-cormorant)] text-[clamp(2.1rem,4vw,3.4rem)] leading-none font-medium tracking-tight text-[#123C32]"
           >
             What Customers Say About Us
           </h2>
         </motion.div>
 
-        <div className="mt-8 flex max-h-[min(62svh,38rem)] justify-center gap-5 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
+        <div className="mt-6 md:mt-8 flex h-[24rem] md:h-auto md:max-h-[min(62svh,38rem)] justify-center gap-5 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
           <TestimonialsColumn testimonials={firstColumn} duration={18} />
           <TestimonialsColumn
             testimonials={secondColumn}

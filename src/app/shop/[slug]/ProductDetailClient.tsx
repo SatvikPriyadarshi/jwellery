@@ -38,13 +38,13 @@ export default function ProductDetailClient({
       : img;
 
   return (
-    <div className="py-12 sm:py-16">
+    <div className="py-8 sm:py-16">
       <div className="shop-container">
         {/* Two-Column Master Product Presentation */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start bg-[#ffffff] p-6 sm:p-10 border border-[rgba(198,161,91,0.3)] shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start bg-[#ffffff] p-4 sm:p-8 lg:p-10 border border-[rgba(198,161,91,0.3)] shadow-sm rounded-lg">
           {/* Left Column: Gallery & Photography */}
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <div className="relative aspect-square w-full bg-[#faf7f2] border border-[rgba(198,161,91,0.2)] overflow-hidden flex items-center justify-center">
+            <div className="relative aspect-square w-full bg-[#faf7f2] border border-[rgba(198,161,91,0.2)] rounded-md overflow-hidden flex items-center justify-center">
               <Image
                 src={getFittedImage(activeImage)}
                 alt={`${product.name} — high jewelry showcase`}
@@ -147,7 +147,7 @@ export default function ProductDetailClient({
                 href={mailtoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3.5 px-6 bg-[var(--color-emerald)] hover:bg-[#184c3f] text-[var(--color-ivory)] border border-[var(--color-champagne)] font-sans text-xs font-medium tracking-[0.22em] uppercase transition-all shadow-md"
+                className="w-full text-center py-3.5 px-6 bg-[var(--color-emerald)] hover:bg-[#184c3f] text-[var(--color-ivory)] border border-[var(--color-champagne)] font-sans text-xs font-medium tracking-[0.22em] uppercase rounded-md transition-all shadow-md"
               >
                 Inquire with Atelier Concierge &rarr;
               </a>
@@ -156,35 +156,35 @@ export default function ProductDetailClient({
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3 px-6 bg-[#faf7f2] hover:bg-[#ffffff] text-[var(--color-charcoal)] hover:text-[var(--color-emerald)] border border-[rgba(198,161,91,0.4)] font-sans text-xs font-medium tracking-[0.18em] uppercase transition-colors"
+                className="w-full text-center py-3 px-6 bg-[#faf7f2] hover:bg-[#ffffff] text-[var(--color-charcoal)] hover:text-[var(--color-emerald)] border border-[rgba(198,161,91,0.4)] font-sans text-xs font-medium tracking-[0.18em] uppercase rounded-md transition-colors"
               >
                 Chat on WhatsApp
               </a>
 
               {/* Luxury Atelier Assurances */}
-              <div className="mt-6 pt-5 border-t border-[rgba(198,161,91,0.15)] grid grid-cols-3 gap-2 text-center">
+              <div className="mt-6 pt-5 border-t border-[rgba(198,161,91,0.15)] grid grid-cols-3 gap-1 sm:gap-2 text-center">
                 <div>
-                  <p className="font-serif text-sm text-[var(--color-charcoal)] font-medium">
+                  <p className="font-serif text-xs sm:text-sm text-[var(--color-charcoal)] font-medium">
                     Atelier Sourced
                   </p>
-                  <p className="font-sans text-[11px] text-stone-500 mt-0.5">
+                  <p className="font-sans text-[10px] sm:text-[11px] text-stone-500 mt-0.5">
                     100% Conflict Free
                   </p>
                 </div>
                 <div>
-                  <p className="font-serif text-sm text-[var(--color-charcoal)] font-medium">
+                  <p className="font-serif text-xs sm:text-sm text-[var(--color-charcoal)] font-medium">
                     Bespoke Sizing
                   </p>
-                  <p className="font-sans text-[11px] text-stone-500 mt-0.5">
-                    Complimentary Service
+                  <p className="font-sans text-[10px] sm:text-[11px] text-stone-500 mt-0.5">
+                    Complimentary
                   </p>
                 </div>
                 <div>
-                  <p className="font-serif text-sm text-[var(--color-charcoal)] font-medium">
+                  <p className="font-serif text-xs sm:text-sm text-[var(--color-charcoal)] font-medium">
                     Worldwide Delivery
                   </p>
-                  <p className="font-sans text-[11px] text-stone-500 mt-0.5">
-                    Fully Insured Transit
+                  <p className="font-sans text-[10px] sm:text-[11px] text-stone-500 mt-0.5">
+                    Insured Transit
                   </p>
                 </div>
               </div>
