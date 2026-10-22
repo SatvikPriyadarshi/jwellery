@@ -222,7 +222,7 @@ export default function AboutCraftsmanship() {
                       src={pillar.image}
                       alt={pillar.alt}
                       fill
-                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 22vw"
+                      sizes="(max-width: 640px) 48vw, (max-width: 1024px) 45vw, 22vw"
                       quality={90}
                       className="pillar-card__img"
                     />
