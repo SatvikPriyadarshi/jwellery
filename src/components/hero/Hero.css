@@ -27,11 +27,11 @@
   z-index: 1;
   pointer-events: none;
   background: linear-gradient(
-    105deg,
-    rgba(7, 22, 18, 0.72) 0%,
-    rgba(7, 22, 18, 0.42) 38%,
-    rgba(7, 22, 18, 0.08) 68%,
-    transparent 100%
+    90deg,
+    rgba(7, 22, 18, 0.88) 0%,
+    rgba(7, 22, 18, 0.62) 28%,
+    rgba(7, 22, 18, 0.22) 48%,
+    transparent 64%
   );
 }
 
@@ -41,102 +41,65 @@
   inset: 0;
   display: flex;
   align-items: center;
-  padding: clamp(3.5rem, 12vw, 5.5rem) clamp(1.15rem, 5vw, 5rem)
-    clamp(1.25rem, 4vw, 3rem);
+  justify-content: flex-start;
+  padding: clamp(5.5rem, 14vh, 8rem) clamp(2rem, 6vw, 5.5rem)
+    clamp(2rem, 6vh, 4rem);
   pointer-events: none;
 }
 
 .hero__copy {
-  max-width: min(22rem, 58%);
+  width: min(36rem, 46vw);
+  max-width: 48%;
   pointer-events: auto;
 }
 
-.hero__title {
-  margin: 0;
-  color: var(--color-ivory);
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(1.35rem, 3.8vw, 3.25rem);
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  line-height: 1.12;
-  text-transform: uppercase;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+.hero__mesh-wrap {
+  width: 100%;
+  aspect-ratio: 3.5 / 1;
+  min-height: 9.5rem;
+  position: relative;
 }
 
-.hero__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: clamp(0.85rem, 2vw, 1.35rem);
-  min-height: 44px;
-  padding: 0.7rem 1.35rem;
-  background: var(--color-dark-forest);
-  border: 1px solid color-mix(in srgb, var(--color-champagne) 45%, transparent);
-  color: var(--color-ivory);
-  font-family: var(--font-outfit), sans-serif;
-  font-size: clamp(0.62rem, 1.4vw, 0.72rem);
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+.hero__mesh-lettering {
+  width: 100%;
+  height: 100%;
 }
 
-.hero__cta:hover,
-.hero__cta:focus-visible {
-  background: var(--color-champagne);
-  color: #0b211c;
-  border-color: var(--color-champagne);
-  outline: none;
-}
-
-/* Phones: luxurious viewport height framing the model and jewellery */
+/* Phones: wide banner ratio (1983×793) so the whole photo shows without full-screen crop */
 @media (max-width: 768px) {
   .hero {
-    height: 90svh;
-    min-height: 560px;
-    max-height: 840px;
-    aspect-ratio: auto;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: var(--hero-ratio);
   }
 
   .hero__img {
-    object-position: 72% 22%;
+    object-position: center center;
   }
 
   .hero__scrim {
     background: linear-gradient(
-      180deg,
-      rgba(7, 22, 18, 0.88) 0%,
-      rgba(7, 22, 18, 0.45) 24%,
-      rgba(7, 22, 18, 0.15) 50%,
-      rgba(7, 22, 18, 0.88) 100%
+      90deg,
+      rgba(7, 22, 18, 0.8) 0%,
+      rgba(7, 22, 18, 0.48) 46%,
+      rgba(7, 22, 18, 0.08) 68%,
+      transparent 100%
     );
   }
 
   .hero__content {
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
-    padding: 6.5rem 1.35rem 3.25rem;
+    padding: 2.6rem 0.9rem 1rem;
   }
 
   .hero__copy {
-    max-width: 100%;
+    width: 70%;
+    max-width: 70%;
   }
 
-  .hero__title {
-    font-size: clamp(1.45rem, 6.8vw, 2.1rem);
-    letter-spacing: 0.04em;
-    line-height: 1.15;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
-  }
-
-  .hero__cta {
-    margin-top: 1.15rem;
-    min-height: 44px;
-    padding: 0.75rem 1.6rem;
-    font-size: 0.72rem;
+  .hero__mesh-wrap {
+    aspect-ratio: 2.5 / 1;
+    min-height: 0;
   }
 }

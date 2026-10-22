@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import AcidSquares from "@/components/effects/AcidSquares";
+import MeshLettering from "@/components/ui/mesh-lettering";
 import "./Hero.css";
 
 export default function Hero() {
@@ -52,14 +52,30 @@ export default function Hero() {
 
       <div className="hero__content">
         <div className="hero__copy">
-          <h1 className="hero__title">
-            Bespoke designs
-            <br />
-            for unique moments
-          </h1>
-          <Link href="/#collection" className="hero__cta">
-            Shop Now
-          </Link>
+          <h1 className="sr-only">Bespoke designs for unique moments</h1>
+          <div className="hero__mesh-wrap">
+            <MeshLettering
+              text={"Bespoke designs\nfor unique moments"}
+              fontFamily="var(--font-cormorant), Cormorant Garamond, Georgia, serif"
+              fontWeight={600}
+              fontSize={360}
+              lineHeight={0.9}
+              letterSpacing={0}
+              colors={["#F7F3EA", "#F6E2B8"]}
+              sheen={1.2}
+              gloss={0.6}
+              iridescence={0.35}
+              wind={0.8}
+              windAngle={-15}
+              turbulence={0.4}
+              softness={0.55}
+              interactive={true}
+              clickGust={true}
+              intro={true}
+              introDuration={1.8}
+              className="hero__mesh-lettering"
+            />
+          </div>
         </div>
       </div>
     </section>
