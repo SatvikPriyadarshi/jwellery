@@ -179,6 +179,88 @@ const chapters = [
   { page: 15, title: "VIII. The Cherished Heirloom", subtitle: "Catalogue Raisonné (P. 15–16)" },
 ];
 
+/* -------------------------------------------------------------
+   Web Audio API Realistic Page-Turn Sound Synthesizer
+   ------------------------------------------------------------- */
+class PageTurnAudioEngine {
+  private ctx: AudioContext | null = null;
+  public enabled = true;
+
+  private initCtx() {
+    if (!this.ctx && typeof window !== "undefined") {
+      const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext })
+          .webkitAudioContext;
+      if (AudioCtx) {
+        this.ctx = new AudioCtx();
+      }
+    }
+    if (this.ctx && this.ctx.state === "suspended") {
+      this.ctx.resume().catch(() => {});
+    }
+  }
+
+  play(isCover = false) {
+    if (!this.enabled) return;
+    try {
+      this.initCtx();
+      if (!this.ctx) return;
+
+      const now = this.ctx.currentTime;
+      const sampleRate = this.ctx.sampleRate;
+      const duration = isCover ? 0.5 : 0.38;
+      const bufferSize = Math.floor(sampleRate * duration);
+      const buffer = this.ctx.createBuffer(1, bufferSize, sampleRate);
+      const data = buffer.getChannelData(0);
+
+      // Organic paper fiber noise
+      let b0 = 0, b1 = 0, b2 = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555;
+        b1 = 0.99332 * b1 + white * 0.075;
+        b2 = 0.969 * b2 + white * 0.153;
+        const pink = b0 + b1 + b2 + white * 0.536;
+        data[i] = pink * (isCover ? 0.14 : 0.095);
+      }
+
+      const noiseSource = this.ctx.createBufferSource();
+      noiseSource.buffer = buffer;
+
+      // Bandpass filter swept down to simulate the tactile friction curve
+      const filter = this.ctx.createBiquadFilter();
+      filter.type = "bandpass";
+      const startFreq = isCover ? 1200 : 1550 + Math.random() * 250;
+      const endFreq = isCover ? 280 : 360;
+      filter.frequency.setValueAtTime(startFreq, now);
+      filter.frequency.exponentialRampToValueAtTime(endFreq, now + duration);
+      filter.Q.setValueAtTime(isCover ? 2.2 : 1.7, now);
+
+      // Lowpass filter to ensure soft, warm luxury acoustic quality
+      const lowpass = this.ctx.createBiquadFilter();
+      lowpass.type = "lowpass";
+      lowpass.frequency.setValueAtTime(isCover ? 1900 : 2500, now);
+
+      // Natural amplitude envelope: quick attack, friction peak, silky decay
+      const gainNode = this.ctx.createGain();
+      gainNode.gain.setValueAtTime(0.001, now);
+      gainNode.gain.linearRampToValueAtTime(isCover ? 0.35 : 0.28, now + 0.05);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+      noiseSource.connect(filter);
+      filter.connect(lowpass);
+      lowpass.connect(gainNode);
+      gainNode.connect(this.ctx.destination);
+
+      noiseSource.start(now);
+      noiseSource.stop(now + duration);
+    } catch {
+      // Audio not permitted or supported
+    }
+  }
+}
+
 function Photo({
   src,
   position,
@@ -309,7 +391,7 @@ function FaceView({
 }
 
 /* -------------------------------------------------------------
-   Mobile Single-Page View
+   Mobile Single-Page Content Renderer
    ------------------------------------------------------------- */
 function MobilePageContent({
   pageIndex,
@@ -317,8 +399,8 @@ function MobilePageContent({
   onRestart,
 }: {
   pageIndex: number;
-  onOpenCover: () => void;
-  onRestart: () => void;
+  onOpenCover?: () => void;
+  onRestart?: () => void;
 }) {
   if (pageIndex === 0) {
     return (
@@ -346,19 +428,21 @@ function MobilePageContent({
             <p className="lookbook-m-cover-desc">
               Eight curated spreads of high jewelry, ethical emeralds, and generations of atelier craftsmanship.
             </p>
-            <button
-              type="button"
-              className="lookbook-m-cover-cta"
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpenCover();
-              }}
-            >
-              <span>Begin Reading</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
+            {onOpenCover ? (
+              <button
+                type="button"
+                className="lookbook-m-cover-cta"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenCover();
+                }}
+              >
+                <span>Begin Reading</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            ) : null}
             <span className="lookbook-m-swipe-hint">
               Swipe left or tap right to turn page
             </span>
@@ -393,7 +477,7 @@ function MobilePageContent({
           {face.title ? <h2 className="lookbook-m-photo-title">{face.title}</h2> : null}
           <p className="lookbook-m-photo-alt">{face.alt}</p>
 
-          {isLastPage ? (
+          {isLastPage && onRestart ? (
             <div className="lookbook-m-last-actions">
               <Link
                 href="/shop"
@@ -547,51 +631,102 @@ export default function Lookbook() {
   const leafCount = spreads.length - 1;
   const pageCount = spreads.length * 2;
 
+  // Sound Engine
+  const soundEngineRef = useRef<PageTurnAudioEngine | null>(null);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+
   // Desktop State
   const [closed, setClosed] = useState(true);
   const [turned, setTurned] = useState(0);
 
   // Mobile State
   const [mobilePage, setMobilePage] = useState(0);
+  const [turnTarget, setTurnTarget] = useState<number | null>(null);
   const [turnDir, setTurnDir] = useState<"next" | "prev">("next");
+  const [isTurningMobile, setIsTurningMobile] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // Touch Swipe tracking for Mobile
+  // Timers & gesture refs
+  const turnTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
-  // Desktop Nav
+  // Initialize Sound
+  useEffect(() => {
+    soundEngineRef.current = new PageTurnAudioEngine();
+    return () => {
+      if (turnTimeoutRef.current) clearTimeout(turnTimeoutRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (soundEngineRef.current) {
+      soundEngineRef.current.enabled = soundEnabled;
+    }
+  }, [soundEnabled]);
+
+  const playSound = useCallback((isCover = false) => {
+    if (soundEngineRef.current && soundEnabled) {
+      soundEngineRef.current.play(isCover);
+    }
+  }, [soundEnabled]);
+
+  // Desktop Page Turns
   const nextDesktop = useCallback(() => {
     if (closed) {
       setClosed(false);
+      playSound(true);
       return;
     }
-    setTurned((value) => Math.min(leafCount, value + 1));
-  }, [closed, leafCount]);
+    if (turned < leafCount) {
+      setTurned((value) => value + 1);
+      playSound(false);
+    }
+  }, [closed, leafCount, playSound, turned]);
 
   const prevDesktop = useCallback(() => {
     if (closed) return;
     if (turned === 0) {
       setClosed(true);
+      playSound(true);
       return;
     }
-    setTurned((value) => Math.max(0, value - 1));
-  }, [closed, turned]);
+    setTurned((value) => value - 1);
+    playSound(false);
+  }, [closed, turned, playSound]);
 
-  // Mobile Nav
+  // Mobile 3D Page Turn with Real Flipping Leaf
+  const turnMobileTo = useCallback(
+    (target: number, dir: "next" | "prev") => {
+      if (isTurningMobile || target === mobilePage) return;
+
+      setIsTurningMobile(true);
+      setTurnTarget(target);
+      setTurnDir(dir);
+      playSound(target === 0 || mobilePage === 0);
+
+      if (turnTimeoutRef.current) clearTimeout(turnTimeoutRef.current);
+      // 700ms 3D flip animation duration
+      turnTimeoutRef.current = setTimeout(() => {
+        setMobilePage(target);
+        setIsTurningMobile(false);
+        setTurnTarget(null);
+      }, 700);
+    },
+    [isTurningMobile, mobilePage, playSound]
+  );
+
   const nextMobile = useCallback(() => {
-    if (mobilePage < 16) {
-      setTurnDir("next");
-      setMobilePage((p) => p + 1);
+    if (mobilePage < 16 && !isTurningMobile) {
+      turnMobileTo(mobilePage + 1, "next");
     }
-  }, [mobilePage]);
+  }, [mobilePage, isTurningMobile, turnMobileTo]);
 
   const prevMobile = useCallback(() => {
-    if (mobilePage > 0) {
-      setTurnDir("prev");
-      setMobilePage((p) => p - 1);
+    if (mobilePage > 0 && !isTurningMobile) {
+      turnMobileTo(mobilePage - 1, "prev");
     }
-  }, [mobilePage]);
+  }, [mobilePage, isTurningMobile, turnMobileTo]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -608,19 +743,19 @@ export default function Lookbook() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [nextDesktop, nextMobile, prevDesktop, prevMobile]);
 
-  // Touch Swipe Handlers for Mobile
+  // Mobile Touch Gestures
   const handleTouchStart = (e: React.TouchEvent) => {
+    if (isTurningMobile) return;
     touchStartX.current = e.touches[0].clientX;
     touchStartY.current = e.touches[0].clientY;
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null || touchStartY.current === null) return;
+    if (isTurningMobile || touchStartX.current === null || touchStartY.current === null) return;
     const deltaX = e.changedTouches[0].clientX - touchStartX.current;
     const deltaY = e.changedTouches[0].clientY - touchStartY.current;
 
-    // Trigger swipe if horizontal movement is dominant and > 40px
-    if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+    if (Math.abs(deltaX) > 38 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
       if (deltaX < 0) {
         nextMobile();
       } else {
@@ -634,7 +769,6 @@ export default function Lookbook() {
 
   const leafZ = (index: number) => (turned > index ? 10 + index : 50 - index);
 
-  // Active chapter for mobile
   const currentChapter =
     [...chapters].reverse().find((ch) => mobilePage >= ch.page) || chapters[0];
 
@@ -653,7 +787,7 @@ export default function Lookbook() {
 
       {/* ========================================================
           DESKTOP 3D SPREAD (Visible > 768px)
-          Features continuous 3D hardcover cover leaf swing
+          Features continuous 3D hardcover cover leaf swing & sound
           ======================================================== */}
       <div className="lookbook-desktop">
         <button
@@ -697,6 +831,7 @@ export default function Lookbook() {
                     page={leafIndex * 2 + 2}
                     pages={pageCount}
                   />
+                  <div className="lookbook-leaf-crease" />
                 </div>
                 <div className="lookbook-face lookbook-back">
                   <FaceView
@@ -704,6 +839,7 @@ export default function Lookbook() {
                     page={(leafIndex + 1) * 2 + 1}
                     pages={pageCount}
                   />
+                  <div className="lookbook-leaf-crease" />
                 </div>
               </article>
             );
@@ -762,20 +898,30 @@ export default function Lookbook() {
           disabled={turned === leafCount}
         />
 
-        <p className="lookbook-caption">
+        <div className="lookbook-caption">
           <span>The Uni Collection • Fine Jewellery</span>
-          <span>
+
+          <div className="lookbook-caption-center">
             {closed
               ? "Hardcover Edition • Click Cover or Next"
               : `Spread ${turned + 1} of ${spreads.length} • Pages ${turned * 2 + 1} & ${turned * 2 + 2}`}
-          </span>
-        </p>
+          </div>
+
+          <button
+            type="button"
+            className="lookbook-sound-toggle"
+            onClick={() => setSoundEnabled((v) => !v)}
+            aria-label={soundEnabled ? "Mute audio" : "Enable audio"}
+            title={soundEnabled ? "Mute page-turn sounds" : "Enable page-turn sounds"}
+          >
+            <span>{soundEnabled ? "🔊 Sound On" : "🔇 Sound Off"}</span>
+          </button>
+        </div>
       </div>
 
       {/* ========================================================
           MOBILE SINGLE-PAGE READER (Visible <= 768px)
-          Dedicated portrait card, swipe gestures, tap zones,
-          progress scrub bar, and quick jump Table of Contents
+          With Real 3D Book Page Flip Animation, Audio & Gestures
           ======================================================== */}
       <div className="lookbook-mobile">
         {/* Top Floating Bar */}
@@ -785,22 +931,33 @@ export default function Lookbook() {
             <span className="lookbook-m-brand-sub">LOOKBOOK</span>
           </div>
 
-          <button
-            type="button"
-            className="lookbook-m-toc-trigger"
-            onClick={() => setDrawerOpen(true)}
-            aria-label="Table of contents"
-          >
-            <span>{currentChapter.title.split(".")[0]}</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
+          <div className="lookbook-m-header-actions">
+            <button
+              type="button"
+              className="lookbook-m-sound-btn"
+              onClick={() => setSoundEnabled((v) => !v)}
+              aria-label={soundEnabled ? "Mute audio" : "Enable audio"}
+            >
+              {soundEnabled ? "🔊" : "🔇"}
+            </button>
+
+            <button
+              type="button"
+              className="lookbook-m-toc-trigger"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="Table of contents"
+            >
+              <span>{currentChapter.title.split(".")[0]}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Card Stage with Tap Zones & Touch Swiping */}
+        {/* 3D Mobile Book Stage with Tap Zones & Touch Swiping */}
         <div
           className="lookbook-m-card-wrap"
           onTouchStart={handleTouchStart}
@@ -818,20 +975,45 @@ export default function Lookbook() {
             aria-label="Next page"
           />
 
-          {/* Portrait Single-Page Reader Card */}
-          <div
-            key={mobilePage}
-            className={`lookbook-m-card lookbook-m-card--${turnDir}`}
-          >
+          {/* Underneath / Settled Page Card */}
+          <div className="lookbook-m-card lookbook-m-card--base">
             <MobilePageContent
-              pageIndex={mobilePage}
+              pageIndex={isTurningMobile && turnTarget !== null ? turnTarget : mobilePage}
               onOpenCover={nextMobile}
-              onRestart={() => {
-                setTurnDir("prev");
-                setMobilePage(0);
-              }}
+              onRestart={() => turnMobileTo(0, "prev")}
             />
+            {/* Dynamic cast shadow during 3D page turn */}
+            {isTurningMobile ? (
+              <div className={`lookbook-m-under-shadow lookbook-m-under-shadow--${turnDir}`} />
+            ) : null}
           </div>
+
+          {/* Real 3D Turning Leaf (Active during page turn) */}
+          {isTurningMobile && turnTarget !== null ? (
+            <div className={`lookbook-m-leaf lookbook-m-leaf--${turnDir}`}>
+              {/* Front Face: Outgoing / Leading page */}
+              <div className="lookbook-m-face lookbook-m-face--front">
+                <MobilePageContent
+                  pageIndex={turnDir === "next" ? mobilePage : turnTarget}
+                />
+                <div className="lookbook-m-spine-shadow" />
+              </div>
+
+              {/* Back Face: Reverse page side with luxury emerald velvet liner */}
+              <div className="lookbook-m-face lookbook-m-face--back">
+                <div className="lookbook-m-back-sheet">
+                  <div className="lookbook-m-back-inner">
+                    <span className="lookbook-m-back-mark">UNI FINE JEWELLERY</span>
+                    <div className="lookbook-m-cover-divider">
+                      <span>❖</span>
+                    </div>
+                    <p className="lookbook-m-back-tag">ATELIER LOOKBOOK • VOL. I</p>
+                  </div>
+                </div>
+                <div className="lookbook-m-spine-shadow" />
+              </div>
+            </div>
+          ) : null}
         </div>
 
         {/* Golden Progress Scrubber */}
@@ -848,7 +1030,7 @@ export default function Lookbook() {
             type="button"
             className="lookbook-m-nav-btn"
             onClick={prevMobile}
-            disabled={mobilePage === 0}
+            disabled={mobilePage === 0 || isTurningMobile}
             aria-label="Previous page"
           >
             ‹
@@ -870,7 +1052,7 @@ export default function Lookbook() {
             type="button"
             className="lookbook-m-nav-btn"
             onClick={nextMobile}
-            disabled={mobilePage === 16}
+            disabled={mobilePage === 16 || isTurningMobile}
             aria-label="Next page"
           >
             ›
@@ -914,9 +1096,10 @@ export default function Lookbook() {
                       type="button"
                       className={`lookbook-drawer-item ${isActive ? "lookbook-drawer-item--active" : ""}`}
                       onClick={() => {
-                        setTurnDir(ch.page > mobilePage ? "next" : "prev");
-                        setMobilePage(ch.page);
                         setDrawerOpen(false);
+                        if (ch.page !== mobilePage) {
+                          turnMobileTo(ch.page, ch.page > mobilePage ? "next" : "prev");
+                        }
                       }}
                     >
                       <div className="lookbook-drawer-item-info">

@@ -160,6 +160,22 @@
   transform: rotateY(180deg);
 }
 
+.lookbook-leaf-crease {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.12) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
 /* Hardcover Front Leaf */
 .lookbook-leaf--cover {
   cursor: pointer;
@@ -487,12 +503,42 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   color: #c6a15b;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
+}
+
+.lookbook-caption-center {
+  flex: 1;
+  text-align: center;
+}
+
+.lookbook-sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  border-radius: 16px;
+  background: rgba(14, 42, 34, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #c6a15b;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.lookbook-sound-toggle:hover {
+  background: rgba(198, 161, 91, 0.18);
+  border-color: #c6a15b;
 }
 
 .lookbook-nav {
@@ -552,6 +598,7 @@
 
 /* =============================================================
    MOBILE SINGLE-PAGE READER (Screens <= 768px)
+   With True 3D Page Flip Animation & Haptic Ergonomics
    ============================================================= */
 
 .lookbook-mobile {
@@ -609,6 +656,34 @@
   text-transform: uppercase;
 }
 
+.lookbook-m-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lookbook-m-sound-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  border-radius: 50%;
+  background: rgba(14, 42, 34, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #c6a15b;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lookbook-m-sound-btn:active {
+  transform: scale(0.92);
+  background: rgba(198, 161, 91, 0.25);
+}
+
 .lookbook-m-toc-trigger {
   display: inline-flex;
   align-items: center;
@@ -627,7 +702,7 @@
   cursor: pointer;
 }
 
-/* Mobile Stage & Card Wrap */
+/* 3D Mobile Book Stage & Card Wrap */
 .lookbook-m-card-wrap {
   position: relative;
   width: min(390px, 100%);
@@ -635,6 +710,8 @@
   max-height: calc(100svh - 8.25rem);
   min-height: 440px;
   margin: 0.25rem auto 0.75rem;
+  perspective: 1800px;
+  -webkit-perspective: 1800px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: pan-y;
@@ -645,7 +722,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 25;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -660,9 +737,10 @@
   width: 75%;
 }
 
-/* Single-Page Reader Card */
+/* Underneath / Base Card */
 .lookbook-m-card {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   background: #0e2a22;
@@ -674,34 +752,188 @@
     0 0 0 1px rgba(198, 161, 91, 0.3);
 }
 
-.lookbook-m-card--next {
-  animation: mobileCardTurnNext 0.32s cubic-bezier(0.2, 0.9, 0.3, 1);
+.lookbook-m-card--base {
+  z-index: 10;
 }
 
-.lookbook-m-card--prev {
-  animation: mobileCardTurnPrev 0.32s cubic-bezier(0.2, 0.9, 0.3, 1);
+/* Real 3D Turning Leaf (Single-Page Book Flip) */
+.lookbook-m-leaf {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  z-index: 20;
+  pointer-events: none;
 }
 
-@keyframes mobileCardTurnNext {
-  from {
-    opacity: 0.35;
-    transform: translateX(20px) scale(0.975);
+.lookbook-m-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0e2a22;
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(198, 161, 91, 0.3);
+}
+
+.lookbook-m-face--front {
+  z-index: 2;
+}
+
+.lookbook-m-face--back {
+  transform: rotateY(180deg);
+  background: radial-gradient(circle at 40% 50%, #164034 0%, #0a1f19 100%);
+  z-index: 1;
+}
+
+.lookbook-m-spine-shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.18) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* 3D Page Turn Forward (Next) */
+.lookbook-m-leaf--next {
+  animation: mobile3DFlipNext 0.72s cubic-bezier(0.64, 0.04, 0.22, 1) forwards;
+}
+
+@keyframes mobile3DFlipNext {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   }
-  to {
+  30% {
+    box-shadow: -16px 14px 44px rgba(0, 0, 0, 0.7);
+  }
+  65% {
+    box-shadow: -22px 20px 55px rgba(0, 0, 0, 0.55);
+  }
+  99% {
+    transform: rotateY(-178deg);
     opacity: 1;
-    transform: translateX(0) scale(1);
+  }
+  100% {
+    transform: rotateY(-180deg);
+    opacity: 0;
   }
 }
 
-@keyframes mobileCardTurnPrev {
-  from {
-    opacity: 0.35;
-    transform: translateX(-20px) scale(0.975);
+/* 3D Page Turn Backward (Prev) */
+.lookbook-m-leaf--prev {
+  animation: mobile3DFlipPrev 0.72s cubic-bezier(0.64, 0.04, 0.22, 1) forwards;
+}
+
+@keyframes mobile3DFlipPrev {
+  0% {
+    transform: rotateY(-180deg);
+    opacity: 0;
   }
-  to {
+  1% {
     opacity: 1;
-    transform: translateX(0) scale(1);
   }
+  35% {
+    box-shadow: -22px 20px 55px rgba(0, 0, 0, 0.55);
+  }
+  70% {
+    box-shadow: -14px 14px 40px rgba(0, 0, 0, 0.65);
+  }
+  100% {
+    transform: rotateY(0deg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    opacity: 1;
+  }
+}
+
+/* Dynamic Shadow on Underlying Page */
+.lookbook-m-under-shadow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 12;
+  border-radius: 10px;
+}
+
+.lookbook-m-under-shadow--next {
+  animation: mobileUnderShadowNext 0.72s ease forwards;
+}
+
+@keyframes mobileUnderShadowNext {
+  0% {
+    background: rgba(0, 0, 0, 0.55);
+  }
+  40% {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+.lookbook-m-under-shadow--prev {
+  animation: mobileUnderShadowPrev 0.72s ease forwards;
+}
+
+@keyframes mobileUnderShadowPrev {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  40% {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+
+/* Reverse Page (Back sheet of turning leaf) */
+.lookbook-m-back-sheet {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 45% 50%, #164034 0%, #0a1f19 100%);
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  padding: 2rem;
+}
+
+.lookbook-m-back-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.lookbook-m-back-mark {
+  color: #c6a15b;
+  font-family: var(--font-bodoni), Georgia, serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.lookbook-m-back-tag {
+  color: #f7f3ea;
+  opacity: 0.7;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 /* -------------------------------------------------------------
@@ -847,7 +1079,7 @@
 
 .lookbook-m-cover-cta {
   position: relative;
-  z-index: 20;
+  z-index: 30;
   margin-top: 1.75rem;
   display: inline-flex;
   align-items: center;
@@ -946,7 +1178,7 @@
 
 .lookbook-m-last-actions {
   position: relative;
-  z-index: 20;
+  z-index: 30;
   margin-top: 1.15rem;
   display: flex;
   gap: 0.6rem;
@@ -1372,6 +1604,7 @@
   .lookbook-book,
   .lookbook-leaf,
   .lookbook-m-card,
+  .lookbook-m-leaf,
   .lookbook-drawer-sheet {
     transition: none !important;
     animation: none !important;
