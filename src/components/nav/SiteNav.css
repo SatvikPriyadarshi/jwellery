@@ -16,6 +16,28 @@
   transition: all 0.3s ease;
 }
 
+/* Solid Sticky Navbar for pages without a hero banner (e.g. Product Details) */
+.site-nav-wrap--solid {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 3rem;
+  pointer-events: auto;
+  background: #081a15;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.25);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .site-nav-wrap--solid {
+    padding: 0.75rem 1.15rem;
+    background: #081a15;
+    border-bottom: 1px solid rgba(198, 161, 91, 0.22);
+  }
+}
+
 /* Elevated above fullscreen overlay (z-index 60) so toggle button stays in identical position */
 .site-nav-wrap--open {
   position: fixed;

@@ -13,7 +13,13 @@ const NAV_ITEMS = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
+export default function SiteNav({
+  activeHref = "/",
+  solid = false,
+}: {
+  activeHref?: string;
+  solid?: boolean;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
@@ -72,9 +78,9 @@ export default function SiteNav({ activeHref = "/" }: { activeHref?: string }) {
 
   return (
     <>
-      {/* Floating Header with No Strip / No Pill Container */}
+      {/* Floating or Solid Header */}
       <header
-        className={`site-nav-wrap ${isOpen ? "site-nav-wrap--open" : ""}`}
+        className={`site-nav-wrap ${solid ? "site-nav-wrap--solid" : ""} ${isOpen ? "site-nav-wrap--open" : ""}`}
       >
         <nav className="site-nav-bar" aria-label="Main Navigation">
           {/* Logo & Brand Wordmark on Left */}
