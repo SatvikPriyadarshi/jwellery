@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "@/components/nav/SiteNav";
 import SiteFooter from "@/components/home/SiteFooter";
@@ -10,6 +9,11 @@ import PRODUCTS, {
 } from "@/data/products";
 import ProductDetailClient from "./ProductDetailClient";
 import "@/components/shop/ShopPage.css";
+import {
+  SITE_URL,
+  getProductJsonLd,
+  getBreadcrumbJsonLd,
+} from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -30,12 +34,44 @@ export async function generateMetadata({
   if (!product) {
     return {
       title: "Jewellery Piece Not Found | Uni Fine Jewelry",
+      robots: { index: false, follow: false },
     };
   }
 
+  const title = `${product.name} | ${product.category}`;
+  const description = `${product.name} in ${product.visualAttributes.apparentMetalColor} with natural ${product.visualAttributes.visibleStone}. Ref: ${product.id}. Handcrafted fine jewellery by Uni Fine Jewelry.`;
+  const canonicalUrl = `/shop/${product.slug}`;
+  const absoluteImageUrl = product.image.startsWith("http")
+    ? product.image
+    : `${SITE_URL}${product.image}`;
+
   return {
-    title: `${product.name} | Fine Jewellery Collection | Uni Fine Jewelry`,
-    description: `${product.shortDescription} Ref: ${product.id}.`,
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: canonicalUrl,
+      title: `${product.name} | Uni Fine Jewelry`,
+      description,
+      images: [
+        {
+          url: absoluteImageUrl,
+          width: 800,
+          height: 800,
+          alt: `${product.name} — ${product.category} by Uni Fine Jewelry`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | Uni Fine Jewelry`,
+      description,
+      images: [absoluteImageUrl],
+    },
   };
 }
 
@@ -49,8 +85,30 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
   const related = getRelatedProducts(product, 4);
 
+  // Generate Structured Data for Product and Breadcrumbs
+  const productSchema = getProductJsonLd(product);
+  const breadcrumbSchema = getBreadcrumbJsonLd([
+    { name: "Home", url: "/" },
+    { name: "Collection", url: "/shop" },
+    {
+      name: product.category,
+      url: `/shop?category=${encodeURIComponent(product.category)}`,
+    },
+    { name: product.name, url: `/shop/${product.slug}` },
+  ]);
+
   return (
     <main className="min-h-screen bg-[#f7f3ea] relative">
+      {/* Product & Breadcrumb JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <SiteNav activeHref="/shop" solid />
 
       {/* Breadcrumb Navigation Bar */}
