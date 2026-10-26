@@ -73,11 +73,11 @@ export default function ProductCard({
             )}
           </p>
 
-          <h2 className="prod-card__title">
+          <h3 className="prod-card__title">
             <Link href={`/shop/${product.slug}`} prefetch={false}>
               {product.name}
             </Link>
-          </h2>
+          </h3>
         </div>
 
         <div className="prod-card__footer">

@@ -161,7 +161,9 @@
   text-transform: uppercase;
 }
 
-.site-footer__connect h2 {
+.site-footer__connect h2,
+.site-footer__connect h3,
+.site-footer__heading {
   margin: 0.55rem 0 0;
   color: #123c32;
   font-family: var(--font-cormorant), Georgia, serif;
@@ -306,7 +308,9 @@
   border-top: 1px solid rgba(198, 161, 91, 0.35);
 }
 
-.site-footer__band h2 {
+.site-footer__band h2,
+.site-footer__band h3,
+.site-footer__col-heading {
   margin: 0 0 0.75rem;
   display: inline-block;
   padding-bottom: 0.35rem;

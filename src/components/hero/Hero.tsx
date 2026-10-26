@@ -48,7 +48,9 @@ export default function Hero() {
 
       <div className="hero__content">
         <div className="hero__copy">
-          <h1 className="sr-only">Bespoke designs for unique moments</h1>
+          <h1 className="sr-only">
+            Uni Fine Jewelry — Bespoke High Jewellery &amp; Ethical Gemstones Since 1965
+          </h1>
           <div className="hero__mesh-wrap">
             <MeshLettering
               text={"Bespoke designs\nfor unique moments"}

@@ -136,7 +136,7 @@ export default function SiteFooter() {
         {/* Column 3: Newsletter Privileges */}
         <div className="site-footer__connect">
           <p className="site-footer__eyebrow">Stay Connected</p>
-          <h2>Enjoy 5% Off Your First Order</h2>
+          <h3 className="site-footer__heading">Enjoy 5% Off Your First Order</h3>
           <p className="site-footer__lede">
             Join the Uni Fine Jewelry atelier list for private collections and bespoke updates.
           </p>
@@ -184,21 +184,21 @@ export default function SiteFooter() {
 
       <div className="site-footer__band">
         <nav aria-label="Information" className="site-footer__nav-col">
-          <h2>Information</h2>
+          <h3 className="site-footer__col-heading">Information</h3>
           <ul>
             <li><Link href="/" prefetch={false}>Home</Link></li>
-            <li><Link href="/about" prefetch={false}>About us</Link></li>
-            <li><Link href="/shop" prefetch={false}>Shop</Link></li>
+            <li><Link href="/about" prefetch={false}>About Us</Link></li>
+            <li><Link href="/shop" prefetch={false}>The Collection</Link></li>
             <li><Link href="/about#legacy" prefetch={false}>Our Legacy</Link></li>
-            <li><a href="#contact">Contact us</a></li>
+            <li><Link href="/#contact" prefetch={false}>Contact Concierge</Link></li>
           </ul>
         </nav>
         <nav aria-label="Useful links" className="site-footer__nav-col">
-          <h2>Useful Links</h2>
+          <h3 className="site-footer__col-heading">Useful Links</h3>
           <ul>
-            <li><a href="#contact">Privacy Policy</a></li>
-            <li><a href="#contact">Terms &amp; Condition</a></li>
-            <li><a href="#contact">Return Policy</a></li>
+            <li><Link href="/privacy" prefetch={false}>Privacy Policy</Link></li>
+            <li><Link href="/terms" prefetch={false}>Terms &amp; Conditions</Link></li>
+            <li><Link href="/terms" prefetch={false}>Return &amp; Sizing Policy</Link></li>
           </ul>
         </nav>
         <div className="site-footer__mark">
