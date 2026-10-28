@@ -198,7 +198,7 @@ export default function ShopPage() {
         />
 
         {/* Product Grid or Empty State */}
-        <div ref={gridRef} className="pt-1">
+        <div ref={gridRef} id="products-grid" className="pt-1 scroll-mt-20">
           {paginatedProducts.length > 0 ? (
             <>
               <div className="shop-grid" role="list">

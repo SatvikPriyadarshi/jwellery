@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Image from "next/image";
 
 export default function ShopHero() {
   return (
-    <section className="shop-hero">
+    <section className="shop-hero" aria-label="Welcome to Uni Fine Jewelry">
       {/* Subtle Caustic Lighting Ambient Glow */}
       <div
         className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.12)_0%,transparent_70%)] blur-3xl"
@@ -13,33 +13,30 @@ export default function ShopHero() {
         aria-hidden="true"
       />
 
-      <div className="shop-container">
-        <div className="shop-hero__inner">
-          <div className="shop-hero__eyebrow-wrap">
-            <p className="shop-hero__eyebrow">The Atelier Collection</p>
+      {/* Screen-reader heading for semantic outline & SEO */}
+      <h1 className="sr-only">
+        The Fine Jewellery Collection — Enjoy 5% OFF Your First Order | Uni Fine Jewelry
+      </h1>
+
+      <div className="shop-banner-container">
+        <a
+          href="#products-grid"
+          className="shop-banner-link"
+          aria-label="Uni Fine Jewelry Welcome Offer: Enjoy 5% OFF Your First Order with code WELCOME5. Shop the collection now."
+        >
+          <div className="shop-banner-frame">
+            <Image
+              src="/images/jewellery/shopBanner.png"
+              alt="Uni Fine Jewelry — Enjoy 5% OFF Your First Order. Use code WELCOME5 at checkout. Shop Now."
+              width={2171}
+              height={724}
+              priority
+              quality={95}
+              sizes="(max-width: 768px) 100vw, (max-width: 1440px) 96vw, 1400px"
+              className="shop-banner-img"
+            />
           </div>
-
-          <h1 className="shop-hero__title">
-            Jewellery to Treasure. <br />
-            <span className="shop-hero__title-accent">For Generations.</span>
-          </h1>
-
-          <p className="shop-hero__desc">
-            Discover thoughtfully crafted fine jewellery defined by timeless design,
-            exquisite gemstone mastery, and enduring elegance.
-          </p>
-
-          <div className="shop-hero__cta-wrap">
-            <Link
-              href="/about#pillars-of-mastery"
-              prefetch={false}
-              className="shop-hero__link"
-            >
-              <span>Discover Our Craftsmanship</span>
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
-        </div>
+        </a>
       </div>
     </section>
   );
