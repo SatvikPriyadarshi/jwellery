@@ -72,7 +72,6 @@ export default function AboutWhoWeAre() {
         <div className="who-copy">
           <div className="who-eyebrow-wrap">
             <span className="who-eyebrow">WHO WE ARE</span>
-            <span className="who-eyebrow-line" aria-hidden="true" />
           </div>
 
           <h2 className="who-title">

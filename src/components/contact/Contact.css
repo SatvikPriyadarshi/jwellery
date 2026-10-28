@@ -71,14 +71,6 @@
   color: #c6a15b;
 }
 
-.contact-hero__eyebrow-line {
-  display: inline-block;
-  width: 48px;
-  height: 1px;
-  background: #c6a15b;
-  opacity: 0.7;
-}
-
 .contact-hero__title {
   font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
   font-size: clamp(2.65rem, 5vw, 4.25rem);
@@ -252,18 +244,6 @@
   padding: clamp(2.75rem, 4.5vh, 4rem) 0;
   overflow: hidden;
   border-bottom: 1px solid rgba(198, 161, 91, 0.2);
-}
-
-/* Top-right subtle botanical line art illustration */
-.contact-experience__floral-tr {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: clamp(7rem, 11vw, 12rem);
-  height: auto;
-  pointer-events: none;
-  opacity: 0.6;
-  z-index: 1;
 }
 
 .contact-experience__inner {
@@ -1156,10 +1136,6 @@
     letter-spacing: 0.22em;
   }
 
-  .contact-hero__eyebrow-line {
-    width: 32px;
-  }
-
   .contact-hero__title {
     font-size: clamp(2.35rem, 8.5vw, 3.25rem);
     line-height: 1.08;
@@ -1233,13 +1209,6 @@
   /* SECTION B: MAIN CONTACT EXPERIENCE */
   .contact-experience {
     padding: 2.75rem 0 3.25rem;
-  }
-
-  .contact-experience__floral-tr {
-    width: 85px;
-    top: -10px;
-    right: 0;
-    opacity: 0.4;
   }
 
   .contact-experience__inner {

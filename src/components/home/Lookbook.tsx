@@ -48,8 +48,8 @@ const spreads: { left: Face; right: Face }[] = [
   {
     left: {
       kind: "story",
-      title: "Look at this emerald suite",
-      copy: "A collar of emeralds and diamonds, made to sit close to the skin and catch the light with every turn.",
+      title: "The Emerald Suite",
+      copy: "A collar of Colombian emeralds and brilliant diamonds, sculpted to sit close to the skin and catch the light with every movement.",
       position: "62% 18%",
     },
     right: {
@@ -338,22 +338,16 @@ function FaceView({
 
   if (face.kind === "story") {
     return (
-      <>
-        <h2 className="lookbook-headline">{face.title}</h2>
-        <div className="lookbook-inset">
-          <Image
-            src={PHOTO}
-            alt=""
-            fill
-            sizes="180px"
-            style={{ objectFit: "cover", objectPosition: face.position }}
-          />
+      <div className="lookbook-story-page">
+        <div className="lookbook-story-header">
+          <p className="lookbook-story-eyebrow">THE ATELIER COLLECTION</p>
+          <h2 className="lookbook-story-title">{face.title}</h2>
         </div>
-        <p className="lookbook-copy">{face.copy}</p>
+        <p className="lookbook-story-copy">{face.copy}</p>
         <span className="lookbook-page">
           {page} / {pages}
         </span>
-      </>
+      </div>
     );
   }
 
@@ -516,16 +510,8 @@ function MobilePageContent({
           <span className="lookbook-m-mark">UNI</span>
         </div>
         <div className="lookbook-m-editorial-content">
+          <p className="lookbook-m-editorial-eyebrow">THE ATELIER COLLECTION</p>
           <h2 className="lookbook-m-editorial-title">{face.title}</h2>
-          <div className="lookbook-m-editorial-inset">
-            <Image
-              src={PHOTO}
-              alt=""
-              fill
-              sizes="(max-width: 768px) 320px, 400px"
-              style={{ objectFit: "cover", objectPosition: face.position }}
-            />
-          </div>
           <p className="lookbook-m-editorial-copy">{face.copy}</p>
         </div>
         <div className="lookbook-m-bottom-hint">

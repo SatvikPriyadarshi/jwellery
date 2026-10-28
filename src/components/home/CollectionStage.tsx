@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -26,7 +27,7 @@ interface CollectionSlide {
 const slides: CollectionSlide[] = [
   {
     name: "Rings",
-    href: "#collection-rings",
+    href: "/shop?category=Rings",
     image: "/images/collection-rings.jpg",
     squarePosition: "50% 54%",
     circlePosition: "54% 48%",
@@ -35,11 +36,11 @@ const slides: CollectionSlide[] = [
     surfaceColor: "#142D21",
     copy: "Emerald cut for the hand. Gold that warms as you wear it.",
     note: "Emerald · 18k gold",
-    cta: "Ask about rings",
+    cta: "Explore Rings Collection",
   },
   {
     name: "Earrings",
-    href: "#collection-earrings",
+    href: "/shop?category=Earrings",
     image: "/images/collection-earrings.jpg",
     squarePosition: "52% 48%",
     circlePosition: "58% 52%",
@@ -48,11 +49,11 @@ const slides: CollectionSlide[] = [
     surfaceColor: "#271C14",
     copy: "Pear drops that catch the light when you turn.",
     note: "Pear emerald · Diamond",
-    cta: "Ask about earrings",
+    cta: "Explore Earrings Collection",
   },
   {
     name: "Bracelets",
-    href: "#collection-bracelets",
+    href: "/shop?category=Bracelets",
     image: "/images/collection-bracelets.jpg",
     squarePosition: "50% 50%",
     circlePosition: "48% 58%",
@@ -61,11 +62,11 @@ const slides: CollectionSlide[] = [
     surfaceColor: "#2E171F",
     copy: "Links that follow the wrist. Soft. Exact. Nothing forced.",
     note: "Flexible links · Custom size",
-    cta: "Ask about bracelets",
+    cta: "Explore Bracelets Collection",
   },
   {
     name: "Necklaces",
-    href: "#collection-necklaces",
+    href: "/shop?category=Necklaces",
     image: "/images/collection-necklaces.jpg",
     squarePosition: "52% 46%",
     circlePosition: "52% 62%",
@@ -74,7 +75,7 @@ const slides: CollectionSlide[] = [
     surfaceColor: "#142932",
     copy: "A collar that sits where it should. Quiet, balanced, kept.",
     note: "Graduated emerald · 18k gold",
-    cta: "Ask about necklaces",
+    cta: "Explore Necklaces Collection",
   },
 ];
 
@@ -372,9 +373,9 @@ export default function CollectionStage() {
 
                   <p className="cs-slide__copy">{slide.copy}</p>
                   <p className="cs-slide__note">{slide.note}</p>
-                  <a href="#contact" className="cs-slide__cta">
+                  <Link href={slide.href} className="cs-slide__cta">
                     {slide.cta} &rarr;
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Right: Media Presentation (Square + Macro Detail Circle) */}

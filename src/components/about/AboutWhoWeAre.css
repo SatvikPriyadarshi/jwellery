@@ -52,14 +52,6 @@
   color: var(--color-champagne);
 }
 
-.who-eyebrow-line {
-  display: inline-block;
-  width: 44px;
-  height: 1px;
-  background: var(--color-champagne);
-  opacity: 0.6;
-}
-
 .who-title {
   margin: 0 0 1.5rem;
   font-family: var(--font-cormorant), Georgia, serif;

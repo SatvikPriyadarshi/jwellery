@@ -16,9 +16,7 @@ export default function ShopHero() {
       <div className="shop-container">
         <div className="shop-hero__inner">
           <div className="shop-hero__eyebrow-wrap">
-            <span className="shop-hero__eyebrow-line" aria-hidden="true" />
             <p className="shop-hero__eyebrow">The Atelier Collection</p>
-            <span className="shop-hero__eyebrow-line" aria-hidden="true" />
           </div>
 
           <h1 className="shop-hero__title">

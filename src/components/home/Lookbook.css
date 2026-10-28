@@ -137,16 +137,42 @@
   border-radius: 4px 6px 6px 4px;
 }
 
+/* Solid Underneath Left and Right Page Plates (Opaque Base) */
+.lookbook-plate {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: calc(50% + 4px);
+  background: #081a15;
+  color: #f7f3ea;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.lookbook-plate-left {
+  left: 0;
+  border-radius: 4px 0 0 4px;
+}
+
 .lookbook-plate-right {
   right: 0;
   width: calc(50% + 4px);
+  border-radius: 0 4px 4px 0;
   box-shadow: none;
 }
 
+/* Opaque 3D Page Faces: Solid background strictly prevents any page from showing through! */
 .lookbook-face {
+  position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #081a15;
+  color: #f7f3ea;
+  overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform: rotateY(0deg);
 }
 
 /* 3D Turning Leaves */
@@ -271,7 +297,7 @@
 .lookbook-cover-sub {
   margin: 0;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.35rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -336,7 +362,7 @@
   z-index: 2;
   padding: 1.6rem 1.7rem;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.35rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -402,7 +428,7 @@
   padding: 0;
   border: 0;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: clamp(1.6rem, 2.4vw, 2.15rem);
   font-weight: 500;
   line-height: 1.15;
@@ -415,6 +441,53 @@
   opacity: 0.7;
 }
 
+.lookbook-story-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(2rem, 5vw, 4rem);
+  background: #081a15;
+  color: #f7f3ea;
+  z-index: 2;
+}
+
+.lookbook-story-header {
+  margin-bottom: 1.5rem;
+}
+
+.lookbook-story-eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-giva), "Lato", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  color: #c6a15b;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.lookbook-story-title {
+  margin: 0;
+  color: #c6a15b;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.lookbook-story-copy {
+  margin: 0;
+  max-width: 24rem;
+  color: color-mix(in srgb, #f7f3ea 88%, transparent);
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  font-weight: 300;
+  line-height: 1.55;
+  font-style: italic;
+}
+
 .lookbook-headline {
   position: absolute;
   z-index: 2;
@@ -423,7 +496,7 @@
   margin: 0;
   max-width: 16rem;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: clamp(2rem, 4vw, 3.1rem);
   font-weight: 500;
   letter-spacing: -0.04em;
@@ -463,7 +536,7 @@
   padding: 0.9rem 1rem 0.85rem;
   background: rgba(16, 42, 49, 0.78);
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.45rem;
   font-weight: 500;
   line-height: 1.2;
@@ -493,7 +566,7 @@
 }
 
 .lookbook-columns h3 {
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.7rem;
   font-weight: 500;
 }
@@ -655,7 +728,7 @@
 
 .lookbook-m-brand-name {
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.25rem;
   letter-spacing: 0.12em;
   font-weight: 600;
@@ -935,7 +1008,7 @@
 
 .lookbook-m-back-mark {
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.15rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -977,7 +1050,7 @@
 .lookbook-m-chapter-tag,
 .lookbook-m-mark {
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1064,7 +1137,7 @@
 .lookbook-m-cover-title {
   margin: 0;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.35rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -1164,7 +1237,7 @@
 .lookbook-m-photo-title {
   margin: 0;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.45rem;
   font-weight: 500;
   line-height: 1.2;
@@ -1254,7 +1327,7 @@
 .lookbook-m-editorial-title {
   margin: 0 0 1rem;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.15;
@@ -1323,7 +1396,7 @@
 .lookbook-m-col-body h3 {
   margin: 0;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.25rem;
   font-weight: 500;
 }
@@ -1366,7 +1439,7 @@
 .lookbook-m-text-title {
   margin: 0;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.7rem;
   font-weight: 500;
   line-height: 1.2;
@@ -1531,7 +1604,7 @@
 .lookbook-drawer-header h3 {
   margin: 0;
   color: #c6a15b;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.35rem;
   font-weight: 500;
 }
@@ -1591,7 +1664,7 @@
 
 .lookbook-drawer-item-title {
   display: block;
-  font-family: var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.05rem;
   color: #c6a15b;
 }

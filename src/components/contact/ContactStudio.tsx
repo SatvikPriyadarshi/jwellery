@@ -73,12 +73,11 @@ export default function ContactStudio() {
         <div className="contact-studio__copy">
           <p className="contact-studio__eyebrow">VISIT US IN JAIPUR</p>
 
-          <h2 className="contact-studio__title">Come Connect With Us.</h2>
+          <h2 className="contact-studio__title">Jaipur Office &amp; Salon</h2>
 
           <p className="contact-studio__desc">
-            We&apos;d be delighted to welcome you to our office in Jaipur.
-            Experience our world of fine jewellery, meet our team, and explore
-            our collections in person.
+            We welcome clients to our Jaipur office for collection viewings,
+            gemstone appraisals, and bespoke consultations by appointment.
           </p>
 
           <div className="contact-studio__location-card">

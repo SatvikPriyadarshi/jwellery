@@ -35,15 +35,7 @@
 .shop-hero__eyebrow-wrap {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
   margin-bottom: 0.85rem;
-}
-
-.shop-hero__eyebrow-line {
-  width: 28px;
-  height: 1px;
-  background: var(--color-champagne);
-  opacity: 0.65;
 }
 
 .shop-hero__eyebrow {

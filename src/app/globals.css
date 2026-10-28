@@ -16,6 +16,9 @@
   --font-outfit: var(--font-giva);
   --font-cormorant: var(--font-giva);
   --font-bodoni: var(--font-giva);
+
+  /* Classical Editorial Lookbook Typography */
+  --font-book: var(--font-cormorant-serif), "Cormorant Garamond", Georgia, serif;
 }
 
 @theme inline {

@@ -60,18 +60,17 @@ export default function ContactHero() {
         {/* Left Column: Refined Typography & Introduction */}
         <div className="contact-hero__copy">
           <div className="contact-hero__eyebrow-wrap">
-            <span className="contact-hero__eyebrow">WE&apos;RE HERE FOR YOU</span>
-            <span className="contact-hero__eyebrow-line" aria-hidden="true" />
+            <span className="contact-hero__eyebrow">ATELIER CONCIERGE</span>
           </div>
 
           <h1 className="contact-hero__title">
-            Every Detail <br />
-            Begins With <span className="contact-hero__title-italic">You.</span>
+            Private Inquiries <br />
+            &amp; Consultations
           </h1>
 
           <p className="contact-hero__lede">
-            From discovering your next treasured piece to creating something
-            uniquely yours, we&apos;re here to make every conversation personal.
+            Connect directly with our atelier team for bespoke commissions,
+            collection acquisitions, and private showroom viewings in Jaipur.
           </p>
 
           {/* Quick Concierge Direct Touchpoints */}

@@ -87,18 +87,17 @@ export default function ContactBespoke({ onBespokeClick }: ContactBespokeProps) 
         {/* Left Column: Editorial Copy */}
         <div className="contact-bespoke__copy">
           <div className="contact-hero__eyebrow-wrap">
-            <span className="contact-hero__eyebrow">MADE PERSONAL, MADE FOR YOU</span>
-            <span className="contact-hero__eyebrow-line" aria-hidden="true" />
+            <span className="contact-hero__eyebrow">BESPOKE COMMISSIONS</span>
           </div>
 
           <h2 className="contact-bespoke__title">
-            Some Stories Deserve <br />
-            Something One of a Kind.
+            Handcrafted High Jewellery <br />
+            Custom Created For You
           </h2>
 
           <p className="contact-bespoke__desc">
-            Whether you&apos;re imagining a custom design or searching for a
-            meaningful piece, let us help bring your vision to life.
+            Collaborate directly with our master goldsmiths in Jaipur to create
+            custom settings, reset heirloom gems, or craft one-of-a-kind statement pieces.
           </p>
 
           <button

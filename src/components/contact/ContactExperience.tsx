@@ -295,34 +295,22 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
       className="contact-experience"
       aria-label="Direct Contact & Consultation Form"
     >
-      {/* Top-Right Floral Botanical Illustration */}
-      <div className="contact-experience__floral-tr" aria-hidden="true">
-        <Image
-          src="/images/contact/floral-top-right.png"
-          alt=""
-          width={220}
-          height={180}
-          className="w-full h-auto object-contain"
-        />
-      </div>
-
       <div className="contact-experience__inner">
         {/* =================================================================
             LEFT COLUMN: Contact Information & Velvet Box Ring Photograph
             ================================================================= */}
         {/* 1. Editorial Greeting (Desktop Left-Top, Mobile 1st) */}
         <div className="contact-info__intro">
-          <p className="contact-info__eyebrow">LET&apos;S START A CONVERSATION</p>
+          <p className="contact-info__eyebrow">ATELIER DIRECT</p>
 
           <h2 className="contact-info__heading">
-            We&apos;d Love to <br />
-            Hear From <span className="contact-info__heading-italic">You.</span>
+            Connect With <br />
+            Our Specialists
           </h2>
 
           <p className="contact-info__desc">
-            Every piece tells a story, and every great piece begins with a
-            conversation. Reach out to our team for assistance with our
-            collections, bespoke jewellery, or any questions you may have.
+            Reach out to our Jaipur atelier for collection guidance, bespoke
+            commissions, gemstone certifications, or existing order assistance.
           </p>
         </div>
 
