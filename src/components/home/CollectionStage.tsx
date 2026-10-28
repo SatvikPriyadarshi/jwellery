@@ -22,47 +22,23 @@ interface CollectionSlide {
   copy: string;
   note: string;
   cta: string;
+  isLight?: boolean;
 }
 
 const slides: CollectionSlide[] = [
   {
     name: "Rings",
     href: "/shop?category=Rings",
-    image: "/images/collection-rings.jpg",
-    squarePosition: "50% 54%",
-    circlePosition: "54% 48%",
-    bgColor: "#0E2118",
-    accentColor: "#C6A15B",
-    surfaceColor: "#142D21",
+    image: "/images/collection-rings.png",
+    squarePosition: "center center",
+    circlePosition: "44% 60%",
+    bgColor: "#BF9B6A",
+    accentColor: "#0B211C",
+    surfaceColor: "#B08A56",
     copy: "Emerald cut for the hand. Gold that warms as you wear it.",
-    note: "Emerald · 18k gold",
+    note: "Emerald halo · 18k gold",
     cta: "Explore Rings Collection",
-  },
-  {
-    name: "Earrings",
-    href: "/shop?category=Earrings",
-    image: "/images/collection-earrings.jpg",
-    squarePosition: "52% 48%",
-    circlePosition: "58% 52%",
-    bgColor: "#1C140E",
-    accentColor: "#D8B06A",
-    surfaceColor: "#271C14",
-    copy: "Pear drops that catch the light when you turn.",
-    note: "Pear emerald · Diamond",
-    cta: "Explore Earrings Collection",
-  },
-  {
-    name: "Bracelets",
-    href: "/shop?category=Bracelets",
-    image: "/images/collection-bracelets.jpg",
-    squarePosition: "50% 50%",
-    circlePosition: "48% 58%",
-    bgColor: "#221117",
-    accentColor: "#CFA763",
-    surfaceColor: "#2E171F",
-    copy: "Links that follow the wrist. Soft. Exact. Nothing forced.",
-    note: "Flexible links · Custom size",
-    cta: "Explore Bracelets Collection",
+    isLight: true,
   },
   {
     name: "Necklaces",
@@ -70,12 +46,38 @@ const slides: CollectionSlide[] = [
     image: "/images/collection-necklaces.jpg",
     squarePosition: "52% 46%",
     circlePosition: "52% 62%",
-    bgColor: "#0D1D24",
+    bgColor: "#0A1F26",
     accentColor: "#C6A15B",
-    surfaceColor: "#142932",
+    surfaceColor: "#122E38",
     copy: "A collar that sits where it should. Quiet, balanced, kept.",
     note: "Graduated emerald · 18k gold",
     cta: "Explore Necklaces Collection",
+  },
+  {
+    name: "Bracelets",
+    href: "/shop?category=Bracelets",
+    image: "/images/collection-bracelets.jpg",
+    squarePosition: "50% 50%",
+    circlePosition: "48% 58%",
+    bgColor: "#1A1522",
+    accentColor: "#CFA763",
+    surfaceColor: "#261F30",
+    copy: "Links that follow the wrist. Soft. Exact. Nothing forced.",
+    note: "Flexible links · Custom size",
+    cta: "Explore Bracelets Collection",
+  },
+  {
+    name: "Earrings",
+    href: "/shop?category=Earrings",
+    image: "/images/collection-earrings.jpg",
+    squarePosition: "52% 48%",
+    circlePosition: "58% 52%",
+    bgColor: "#0C241B",
+    accentColor: "#D8B06A",
+    surfaceColor: "#143629",
+    copy: "Pear drops that catch the light when you turn.",
+    note: "Pear emerald · Diamond",
+    cta: "Explore Earrings Collection",
   },
 ];
 
@@ -313,7 +315,7 @@ export default function CollectionStage() {
     <section
       ref={rootRef}
       id="collection"
-      className="cs-stage"
+      className={`cs-stage ${slides[activeIdx]?.isLight ? "cs-stage--light" : ""}`}
       aria-labelledby="collection-heading"
       style={{ backgroundColor: slides[activeIdx].bgColor }}
       onTouchStart={handleTouchStart}
@@ -361,7 +363,7 @@ export default function CollectionStage() {
         >
           <div className="cs-slide__outer">
             <div
-              className="cs-slide__inner"
+              className={`cs-slide__inner ${slide.isLight ? "cs-slide__inner--light" : ""}`}
               style={{ backgroundColor: slide.bgColor }}
             >
               <div className="cs-slide__layout">

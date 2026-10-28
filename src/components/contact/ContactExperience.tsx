@@ -334,6 +334,16 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                     Mirza Ismail Rd, Jaipur, <br />
                     Rajasthan 302001, India
                   </address>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=N+K+Towers+Purohit+Ji+Ka+Bagh+Mirza+Ismail+Rd+Jaipur+Rajasthan+302001"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-map-directions-inline"
+                    aria-label="Get directions to Uni Fine Jewelry on Google Maps"
+                  >
+                    <span>GET DIRECTIONS</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
                 </div>
               </div>
 
@@ -432,14 +442,32 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               </div>
             </div>
 
-            {/* Vertical Velvet Box Photograph */}
-            <div className="contact-velvet-box-frame">
-              <Image
-                src="/images/contact/velvet-box-ring.jpg"
-                alt="Uni Fine Jewelry handcrafted Zambian emerald and diamond heirloom ring nestled in velvet boutique presentation box"
-                fill
-                sizes="(max-width: 640px) 100vw, 240px"
-                className="contact-velvet-box-img"
+            {/* Interactive Location Map: Jaipur Atelier & Office */}
+            <div className="contact-map-frame" aria-label="Uni Fine Jewelry Jaipur Office Map">
+              <div className="contact-map-bar">
+                <div className="flex items-center gap-1.5">
+                  <span className="contact-map-bar__pin" aria-hidden="true">📍</span>
+                  <span className="contact-map-bar__label">N K Towers, Jaipur</span>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=N+K+Towers+Purohit+Ji+Ka+Bagh+Mirza+Ismail+Rd+Jaipur+Rajasthan+302001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-map-bar__link"
+                  aria-label="Open location in Google Maps"
+                >
+                  <span>Directions</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+              <iframe
+                title="Uni Fine Jewelry Office Location Map"
+                src="https://maps.google.com/maps?q=N+K+Towers,+Purohit+Ji+Ka+Bagh,+Mirza+Ismail+Rd,+Jaipur,+Rajasthan+302001&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="contact-map-iframe"
               />
             </div>
           </div>

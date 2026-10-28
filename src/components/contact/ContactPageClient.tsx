@@ -7,18 +7,10 @@ import ContactHero from "@/components/contact/ContactHero";
 import ContactExperience, {
   ContactExperienceHandle,
 } from "@/components/contact/ContactExperience";
-import ContactBespoke from "@/components/contact/ContactBespoke";
-import ContactStudio from "@/components/contact/ContactStudio";
 import "@/components/contact/Contact.css";
 
 export default function ContactPageClient() {
   const experienceRef = useRef<ContactExperienceHandle>(null);
-
-  const handleBespokeClick = () => {
-    if (experienceRef.current) {
-      experienceRef.current.selectTopicAndFocus("Bespoke Jewellery");
-    }
-  };
 
   return (
     <div className="contact-page">
@@ -28,14 +20,8 @@ export default function ContactPageClient() {
       {/* SECTION A — Premium Contact Hero */}
       <ContactHero />
 
-      {/* SECTION B — Main Contact Experience & Working Form */}
+      {/* SECTION B — Main Contact Experience with Integrated Jaipur Atelier Map & Working Form */}
       <ContactExperience ref={experienceRef} />
-
-      {/* SECTION C — Bespoke Jewellery Consultation */}
-      <ContactBespoke onBespokeClick={handleBespokeClick} />
-
-      {/* SECTION D — Visit Our Studio */}
-      <ContactStudio />
 
       {/* Existing Shared Global Footer */}
       <SiteFooter />

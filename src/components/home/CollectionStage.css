@@ -449,6 +449,116 @@
 }
 
 /* =========================================
+   LIGHT THEME ADAPTATION (Skin-Gold Separator Slide)
+   ========================================= */
+.cs-stage--light .cs-topbar {
+  border-bottom-color: rgba(11, 33, 28, 0.2);
+}
+
+.cs-stage--light .cs-topbar__eyebrow {
+  color: #0b211c;
+}
+
+.cs-stage--light .cs-topbar__title {
+  color: #0b211c;
+}
+
+.cs-stage--light .cs-topbar__title em {
+  color: #123c32;
+}
+
+.cs-stage--light .cs-nav__item {
+  color: rgba(11, 33, 28, 0.65);
+}
+
+.cs-stage--light .cs-nav__item:hover,
+.cs-stage--light .cs-nav__item:focus-visible,
+.cs-stage--light .cs-nav__item--active {
+  color: #0b211c;
+}
+
+.cs-stage--light .cs-nav__diamond {
+  border-color: #0b211c;
+}
+
+.cs-stage--light .cs-nav__item--active .cs-nav__diamond {
+  background: #0b211c;
+  border-color: #0b211c;
+}
+
+.cs-stage--light .cs-nav__item--active::after {
+  background: #0b211c;
+}
+
+/* Slide Content on Light / Skin-Gold Background */
+.cs-slide__inner--light .cs-slide__category {
+  color: #0b211c;
+}
+
+.cs-slide__inner--light .cs-slide__copy {
+  color: #1a332b;
+}
+
+.cs-slide__inner--light .cs-slide__note {
+  color: #0b211c;
+  border-top-color: rgba(11, 33, 28, 0.22);
+}
+
+.cs-slide__inner--light .cs-slide__cta {
+  color: #0b211c;
+  border-bottom-color: #0b211c;
+}
+
+.cs-slide__inner--light .cs-slide__cta:hover,
+.cs-slide__inner--light .cs-slide__cta:focus-visible {
+  color: #123c32;
+  border-bottom-color: #123c32;
+}
+
+.cs-slide__inner--light .cs-media-square {
+  background: #b08a56;
+  border-color: rgba(11, 33, 28, 0.25);
+  box-shadow: 0 24px 60px rgba(50, 32, 10, 0.25);
+}
+
+.cs-slide__inner--light .cs-media-circle {
+  background: #b08a56;
+  border-color: rgba(11, 33, 28, 0.35);
+  box-shadow:
+    0 20px 48px rgba(50, 32, 10, 0.25),
+    0 0 0 6px rgba(191, 155, 106, 0.45);
+}
+
+/* Bottom Bar Controls on Light Stage */
+.cs-stage--light .cs-bottombar__arrow {
+  background: rgba(11, 33, 28, 0.08);
+  border-color: rgba(11, 33, 28, 0.25);
+  color: #0b211c;
+}
+
+.cs-stage--light .cs-bottombar__arrow:hover:not(:disabled) {
+  background: #0b211c;
+  color: #f7f3ea;
+  border-color: #0b211c;
+}
+
+.cs-stage--light .cs-bottombar__arrow:disabled {
+  opacity: 0.25;
+}
+
+.cs-stage--light .cs-bottombar__tick {
+  background: rgba(11, 33, 28, 0.25);
+}
+
+.cs-stage--light .cs-bottombar__tick--active {
+  background: #0b211c;
+}
+
+.cs-stage--light .cs-bottombar__hint {
+  color: rgba(11, 33, 28, 0.7);
+}
+
+/* =========================================
    MOBILE RESPONSIVE (< 960px)
    ========================================= */
 @media (max-width: 960px) {
