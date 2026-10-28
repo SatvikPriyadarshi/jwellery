@@ -9,7 +9,6 @@ import ContactExperience, {
 } from "@/components/contact/ContactExperience";
 import ContactBespoke from "@/components/contact/ContactBespoke";
 import ContactStudio from "@/components/contact/ContactStudio";
-import ContactStatement from "@/components/contact/ContactStatement";
 import "@/components/contact/Contact.css";
 
 export default function ContactPageClient() {
@@ -37,9 +36,6 @@ export default function ContactPageClient() {
 
       {/* SECTION D — Visit Our Studio */}
       <ContactStudio />
-
-      {/* SECTION E — Closing Brand Statement */}
-      <ContactStatement />
 
       {/* Existing Shared Global Footer */}
       <SiteFooter />
