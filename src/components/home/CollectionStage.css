@@ -181,31 +181,37 @@
   flex-direction: column;
   justify-content: center;
   max-width: 28rem;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
 }
 
-/* Large editorial display title with letter masks */
+/* Large editorial display title with letter masks - ample vertical room for glyph descenders (g, y, p, q) */
 .cs-slide__category {
   margin: 0;
   color: var(--color-ivory);
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(4.25rem, 9vw, 7.5rem);
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 1.15;
   letter-spacing: -0.03em;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 0.18em;
 }
 
 .cs-letters {
   display: inline-flex;
+  overflow: visible;
 }
 
 .cs-letter-mask {
   display: inline-block;
   overflow: hidden;
-  vertical-align: top;
-  line-height: 0.92;
+  vertical-align: bottom;
+  line-height: 1.25;
+  padding-top: 0.08em;
+  padding-bottom: 0.28em;
+  margin-top: -0.08em;
+  margin-bottom: -0.28em;
 }
 
 .cs-letter {
@@ -545,6 +551,9 @@
 
   .cs-slide__category {
     font-size: clamp(2.1rem, 10vw, 3.1rem);
+    line-height: 1.15;
+    padding-bottom: 0.15em;
+    overflow: visible;
   }
 
   .cs-slide__copy {

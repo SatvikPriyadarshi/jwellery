@@ -244,7 +244,7 @@ export default function CollectionStage() {
           if (letters.length > 0) {
             tl.fromTo(
               letters,
-              { yPercent: 100 },
+              { yPercent: 125 },
               {
                 yPercent: 0,
                 duration: 0.75,

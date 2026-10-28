@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import "./SiteFooter.css";
 
@@ -65,34 +64,8 @@ function Crest() {
 export default function SiteFooter() {
   return (
     <footer id="contact" className="site-footer">
-      <Image
-        src="/images/jewellery/footer-botanical.jpg"
-        alt=""
-        width={720}
-        height={400}
-        className="site-footer__wash site-footer__wash--tl"
-      />
-      <Image
-        src="/images/jewellery/footer-botanical.jpg"
-        alt=""
-        width={720}
-        height={400}
-        className="site-footer__wash site-footer__wash--br"
-      />
-
       <div className="site-footer__top">
-        {/* Left Column: Velvet box photo (Desktop only) */}
-        <figure className="site-footer__box">
-          <Image
-            src="/images/jewellery/footer-box.jpg"
-            alt="Emerald necklace in a velvet box"
-            fill
-            sizes="280px"
-            className="site-footer__box-img"
-          />
-        </figure>
-
-        {/* Column 2: Boutiques & Contact */}
+        {/* Boutiques & Atelier Contacts */}
         <address className="site-footer__contact">
           <div className="site-footer__contact-item">
             <span className="site-footer__icon"><PinIcon /></span>
@@ -147,7 +120,7 @@ export default function SiteFooter() {
           </div>
         </address>
 
-        {/* Column 3: Newsletter Privileges */}
+        {/* Newsletter Privileges */}
         <div className="site-footer__connect">
           <p className="site-footer__eyebrow">Stay Connected</p>
           <h3 className="site-footer__heading">Enjoy 5% Off Your First Order</h3>
@@ -174,25 +147,6 @@ export default function SiteFooter() {
               Claim Privilege <span aria-hidden="true">→</span>
             </button>
           </form>
-        </div>
-
-        {/* Column 4: Motto and Stones (Desktop) */}
-        <div className="site-footer__aside">
-          <div className="site-footer__motto">
-            <Crest />
-            <p>
-              Timeless beauty
-              <br />
-              in every detail
-            </p>
-          </div>
-          <Image
-            src="/images/jewellery/footer-stones.jpg"
-            alt=""
-            width={220}
-            height={220}
-            className="site-footer__stones"
-          />
         </div>
       </div>
 
