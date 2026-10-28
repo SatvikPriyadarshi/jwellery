@@ -170,13 +170,6 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
     }
   };
 
-  const handleRadioChange = (topic: string) => {
-    setFormData((prev) => ({ ...prev, enquiryType: topic }));
-    if (errors.enquiryType) {
-      setErrors((prev) => ({ ...prev, enquiryType: undefined }));
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -431,17 +424,22 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
           ) : (
             <>
               <div className="contact-form__header">
+                <div className="contact-form__crest" aria-hidden="true">
+                  <span className="contact-form__crest-line" />
+                  <span className="contact-form__crest-diamond">◇</span>
+                  <span className="contact-form__crest-line" />
+                </div>
                 <h3 className="contact-form__title">
                   Tell Us What You&apos;re Looking For.
                 </h3>
                 <p className="contact-form__subtitle">
-                  Share a few details and our team will be happy to assist.
+                  Share a few details and our concierge will personally assist.
                 </p>
               </div>
 
               {submissionError && (
                 <div
-                  className="mb-5 p-3 rounded-xs bg-[#fdf2f2] border border-[#f0c2c2] text-[#9b2c2c] text-sm"
+                  className="mb-4 p-3 rounded-xs bg-[#fdf2f2] border border-[#f0c2c2] text-[#9b2c2c] text-xs"
                   role="alert"
                 >
                   <p className="font-medium">{submissionError}</p>
@@ -523,13 +521,13 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 {/* 3. Phone Number */}
                 <div className="contact-field">
                   <label htmlFor="phone" className="contact-field__label">
-                    Phone Number
+                    Phone Number <span className="contact-field__opt">(Optional)</span>
                   </label>
                   <input
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="+91 98765 43210 (optional)"
+                    placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={handleChange}
                     aria-invalid={!!errors.phone}
@@ -566,7 +564,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                       }`}
                     >
                       <option value="" disabled>
-                        Select enquiry type
+                        Select consultation topic
                       </option>
                       {ENQUIRY_OPTIONS.map((opt) => (
                         <option key={opt} value={opt}>
@@ -601,8 +599,8 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                     id="message"
                     name="message"
                     required
-                    rows={4}
-                    placeholder="How can we help you?"
+                    rows={3}
+                    placeholder="Tell us about your bespoke concept or questions..."
                     value={formData.message}
                     onChange={handleChange}
                     aria-invalid={!!errors.message}
@@ -618,77 +616,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   )}
                 </div>
 
-                {/* 6. Select Enquiry Type (optional radio button grid) */}
-                <div className="contact-radio-group">
-                  <p className="contact-radio-group__title">
-                    Select Enquiry Type (optional)
-                  </p>
-                  <div className="contact-radio-grid">
-                    {/* Left Column */}
-                    <div className="flex flex-col gap-2">
-                      <label className="contact-radio-item">
-                        <input
-                          type="radio"
-                          name="radioEnquiry"
-                          checked={formData.enquiryType === "General Enquiry"}
-                          onChange={() => handleRadioChange("General Enquiry")}
-                        />
-                        <span>General Enquiry</span>
-                      </label>
-                      <label className="contact-radio-item">
-                        <input
-                          type="radio"
-                          name="radioEnquiry"
-                          checked={formData.enquiryType === "Bespoke Jewellery"}
-                          onChange={() => handleRadioChange("Bespoke Jewellery")}
-                        />
-                        <span>Bespoke Jewellery</span>
-                      </label>
-                      <label className="contact-radio-item">
-                        <input
-                          type="radio"
-                          name="radioEnquiry"
-                          checked={formData.enquiryType === "Existing Order Enquiry"}
-                          onChange={() => handleRadioChange("Existing Order Enquiry")}
-                        />
-                        <span>Existing Order Enquiry</span>
-                      </label>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="flex flex-col gap-2">
-                      <label className="contact-radio-item">
-                        <input
-                          type="radio"
-                          name="radioEnquiry"
-                          checked={formData.enquiryType === "Product Enquiry"}
-                          onChange={() => handleRadioChange("Product Enquiry")}
-                        />
-                        <span>Product Enquiry</span>
-                      </label>
-                      <label className="contact-radio-item">
-                        <input
-                          type="radio"
-                          name="radioEnquiry"
-                          checked={formData.enquiryType === "Custom Design"}
-                          onChange={() => handleRadioChange("Custom Design")}
-                        />
-                        <span>Custom Design</span>
-                      </label>
-                      <label className="contact-radio-item">
-                        <input
-                          type="radio"
-                          name="radioEnquiry"
-                          checked={formData.enquiryType === "Other"}
-                          onChange={() => handleRadioChange("Other")}
-                        />
-                        <span>Other</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 7. Submit Button */}
+                {/* 6. Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -697,7 +625,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   {isSubmitting ? (
                     <>
                       <span className="contact-form__submit-spinner" aria-hidden="true" />
-                      <span>SENDING MESSAGE...</span>
+                      <span>CONNECTING WITH CONCIERGE...</span>
                     </>
                   ) : (
                     <>
@@ -706,6 +634,10 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                     </>
                   )}
                 </button>
+
+                <p className="contact-form__footer-note">
+                  Confidential consultation &bull; Personal reply within 24h
+                </p>
               </form>
             </>
           )}
