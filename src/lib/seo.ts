@@ -226,3 +226,53 @@ export function getAboutPageJsonLd() {
     },
   };
 }
+
+/**
+ * ContactPage Schema (JSON-LD)
+ */
+export function getContactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${SITE_URL}/contact#contact`,
+    url: `${SITE_URL}/contact`,
+    name: "Contact Our Atelier & Concierge | Uni Fine Jewelry",
+    description:
+      "Connect with Uni Fine Jewelry's concierge team for bespoke jewelry commissions, gemstone acquisitions, and atelier appointments in Jaipur and Kuala Lumpur.",
+    isPartOf: {
+      "@id": `${SITE_URL}/#website`,
+    },
+    about: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+    mainEntity: {
+      "@type": "JewelryStore",
+      name: SITE_CONFIG.name,
+      telephone: "+91 9829056388",
+      email: "info@unifinejewelry.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd",
+        addressLocality: "Jaipur",
+        addressRegion: "Rajasthan",
+        postalCode: "302001",
+        addressCountry: "IN",
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "10:30",
+          closes: "19:00",
+        },
+      ],
+    },
+  };
+}

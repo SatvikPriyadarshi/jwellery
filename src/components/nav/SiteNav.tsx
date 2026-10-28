@@ -10,7 +10,7 @@ const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Collection", href: "/shop" },
   { label: "Our Story", href: "/about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function SiteNav({
