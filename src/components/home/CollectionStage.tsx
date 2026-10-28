@@ -113,7 +113,7 @@ export default function CollectionStage() {
     if (st) {
       const totalDistance = st.end - st.start;
       // Midpoints of hold phases across the 4 slides
-      const slideFractions = [0, 0.35, 0.66, 0.94];
+      const slideFractions = [0, 0.36, 0.64, 0.92];
       const fraction =
         slideFractions[clamped] ?? clamped / (slides.length - 1);
       const targetY = st.start + fraction * totalDistance;
@@ -148,10 +148,12 @@ export default function CollectionStage() {
       if (reduce) return;
 
       const isMobile = window.innerWidth < 768;
-      const scrubSpeed = isMobile ? 0.6 : 1;
+      // Ultra-luxurious damping: 2.0s scrub prevents fast wheel spins from skipping slides
+      const scrubSpeed = isMobile ? 1.4 : 2.0;
+      // Generous pinned scroll distance: 7.5x desktop / 5.2x mobile ensures unhurried pacing
       const scrollDistance = isMobile
-        ? Math.round(window.innerHeight * 2.8)
-        : Math.round(window.innerHeight * 3.5);
+        ? Math.round(window.innerHeight * 5.2)
+        : Math.round(window.innerHeight * 7.5);
 
       // Master Timeline tied to vertical scroll with window locking (pin: true)
       const tl = gsap.timeline({
@@ -165,12 +167,18 @@ export default function CollectionStage() {
           scrub: scrubSpeed,
           start: "top top",
           end: () => `+=${scrollDistance}`,
+          snap: {
+            snapTo: [0, 0.36, 0.64, 0.92],
+            duration: { min: 0.5, max: 1.1 },
+            delay: 0.15,
+            ease: "power2.out",
+          },
           onUpdate: (self) => {
             const p = self.progress;
             let computed = 0;
-            if (p < 0.22) computed = 0;
-            else if (p < 0.54) computed = 1;
-            else if (p < 0.82) computed = 2;
+            if (p < 0.23) computed = 0;
+            else if (p < 0.50) computed = 1;
+            else if (p < 0.76) computed = 2;
             else computed = 3;
             setActiveIdx(computed);
           },
@@ -179,13 +187,16 @@ export default function CollectionStage() {
 
       scrollTriggerRef.current = tl.scrollTrigger || null;
 
+      const holdDuration = 2.2;
+      const transDuration = 0.9;
+
       // Build transitions between the 4 collections
       for (let i = 0; i < slides.length - 1; i++) {
         const current = slidesRef.current[i];
         const next = slidesRef.current[i + 1];
 
-        // 1. Hold pause on current slide
-        tl.to({}, { duration: 0.85 });
+        // 1. Hold pause on current slide (generous reading pause)
+        tl.to({}, { duration: holdDuration });
 
         // 2. Outgoing slide: scales up (1.85x) + fades out
         tl.to(
@@ -193,7 +204,7 @@ export default function CollectionStage() {
           {
             scale: 1.85,
             autoAlpha: 0,
-            duration: 1,
+            duration: transDuration,
             ease: "power3.out",
           },
           `trans-${i}`
@@ -211,7 +222,7 @@ export default function CollectionStage() {
             scale: 1,
             autoAlpha: 1,
             y: 0,
-            duration: 1,
+            duration: transDuration,
             ease: "power2.out",
           },
           `trans-${i}`
@@ -219,8 +230,8 @@ export default function CollectionStage() {
 
         // Toggle pointer events at transition midpoint
         if (current && next) {
-          tl.set(next, { pointerEvents: "auto" }, `trans-${i}+=0.5`);
-          tl.set(current, { pointerEvents: "none" }, `trans-${i}+=0.5`);
+          tl.set(next, { pointerEvents: "auto" }, `trans-${i}+=0.45`);
+          tl.set(current, { pointerEvents: "none" }, `trans-${i}+=0.45`);
         }
 
         // Animate letters and copy on the incoming slide
@@ -262,7 +273,7 @@ export default function CollectionStage() {
       }
 
       // Final hold period for Slide 3 (Necklaces)
-      tl.to({}, { duration: 1.1 });
+      tl.to({}, { duration: holdDuration * 1.15 });
 
       return () => {
         tl.kill();

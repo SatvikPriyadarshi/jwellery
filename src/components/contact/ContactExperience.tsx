@@ -86,17 +86,34 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
       ).matches;
       if (reduce) return;
 
-      const leftCol = section.querySelector(".contact-info-col");
-      const rightCol = section.querySelector(".contact-form-panel");
+      const intro = section.querySelector(".contact-info__intro");
+      const form = section.querySelector(".contact-form-panel");
+      const touchpoints = section.querySelector(".contact-info__touchpoints");
 
-      if (leftCol && rightCol) {
+      if (intro && form) {
         gsap.fromTo(
-          leftCol,
-          { autoAlpha: 0, y: 30 },
+          intro,
+          { autoAlpha: 0, y: 24 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.9,
+            duration: 0.85,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 82%",
+              once: true,
+            },
+          }
+        );
+
+        gsap.fromTo(
+          form,
+          { autoAlpha: 0, y: 32 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.95,
             ease: "power2.out",
             scrollTrigger: {
               trigger: section,
@@ -106,21 +123,23 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
           }
         );
 
-        gsap.fromTo(
-          rightCol,
-          { autoAlpha: 0, y: 40 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 78%",
-              once: true,
-            },
-          }
-        );
+        if (touchpoints) {
+          gsap.fromTo(
+            touchpoints,
+            { autoAlpha: 0, y: 24 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.9,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 76%",
+                once: true,
+              },
+            }
+          );
+        }
       }
     },
     { scope: sectionRef }
@@ -291,7 +310,8 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
         {/* =================================================================
             LEFT COLUMN: Contact Information & Velvet Box Ring Photograph
             ================================================================= */}
-        <div className="contact-info-col">
+        {/* 1. Editorial Greeting (Desktop Left-Top, Mobile 1st) */}
+        <div className="contact-info__intro">
           <p className="contact-info__eyebrow">LET&apos;S START A CONVERSATION</p>
 
           <h2 className="contact-info__heading">
@@ -304,7 +324,10 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
             conversation. Reach out to our team for assistance with our
             collections, bespoke jewellery, or any questions you may have.
           </p>
+        </div>
 
+        {/* 2. Atelier Touchpoints & Velvet Box Photograph (Desktop Left-Bottom, Mobile 3rd) */}
+        <div className="contact-info__touchpoints">
           <div className="contact-info__subgrid">
             {/* Contact Details Stack */}
             <div className="contact-details-stack">

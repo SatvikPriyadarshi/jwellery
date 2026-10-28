@@ -105,6 +105,72 @@
   margin: 0;
 }
 
+/* Luxury Direct Concierge Quick-Actions */
+.contact-hero__quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.65rem;
+  width: 100%;
+}
+
+.contact-hero__quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  color: #f7f3ea;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.contact-hero__quick-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #c6a15b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.contact-hero__quick-btn--wa {
+  background: #25D366;
+  border-color: #25D366;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.contact-hero__quick-btn--wa:hover {
+  background: #20ba5a;
+  border-color: #20ba5a;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.contact-hero__quick-btn--wa svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.contact-hero__quick-btn--gold {
+  border-color: #c6a15b;
+  color: #c6a15b;
+  background: rgba(198, 161, 91, 0.08);
+}
+
+.contact-hero__quick-btn--gold:hover {
+  background: #c6a15b;
+  color: #071914;
+}
+
 .contact-hero__visual-wrap {
   position: relative;
   width: 100%;
@@ -207,15 +273,25 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.18fr) minmax(19rem, 26.5rem);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "intro form"
+    "touchpoints form";
   gap: clamp(1.75rem, 3.5vw, 3.25rem);
   align-items: stretch;
 }
 
-/* LEFT COLUMN — Brand Info & Velvet Box Photo */
-.contact-info-col {
+.contact-info__intro {
+  grid-area: intro;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.contact-info__touchpoints {
+  grid-area: touchpoints;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .contact-info__eyebrow {
@@ -393,6 +469,7 @@
 
 /* RIGHT COLUMN — Dedicated Ivory Consultation Form (Refined, Minimal, Luxury) */
 .contact-form-panel {
+  grid-area: form;
   position: relative;
   background-color: #faf7f2;
   color: #12241e;
@@ -1002,72 +1079,424 @@
 }
 
 /* -------------------------------------------------------------------------
-   RESPONSIVE DESIGN ADAPTATIONS
+   RESPONSIVE DESIGN ADAPTATIONS (AWARD-WINNING LUXURY MOBILE & TABLET SYSTEM)
    ------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .contact-hero__inner {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.75rem;
+  }
+
+  .contact-hero__copy {
+    max-width: 100%;
   }
 
   .contact-hero__visual-wrap {
     justify-content: center;
+    width: 100%;
   }
 
-  .contact-hero__consult-badge {
-    bottom: -1rem;
-    right: 0;
+  .contact-hero__image-frame {
+    max-width: 32rem;
   }
 
   .contact-experience__inner {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .contact-info__intro {
+    order: 1;
+  }
+
+  .contact-form-panel {
+    order: 2;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .contact-info__touchpoints {
+    order: 3;
+    margin-top: 0.5rem;
   }
 
   .contact-info__subgrid {
-    grid-template-columns: 1fr minmax(10rem, 14rem);
+    grid-template-columns: 1fr 220px;
+    gap: 1.5rem;
   }
 
   .contact-bespoke__inner,
   .contact-studio__inner {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.75rem;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  /* SECTION A: PREMIUM CONTACT HERO */
   .contact-hero {
-    padding-top: 5.5rem;
-    padding-bottom: 3.5rem;
+    min-height: auto;
+    padding-top: calc(5.75rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 2.75rem;
   }
 
+  .contact-hero__inner {
+    width: calc(100% - 2rem);
+    gap: 2.25rem;
+  }
+
+  .contact-hero__eyebrow-wrap {
+    gap: 0.65rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .contact-hero__eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+  }
+
+  .contact-hero__eyebrow-line {
+    width: 32px;
+  }
+
+  .contact-hero__title {
+    font-size: clamp(2.35rem, 8.5vw, 3.25rem);
+    line-height: 1.08;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-hero__lede {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: #cad6c6;
+  }
+
+  .contact-hero__quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.35rem;
+    width: 100%;
+  }
+
+  .contact-hero__quick-btn {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-height: 44px;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-hero__quick-btn--wa {
+    flex: 1 1 100%;
+    order: -1;
+  }
+
+  .contact-hero__visual-wrap {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .contact-hero__image-frame {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 4 / 3.2;
+    border-radius: 4px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(198, 161, 91, 0.3);
+  }
+
+  /* Chic floating hallmark seal over image corner */
   .contact-hero__consult-badge {
-    position: static;
-    margin-top: 1rem;
+    position: absolute;
+    bottom: -12px;
+    right: 12px;
+    padding: 0.55rem 0.95rem;
+    background: rgba(7, 25, 20, 0.94);
+    border: 1px solid rgba(198, 161, 91, 0.45);
+    border-radius: 3px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
-  .contact-info__subgrid {
-    grid-template-columns: 1fr;
+  .contact-hero__consult-text {
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    line-height: 1.4;
+  }
+
+  /* SECTION B: MAIN CONTACT EXPERIENCE */
+  .contact-experience {
+    padding: 2.75rem 0 3.25rem;
+  }
+
+  .contact-experience__floral-tr {
+    width: 85px;
+    top: -10px;
+    right: 0;
+    opacity: 0.4;
+  }
+
+  .contact-experience__inner {
+    width: calc(100% - 2rem);
     gap: 2rem;
   }
 
-  .contact-velvet-box-frame {
-    max-width: 16rem;
-    margin: 0 auto;
+  .contact-info__eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    margin-bottom: 0.35rem;
   }
 
+  .contact-info__heading {
+    font-size: clamp(2rem, 7.5vw, 2.5rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-info__desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 0.25rem;
+  }
+
+  /* DEDICATED STATIONERY FORM CARD ON MOBILE */
   .contact-form-panel {
-    padding: 1.75rem 1.25rem;
+    background-color: #faf7f2;
+    padding: 1.5rem 1.25rem;
+    border-radius: 6px;
+    border: 1px solid rgba(198, 161, 91, 0.4);
+    box-shadow: 0 10px 30px rgba(18, 36, 30, 0.07);
   }
 
-  .contact-radio-grid {
-    grid-template-columns: 1fr;
+  .contact-form-panel::after {
+    inset: 4px;
+    border-radius: 4px;
+  }
+
+  .contact-form__header {
+    margin-bottom: 0.85rem;
+  }
+
+  .contact-form__title {
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-form__subtitle {
+    font-size: 0.76rem;
+  }
+
+  .contact-form {
+    gap: 0.85rem;
+  }
+
+  .contact-field__label {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* CRITICAL: 16px font-size prevents iOS Safari auto-zoom glitch */
+  .contact-field__input,
+  .contact-field__select,
+  .contact-field__textarea {
+    font-size: 16px !important;
+    min-height: 48px;
+    padding: 0.7rem 0.85rem;
+    border-radius: 4px;
+    border: 1px solid rgba(198, 161, 91, 0.32);
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  }
+
+  .contact-field__textarea {
+    min-height: 4.75rem;
+    line-height: 1.45;
+  }
+
+  .contact-form__submit-btn {
+    min-height: 52px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+    box-shadow: 0 6px 18px rgba(12, 37, 31, 0.22);
+  }
+
+  .contact-form__submit-btn:active:not(:disabled) {
+    transform: scale(0.985);
+  }
+
+  .contact-form__footer-note {
+    font-size: 0.68rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #647065;
+    margin-top: 0.35rem;
+  }
+
+  /* ATELIER DIRECTORY & TOUCHPOINTS ON MOBILE */
+  .contact-info__subgrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-details-stack {
+    background: #ffffff;
+    border: 1px solid rgba(198, 161, 91, 0.3);
+    border-radius: 6px;
+    padding: 1.35rem 1.15rem;
+    box-shadow: 0 6px 20px rgba(18, 36, 30, 0.04);
+    gap: 1.05rem;
+  }
+
+  .contact-detail-row {
+    gap: 0.85rem;
+  }
+
+  .contact-detail-row__icon-circle {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .contact-detail-row__icon-circle svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .contact-detail-row__label {
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+  }
+
+  .contact-detail-row__address {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .contact-detail-row__link {
+    font-size: 0.88rem;
+  }
+
+  .contact-velvet-box-frame {
+    width: 100%;
+    height: 210px;
+    min-height: 210px;
+    max-height: 230px;
+    border-radius: 6px;
+    margin: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  /* SECTION C: BESPOKE CONSULTATION ON MOBILE */
+  .contact-bespoke {
+    padding: 3.5rem 0;
+  }
+
+  .contact-bespoke__inner {
+    width: calc(100% - 2rem);
+    gap: 2rem;
+  }
+
+  .contact-bespoke__title {
+    font-size: clamp(2rem, 7.5vw, 2.5rem);
+    line-height: 1.12;
+    margin-bottom: 0.85rem;
+  }
+
+  .contact-bespoke__desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.35rem;
+  }
+
+  .contact-bespoke__cta {
+    width: 100%;
+    min-height: 50px;
+    justify-content: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    border-radius: 3px;
+  }
+
+  .contact-bespoke__image-frame {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    border-radius: 6px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(198, 161, 91, 0.35);
+  }
+
+  /* SECTION D: VISIT STUDIO IN JAIPUR ON MOBILE */
+  .contact-studio {
+    padding: 3.5rem 0;
+  }
+
+  .contact-studio__inner {
+    width: calc(100% - 2rem);
+    gap: 2rem;
+  }
+
+  .contact-studio__title {
+    font-size: clamp(2rem, 7.5vw, 2.5rem);
+    line-height: 1.12;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-studio__desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.35rem;
   }
 
   .contact-studio__location-card {
+    background: #ffffff;
+    border: 1px solid rgba(198, 161, 91, 0.32);
+    border-radius: 6px;
+    padding: 1.35rem 1.15rem;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    gap: 1.15rem;
+    align-items: stretch;
+    box-shadow: 0 6px 20px rgba(18, 36, 30, 0.05);
+  }
+
+  .contact-studio__location-left {
+    gap: 0.85rem;
+  }
+
+  .contact-studio__location-text {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .contact-studio__directions-link {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    background: #0c251f;
+    color: #f7f3ea;
+    border: 1px solid #c6a15b;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+  }
+
+  .contact-studio__image-frame {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 6px;
+    border: 1px solid rgba(198, 161, 91, 0.3);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
   }
 }
 
