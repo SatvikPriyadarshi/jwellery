@@ -9,7 +9,7 @@
 }
 
 /* =========================================================================
-   1. SHOP HERO (Promotional Banner)
+   1. SHOP HERO (Atelier Luxury Promotional Banner)
    ========================================================================= */
 
 .shop-hero {
@@ -19,74 +19,367 @@
     radial-gradient(circle at 10% 85%, rgba(198, 161, 91, 0.12) 0%, transparent 50%),
     linear-gradient(180deg, #071914 0%, #0c2620 50%, #081a15 100%);
   color: var(--color-ivory);
-  padding: clamp(5.25rem, 7.5vw, 6.75rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(5.25rem, 7.5vw, 6.75rem) 0 clamp(1.75rem, 3vw, 2.75rem);
   border-bottom: 1px solid rgba(198, 161, 91, 0.25);
   overflow: hidden;
 }
 
-.shop-banner-container {
-  width: min(88rem, calc(100% - clamp(1rem, 3.5vw, 3.5rem)));
+.shop-hero-container {
+  width: min(88rem, calc(100% - clamp(1.25rem, 3.5vw, 3.5rem)));
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-.shop-banner-link {
-  display: block;
+.shop-banner-card {
   position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  text-decoration: none;
+  background:
+    radial-gradient(ellipse 70% 65% at 50% 30%, #0d2e24 0%, #081c15 70%, #05140f 100%);
   border: 1px solid rgba(198, 161, 91, 0.35);
+  border-radius: 10px;
   box-shadow:
-    0 16px 44px rgba(0, 0, 0, 0.38),
-    0 2px 10px rgba(198, 161, 91, 0.12);
-  transition:
-    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-    border-color 0.3s ease,
-    box-shadow 0.4s ease;
-  cursor: pointer;
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    0 2px 12px rgba(198, 161, 91, 0.15),
+    inset 0 1px 0 rgba(198, 161, 91, 0.25);
+  overflow: hidden;
 }
 
-.shop-banner-link:hover {
-  transform: translateY(-2px);
-  border-color: rgba(198, 161, 91, 0.6);
-  box-shadow:
-    0 24px 56px rgba(0, 0, 0, 0.48),
-    0 4px 16px rgba(198, 161, 91, 0.22);
+.shop-banner-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr 0.85fr;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(2rem, 3.5vw, 3.25rem);
 }
 
-.shop-banner-frame {
+/* Zone 1: Left Editorial Story */
+.shop-banner-col--left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shop-banner-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: var(--color-champagne);
+  margin-bottom: 0.75rem;
+}
+
+.shop-banner-gem-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.shop-banner-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.shop-banner-rule {
+  width: 1.5rem;
+  height: 1px;
+  background: rgba(198, 161, 91, 0.45);
+}
+
+.shop-banner-eyebrow {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+}
+
+.shop-banner-title {
+  margin: 0 0 1rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 3.2vw, 3.1rem);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--color-ivory);
+}
+
+.shop-banner-title-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-champagne);
+}
+
+.shop-banner-desc {
+  margin: 0 0 1.35rem;
+  max-width: 30rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(0.82rem, 0.95vw, 0.92rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(247, 243, 234, 0.84);
+}
+
+.shop-banner-features {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: rgba(198, 161, 91, 0.9);
+}
+
+.shop-banner-feature-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.shop-banner-diamond-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--color-champagne);
+  transform: rotate(45deg);
+}
+
+.shop-banner-feature-divider {
+  opacity: 0.5;
+}
+
+/* Zone 2: Center Visual Pendant */
+.shop-banner-col--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-banner-pendant-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 2171 / 724;
-  background: #081813;
+  max-width: 275px;
+  aspect-ratio: 580 / 724;
+  border-radius: 8px;
   overflow: hidden;
+  border: 1px solid rgba(198, 161, 91, 0.38);
+  box-shadow:
+    0 16px 44px rgba(0, 0, 0, 0.5),
+    0 0 0 4px rgba(10, 32, 25, 0.45);
+  background: #081a15;
 }
 
-.shop-banner-img {
+.shop-banner-pendant-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.shop-banner-link:hover .shop-banner-img {
-  transform: scale(1.015);
+.shop-banner-pendant-frame:hover .shop-banner-pendant-img {
+  transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .shop-hero {
-    padding: clamp(0.75rem, 2vw, 1.25rem) 0 clamp(0.75rem, 2vw, 1.25rem);
+/* Zone 3: Right Atelier Card & Action */
+.shop-banner-col--right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.shop-banner-atelier-card {
+  width: 100%;
+  max-width: 245px;
+  border: 1px solid rgba(198, 161, 91, 0.55);
+  border-radius: 4px;
+  padding: 0.35rem;
+  background: rgba(6, 20, 16, 0.65);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.shop-banner-atelier-card__inner {
+  border: 1px solid rgba(198, 161, 91, 0.25);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.shop-banner-atelier-eyebrow {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+}
+
+.shop-banner-atelier-title {
+  margin: 0.2rem 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--color-ivory);
+  line-height: 1.15;
+}
+
+.shop-banner-atelier-line {
+  width: 2.2rem;
+  height: 1px;
+  background: rgba(198, 161, 91, 0.4);
+  margin: 0.35rem 0;
+}
+
+.shop-banner-atelier-sub {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 234, 0.88);
+}
+
+.shop-banner-atelier-tag {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+  opacity: 0.85;
+}
+
+.shop-banner-cta-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.shop-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 1px solid var(--color-champagne);
+  border-radius: 9999px;
+  padding: 0.75rem 2.25rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-ivory);
+  background: rgba(12, 38, 32, 0.65);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+.shop-banner-btn:hover {
+  background: var(--color-champagne);
+  color: #071914;
+  border-color: var(--color-champagne);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(198, 161, 91, 0.35);
+}
+
+.shop-banner-btn-arrow {
+  transition: transform 0.25s ease;
+}
+
+.shop-banner-btn:hover .shop-banner-btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Responsive Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .shop-banner-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
-  .shop-banner-container {
+  .shop-banner-col--right {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(198, 161, 91, 0.2);
+  }
+
+  .shop-banner-atelier-card {
+    margin: 0;
+  }
+}
+
+/* Responsive Mobile (< 768px) */
+@media (max-width: 768px) {
+  .shop-hero {
+    padding: clamp(0.85rem, 2vw, 1.25rem) 0 clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .shop-hero-container {
     width: calc(100% - 1.25rem);
   }
 
-  .shop-banner-frame {
-    border-radius: 6px;
+  .shop-banner-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.65rem 1.15rem;
+    text-align: center;
+  }
+
+  .shop-banner-col--left {
+    align-items: center;
+  }
+
+  .shop-banner-eyebrow-wrap {
+    justify-content: center;
+  }
+
+  .shop-banner-title {
+    font-size: 1.85rem;
+  }
+
+  .shop-banner-desc {
+    margin-bottom: 1rem;
+  }
+
+  .shop-banner-features {
+    justify-content: center;
+  }
+
+  .shop-banner-pendant-frame {
+    max-width: 220px;
+  }
+
+  .shop-banner-col--right {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(198, 161, 91, 0.2);
+  }
+
+  .shop-banner-atelier-card {
+    max-width: 220px;
+  }
+
+  .shop-banner-btn {
+    width: 100%;
+    max-width: 240px;
   }
 }
 
