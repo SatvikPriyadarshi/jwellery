@@ -10,6 +10,12 @@
   --color-deep-teal: #102a31;
   --background: var(--color-deep-teal);
   --foreground: var(--color-ivory);
+
+  /* Primary Brand Typography (GIVA Luxury Font Stack: Lato + Figtree) */
+  --font-giva: var(--font-lato), var(--font-figtree), "Lato", Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-outfit: var(--font-giva);
+  --font-cormorant: var(--font-giva);
+  --font-bodoni: var(--font-giva);
 }
 
 @theme inline {
@@ -22,14 +28,15 @@
   --color-charcoal: var(--color-charcoal);
   --color-warm-stone: var(--color-warm-stone);
   --color-deep-teal: var(--color-deep-teal);
-  --font-sans: var(--font-outfit);
-  --font-serif: var(--font-cormorant);
-  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-giva);
+  --font-serif: var(--font-giva);
+  --font-display: var(--font-giva);
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  font-family: var(--font-giva);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -46,10 +53,19 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-outfit), ui-sans-serif, sans-serif;
+  font-family: var(--font-giva);
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, input, select, textarea, label {
+  font-family: var(--font-giva);
 }
 
 @media (max-width: 720px) {
@@ -68,4 +84,3 @@ body {
   background: color-mix(in srgb, var(--color-champagne) 35%, transparent);
   color: var(--color-ivory);
 }
-

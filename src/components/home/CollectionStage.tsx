@@ -106,14 +106,14 @@ export default function CollectionStage() {
   const touchStartY = useRef(0);
   const touchStartTime = useRef(0);
 
-  // Jump to specific collection slide (by scrolling to its pinned hold position)
+  // Jump to specific collection slide (by scrolling to its hold position)
   const gotoSlide = useCallback((index: number) => {
     const clamped = Math.max(0, Math.min(slides.length - 1, index));
     const st = scrollTriggerRef.current;
     if (st) {
       const totalDistance = st.end - st.start;
-      // Midpoints of hold phases across the 4 slides
-      const slideFractions = [0, 0.36, 0.64, 0.92];
+      // Midpoints across the 4 slides
+      const slideFractions = [0, 0.33, 0.67, 1.0];
       const fraction =
         slideFractions[clamped] ?? clamped / (slides.length - 1);
       const targetY = st.start + fraction * totalDistance;
@@ -133,12 +133,12 @@ export default function CollectionStage() {
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      // Set initial slide visibility: Slide 0 is visible, other slides staged
+      // Set initial slide visibility: Slide 0 is visible, other slides staged closely
       slidesRef.current.forEach((slide, i) => {
         if (slide) {
           gsap.set(slide, {
             autoAlpha: i === 0 ? 1 : 0,
-            scale: i === 0 ? 1 : 0.25,
+            scale: i === 0 ? 1 : 0.88,
             y: 0,
             pointerEvents: i === 0 ? "auto" : "none",
           });
@@ -148,14 +148,14 @@ export default function CollectionStage() {
       if (reduce) return;
 
       const isMobile = window.innerWidth < 768;
-      // Ultra-luxurious damping: 2.0s scrub prevents fast wheel spins from skipping slides
-      const scrubSpeed = isMobile ? 1.4 : 2.0;
-      // Generous pinned scroll distance: 7.5x desktop / 5.2x mobile ensures unhurried pacing
+      // Natural responsive scrub: quick and natural tracking without dragging lag
+      const scrubSpeed = isMobile ? 0.7 : 0.9;
+      // Normal scroll distance: 3.0x desktop / 2.2x mobile keeps scroll fast & fluid
       const scrollDistance = isMobile
-        ? Math.round(window.innerHeight * 5.2)
-        : Math.round(window.innerHeight * 7.5);
+        ? Math.round(window.innerHeight * 2.2)
+        : Math.round(window.innerHeight * 3.0);
 
-      // Master Timeline tied to vertical scroll with window locking (pin: true)
+      // Master Timeline tied to vertical scroll with smooth, continuous transitions (no sudden snaps)
       const tl = gsap.timeline({
         scrollTrigger: {
           id: "collection-scroll-scrub",
@@ -167,18 +167,12 @@ export default function CollectionStage() {
           scrub: scrubSpeed,
           start: "top top",
           end: () => `+=${scrollDistance}`,
-          snap: {
-            snapTo: [0, 0.36, 0.64, 0.92],
-            duration: { min: 0.5, max: 1.1 },
-            delay: 0.15,
-            ease: "power2.out",
-          },
           onUpdate: (self) => {
             const p = self.progress;
             let computed = 0;
-            if (p < 0.23) computed = 0;
-            else if (p < 0.50) computed = 1;
-            else if (p < 0.76) computed = 2;
+            if (p < 0.22) computed = 0;
+            else if (p < 0.52) computed = 1;
+            else if (p < 0.78) computed = 2;
             else computed = 3;
             setActiveIdx(computed);
           },
@@ -187,54 +181,55 @@ export default function CollectionStage() {
 
       scrollTriggerRef.current = tl.scrollTrigger || null;
 
-      const holdDuration = 2.2;
-      const transDuration = 0.9;
+      // Generous transition window and gentle holds for silky-smooth dissolve
+      const holdDuration = 0.5;
+      const transDuration = 1.9;
 
       // Build transitions between the 4 collections
       for (let i = 0; i < slides.length - 1; i++) {
         const current = slidesRef.current[i];
         const next = slidesRef.current[i + 1];
 
-        // 1. Hold pause on current slide (generous reading pause)
+        // 1. Brief hold pause on current slide
         tl.to({}, { duration: holdDuration });
 
-        // 2. Outgoing slide: scales up (1.85x) + fades out
+        // 2. Outgoing slide: gentle scale (1.12x) + soft crossfade out
         tl.to(
           current,
           {
-            scale: 1.85,
+            scale: 1.12,
             autoAlpha: 0,
             duration: transDuration,
-            ease: "power3.out",
+            ease: "power1.inOut",
           },
           `trans-${i}`
         );
 
-        // 3. Incoming slide: scales from 0.25 to 1 + fades in
+        // 3. Incoming slide: gentle zoom in (0.88 -> 1) + soft crossfade in
         tl.fromTo(
           next,
           {
-            scale: 0.25,
+            scale: 0.88,
             autoAlpha: 0,
-            y: isMobile ? 35 : 50,
+            y: isMobile ? 20 : 30,
           },
           {
             scale: 1,
             autoAlpha: 1,
             y: 0,
             duration: transDuration,
-            ease: "power2.out",
+            ease: "power1.inOut",
           },
           `trans-${i}`
         );
 
         // Toggle pointer events at transition midpoint
         if (current && next) {
-          tl.set(next, { pointerEvents: "auto" }, `trans-${i}+=0.45`);
-          tl.set(current, { pointerEvents: "none" }, `trans-${i}+=0.45`);
+          tl.set(next, { pointerEvents: "auto" }, `trans-${i}+=0.95`);
+          tl.set(current, { pointerEvents: "none" }, `trans-${i}+=0.95`);
         }
 
-        // Animate letters and copy on the incoming slide
+        // Animate letters and copy on the incoming slide smoothly
         if (next) {
           const letters = next.querySelectorAll(".cs-letter");
           const copy = next.querySelector(".cs-slide__copy");
@@ -247,33 +242,33 @@ export default function CollectionStage() {
               { yPercent: 125 },
               {
                 yPercent: 0,
-                duration: 0.75,
+                duration: 1.0,
                 stagger: 0.03,
-                ease: "power3.out",
+                ease: "power2.out",
               },
-              `trans-${i}+=0.35`
+              `trans-${i}+=0.4`
             );
           }
 
           if (copy && note && cta) {
             tl.fromTo(
               [copy, note, cta],
-              { y: 20, autoAlpha: 0 },
+              { y: 18, autoAlpha: 0 },
               {
                 y: 0,
                 autoAlpha: 1,
-                duration: 0.65,
-                stagger: 0.08,
-                ease: "power3.out",
+                duration: 0.85,
+                stagger: 0.1,
+                ease: "power2.out",
               },
-              `trans-${i}+=0.45`
+              `trans-${i}+=0.6`
             );
           }
         }
       }
 
       // Final hold period for Slide 3 (Necklaces)
-      tl.to({}, { duration: holdDuration * 1.15 });
+      tl.to({}, { duration: holdDuration });
 
       return () => {
         tl.kill();

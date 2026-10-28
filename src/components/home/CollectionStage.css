@@ -57,16 +57,16 @@
 .cs-topbar__title {
   margin: 0;
   color: var(--color-ivory);
-  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.85rem, 2.8vw, 2.65rem);
-  font-weight: 400;
-  line-height: 1.1;
+  font-family: var(--font-giva), var(--font-cormorant), "Lato", sans-serif;
+  font-size: clamp(1.65rem, 2.5vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.15;
   letter-spacing: -0.01em;
 }
 
 .cs-topbar__title em {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 300;
   color: color-mix(in srgb, var(--color-ivory) 88%, var(--cs-accent));
 }
 
@@ -189,11 +189,11 @@
 .cs-slide__category {
   margin: 0;
   color: var(--color-ivory);
-  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(4.25rem, 9vw, 7.5rem);
-  font-weight: 400;
+  font-family: var(--font-giva), var(--font-cormorant), "Lato", sans-serif;
+  font-size: clamp(3.75rem, 8vw, 6.75rem);
+  font-weight: 300;
   line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   overflow: visible;
   padding-bottom: 0.18em;
 }
@@ -220,14 +220,14 @@
 }
 
 .cs-slide__copy {
-  margin: 1.65rem 0 0;
-  max-width: 22rem;
-  color: color-mix(in srgb, var(--color-ivory) 84%, transparent);
-  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.35;
+  margin: 1.5rem 0 0;
+  max-width: 24rem;
+  color: color-mix(in srgb, var(--color-ivory) 88%, transparent);
+  font-family: var(--font-giva), var(--font-cormorant), "Lato", sans-serif;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.45;
   letter-spacing: 0.01em;
 }
 
@@ -551,6 +551,7 @@
 
   .cs-slide__category {
     font-size: clamp(2.1rem, 10vw, 3.1rem);
+    font-weight: 300;
     line-height: 1.15;
     padding-bottom: 0.15em;
     overflow: visible;

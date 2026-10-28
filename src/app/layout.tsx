@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Cormorant_Garamond, Outfit } from "next/font/google";
+import { Bodoni_Moda, Cormorant_Garamond, Outfit, Lato, Figtree } from "next/font/google";
 import "./globals.css";
 import {
   SITE_URL,
@@ -7,6 +7,21 @@ import {
   getOrganizationJsonLd,
   getWebSiteJsonLd,
 } from "@/lib/seo";
+
+const lato = Lato({
+  variable: "--font-lato",
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -121,7 +136,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bodoni.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
+      className={`${lato.variable} ${figtree.variable} ${bodoni.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
     >
       <head>
         {/* Organization & WebSite JSON-LD Structured Data */}
