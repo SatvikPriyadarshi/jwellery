@@ -179,8 +179,19 @@ export default function SiteNav({
                 </a>
               </p>
               <p>
-                <a href="tel:+919829056388">+91 9829056388</a> &bull;{" "}
+                <a href="tel:+917568042023">+91 75680 42023</a> &bull;{" "}
                 <a href="tel:+60122032941">+60 122032941</a>
+              </p>
+              <p className="mt-1">
+                <a
+                  href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-champagne)] hover:underline inline-flex items-center gap-1 text-xs"
+                >
+                  <span>WhatsApp Concierge (+91 75680 42023)</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
               </p>
             </div>
             <div>

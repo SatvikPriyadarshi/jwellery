@@ -723,6 +723,38 @@
   color: #0c251f;
 }
 
+.contact-form-success__wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #ffffff;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  text-decoration: none;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+}
+
+.contact-form-success__wa-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.contact-form-success__wa-btn svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+}
+
 .contact-form-success__reset-btn {
   background: transparent;
   color: #0c251f;

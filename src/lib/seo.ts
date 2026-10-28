@@ -24,7 +24,7 @@ export const SITE_CONFIG = {
   ogImage: `${SITE_URL}/og-image.jpg`,
   logo: `${SITE_URL}/images/Logo.webp`,
   email: "concierge@unifinejewelry.com",
-  phone: "+91 141 260 1965",
+  phone: "+91 75680 42023",
   social: {
     instagram: "https://instagram.com/unifinejewelry",
   },
@@ -248,7 +248,7 @@ export function getContactPageJsonLd() {
     mainEntity: {
       "@type": "JewelryStore",
       name: SITE_CONFIG.name,
-      telephone: "+91 9829056388",
+      telephone: "+91 75680 42023",
       email: "info@unifinejewelry.com",
       address: {
         "@type": "PostalAddress",

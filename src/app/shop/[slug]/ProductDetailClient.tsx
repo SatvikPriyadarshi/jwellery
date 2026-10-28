@@ -31,8 +31,8 @@ export default function ProductDetailClient({
     `Hello Uni Fine Jewelry Concierge,\n\nI am interested in acquiring or commissioning:\nPiece: ${product.name}\nReference: ${product.id}\nCategory: ${product.category}\n\nPlease share current availability, pricing details, and private appointment options.\n\nThank you.`
   );
   const mailtoUrl = `mailto:concierge@unifinejewelry.com?subject=${inquirySubject}&body=${inquiryBody}`;
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
-    `Hello Uni Fine Jewelry, I am inquiring regarding ${product.name} (Ref: ${product.id}).`
+  const whatsappUrl = `https://wa.me/917568042023?text=${encodeURIComponent(
+    `Hello Uni Fine Jewelry Concierge,\n\nI am inquiring about:\n*Piece:* ${product.name}\n*Reference:* ${product.id}\n*Category:* ${product.category}\n*Link:* https://jwellery-lilac.vercel.app/shop/${product.slug}\n\nPlease share current pricing, certificate details, and private appointment options.\n\nThank you.`
   )}`;
 
   const getFittedImage = (img: string) =>
