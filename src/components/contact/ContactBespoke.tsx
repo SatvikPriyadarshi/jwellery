@@ -31,7 +31,7 @@ export default function ContactBespoke({ onBespokeClick }: ContactBespokeProps) 
       if (copy && visual) {
         gsap.fromTo(
           copy,
-          { autoAlpha: 0, y: 35 },
+          { autoAlpha: 0, y: 30 },
           {
             autoAlpha: 1,
             y: 0,
@@ -47,12 +47,12 @@ export default function ContactBespoke({ onBespokeClick }: ContactBespokeProps) 
 
         gsap.fromTo(
           visual,
-          { autoAlpha: 0, y: 40, scale: 0.98 },
+          { autoAlpha: 0, y: 35, scale: 0.99 },
           {
             autoAlpha: 1,
             y: 0,
             scale: 1,
-            duration: 1.05,
+            duration: 1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: section,
@@ -86,9 +86,9 @@ export default function ContactBespoke({ onBespokeClick }: ContactBespokeProps) 
       <div className="contact-bespoke__inner">
         {/* Left Column: Editorial Copy */}
         <div className="contact-bespoke__copy">
-          <div className="contact-eyebrow-wrap">
-            <span className="contact-eyebrow">MADE PERSONAL, MADE FOR YOU</span>
-            <span className="contact-eyebrow-line" aria-hidden="true" />
+          <div className="contact-hero__eyebrow-wrap">
+            <span className="contact-hero__eyebrow">MADE PERSONAL, MADE FOR YOU</span>
+            <span className="contact-hero__eyebrow-line" aria-hidden="true" />
           </div>
 
           <h2 className="contact-bespoke__title">
@@ -98,9 +98,7 @@ export default function ContactBespoke({ onBespokeClick }: ContactBespokeProps) 
 
           <p className="contact-bespoke__desc">
             Whether you&apos;re imagining a custom design or searching for a
-            meaningful piece, let us help bring your vision to life. From
-            initial stone selection to the final master hand-setting, our
-            ateliers in Jaipur work directly with you.
+            meaningful piece, let us help bring your vision to life.
           </p>
 
           <button
@@ -113,20 +111,16 @@ export default function ContactBespoke({ onBespokeClick }: ContactBespokeProps) 
           </button>
         </div>
 
-        {/* Right Column: Craftsmanship Photography */}
+        {/* Right Column: Craftsman Precision Gemstone Setting */}
         <div className="contact-bespoke__visual">
           <div className="contact-bespoke__image-frame">
             <Image
-              src="/images/jewellery/about-2018-atelier.jpg"
-              alt="Master goldsmith and lapidary artisan sculpting a custom fine jewelry mounting at the Jaipur workbench"
+              src="/images/contact/craftsman-setting.jpg"
+              alt="Master craftsman setting an ethically sourced Zambian emerald into a handcrafted bespoke gold mounting"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
               className="contact-bespoke__img"
             />
-          </div>
-          <div className="contact-bespoke__caption">
-            <span className="contact-bespoke__caption-dot" aria-hidden="true" />
-            <span>Jaipur Atelier • Custom Goldsmithing &amp; Precision Lapidary</span>
           </div>
         </div>
       </div>

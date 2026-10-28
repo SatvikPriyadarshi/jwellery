@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useState, useRef, useEffect, useImperativeHandle, forwardRef } from "react";
+import { useState, useRef, useImperativeHandle, forwardRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -69,7 +68,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
         formRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
         setTimeout(() => {
           messageInputRef.current?.focus();
-        }, 600);
+        }, 550);
       }
     },
   }));
@@ -91,7 +90,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
       if (leftCol && rightCol) {
         gsap.fromTo(
           leftCol,
-          { autoAlpha: 0, y: 35 },
+          { autoAlpha: 0, y: 30 },
           {
             autoAlpha: 1,
             y: 0,
@@ -107,7 +106,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
 
         gsap.fromTo(
           rightCol,
-          { autoAlpha: 0, y: 45 },
+          { autoAlpha: 0, y: 40 },
           {
             autoAlpha: 1,
             y: 0,
@@ -136,7 +135,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
     if (!formData.email.trim()) {
       newErrors.email = "Please enter your email address.";
     } else if (!emailRegex.test(formData.email.trim())) {
-      newErrors.email = "Please enter a valid email address.";
+      newErrors.email = "Please provide a valid email address.";
     }
 
     if (formData.phone.trim() && formData.phone.trim().length > 30) {
@@ -163,7 +162,6 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error for edited field
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -172,10 +170,16 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
     }
   };
 
+  const handleRadioChange = (topic: string) => {
+    setFormData((prev) => ({ ...prev, enquiryType: topic }));
+    if (errors.enquiryType) {
+      setErrors((prev) => ({ ...prev, enquiryType: undefined }));
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Prevent double submission
     if (isSubmitting) return;
 
     if (!validate()) {
@@ -208,7 +212,6 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
           "Your message has been received. Our concierge will be in touch shortly.",
       });
 
-      // Reset form fields
       setFormData({
         fullName: "",
         email: "",
@@ -241,19 +244,27 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
       className="contact-experience"
       aria-label="Direct Contact & Consultation Form"
     >
+      {/* Top-Right Floral Botanical Illustration */}
+      <div className="contact-experience__floral-tr" aria-hidden="true">
+        <Image
+          src="/images/contact/floral-top-right.png"
+          alt=""
+          width={220}
+          height={180}
+          className="w-full h-auto object-contain"
+        />
+      </div>
+
       <div className="contact-experience__inner">
         {/* =================================================================
-            LEFT COLUMN: Contact Information & Brand Heritage
+            LEFT COLUMN: Contact Information & Velvet Box Ring Photograph
             ================================================================= */}
         <div className="contact-info-col">
-          <div className="contact-eyebrow-wrap">
-            <span className="contact-eyebrow">LET&apos;S START A CONVERSATION</span>
-            <span className="contact-eyebrow-line" aria-hidden="true" />
-          </div>
+          <p className="contact-info__eyebrow">LET&apos;S START A CONVERSATION</p>
 
           <h2 className="contact-info__heading">
-            We&apos;d Love to Hear <br />
-            From You.
+            We&apos;d Love to <br />
+            Hear From <span className="contact-info__heading-italic">You.</span>
           </h2>
 
           <p className="contact-info__desc">
@@ -262,82 +273,125 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
             collections, bespoke jewellery, or any questions you may have.
           </p>
 
-          <div className="contact-groups">
-            {/* 1. VISIT OUR OFFICE */}
-            <div className="contact-group">
-              <span className="contact-group__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
-                  <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z" />
-                  <circle cx="12" cy="11" r="2" />
-                </svg>
-              </span>
-              <div className="contact-group__content">
-                <p className="contact-group__label">VISIT OUR OFFICE</p>
-                <address className="contact-group__value not-italic">
-                  N K Towers, Purohit Ji Ka Bagh, <br />
-                  Mirza Ismail Rd, Jaipur, <br />
-                  Rajasthan 302001, India
-                </address>
+          <div className="contact-info__subgrid">
+            {/* Contact Details Stack */}
+            <div className="contact-details-stack">
+              {/* 1. VISIT OUR OFFICE */}
+              <div className="contact-detail-row">
+                <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                    <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z" />
+                    <circle cx="12" cy="11" r="2" />
+                  </svg>
+                </span>
+                <div className="contact-detail-row__body">
+                  <p className="contact-detail-row__label">VISIT OUR OFFICE</p>
+                  <address className="contact-detail-row__address">
+                    N K Towers, Purohit Ji Ka Bagh, <br />
+                    Mirza Ismail Rd, Jaipur, <br />
+                    Rajasthan 302001, India
+                  </address>
+                </div>
+              </div>
+
+              {/* 2. CALL OUR TEAM */}
+              <div className="contact-detail-row">
+                <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round">
+                    <path d="M8 5h2l1 2.6-1.4.9a9 9 0 0 0 4.9 4.9l.9-1.4L18 13v2a1.6 1.6 0 0 1-1.8 1.6A12.5 12.5 0 0 1 6.4 6.8 1.6 1.6 0 0 1 8 5z" />
+                  </svg>
+                </span>
+                <div className="contact-detail-row__body">
+                  <p className="contact-detail-row__label">CALL OUR TEAM</p>
+                  <a
+                    href="tel:+919829056388"
+                    className="contact-detail-row__link"
+                    aria-label="Call Uni Fine Jewelry at +91 9829056388"
+                  >
+                    +91 9829056388
+                  </a>
+                </div>
+              </div>
+
+              {/* 3. WRITE TO US */}
+              <div className="contact-detail-row">
+                <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                    <rect x="4" y="6.5" width="16" height="11" rx="1.4" />
+                    <path d="M5 8l7 5 7-5" />
+                  </svg>
+                </span>
+                <div className="contact-detail-row__body">
+                  <p className="contact-detail-row__label">WRITE TO US</p>
+                  <a
+                    href="mailto:info@unifinejewelry.com"
+                    className="contact-detail-row__link"
+                    aria-label="Email Uni Fine Jewelry at info@unifinejewelry.com"
+                  >
+                    info@unifinejewelry.com
+                  </a>
+                </div>
+              </div>
+
+              {/* 4. FOLLOW US */}
+              <div className="contact-detail-row">
+                <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                    <rect x="4" y="4" width="16" height="16" rx="4" />
+                    <circle cx="12" cy="12" r="3.2" />
+                    <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
+                  </svg>
+                </span>
+                <div className="contact-detail-row__body">
+                  <p className="contact-detail-row__label">FOLLOW US</p>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-detail-row__link"
+                  >
+                    <span>Instagram</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* 5. BESPOKE / TIMELESS / YOU Tagline */}
+              <div className="contact-tagline-wrap">
+                <span className="contact-tagline-emblem" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                    <circle cx="12" cy="12" r="3" />
+                    <circle cx="12" cy="6" r="2" />
+                    <circle cx="12" cy="18" r="2" />
+                    <circle cx="6" cy="12" r="2" />
+                    <circle cx="18" cy="12" r="2" />
+                    <circle cx="7.75" cy="7.75" r="1.5" />
+                    <circle cx="16.25" cy="16.25" r="1.5" />
+                    <circle cx="7.75" cy="16.25" r="1.5" />
+                    <circle cx="16.25" cy="7.75" r="1.5" />
+                  </svg>
+                </span>
+                <span className="contact-tagline-text">
+                  BESPOKE &nbsp;/&nbsp; TIMELESS &nbsp;/&nbsp; YOU
+                </span>
               </div>
             </div>
 
-            {/* 2. CALL OUR TEAM */}
-            <div className="contact-group">
-              <span className="contact-group__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round">
-                  <path d="M8 5h2l1 2.6-1.4.9a9 9 0 0 0 4.9 4.9l.9-1.4L18 13v2a1.6 1.6 0 0 1-1.8 1.6A12.5 12.5 0 0 1 6.4 6.8 1.6 1.6 0 0 1 8 5z" />
-                </svg>
-              </span>
-              <div className="contact-group__content">
-                <p className="contact-group__label">CALL OUR TEAM</p>
-                <a
-                  href="tel:+919829056388"
-                  className="contact-group__link"
-                  aria-label="Call Uni Fine Jewelry team at +91 9829056388"
-                >
-                  +91 9829056388
-                </a>
-              </div>
-            </div>
-
-            {/* 3. WRITE TO US */}
-            <div className="contact-group">
-              <span className="contact-group__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
-                  <rect x="4" y="6.5" width="16" height="11" rx="1.4" />
-                  <path d="M5 8l7 5 7-5" />
-                </svg>
-              </span>
-              <div className="contact-group__content">
-                <p className="contact-group__label">WRITE TO US</p>
-                <a
-                  href="mailto:info@unifinejewelry.com"
-                  className="contact-group__link"
-                  aria-label="Email Uni Fine Jewelry at info@unifinejewelry.com"
-                >
-                  info@unifinejewelry.com
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Editorial Inset Photograph */}
-          <div className="contact-info__editorial-inset">
-            <Image
-              src="/images/jewellery/about-emerald-detail.jpg"
-              alt="Close-up detail of ethically sourced Zambian emerald and bespoke gold craftsmanship"
-              fill
-              sizes="(max-width: 640px) 100vw, 420px"
-              className="object-cover"
-            />
-            <div className="contact-info__inset-caption">
-              Atelier benchwork • Ethically sourced gemstones
+            {/* Vertical Velvet Box Photograph */}
+            <div className="contact-velvet-box-frame">
+              <Image
+                src="/images/contact/velvet-box-ring.jpg"
+                alt="Uni Fine Jewelry handcrafted Zambian emerald and diamond heirloom ring nestled in velvet boutique presentation box"
+                fill
+                sizes="(max-width: 640px) 100vw, 240px"
+                className="contact-velvet-box-img"
+              />
             </div>
           </div>
         </div>
 
         {/* =================================================================
-            RIGHT COLUMN: Dedicated Contact Form Inside Ivory Panel
+            RIGHT COLUMN: Dedicated Ivory Consultation Form
             ================================================================= */}
         <div className="contact-form-panel">
           {submissionSuccess ? (
@@ -353,8 +407,8 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               </h3>
 
               <p className="contact-form-success__text">
-                {submissionSuccess.message} A member of our private client team
-                will review your request and reply within 24 business hours.
+                {submissionSuccess.message} Our private client concierge will
+                personally review your enquiry and connect with you within 24 hours.
               </p>
 
               <div className="contact-form-success__badge">
@@ -377,7 +431,6 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
           ) : (
             <>
               <div className="contact-form__header">
-                <p className="contact-form__eyebrow">CONCIERGE INQUIRY</p>
                 <h3 className="contact-form__title">
                   Tell Us What You&apos;re Looking For.
                 </h3>
@@ -388,7 +441,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
 
               {submissionError && (
                 <div
-                  className="mb-6 p-4 rounded-xs bg-[#fdf2f2] border border-[#f0c2c2] text-[#9b2c2c] text-sm"
+                  className="mb-5 p-3 rounded-xs bg-[#fdf2f2] border border-[#f0c2c2] text-[#9b2c2c] text-sm"
                   role="alert"
                 >
                   <p className="font-medium">{submissionError}</p>
@@ -401,9 +454,9 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 noValidate
                 className="contact-form"
               >
-                {/* Honeypot field (hidden from assistive tech and visual users) */}
+                {/* Honeypot field (hidden from screen readers & visual users) */}
                 <div className="contact-field--hp" aria-hidden="true">
-                  <label htmlFor="botField">Leave this field blank</label>
+                  <label htmlFor="botField">Leave blank</label>
                   <input
                     id="botField"
                     name="botField"
@@ -418,14 +471,14 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 {/* 1. Full Name */}
                 <div className="contact-field">
                   <label htmlFor="fullName" className="contact-field__label">
-                    Full Name <span aria-hidden="true">*</span>
+                    Full Name *
                   </label>
                   <input
                     id="fullName"
                     name="fullName"
                     type="text"
                     required
-                    placeholder="e.g. Lady Katherine Howard"
+                    placeholder="Your name"
                     value={formData.fullName}
                     onChange={handleChange}
                     aria-invalid={!!errors.fullName}
@@ -444,14 +497,14 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 {/* 2. Email Address */}
                 <div className="contact-field">
                   <label htmlFor="email" className="contact-field__label">
-                    Email Address <span aria-hidden="true">*</span>
+                    Email Address *
                   </label>
                   <input
                     id="email"
                     name="email"
                     type="email"
                     required
-                    placeholder="e.g. katherine@example.com"
+                    placeholder="you@example.com"
                     value={formData.email}
                     onChange={handleChange}
                     aria-invalid={!!errors.email}
@@ -467,17 +520,16 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   )}
                 </div>
 
-                {/* 3. Phone Number (Optional) */}
+                {/* 3. Phone Number */}
                 <div className="contact-field">
                   <label htmlFor="phone" className="contact-field__label">
                     Phone Number
-                    <span className="contact-field__opt">(Optional)</span>
                   </label>
                   <input
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="e.g. +91 98290 56388"
+                    placeholder="+91 98765 43210 (optional)"
                     value={formData.phone}
                     onChange={handleChange}
                     aria-invalid={!!errors.phone}
@@ -493,10 +545,10 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   )}
                 </div>
 
-                {/* 4. What Can We Help You With? (Select field) */}
+                {/* 4. What Can We Help You With? * */}
                 <div className="contact-field">
                   <label htmlFor="enquiryType" className="contact-field__label">
-                    What Can We Help You With? <span aria-hidden="true">*</span>
+                    What Can We Help You With? *
                   </label>
                   <div className="contact-field__select-wrap">
                     <select
@@ -513,6 +565,9 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                         errors.enquiryType ? "contact-field__select--error" : ""
                       }`}
                     >
+                      <option value="" disabled>
+                        Select enquiry type
+                      </option>
                       {ENQUIRY_OPTIONS.map((opt) => (
                         <option key={opt} value={opt}>
                           {opt}
@@ -536,18 +591,18 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   )}
                 </div>
 
-                {/* 5. Your Message */}
+                {/* 5. Your Message * */}
                 <div className="contact-field">
                   <label htmlFor="message" className="contact-field__label">
-                    Your Message <span aria-hidden="true">*</span>
+                    Your Message *
                   </label>
                   <textarea
                     ref={messageInputRef}
                     id="message"
                     name="message"
                     required
-                    rows={5}
-                    placeholder="Share your ideas, gemstone preferences, ring sizes, or questions..."
+                    rows={4}
+                    placeholder="How can we help you?"
                     value={formData.message}
                     onChange={handleChange}
                     aria-invalid={!!errors.message}
@@ -563,7 +618,77 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   )}
                 </div>
 
-                {/* 6. Submit Button */}
+                {/* 6. Select Enquiry Type (optional radio button grid) */}
+                <div className="contact-radio-group">
+                  <p className="contact-radio-group__title">
+                    Select Enquiry Type (optional)
+                  </p>
+                  <div className="contact-radio-grid">
+                    {/* Left Column */}
+                    <div className="flex flex-col gap-2">
+                      <label className="contact-radio-item">
+                        <input
+                          type="radio"
+                          name="radioEnquiry"
+                          checked={formData.enquiryType === "General Enquiry"}
+                          onChange={() => handleRadioChange("General Enquiry")}
+                        />
+                        <span>General Enquiry</span>
+                      </label>
+                      <label className="contact-radio-item">
+                        <input
+                          type="radio"
+                          name="radioEnquiry"
+                          checked={formData.enquiryType === "Bespoke Jewellery"}
+                          onChange={() => handleRadioChange("Bespoke Jewellery")}
+                        />
+                        <span>Bespoke Jewellery</span>
+                      </label>
+                      <label className="contact-radio-item">
+                        <input
+                          type="radio"
+                          name="radioEnquiry"
+                          checked={formData.enquiryType === "Existing Order Enquiry"}
+                          onChange={() => handleRadioChange("Existing Order Enquiry")}
+                        />
+                        <span>Existing Order Enquiry</span>
+                      </label>
+                    </div>
+
+                    {/* Right Column */}
+                    <div className="flex flex-col gap-2">
+                      <label className="contact-radio-item">
+                        <input
+                          type="radio"
+                          name="radioEnquiry"
+                          checked={formData.enquiryType === "Product Enquiry"}
+                          onChange={() => handleRadioChange("Product Enquiry")}
+                        />
+                        <span>Product Enquiry</span>
+                      </label>
+                      <label className="contact-radio-item">
+                        <input
+                          type="radio"
+                          name="radioEnquiry"
+                          checked={formData.enquiryType === "Custom Design"}
+                          onChange={() => handleRadioChange("Custom Design")}
+                        />
+                        <span>Custom Design</span>
+                      </label>
+                      <label className="contact-radio-item">
+                        <input
+                          type="radio"
+                          name="radioEnquiry"
+                          checked={formData.enquiryType === "Other"}
+                          onChange={() => handleRadioChange("Other")}
+                        />
+                        <span>Other</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 7. Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -572,7 +697,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   {isSubmitting ? (
                     <>
                       <span className="contact-form__submit-spinner" aria-hidden="true" />
-                      <span>Sending Your Message...</span>
+                      <span>SENDING MESSAGE...</span>
                     </>
                   ) : (
                     <>
@@ -581,13 +706,6 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                     </>
                   )}
                 </button>
-
-                <p className="contact-form__privacy-note">
-                  Your information is held in strict confidence. By submitting,
-                  you agree to our{" "}
-                  <Link href="/privacy">Privacy Policy</Link> and{" "}
-                  <Link href="/terms">Terms of Service</Link>.
-                </p>
               </form>
             </>
           )}

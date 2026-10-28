@@ -27,7 +27,7 @@ export default function ContactStudio() {
       if (copy && visual) {
         gsap.fromTo(
           copy,
-          { autoAlpha: 0, y: 35 },
+          { autoAlpha: 0, y: 30 },
           {
             autoAlpha: 1,
             y: 0,
@@ -43,12 +43,12 @@ export default function ContactStudio() {
 
         gsap.fromTo(
           visual,
-          { autoAlpha: 0, y: 40, scale: 0.98 },
+          { autoAlpha: 0, y: 35, scale: 0.99 },
           {
             autoAlpha: 1,
             y: 0,
             scale: 1,
-            duration: 1.05,
+            duration: 1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: section,
@@ -71,54 +71,54 @@ export default function ContactStudio() {
       <div className="contact-studio__inner">
         {/* Left Column: Office Details & Directions */}
         <div className="contact-studio__copy">
-          <div className="contact-eyebrow-wrap">
-            <span className="contact-eyebrow">ATELIER PRESENCE</span>
-            <span className="contact-eyebrow-line" aria-hidden="true" />
-          </div>
+          <p className="contact-studio__eyebrow">VISIT US IN JAIPUR</p>
 
-          <h2 className="contact-studio__title">VISIT US IN JAIPUR</h2>
+          <h2 className="contact-studio__title">Come Connect With Us.</h2>
 
           <p className="contact-studio__desc">
-            While our collections travel worldwide, our roots remain anchored
-            in the historic gemstone capital of Jaipur. We welcome patrons and
-            collectors to our administrative office by appointment for private
-            consultations, bespoke stone selection, and archive previews.
+            We&apos;d be delighted to welcome you to our office in Jaipur.
+            Experience our world of fine jewellery, meet our team, and explore
+            our collections in person.
           </p>
 
-          <div className="contact-studio__address-card">
-            <p className="contact-studio__address-label">OFFICE ADDRESS</p>
-            <address className="contact-studio__address-text">
-              N K Towers, Purohit Ji Ka Bagh, <br />
-              Mirza Ismail Rd, Jaipur, <br />
-              Rajasthan 302001, India
-            </address>
-          </div>
+          <div className="contact-studio__location-card">
+            <div className="contact-studio__location-left">
+              <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z" />
+                  <circle cx="12" cy="11" r="2" />
+                </svg>
+              </span>
+              <address className="contact-studio__location-text">
+                N K Towers, Purohit Ji Ka Bagh, <br />
+                Mirza Ismail Rd, Jaipur, <br />
+                Rajasthan 302001, India
+              </address>
+            </div>
 
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=N+K+Towers+Purohit+Ji+Ka+Bagh+Mirza+Ismail+Rd+Jaipur+Rajasthan+302001"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-studio__directions-link"
-          >
-            <span>GET DIRECTIONS</span>
-            <span aria-hidden="true">→</span>
-          </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=N+K+Towers+Purohit+Ji+Ka+Bagh+Mirza+Ismail+Rd+Jaipur+Rajasthan+302001"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-studio__directions-link"
+              aria-label="Get directions to Uni Fine Jewelry Jaipur office on Google Maps"
+            >
+              <span>GET DIRECTIONS</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
 
-        {/* Right Column: Studio / Salon Photograph */}
+        {/* Right Column: Jaipur Showroom Photograph */}
         <div className="contact-studio__visual">
           <div className="contact-studio__image-frame">
             <Image
-              src="/images/jewellery/about-today-jewelry.jpg"
-              alt="Uni Fine Jewelry salon vitrine and private consultation setting in Jaipur"
+              src="/images/contact/jaipur-showroom.jpg"
+              alt="Uni Fine Jewelry private salon and consultation lounge in Jaipur with floral display and brand emblem"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
               className="contact-studio__img"
             />
-          </div>
-          <div className="contact-studio__caption">
-            <span className="contact-bespoke__caption-dot" aria-hidden="true" />
-            <span>Private appointments available Monday — Saturday by prior arrangement</span>
           </div>
         </div>
       </div>

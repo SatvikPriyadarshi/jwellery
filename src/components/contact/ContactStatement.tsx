@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,9 +21,10 @@ export default function ContactStatement() {
       ).matches;
       if (reduce) return;
 
-      const crest = el.querySelector(".contact-statement__crest");
       const title = el.querySelector(".contact-statement__title");
-      const divider = el.querySelector(".contact-statement__divider");
+      const ornament = el.querySelector(".contact-statement__ornament");
+      const floralLeft = el.querySelector(".contact-statement__floral-bl");
+      const floralRight = el.querySelector(".contact-statement__floral-br");
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -33,21 +35,21 @@ export default function ContactStatement() {
       });
 
       tl.fromTo(
-        crest,
-        { autoAlpha: 0, scale: 0.9, y: 15 },
-        { autoAlpha: 1, scale: 1, y: 0, duration: 0.7, ease: "power2.out" }
+        title,
+        { autoAlpha: 0, y: 18 },
+        { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out" }
       )
         .fromTo(
-          title,
-          { autoAlpha: 0, y: 20 },
-          { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out" },
+          ornament,
+          { autoAlpha: 0, scale: 0.95 },
+          { autoAlpha: 1, scale: 1, duration: 0.7, ease: "power2.out" },
           "-=0.4"
         )
         .fromTo(
-          divider,
-          { scaleX: 0, transformOrigin: "center" },
-          { scaleX: 1, duration: 0.6, ease: "power2.out" },
-          "-=0.4"
+          [floralLeft, floralRight],
+          { autoAlpha: 0 },
+          { autoAlpha: 0.7, duration: 1.1, ease: "power2.out" },
+          "-=0.6"
         );
     },
     { scope: containerRef }
@@ -59,22 +61,37 @@ export default function ContactStatement() {
       className="contact-statement"
       aria-label="Closing Brand Devotion"
     >
-      <div className="contact-statement__inner">
-        <div className="contact-statement__crest" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor">
-            <path
-              d="M24 8c1.4 4 3 5.6 6 7-3 .8-4.6 2.8-6 6-1.4-3.2-3-5.2-6-6 3-1.4 4.6-3 6-7z"
-              strokeWidth="1.2"
-            />
-            <path d="M24 23v14" strokeWidth="1.2" />
-          </svg>
-        </div>
+      {/* Botanical Floral Corner Watermarks */}
+      <div className="contact-statement__floral-bl" aria-hidden="true">
+        <Image
+          src="/images/contact/floral-bottom-left.png"
+          alt=""
+          width={220}
+          height={200}
+          className="w-full h-auto object-contain"
+        />
+      </div>
 
+      <div className="contact-statement__floral-br" aria-hidden="true">
+        <Image
+          src="/images/contact/floral-bottom-right.png"
+          alt=""
+          width={220}
+          height={200}
+          className="w-full h-auto object-contain"
+        />
+      </div>
+
+      <div className="contact-statement__inner">
         <h2 className="contact-statement__title">
           Timeless Beauty, Thoughtfully Crafted.
         </h2>
 
-        <div className="contact-statement__divider" aria-hidden="true" />
+        <div className="contact-statement__ornament" aria-hidden="true">
+          <span className="contact-statement__ornament-line" />
+          <span className="contact-statement__ornament-diamond">◆</span>
+          <span className="contact-statement__ornament-line" />
+        </div>
       </div>
     </section>
   );
