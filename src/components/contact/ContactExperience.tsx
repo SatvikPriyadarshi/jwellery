@@ -297,178 +297,156 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
     >
       <div className="contact-experience__inner">
         {/* =================================================================
-            LEFT COLUMN: Contact Information & Velvet Box Ring Photograph
+            LEFT COLUMN: Refined Atelier Direct Information (Cohesive, Balanced, No Dead Space)
             ================================================================= */}
-        {/* 1. Editorial Greeting (Desktop Left-Top, Mobile 1st) */}
-        <div className="contact-info__intro">
-          <p className="contact-info__eyebrow">ATELIER DIRECT</p>
+        <div className="contact-info-panel">
+          {/* 1. Editorial Greeting */}
+          <div className="contact-info__intro">
+            <p className="contact-info__eyebrow">ATELIER DIRECT</p>
 
-          <h2 className="contact-info__heading">
-            Connect With <br />
-            Our Specialists
-          </h2>
+            <h2 className="contact-info__heading">
+              Connect With <br />
+              <span className="contact-info__heading-italic">Our Specialists</span>
+            </h2>
 
-          <p className="contact-info__desc">
-            Reach out to our Jaipur atelier for collection guidance, bespoke
-            commissions, gemstone certifications, or existing order assistance.
-          </p>
-        </div>
+            <p className="contact-info__desc">
+              Reach out to our Jaipur atelier for collection guidance, bespoke
+              commissions, gemstone certifications, or existing order assistance.
+            </p>
+          </div>
 
-        {/* 2. Atelier Touchpoints & Velvet Box Photograph (Desktop Left-Bottom, Mobile 3rd) */}
-        <div className="contact-info__touchpoints">
-          <div className="contact-info__subgrid">
-            {/* Contact Details Stack */}
-            <div className="contact-details-stack">
-              {/* 1. VISIT OUR OFFICE */}
-              <div className="contact-detail-row">
-                <span className="contact-detail-row__icon-circle" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
-                    <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z" />
-                    <circle cx="12" cy="11" r="2" />
-                  </svg>
-                </span>
-                <div className="contact-detail-row__body">
-                  <p className="contact-detail-row__label">VISIT OUR OFFICE</p>
-                  <address className="contact-detail-row__address">
-                    N K Towers, Purohit Ji Ka Bagh, <br />
-                    Mirza Ismail Rd, Jaipur, <br />
-                    Rajasthan 302001, India
-                  </address>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=N+K+Towers+Purohit+Ji+Ka+Bagh+Mirza+Ismail+Rd+Jaipur+Rajasthan+302001"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-map-directions-inline"
-                    aria-label="Get directions to Uni Fine Jewelry on Google Maps"
-                  >
-                    <span>GET DIRECTIONS</span>
-                    <span aria-hidden="true">&rarr;</span>
-                  </a>
-                </div>
-              </div>
+          {/* 2. VIP WhatsApp Direct Concierge Card */}
+          <div className="contact-concierge-card">
+            <div className="contact-concierge-card__header">
+              <span className="contact-concierge-card__badge">
+                <span className="contact-concierge-card__dot" aria-hidden="true" />
+                DIRECT CONCIERGE
+              </span>
+              <span className="contact-concierge-card__tel">+91 75680 42023</span>
+            </div>
+            <p className="contact-concierge-card__desc">
+              Connect directly with our master gemologists for instant gemstone videos, custom designs, and bespoke pricing.
+            </p>
+            <a
+              href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-concierge-card__btn"
+              aria-label="Chat on WhatsApp with Uni Fine Jewelry Concierge"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="w-4 h-4">
+                <path d="M8 5h2l1 2.6-1.4.9a9 9 0 0 0 4.9 4.9l.9-1.4L18 13v2a1.6 1.6 0 0 1-1.8 1.6A12.5 12.5 0 0 1 6.4 6.8 1.6 1.6 0 0 1 8 5z" />
+              </svg>
+              <span>CHAT ON WHATSAPP</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
 
-              {/* 2. CALL & WHATSAPP */}
-              <div className="contact-detail-row">
-                <span className="contact-detail-row__icon-circle" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round">
-                    <path d="M8 5h2l1 2.6-1.4.9a9 9 0 0 0 4.9 4.9l.9-1.4L18 13v2a1.6 1.6 0 0 1-1.8 1.6A12.5 12.5 0 0 1 6.4 6.8 1.6 1.6 0 0 1 8 5z" />
-                  </svg>
-                </span>
-                <div className="contact-detail-row__body">
-                  <p className="contact-detail-row__label">CALL &amp; WHATSAPP CONCIERGE</p>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <a
-                      href="tel:+917568042023"
-                      className="contact-detail-row__link"
-                      aria-label="Call Uni Fine Jewelry at +91 75680 42023"
-                    >
-                      +91 75680 42023
-                    </a>
-                    <a
-                      href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] font-sans text-emerald-800 hover:text-emerald-950 font-medium tracking-wide underline underline-offset-2 inline-flex items-center gap-1"
-                      aria-label="Chat on WhatsApp with Uni Fine Jewelry Concierge"
-                    >
-                      <span>Chat on WhatsApp</span>
-                      <span aria-hidden="true">&rarr;</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* 3. WRITE TO US */}
-              <div className="contact-detail-row">
-                <span className="contact-detail-row__icon-circle" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
-                    <rect x="4" y="6.5" width="16" height="11" rx="1.4" />
-                    <path d="M5 8l7 5 7-5" />
-                  </svg>
-                </span>
-                <div className="contact-detail-row__body">
-                  <p className="contact-detail-row__label">WRITE TO US</p>
-                  <a
-                    href="mailto:info@unifinejewelry.com"
-                    className="contact-detail-row__link"
-                    aria-label="Email Uni Fine Jewelry at info@unifinejewelry.com"
-                  >
-                    info@unifinejewelry.com
-                  </a>
-                </div>
-              </div>
-
-              {/* 4. FOLLOW US */}
-              <div className="contact-detail-row">
-                <span className="contact-detail-row__icon-circle" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
-                    <rect x="4" y="4" width="16" height="16" rx="4" />
-                    <circle cx="12" cy="12" r="3.2" />
-                    <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
-                  </svg>
-                </span>
-                <div className="contact-detail-row__body">
-                  <p className="contact-detail-row__label">FOLLOW US</p>
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-detail-row__link"
-                  >
-                    <span>Instagram</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* 5. BESPOKE / TIMELESS / YOU Tagline */}
-              <div className="contact-tagline-wrap">
-                <span className="contact-tagline-emblem" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                    <circle cx="12" cy="12" r="3" />
-                    <circle cx="12" cy="6" r="2" />
-                    <circle cx="12" cy="18" r="2" />
-                    <circle cx="6" cy="12" r="2" />
-                    <circle cx="18" cy="12" r="2" />
-                    <circle cx="7.75" cy="7.75" r="1.5" />
-                    <circle cx="16.25" cy="16.25" r="1.5" />
-                    <circle cx="7.75" cy="16.25" r="1.5" />
-                    <circle cx="16.25" cy="7.75" r="1.5" />
-                  </svg>
-                </span>
-                <span className="contact-tagline-text">
-                  BESPOKE &nbsp;/&nbsp; TIMELESS &nbsp;/&nbsp; YOU
-                </span>
+          {/* 3. Detailed Touchpoints Stack */}
+          <div className="contact-details-stack">
+            {/* 1. VISIT OUR OFFICE */}
+            <div className="contact-detail-row">
+              <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z" />
+                  <circle cx="12" cy="11" r="2" />
+                </svg>
+              </span>
+              <div className="contact-detail-row__body">
+                <p className="contact-detail-row__label">JAIPUR OFFICE &amp; SALON</p>
+                <address className="contact-detail-row__address">
+                  N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd,<br />
+                  Jaipur, Rajasthan 302001, India
+                </address>
+                <a
+                  href="#atelier-map"
+                  className="contact-map-directions-inline"
+                  aria-label="Scroll down to view Jaipur Atelier on interactive map"
+                >
+                  <span>VIEW ON MAP BELOW</span>
+                  <span aria-hidden="true">&darr;</span>
+                </a>
               </div>
             </div>
 
-            {/* Interactive Location Map: Jaipur Atelier & Office */}
-            <div className="contact-map-frame" aria-label="Uni Fine Jewelry Jaipur Office Map">
-              <div className="contact-map-bar">
-                <div className="flex items-center gap-1.5">
-                  <span className="contact-map-bar__pin" aria-hidden="true">📍</span>
-                  <span className="contact-map-bar__label">N K Towers, Jaipur</span>
-                </div>
+            {/* 2. HOURS & APPOINTMENTS */}
+            <div className="contact-detail-row">
+              <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <circle cx="12" cy="12" r="9" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </span>
+              <div className="contact-detail-row__body">
+                <p className="contact-detail-row__label">HOURS &amp; APPOINTMENTS</p>
+                <p className="contact-detail-row__address">
+                  Monday – Saturday: 10:30 AM – 7:30 PM IST <br />
+                  <span className="text-[12px] text-[#727c73]">Private Salon Viewings by Appointment</span>
+                </p>
+              </div>
+            </div>
+
+            {/* 3. WRITE TO US */}
+            <div className="contact-detail-row">
+              <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <rect x="4" y="6.5" width="16" height="11" rx="1.4" />
+                  <path d="M5 8l7 5 7-5" />
+                </svg>
+              </span>
+              <div className="contact-detail-row__body">
+                <p className="contact-detail-row__label">WRITE TO US</p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=N+K+Towers+Purohit+Ji+Ka+Bagh+Mirza+Ismail+Rd+Jaipur+Rajasthan+302001"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-map-bar__link"
-                  aria-label="Open location in Google Maps"
+                  href="mailto:info@unifinejewelry.com"
+                  className="contact-detail-row__link"
+                  aria-label="Email Uni Fine Jewelry at info@unifinejewelry.com"
                 >
-                  <span>Directions</span>
-                  <span aria-hidden="true">&rarr;</span>
+                  info@unifinejewelry.com
                 </a>
               </div>
-              <iframe
-                title="Uni Fine Jewelry Office Location Map"
-                src="https://maps.google.com/maps?q=N+K+Towers,+Purohit+Ji+Ka+Bagh,+Mirza+Ismail+Rd,+Jaipur,+Rajasthan+302001&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="contact-map-iframe"
-              />
+            </div>
+
+            {/* 4. FOLLOW US */}
+            <div className="contact-detail-row">
+              <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <rect x="4" y="4" width="16" height="16" rx="4" />
+                  <circle cx="12" cy="12" r="3.2" />
+                  <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
+                </svg>
+              </span>
+              <div className="contact-detail-row__body">
+                <p className="contact-detail-row__label">FOLLOW US</p>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-detail-row__link"
+                >
+                  <span>Instagram</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            {/* 5. BESPOKE / TIMELESS / YOU Tagline */}
+            <div className="contact-tagline-wrap">
+              <span className="contact-tagline-emblem" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                  <circle cx="12" cy="12" r="3" />
+                  <circle cx="12" cy="6" r="2" />
+                  <circle cx="12" cy="18" r="2" />
+                  <circle cx="6" cy="12" r="2" />
+                  <circle cx="18" cy="12" r="2" />
+                  <circle cx="7.75" cy="7.75" r="1.5" />
+                  <circle cx="16.25" cy="16.25" r="1.5" />
+                  <circle cx="7.75" cy="16.25" r="1.5" />
+                  <circle cx="16.25" cy="7.75" r="1.5" />
+                </svg>
+              </span>
+              <span className="contact-tagline-text">
+                BESPOKE &nbsp;/&nbsp; TIMELESS &nbsp;/&nbsp; YOU
+              </span>
             </div>
           </div>
         </div>
