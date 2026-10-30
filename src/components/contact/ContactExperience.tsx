@@ -38,6 +38,14 @@ interface FormErrors {
   message?: string;
 }
 
+function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+    </svg>
+  );
+}
+
 const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) => {
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -315,9 +323,42 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
             </p>
           </div>
 
-          {/* 2. Detailed Touchpoints Stack */}
+          {/* 2. Direct Atelier Concierge VIP Card (Exact Design Reference) */}
+          <div className="contact-concierge-card">
+            <div className="contact-concierge-card__top">
+              <div className="contact-concierge-card__badge-wrap">
+                <span className="contact-concierge-card__pulse-dot" aria-hidden="true" />
+                <span className="contact-concierge-card__badge">DIRECT CONCIERGE</span>
+              </div>
+              <a
+                href="tel:+917568042023"
+                className="contact-concierge-card__phone"
+                aria-label="Direct Phone Line +91 75680 42023"
+              >
+                +91 75680 42023
+              </a>
+            </div>
+
+            <p className="contact-concierge-card__text">
+              Connect directly with our master gemologists for instant gemstone videos, custom designs, and bespoke pricing.
+            </p>
+
+            <a
+              href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-concierge-card__wa-btn"
+              aria-label="Chat on WhatsApp with master gemologists at +91 75680 42023"
+            >
+              <WhatsAppIcon className="contact-concierge-card__wa-icon" />
+              <span>CHAT ON WHATSAPP</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          {/* 3. Structured Touchpoints Stack */}
           <div className="contact-details-stack">
-            {/* 1. VISIT OUR OFFICE */}
+            {/* 1. VISIT OUR ATELIER */}
             <div className="contact-detail-row">
               <span className="contact-detail-row__icon-circle" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
@@ -326,7 +367,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 </svg>
               </span>
               <div className="contact-detail-row__body">
-                <p className="contact-detail-row__label">VISIT OUR ATELIER</p>
+                <p className="contact-detail-row__label">JAIPUR OFFICE &amp; SALON</p>
                 <address className="contact-detail-row__address">
                   N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd,<br />
                   Jaipur, Rajasthan 302001, India
@@ -342,38 +383,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               </div>
             </div>
 
-            {/* 2. CONCIERGE & WHATSAPP */}
-            <div className="contact-detail-row">
-              <span className="contact-detail-row__icon-circle" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round">
-                  <path d="M8 5h2l1 2.6-1.4.9a9 9 0 0 0 4.9 4.9l.9-1.4L18 13v2a1.6 1.6 0 0 1-1.8 1.6A12.5 12.5 0 0 1 6.4 6.8 1.6 1.6 0 0 1 8 5z" />
-                </svg>
-              </span>
-              <div className="contact-detail-row__body">
-                <p className="contact-detail-row__label">CONCIERGE &amp; WHATSAPP</p>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <a
-                    href="tel:+917568042023"
-                    className="contact-detail-row__link"
-                    aria-label="Call Uni Fine Jewelry at +91 75680 42023"
-                  >
-                    +91 75680 42023
-                  </a>
-                  <a
-                    href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-detail-row__wa-pill"
-                    aria-label="Chat on WhatsApp with Uni Fine Jewelry Concierge"
-                  >
-                    <span>Chat on WhatsApp</span>
-                    <span aria-hidden="true">&rarr;</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* 3. SALON HOURS */}
+            {/* 2. HOURS & APPOINTMENTS */}
             <div className="contact-detail-row">
               <span className="contact-detail-row__icon-circle" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
@@ -382,7 +392,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 </svg>
               </span>
               <div className="contact-detail-row__body">
-                <p className="contact-detail-row__label">SALON HOURS</p>
+                <p className="contact-detail-row__label">HOURS &amp; APPOINTMENTS</p>
                 <p className="contact-detail-row__address">
                   Monday – Saturday: 10:30 AM – 7:30 PM IST <br />
                   <span className="text-[12px] text-[#727c73]">Private Salon Viewings by Appointment</span>
@@ -390,7 +400,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               </div>
             </div>
 
-            {/* 4. WRITE TO US */}
+            {/* 3. WRITE TO US */}
             <div className="contact-detail-row">
               <span className="contact-detail-row__icon-circle" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
@@ -410,7 +420,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               </div>
             </div>
 
-            {/* 5. FOLLOW US */}
+            {/* 4. FOLLOW US */}
             <div className="contact-detail-row">
               <span className="contact-detail-row__icon-circle" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
@@ -433,7 +443,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               </div>
             </div>
 
-            {/* 6. BESPOKE / TIMELESS / YOU Tagline */}
+            {/* 5. BESPOKE / TIMELESS / YOU Tagline */}
             <div className="contact-tagline-wrap">
               <span className="contact-tagline-emblem" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">

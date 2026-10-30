@@ -1,13 +1,14 @@
 /* =========================================================================
    UNI FINE JEWELRY — ARCHITECTURAL MAISON FOOTER
-   Warm Linen Ivory (#f7f4ec) Luxury Aesthetic · 30+ Year Experience Polish
-   High Contrast, Crisp Typography & Expansive Window Space
+   Warm Linen Ivory (#f7f4ec) Luxury Aesthetic · Senior UI/UX Mastery
+   High Contrast, Crisp Editorial Typography & Expansive Window Space
    ========================================================================= */
 
 .site-footer {
   position: relative;
   width: 100%;
-  background-color: #f7f4ec;
+  background-color: #f7f4ec !important;
+  background: #f7f4ec !important;
   color: #12241e;
   border-top: 1px solid rgba(198, 161, 91, 0.35);
   box-sizing: border-box;
@@ -15,9 +16,9 @@
 }
 
 .site-footer__inner {
-  width: min(84rem, calc(100% - clamp(2rem, 5vw, 4.5rem)));
+  width: min(84rem, calc(100% - clamp(2rem, 5vw, 5rem)));
   margin: 0 auto;
-  padding: clamp(3.5rem, 5.5vh, 4.75rem) 0 clamp(1.75rem, 3vh, 2.5rem);
+  padding: clamp(3.5rem, 5.5vh, 4.75rem) 0 clamp(2rem, 3.5vh, 2.75rem);
   display: flex;
   flex-direction: column;
   gap: clamp(2.5rem, 4.5vh, 3.5rem);
@@ -25,53 +26,61 @@
 }
 
 /* =========================================================================
-   1. TOP TIER: BRAND HALLMARK & CONCIERGE STATIONERY BOX
+   1. TOP TIER: OFFICIAL BRAND LOGO & HERITAGE STATEMENT
    ========================================================================= */
 
 .site-footer__header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 26rem);
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
-  padding-bottom: clamp(2rem, 3.5vh, 2.75rem);
-  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
-}
-
-.site-footer__brand-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.site-footer__brand-mark {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  justify-content: space-between;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding-bottom: clamp(2rem, 3.5vh, 2.75rem);
+  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
+  flex-wrap: wrap;
 }
 
-.site-footer__crest-svg {
-  width: 2.35rem;
-  height: 2.35rem;
-  color: #9c8052;
+.site-footer__brand-link {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.site-footer__brand-link:hover {
+  opacity: 0.88;
+}
+
+.site-footer__brand-logo {
+  width: auto;
+  height: clamp(40px, 4.5vw, 52px);
+  max-width: 130px;
+  object-fit: contain;
   flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(18, 36, 30, 0.08));
+}
+
+.site-footer__brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .site-footer__brand-name {
   margin: 0;
   font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
-  font-size: clamp(1.45rem, 2vw, 1.85rem);
-  font-weight: 400;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: 500;
   letter-spacing: 0.14em;
   color: #123c32;
   line-height: 1.1;
 }
 
 .site-footer__brand-sub {
-  margin: 0.2rem 0 0;
+  margin: 0.25rem 0 0;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #8a7344;
 }
@@ -82,115 +91,8 @@
   font-size: clamp(0.85rem, 0.95vw, 0.92rem);
   font-weight: 350;
   line-height: 1.6;
-  color: #4a5148;
+  color: #38423d;
   max-width: 32rem;
-}
-
-/* Luxury Stationery Concierge Box */
-.site-footer__concierge-box {
-  background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.45);
-  border-radius: 6px;
-  padding: 1.25rem 1.4rem;
-  box-shadow:
-    0 10px 28px rgba(18, 36, 30, 0.05),
-    0 2px 6px rgba(198, 161, 91, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.site-footer__concierge-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  padding-bottom: 0.65rem;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.22);
-}
-
-.site-footer__concierge-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #8a7344;
-}
-
-.site-footer__pulse-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #25d366;
-  box-shadow: 0 0 6px rgba(37, 211, 102, 0.6);
-  flex-shrink: 0;
-}
-
-.site-footer__concierge-timing {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: #727c73;
-}
-
-.site-footer__concierge-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.site-footer__concierge-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1rem;
-  border-radius: 4px;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.74rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.site-footer__concierge-btn .site-footer__icon-svg {
-  width: 0.85rem;
-  height: 0.85rem;
-  flex-shrink: 0;
-}
-
-.site-footer__concierge-btn--primary {
-  background: #123c32;
-  color: #f7f3ea;
-  border: 1px solid #123c32;
-  box-shadow: 0 3px 10px rgba(18, 60, 50, 0.14);
-}
-
-.site-footer__concierge-btn--primary:hover {
-  background: #0b211c;
-  border-color: #9c8052;
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.site-footer__concierge-btn--secondary {
-  background: transparent;
-  color: #123c32;
-  border: 1px solid rgba(198, 161, 91, 0.5);
-}
-
-.site-footer__concierge-btn--secondary:hover {
-  background: rgba(198, 161, 91, 0.12);
-  border-color: #8a7344;
-  color: #0b211c;
 }
 
 /* =========================================================================
@@ -199,8 +101,8 @@
 
 .site-footer__matrix {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 1fr 1fr;
-  gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 3.8vw, 3.5rem);
   align-items: start;
 }
 
@@ -210,7 +112,7 @@
 }
 
 .site-footer__heading {
-  margin: 0 0 1rem;
+  margin: 0 0 1.15rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
@@ -223,12 +125,12 @@
   width: fit-content;
 }
 
-/* Col 1: Salon Items */
+/* Column 1: Salon Items */
 .site-footer__salon-item {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 1.15rem;
+  gap: 0.35rem;
+  margin-bottom: 1.35rem;
 }
 
 .site-footer__salon-item:last-child {
@@ -251,7 +153,7 @@
 
 .site-footer__salon-title-wrap strong {
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: #123c32;
 }
@@ -262,16 +164,16 @@
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.78rem;
   font-weight: 350;
-  line-height: 1.45;
-  color: #556057;
+  line-height: 1.5;
+  color: #4a5148;
 }
 
 .site-footer__salon-sublinks {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.95rem;
   padding-left: 1.3rem;
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
 }
 
 .site-footer__tel-link {
@@ -280,7 +182,7 @@
   gap: 0.35rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.76rem;
-  font-weight: 500;
+  font-weight: 550;
   color: #123c32;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -314,21 +216,21 @@
   border-color: #123c32;
 }
 
-/* Nav Lists */
+/* Nav Lists (Columns 2, 3, 4) */
 .site-footer__nav-list {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.65rem;
 }
 
 .site-footer__nav-list a {
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.82rem;
-  font-weight: 350;
-  color: #4a5148;
+  font-weight: 400;
+  color: #2e3631;
   text-decoration: none;
   transition: all 0.2s ease;
   display: inline-block;
@@ -337,7 +239,7 @@
 
 .site-footer__nav-list a:hover {
   color: #123c32;
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .site-footer__social-link {
@@ -357,8 +259,10 @@
   background: #ffffff;
   border: 1px solid rgba(198, 161, 91, 0.38);
   border-radius: 6px;
-  padding: 1.25rem 1.65rem;
-  box-shadow: 0 6px 20px rgba(18, 36, 30, 0.03);
+  padding: 1.35rem 1.75rem;
+  box-shadow:
+    0 8px 24px rgba(18, 36, 30, 0.04),
+    0 2px 6px rgba(198, 161, 91, 0.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -368,8 +272,8 @@
 .site-footer__gazette-copy {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  max-width: 36rem;
+  gap: 0.25rem;
+  max-width: 38rem;
 }
 
 .site-footer__gazette-tag {
@@ -387,13 +291,13 @@
   font-size: 0.82rem;
   font-weight: 350;
   line-height: 1.45;
-  color: #4a5148;
+  color: #38423d;
 }
 
 .site-footer__gazette-form {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   flex-shrink: 0;
 }
 
@@ -401,11 +305,11 @@
   background: #faf7f2;
   border: 1px solid rgba(198, 161, 91, 0.45);
   border-radius: 4px;
-  padding: 0.65rem 1rem;
+  padding: 0.68rem 1.15rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.82rem;
   color: #12241e;
-  width: clamp(14rem, 18vw, 20rem);
+  width: clamp(14rem, 19vw, 22rem);
   outline: none;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
@@ -413,10 +317,11 @@
 .site-footer__gazette-input:focus {
   background: #ffffff;
   border-color: #123c32;
+  box-shadow: 0 0 0 2px rgba(18, 60, 50, 0.12);
 }
 
 .site-footer__gazette-input::placeholder {
-  color: #8d8678;
+  color: #727c73;
 }
 
 .site-footer__gazette-btn {
@@ -427,7 +332,7 @@
   color: #f7f3ea;
   border: 1px solid #123c32;
   border-radius: 4px;
-  padding: 0.65rem 1.15rem;
+  padding: 0.68rem 1.25rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
@@ -440,9 +345,10 @@
 
 .site-footer__gazette-btn:hover {
   background: #0b211c;
-  border-color: #9c8052;
+  border-color: #8a7344;
   color: #ffffff;
   transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(18, 60, 50, 0.2);
 }
 
 .site-footer__gazette-thankyou {
@@ -451,7 +357,7 @@
   gap: 0.55rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.82rem;
-  font-weight: 450;
+  font-weight: 500;
   color: #123c32;
 }
 
@@ -477,7 +383,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-top: 1.25rem;
+  padding-top: 1.35rem;
   border-top: 1px solid rgba(198, 161, 91, 0.25);
   flex-wrap: wrap;
 }
@@ -486,19 +392,19 @@
   margin: 0;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.72rem;
-  font-weight: 350;
-  color: #727c73;
-  letter-spacing: 0.04em;
+  font-weight: 400;
+  color: #556057;
+  letter-spacing: 0.05em;
 }
 
 .site-footer__hallmark {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   color: #8a7344;
 }
 
@@ -511,9 +417,9 @@
   align-items: center;
   gap: 0.45rem;
   background: transparent;
-  border: 1px solid rgba(198, 161, 91, 0.45);
+  border: 1px solid rgba(198, 161, 91, 0.5);
   border-radius: 9999px;
-  padding: 0.35rem 0.85rem;
+  padding: 0.38rem 0.95rem;
   color: #123c32;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.66rem;
@@ -542,8 +448,9 @@
 
 @media (max-width: 1024px) {
   .site-footer__header {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
   }
 
   .site-footer__matrix {
@@ -575,10 +482,6 @@
   .site-footer__matrix {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .site-footer__concierge-box {
-    padding: 1.15rem 1rem;
   }
 
   .site-footer__gazette-form {
