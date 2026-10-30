@@ -1,454 +1,279 @@
+/* =========================================================================
+   UNI FINE JEWELRY — ARCHITECTURAL MAISON FOOTER (COMPACT & REFINED)
+   Designed to fit within a single viewport window with zero clutter.
+   ========================================================================= */
+
 .site-footer {
   position: relative;
   width: 100%;
   background: #f7f4ec;
   color: #3a4038;
   border-top: 1px solid rgba(198, 161, 91, 0.25);
+  box-sizing: border-box;
 }
 
-.site-footer__top {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(20rem, 1.25fr) minmax(18rem, 1fr);
-  gap: clamp(2.5rem, 6vw, 5.5rem);
-  align-items: start;
-  max-width: 1240px;
+.site-footer__container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(3.25rem, 6vw, 4.75rem) clamp(1.5rem, 5vw, 3.5rem) clamp(2.5rem, 4vw, 3.5rem);
+  padding: clamp(2.25rem, 3.5vw, 2.75rem) clamp(1.25rem, 3vw, 2.5rem) 1.25rem;
+  box-sizing: border-box;
 }
 
-.site-footer__contact {
-  margin: 0;
-  font-style: normal;
+/* 4-column balanced grid that fits comfortably within a single screen view */
+.site-footer__grid {
   display: grid;
-  gap: 1.35rem;
+  grid-template-columns: 1.25fr 1.25fr 0.85fr 0.85fr;
+  gap: clamp(1.5rem, 3.2vw, 3rem);
+  align-items: start;
 }
 
-.site-footer__contact-item {
-  display: flex;
-  gap: 0.85rem;
-  align-items: flex-start;
-}
-
-.site-footer__contact-text {
+.site-footer__col {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.82rem;
-  font-weight: 300;
-  line-height: 1.45;
-  color: #4a5148;
 }
 
-.site-footer__contact-text strong {
-  color: #8a7344;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.site-footer__col--brand {
+  padding-right: 0.5rem;
 }
 
-.site-footer__tel {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #123c32;
-  font-weight: 500;
-  font-size: 0.84rem;
-  margin-top: 0.25rem;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.site-footer__tel:hover {
-  color: #c6a15b;
-}
-
-.site-footer__tel svg {
-  width: 0.85rem;
-  height: 0.85rem;
-  color: #c6a15b;
-}
-
-.site-footer__direct-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.site-footer__pill-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(198, 161, 91, 0.4);
-  color: #3a4038;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.78rem;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.site-footer__pill-link:hover {
-  background: #ffffff;
-  color: #123c32;
-  border-color: #123c32;
-}
-
-.site-footer__icon {
-  width: 1.85rem;
-  height: 1.85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(198, 161, 91, 0.7);
-  color: #c6a15b;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.site-footer__icon svg,
-.site-footer__field-icon svg {
-  width: 0.85rem;
-  height: 0.85rem;
-}
-
-.site-footer__eyebrow {
+.site-footer__brand-title {
   margin: 0;
-  color: #8a7344;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.66rem;
+  font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
+  font-size: 1.35rem;
   font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-}
-
-.site-footer__connect h2,
-.site-footer__connect h3,
-.site-footer__heading {
-  margin: 0.55rem 0 0;
+  letter-spacing: 0.12em;
   color: #123c32;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(1.75rem, 2.4vw, 2.35rem);
-  font-weight: 500;
   line-height: 1.15;
 }
 
-.site-footer__lede {
-  margin: 0.55rem 0 0;
-  max-width: 24rem;
+.site-footer__brand-est {
+  margin: 0.25rem 0 0.55rem;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.86rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a7344;
+}
+
+.site-footer__brand-desc {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
   font-weight: 300;
   line-height: 1.5;
-  color: #5c6358;
+  color: #556057;
+  max-width: 20rem;
 }
 
-.site-footer__form {
-  margin-top: 1.15rem;
-  display: grid;
-  gap: 0.7rem;
-  max-width: 24rem;
+.site-footer__brand-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.site-footer__field {
-  position: relative;
-  display: block;
-}
-
-.site-footer__field-icon {
-  position: absolute;
-  left: 0.95rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #8a7344;
-  pointer-events: none;
-}
-
-.site-footer__form input {
-  width: 100%;
-  min-height: 46px;
-  padding: 0.7rem 1rem 0.7rem 2.6rem;
-  border: 1px solid rgba(198, 161, 91, 0.55);
-  border-radius: 999px;
-  background: rgba(255, 252, 246, 0.85);
-  color: #202722;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.88rem;
-  transition: all 0.2s ease;
-}
-
-.site-footer__form input::placeholder {
-  color: #8d8678;
-}
-
-.site-footer__form input:focus-visible {
-  outline: 1px solid #123c32;
-  outline-offset: 2px;
-  background: #ffffff;
-}
-
-.site-footer__submit-btn {
-  justify-self: start;
-  min-width: 10rem;
-  min-height: 46px;
-  margin-top: 0.35rem;
-  padding: 0.7rem 1.65rem;
-  border: 1px solid #c6a15b;
-  border-radius: 999px;
-  background: #123c32;
-  color: #f7f3ea;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s ease;
+.site-footer__quick-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.site-footer__submit-btn:hover,
-.site-footer__submit-btn:focus-visible {
-  background: #0d2c25;
-  border-color: #ffffff;
-  outline: none;
-}
-
-.site-footer__band {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr minmax(12rem, 16rem);
-  gap: 2rem 3rem;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 2.25rem clamp(1.5rem, 5vw, 3.5rem) 2.25rem;
-  border-top: 1px solid rgba(198, 161, 91, 0.3);
-}
-
-.site-footer__band h2,
-.site-footer__band h3,
-.site-footer__col-heading {
-  margin: 0 0 0.75rem;
-  display: inline-block;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.7);
+  gap: 0.45rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 450;
   color: #123c32;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.45rem;
-  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: fit-content;
 }
 
-.site-footer__band ul {
+.site-footer__quick-link:hover {
+  color: #8a7344;
+  transform: translateX(2px);
+}
+
+.site-footer__quick-link .site-footer__icon-svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  color: #8a7344;
+  flex-shrink: 0;
+}
+
+/* Column Headings */
+.site-footer__heading {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a7344;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.3);
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Locations */
+.site-footer__locations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.site-footer__loc-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.site-footer__loc-name {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #123c32;
+}
+
+.site-footer__loc-name .site-footer__icon-svg {
+  width: 0.78rem;
+  height: 0.78rem;
+  color: #8a7344;
+  flex-shrink: 0;
+}
+
+.site-footer__loc-address {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #556057;
+  padding-left: 1.15rem;
+}
+
+.site-footer__loc-tel {
+  margin: 0.1rem 0 0;
+  padding-left: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #123c32;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.site-footer__loc-tel:hover {
+  color: #8a7344;
+}
+
+.site-footer__loc-tel .site-footer__icon-svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #8a7344;
+}
+
+/* Navigation Lists */
+.site-footer__nav-list {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.45rem;
 }
 
-.site-footer__band a {
-  color: #4e554c;
+.site-footer__nav-list a {
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 300;
+  color: #4a5148;
   text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
   display: inline-block;
-  padding: 0.15rem 0;
-  transition: color 0.2s ease;
 }
 
-.site-footer__band a:hover,
-.site-footer__band a:focus-visible {
+.site-footer__nav-list a:hover {
   color: #123c32;
+  transform: translateX(2px);
 }
 
-.site-footer__mark {
-  justify-self: end;
-  align-self: center;
-  text-align: center;
-  color: #8a7344;
+.site-footer__ig-link {
+  color: #8a7344 !important;
+  font-weight: 450 !important;
 }
 
-.site-footer__mark svg {
-  width: 1.7rem;
-  height: 1.7rem;
-}
-
-.site-footer__mark-line {
-  margin-top: 0.45rem;
-  display: grid;
-  grid-template-columns: 1.4rem auto 1.4rem;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.site-footer__mark-line p {
-  margin: 0;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.56rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  line-height: 1.4;
-}
-
-.site-footer__mark-line span {
-  height: 1px;
-  background: #c6a15b;
-}
-
-.site-footer__copy {
-  grid-column: 1 / -1;
-  margin: 0.5rem 0 0;
+/* Bottom Bar */
+.site-footer__bottom {
+  margin-top: clamp(1.5rem, 2.5vw, 2rem);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(198, 161, 91, 0.2);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #7a7568;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.75rem;
-  font-weight: 300;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.site-footer__copyright {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: #727c73;
+}
+
+.site-footer__motto {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #8a7344;
+  text-transform: uppercase;
+}
+
+.site-footer__dot {
+  color: rgba(198, 161, 91, 0.6);
 }
 
 /* =========================================================================
-   LUXURY MOBILE RESPONSIVE (< 980px)
+   RESPONSIVE DESIGN: TABLET & MOBILE
    ========================================================================= */
 
-@media (max-width: 980px) {
-  .site-footer {
-    padding-bottom: 1.5rem;
-  }
-
-  .site-footer__top {
-    display: flex;
-    flex-direction: column;
-    gap: 1.85rem;
-    padding: 2.5rem var(--mobile-gutter, 1.15rem) 1.5rem;
-  }
-
-  /* 1. Stay Connected / Newsletter Privileges */
-  .site-footer__connect {
-    order: 1;
-    width: 100%;
-    max-width: none;
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(198, 161, 91, 0.35);
-    border-radius: 12px;
-    padding: 1.65rem 1.15rem;
-    box-shadow: 0 4px 18px rgba(18, 60, 50, 0.04);
-    text-align: center;
-  }
-
-  .site-footer__connect h2,
-  .site-footer__connect h3 {
-    font-size: 1.55rem;
-  }
-
-  .site-footer__lede {
-    max-width: none;
-    font-size: 0.8rem;
-    margin: 0.4rem auto 0;
-  }
-
-  .site-footer__form {
-    max-width: none;
-    width: 100%;
-    margin-top: 1.1rem;
-    gap: 0.65rem;
-  }
-
-  .site-footer__submit-btn {
-    width: 100%;
-    min-height: 46px;
-    border-radius: 8px;
-    justify-self: stretch;
-  }
-
-  /* 2. Boutiques & Concierge */
-  .site-footer__contact {
-    order: 2;
-    width: 100%;
-    gap: 0.85rem;
-  }
-
-  .site-footer__contact-item {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(198, 161, 91, 0.28);
-    border-radius: 10px;
-    padding: 0.95rem 1rem;
-  }
-
-  .site-footer__contact-text {
-    width: 100%;
-  }
-
-  .site-footer__direct-pills {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
-  }
-
-  .site-footer__pill-link {
-    width: 100%;
-    min-height: 44px;
-    padding: 0.55rem 0.85rem;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-  }
-
-  /* 3. Navigation Band: 2 Columns Side-by-Side */
-  .site-footer__band {
+@media (max-width: 960px) {
+  .site-footer__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 1.75rem 1rem;
-    margin: 0 var(--mobile-gutter, 1.15rem);
-    padding: 1.75rem 0 1.5rem;
+    gap: 2rem 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer__container {
+    padding: 1.85rem 1.15rem 1.25rem;
   }
 
-  .site-footer__band h2,
-  .site-footer__band h3 {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 1.65rem;
+  }
+
+  .site-footer__brand-title {
     font-size: 1.25rem;
   }
 
-  .site-footer__band a {
-    font-size: 0.82rem;
-    padding: 0.25rem 0;
-  }
-
-  /* 4. Brand Mark and Copyright centered at the bottom */
-  .site-footer__mark {
-    grid-column: 1 / -1;
-    justify-self: center;
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  .site-footer__copy {
-    grid-column: 1 / -1;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.72rem;
-    line-height: 1.4;
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+    margin-top: 1.35rem;
+    padding-top: 0.85rem;
   }
 }
