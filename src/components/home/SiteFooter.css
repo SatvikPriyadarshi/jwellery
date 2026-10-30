@@ -483,70 +483,84 @@
    High-Efficiency 2-3 Button/Row Layout · Reduced Vertical Footprint
    ========================================================================= */
 
+/* =========================================================================
+   PHONE & COMPACT VIEWPORTS (< 768px):
+   Simple, Non-Boxy, Pure Editorial Layout · 2-3 Links Per Row
+   ========================================================================= */
+
 @media (max-width: 768px) {
   .site-footer__inner {
     padding: 2.25rem 0 1.5rem;
-    gap: 1.75rem;
+    gap: 1.5rem;
   }
 
-  /* Header: Compact, Centered Editorial */
+  /* Header: Clean & Minimal Editorial */
   .site-footer__header {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
     gap: 0.75rem;
-    padding-bottom: 1.35rem;
+    padding-bottom: 1.25rem;
   }
 
   .site-footer__brand-link {
-    flex-direction: column;
+    display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.85rem;
   }
 
-  .site-footer__brand-text {
-    align-items: center;
+  .site-footer__brand-logo {
+    height: 38px;
+    width: auto;
+  }
+
+  .site-footer__brand-name {
+    font-size: 1.35rem;
+  }
+
+  .site-footer__brand-sub {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
   }
 
   .site-footer__brand-statement {
-    text-align: center;
     font-size: 0.78rem;
-    line-height: 1.45;
-    max-width: 26rem;
-    margin: 0 auto;
+    line-height: 1.5;
+    color: #4a5148;
+    max-width: 100%;
+    margin: 0;
   }
 
-  /* Matrix: Streamlined Vertical Flow with 2-3 Buttons Per Row */
+  /* Matrix: Sits 2-3 links in one row without ANY boxy cards */
   .site-footer__matrix {
     grid-template-columns: 1fr;
-    gap: 1.35rem;
+    gap: 1.25rem;
   }
 
   .site-footer__col {
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .site-footer__heading {
-    margin: 0 0 0.5rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    padding-bottom: 0.3rem;
+    margin: 0 0 0.45rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+    padding-bottom: 0.25rem;
   }
 
-  /* Salons on Mobile: 2 Side-by-Side */
+  /* Salons: Clean, unboxed text blocks */
   .site-footer__salons-wrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .site-footer__salon-item {
-    margin-bottom: 0;
-    padding: 0.65rem 0.75rem;
-    background: #ffffff;
-    border: 1px solid rgba(198, 161, 91, 0.28);
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(18, 36, 30, 0.03);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    gap: 0.2rem;
   }
 
   .site-footer__salon-title-wrap strong {
@@ -557,82 +571,85 @@
     padding-left: 0;
     font-size: 0.72rem;
     line-height: 1.35;
+    color: #556057;
   }
 
   .site-footer__salon-sublinks {
     padding-left: 0;
     gap: 0.65rem;
-    margin-top: 0.35rem;
-    flex-wrap: wrap;
+    margin-top: 0.2rem;
   }
 
-  /* NAVIGATION LISTS ON MOBILE: 2-3 BUTTONS IN ONE ROW */
+  /* NAVIGATION LISTS ON MOBILE: 2-3 PURE TEXT LINKS IN ONE ROW (NO BOXES) */
   .site-footer__nav-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.45rem 0.55rem;
+    gap: 0.45rem 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .site-footer__nav-list li {
     display: flex;
-    width: 100%;
   }
 
   .site-footer__nav-list a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    padding: 0.48rem 0.6rem;
-    background: #ffffff;
-    border: 1px solid rgba(198, 161, 91, 0.32);
-    border-radius: 4px;
-    font-size: 0.73rem;
-    font-weight: 500;
-    color: #123c32;
-    min-height: 2.35rem;
-    line-height: 1.25;
-    box-sizing: border-box;
-    box-shadow: 0 1px 3px rgba(18, 36, 30, 0.03);
-    transition: all 0.2s ease;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0.15rem 0 !important;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #38423d !important;
+    text-decoration: none;
+    line-height: 1.35;
+    min-height: auto !important;
+    transition: color 0.2s ease, transform 0.2s ease;
   }
 
-  .site-footer__nav-list a:hover,
-  .site-footer__nav-list a:active {
-    background: #123c32;
-    color: #f7f3ea !important;
-    border-color: #123c32;
-    transform: translateY(-1px);
+  .site-footer__nav-list a:hover {
+    color: #123c32 !important;
+    transform: translateX(3px);
+    background: transparent !important;
   }
 
-  /* Gazette Newsletter Ribbon on Mobile: Single-Line Compact */
+  /* Gazette Newsletter Ribbon: Pure Minimal Band (No Thick Card) */
   .site-footer__gazette {
-    padding: 1rem 1.15rem;
+    background: transparent !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 1px solid rgba(198, 161, 91, 0.25) !important;
+    border-bottom: 1px solid rgba(198, 161, 91, 0.25) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 1.15rem 0 !important;
     gap: 0.75rem;
   }
 
   .site-footer__gazette-copy {
-    text-align: center;
-    align-items: center;
-    gap: 0.2rem;
+    gap: 0.15rem;
   }
 
   .site-footer__gazette-tag {
     font-size: 0.62rem;
+    letter-spacing: 0.2em;
   }
 
   .site-footer__gazette-text {
     font-size: 0.76rem;
     line-height: 1.4;
-    text-align: center;
+    color: #4a5148;
   }
 
   .site-footer__gazette-form {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
     width: 100%;
   }
 
@@ -642,6 +659,9 @@
     width: auto;
     padding: 0.55rem 0.75rem;
     font-size: 0.78rem;
+    background: #ffffff;
+    border: 1px solid rgba(198, 161, 91, 0.35);
+    border-radius: 4px;
   }
 
   .site-footer__gazette-btn {
@@ -653,18 +673,17 @@
     width: auto;
   }
 
-  /* Baseline Hallmark on Mobile: Compact & Centered */
+  /* Baseline Hallmark on Mobile: Clean Line */
   .site-footer__baseline {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.65rem;
-    padding-top: 1rem;
+    align-items: flex-start;
+    gap: 0.55rem;
+    padding-top: 0.95rem;
   }
 
   .site-footer__copyright {
-    font-size: 0.68rem;
-    text-align: center;
+    font-size: 0.66rem;
+    color: #727c73;
   }
 
   .site-footer__hallmark {
@@ -674,19 +693,21 @@
 
   .site-footer__scroll-top {
     width: auto;
-    padding: 0.35rem 0.85rem;
+    padding: 0.3rem 0.75rem;
     font-size: 0.64rem;
+    margin-top: 0.25rem;
   }
 }
 
-/* WIDER PHONES / COMPACT TABLETS (480px - 768px): 3 BUTTONS PER ROW */
+/* WIDER PHONES (480px - 768px): 3 LINKS IN ONE ROW */
 @media (min-width: 480px) and (max-width: 768px) {
   .site-footer__nav-list {
     grid-template-columns: repeat(3, 1fr);
+    gap: 0.45rem 1.25rem;
   }
 }
 
-/* VERY NARROW PHONES (< 360px): GRACEFUL FALLBACK */
+/* NARROW PHONES (< 360px): GRACEFUL FALLBACK */
 @media (max-width: 360px) {
   .site-footer__salons-wrap {
     grid-template-columns: 1fr;
