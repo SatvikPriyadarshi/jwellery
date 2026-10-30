@@ -373,12 +373,14 @@
   }
 
   .who-heritage-badge {
-    bottom: 0.85rem;
-    left: 0.85rem;
-    right: 0.85rem;
+    bottom: 0.55rem;
+    left: 0.55rem;
+    right: 0.55rem;
     width: auto;
     max-width: none;
-    padding: 0.7rem 0.9rem 0.75rem;
+    padding: 0.65rem 0.85rem 0.7rem;
+    border: none;
+    box-shadow: none;
   }
 
   .who-heritage-badge__desc {

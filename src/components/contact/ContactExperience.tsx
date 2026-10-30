@@ -323,38 +323,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
             </p>
           </div>
 
-          {/* 2. Direct Atelier Concierge — Simple & Non-Boxy */}
-          <div className="contact-concierge-direct">
-            <div className="contact-concierge-direct__top">
-              <span className="contact-concierge-direct__dot" aria-hidden="true" />
-              <span className="contact-concierge-direct__badge">DIRECT CONCIERGE</span>
-              <span className="contact-concierge-direct__sep" aria-hidden="true">·</span>
-              <a
-                href="tel:+917568042023"
-                className="contact-concierge-direct__phone"
-                aria-label="Direct Phone Line +91 75680 42023"
-              >
-                +91 75680 42023
-              </a>
-            </div>
-
-            <p className="contact-concierge-direct__text">
-              Connect directly with our master gemologists for instant gemstone videos, custom designs, and bespoke pricing.
-            </p>
-
-            <a
-              href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-concierge-direct__wa-btn"
-              aria-label="Chat on WhatsApp with master gemologists at +91 75680 42023"
-            >
-              <WhatsAppIcon className="contact-concierge-direct__wa-icon" />
-              <span>CHAT ON WHATSAPP &rarr;</span>
-            </a>
-          </div>
-
-          {/* 3. Structured Touchpoints Stack */}
+          {/* 2. Structured Touchpoints Stack */}
           <div className="contact-details-stack">
             {/* 1. VISIT OUR ATELIER */}
             <div className="contact-detail-row">
@@ -378,6 +347,37 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                   <span>VIEW ON MAP BELOW</span>
                   <span aria-hidden="true">&darr;</span>
                 </a>
+              </div>
+            </div>
+
+            {/* 2. CALL & WHATSAPP CONCIERGE */}
+            <div className="contact-detail-row">
+              <span className="contact-detail-row__icon-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round">
+                  <path d="M8 5h2l1 2.6-1.4.9a9 9 0 0 0 4.9 4.9l.9-1.4L18 13v2a1.6 1.6 0 0 1-1.8 1.6A12.5 12.5 0 0 1 6.4 6.8 1.6 1.6 0 0 1 8 5z" />
+                </svg>
+              </span>
+              <div className="contact-detail-row__body">
+                <p className="contact-detail-row__label">CALL &amp; WHATSAPP CONCIERGE</p>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <a
+                    href="tel:+917568042023"
+                    className="contact-detail-row__link"
+                    aria-label="Call Uni Fine Jewelry at +91 75680 42023"
+                  >
+                    +91 75680 42023
+                  </a>
+                  <a
+                    href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-detail-row__wa-pill"
+                    aria-label="Chat on WhatsApp with Uni Fine Jewelry Concierge"
+                  >
+                    <span>Chat on WhatsApp</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -727,10 +727,6 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                     </>
                   )}
                 </button>
-
-                <p className="contact-form__footer-note">
-                  Confidential consultation &bull; Connects with WhatsApp Concierge (+91 75680 42023)
-                </p>
               </form>
             </>
           )}
