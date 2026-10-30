@@ -466,10 +466,14 @@
 .contact-map-section {
   position: relative;
   width: 100%;
-  background-color: #faf7f2;
-  color: #12241e;
-  padding: clamp(3.5rem, 5.5vh, 5rem) 0 clamp(4rem, 6.5vh, 5.5rem);
-  border-bottom: 1px solid rgba(198, 161, 91, 0.22);
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(198, 161, 91, 0.14) 0%, transparent 70%),
+    radial-gradient(circle at 10% 90%, rgba(18, 60, 50, 0.4) 0%, transparent 50%),
+    linear-gradient(180deg, #091c16 0%, #061511 100%);
+  color: #f7f3ea;
+  padding: clamp(4rem, 6.5vh, 5.5rem) 0 clamp(4.5rem, 7vh, 6rem);
+  border-top: 1px solid rgba(198, 161, 91, 0.28);
+  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
   overflow: hidden;
 }
 
@@ -502,7 +506,7 @@
 .contact-map-header__rule {
   width: 2rem;
   height: 1px;
-  background: rgba(198, 161, 91, 0.45);
+  background: rgba(198, 161, 91, 0.65);
 }
 
 .contact-map-header__eyebrow {
@@ -512,7 +516,7 @@
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #9c8052;
+  color: #c6a15b;
 }
 
 .contact-map-header__title {
@@ -522,7 +526,7 @@
   font-weight: 350;
   line-height: 1.15;
   letter-spacing: -0.015em;
-  color: #12241e;
+  color: #f7f3ea;
 }
 
 .contact-map-header__address {
@@ -530,7 +534,7 @@
   font-family: var(--font-outfit), sans-serif;
   font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   font-weight: 400;
-  color: #12241e;
+  color: #e6dfd1;
   font-style: normal;
   letter-spacing: 0.01em;
 }
@@ -541,7 +545,7 @@
   font-size: clamp(0.85rem, 0.95vw, 0.94rem);
   font-weight: 300;
   line-height: 1.6;
-  color: #556057;
+  color: rgba(247, 243, 234, 0.72);
 }
 
 .contact-map-header__actions {
@@ -557,7 +561,34 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: #123c32;
+  background: #c6a15b;
+  color: #071713;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 4px;
+  border: 1px solid #c6a15b;
+  box-shadow: 0 4px 16px rgba(198, 161, 91, 0.25);
+  transition: all 0.25s ease;
+}
+
+.contact-map-btn-clean:hover {
+  background: #dfbc7a;
+  color: #05110d;
+  border-color: #dfbc7a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(198, 161, 91, 0.35);
+}
+
+.contact-map-btn-wa-clean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
   color: #f7f3ea;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.72rem;
@@ -567,41 +598,14 @@
   text-decoration: none;
   padding: 0.75rem 1.4rem;
   border-radius: 4px;
-  border: 1px solid #123c32;
-  box-shadow: 0 4px 14px rgba(18, 60, 50, 0.14);
-  transition: all 0.25s ease;
-}
-
-.contact-map-btn-clean:hover {
-  background: #0b211c;
-  border-color: #c6a15b;
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(18, 60, 50, 0.22);
-}
-
-.contact-map-btn-wa-clean {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: #123c32;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0.75rem 1.4rem;
-  border-radius: 4px;
-  border: 1px solid rgba(198, 161, 91, 0.55);
+  border: 1px solid rgba(198, 161, 91, 0.5);
   transition: all 0.25s ease;
 }
 
 .contact-map-btn-wa-clean:hover {
-  background: rgba(198, 161, 91, 0.12);
-  border-color: #9c8052;
-  color: #0b211c;
+  background: rgba(198, 161, 91, 0.18);
+  border-color: #c6a15b;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -612,11 +616,11 @@
   height: clamp(400px, 48vh, 500px);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(198, 161, 91, 0.35);
+  border: 1px solid rgba(198, 161, 91, 0.45);
   box-shadow:
-    0 20px 50px rgba(18, 36, 30, 0.08),
-    0 2px 10px rgba(198, 161, 91, 0.08);
-  background: #f4efe4;
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(198, 161, 91, 0.1);
+  background: #061511;
 }
 
 .contact-map-iframe-centered {
