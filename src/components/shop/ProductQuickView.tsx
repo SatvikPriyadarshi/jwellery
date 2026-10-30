@@ -181,7 +181,6 @@ export default function ProductQuickView({
               rel="noopener noreferrer"
             >
               <span>Inquire With Atelier</span>
-              <span aria-hidden="true">&rarr;</span>
             </a>
 
             <div className="flex gap-2">

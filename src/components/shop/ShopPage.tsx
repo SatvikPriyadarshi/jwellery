@@ -227,7 +227,7 @@ export default function ShopPage() {
                       className="shop-page-btn"
                       aria-label="Previous page"
                     >
-                      &larr; Prev
+                      Prev
                     </button>
 
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(
@@ -279,7 +279,7 @@ export default function ShopPage() {
                       className="shop-page-btn"
                       aria-label="Next page"
                     >
-                      Next &rarr;
+                      Next
                     </button>
                   </nav>
 
@@ -295,7 +295,7 @@ export default function ShopPage() {
                       className="shop-page-btn shop-page-btn--arrow"
                       aria-label="Previous page"
                     >
-                      &larr; Prev
+                      Previous
                     </button>
 
                     <span className="shop-pagination__mobile-indicator">
@@ -309,7 +309,7 @@ export default function ShopPage() {
                       className="shop-page-btn shop-page-btn--arrow"
                       aria-label="Next page"
                     >
-                      Next &rarr;
+                      Next
                     </button>
                   </nav>
                 </div>
@@ -318,7 +318,11 @@ export default function ShopPage() {
           ) : (
             <div className="shop-empty-state" role="status">
               <div className="shop-empty-glyph" aria-hidden="true">
-                ◇
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="1.2">
+                  <polygon points="12 2 2 9 12 22 22 9 12 2" />
+                  <polyline points="2 9 12 14 22 9" />
+                  <line x1="12" y1="2" x2="12" y2="14" />
+                </svg>
               </div>
               <h3 className="shop-empty-title">No Pieces Found</h3>
               <p className="shop-empty-desc">

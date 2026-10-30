@@ -89,7 +89,6 @@ export default function ProductCard({
             aria-label={`View ${product.name}`}
           >
             <span>Explore</span>
-            <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </div>

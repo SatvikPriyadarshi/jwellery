@@ -15,7 +15,7 @@ export default function ShopHero() {
     <section className="shop-hero" aria-label="The Atelier Collection">
       {/* Subtle Caustic Lighting Ambient Glow */}
       <div
-        className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.12)_0%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(193, 145, 94,0.12)_0%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
       <div
@@ -29,14 +29,11 @@ export default function ShopHero() {
             {/* 1. LEFT COLUMN: Brand Identity, Editorial Headline & Description */}
             <div className="shop-banner-col shop-banner-col--left">
               <div className="shop-banner-brand-badge">
-                <span className="shop-banner-gem-icon" aria-hidden="true">✦</span>
                 <span className="shop-banner-brand-name">UNI FINE JEWELRY</span>
               </div>
 
               <div className="shop-banner-eyebrow-wrap">
-                <span className="shop-banner-rule" aria-hidden="true" />
                 <p className="shop-banner-eyebrow">THE ATELIER COLLECTION</p>
-                <span className="shop-banner-rule" aria-hidden="true" />
               </div>
 
               <h1 className="shop-banner-title">
@@ -105,7 +102,6 @@ export default function ShopHero() {
                   aria-label="Shop the complete fine jewellery collection"
                 >
                   <span>SHOP NOW</span>
-                  <span className="shop-banner-btn-arrow" aria-hidden="true">&rarr;</span>
                 </a>
               </div>
             </div>

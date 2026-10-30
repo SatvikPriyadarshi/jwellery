@@ -190,7 +190,6 @@ export default function SiteNav({
                   className="text-[var(--color-champagne)] hover:underline inline-flex items-center gap-1 text-xs"
                 >
                   <span>WhatsApp Concierge (+91 75680 42023)</span>
-                  <span aria-hidden="true">&rarr;</span>
                 </a>
               </p>
             </div>

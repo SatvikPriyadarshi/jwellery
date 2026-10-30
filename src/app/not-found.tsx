@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#081a15] text-[var(--color-ivory)] flex flex-col justify-between">
+    <main className="min-h-screen bg-[#184343] text-[var(--color-ivory)] flex flex-col justify-between">
       <SiteNav activeHref="/" solid />
 
       <div className="py-24 sm:py-32 px-6 max-w-2xl mx-auto text-center">
@@ -34,14 +34,14 @@ export default function NotFound() {
           <Link
             href="/shop"
             prefetch={false}
-            className="px-6 py-3.5 bg-[var(--color-champagne)] text-[#081a15] font-sans text-xs font-semibold tracking-[0.2em] uppercase rounded hover:bg-[#d8b56f] transition-all"
+            className="px-6 py-3.5 bg-[var(--color-champagne)] text-[#184343] font-sans text-xs font-semibold tracking-[0.2em] uppercase rounded hover:bg-[#d4ae78] transition-all"
           >
-            Explore The Collection &rarr;
+            Explore The Collection
           </Link>
           <Link
             href="/"
             prefetch={false}
-            className="px-6 py-3.5 border border-[rgba(198,161,91,0.5)] text-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.18em] uppercase rounded hover:bg-[rgba(198,161,91,0.12)] transition-all"
+            className="px-6 py-3.5 border border-[rgba(193, 145, 94,0.5)] text-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.18em] uppercase rounded hover:bg-[rgba(193, 145, 94,0.12)] transition-all"
           >
             Return to Atelier Home
           </Link>

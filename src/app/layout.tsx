@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Cormorant_Garamond, Outfit, Lato, Figtree } from "next/font/google";
+import { Cormorant_SC, Montserrat } from "next/font/google";
 import "./globals.css";
 import {
   SITE_URL,
@@ -8,46 +8,22 @@ import {
   getWebSiteJsonLd,
 } from "@/lib/seo";
 
-const lato = Lato({
-  variable: "--font-lato",
+const cormorantSc = Cormorant_SC({
+  variable: "--font-cormorant-sc",
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
-  style: ["normal", "italic"],
+  weight: "700",
   display: "swap",
 });
 
-const figtree = Figtree({
-  variable: "--font-figtree",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant-serif",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: "500",
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#081a15",
+  themeColor: "#184343",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -136,7 +112,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${figtree.variable} ${bodoni.variable} ${cormorant.variable} ${outfit.variable} h-full antialiased`}
+      className={`${cormorantSc.variable} ${montserrat.variable} h-full antialiased`}
     >
       <head>
         {/* Organization & WebSite JSON-LD Structured Data */}

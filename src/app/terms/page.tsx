@@ -26,7 +26,7 @@ export default function TermsPage() {
       <SiteNav activeHref="/terms" solid />
 
       {/* Breadcrumbs */}
-      <div className="bg-[#ffffff] border-b border-[rgba(198,161,91,0.22)] py-3">
+      <div className="bg-[#ffffff] border-b border-[rgba(193, 145, 94,0.22)] py-3">
         <div className="shop-container">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-sans text-stone-500">
             <Link href="/" className="hover:text-[var(--color-emerald)] transition-colors">Home</Link>
@@ -44,7 +44,7 @@ export default function TermsPage() {
           Atelier Terms &amp; Conditions
         </h1>
 
-        <div className="bg-white p-6 sm:p-10 rounded-xl border border-[rgba(198,161,91,0.25)] shadow-sm space-y-6 font-sans text-sm text-stone-600 leading-relaxed font-light">
+        <div className="bg-white p-6 sm:p-10 rounded-xl border border-[rgba(193, 145, 94,0.25)] shadow-sm space-y-6 font-sans text-sm text-stone-600 leading-relaxed font-light">
           <section>
             <h2 className="font-serif text-lg text-[var(--color-charcoal)] font-medium mb-2">
               1. Lifetime Authenticity Guarantee

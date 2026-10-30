@@ -1,6 +1,6 @@
 /* =========================================================================
    UNI FINE JEWELRY — SHOP & COLLECTION STYLING
-   Royal Emerald (#123C32), Champagne Gold (#C6A15B), Warm Ivory (#F7F3EA)
+   Royal Emerald (#123C32), Champagne Gold (#C1915E), Warm Ivory (#F7F3EA)
    ========================================================================= */
 
 .shop-container {
@@ -15,12 +15,12 @@
 .shop-hero {
   position: relative;
   background:
-    radial-gradient(ellipse 60% 70% at 50% 15%, rgba(18, 60, 50, 0.45) 0%, transparent 75%),
-    radial-gradient(circle at 10% 85%, rgba(198, 161, 91, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, #071914 0%, #0c2620 50%, #081a15 100%);
+    radial-gradient(ellipse 60% 70% at 50% 15%, rgba(24, 67, 67, 0.45) 0%, transparent 75%),
+    radial-gradient(circle at 10% 85%, rgba(193, 145, 94, 0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #071914 0%, #0c2620 50%, #184343 100%);
   color: var(--color-ivory);
   padding: clamp(5.25rem, 7.5vw, 6.75rem) 0 clamp(1.75rem, 3vw, 2.75rem);
-  border-bottom: 1px solid rgba(198, 161, 91, 0.25);
+  border-bottom: 1px solid rgba(193, 145, 94, 0.25);
   overflow: hidden;
 }
 
@@ -35,12 +35,12 @@
   position: relative;
   background:
     radial-gradient(ellipse 70% 65% at 50% 30%, #0d2e24 0%, #081c15 70%, #05140f 100%);
-  border: 1px solid rgba(198, 161, 91, 0.35);
+  border: 1px solid rgba(193, 145, 94, 0.35);
   border-radius: 10px;
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.5),
-    0 2px 12px rgba(198, 161, 91, 0.15),
-    inset 0 1px 0 rgba(198, 161, 91, 0.25);
+    0 2px 12px rgba(193, 145, 94, 0.15),
+    inset 0 1px 0 rgba(193, 145, 94, 0.25);
   overflow: hidden;
 }
 
@@ -86,12 +86,12 @@
 .shop-banner-rule {
   width: 1.5rem;
   height: 1px;
-  background: rgba(198, 161, 91, 0.45);
+  background: rgba(193, 145, 94, 0.45);
 }
 
 .shop-banner-eyebrow {
   margin: 0;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.28em;
@@ -134,7 +134,7 @@
   font-size: 0.68rem;
   font-weight: 400;
   letter-spacing: 0.12em;
-  color: rgba(198, 161, 91, 0.9);
+  color: rgba(193, 145, 94, 0.9);
 }
 
 .shop-banner-feature-item {
@@ -168,11 +168,11 @@
   aspect-ratio: 580 / 724;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(198, 161, 91, 0.38);
+  border: 1px solid rgba(193, 145, 94, 0.38);
   box-shadow:
     0 16px 44px rgba(0, 0, 0, 0.5),
     0 0 0 4px rgba(10, 32, 25, 0.45);
-  background: #081a15;
+  background: #184343;
 }
 
 .shop-banner-pendant-img {
@@ -199,7 +199,7 @@
 .shop-banner-atelier-card {
   width: 100%;
   max-width: 245px;
-  border: 1px solid rgba(198, 161, 91, 0.55);
+  border: 1px solid rgba(193, 145, 94, 0.55);
   border-radius: 4px;
   padding: 0.35rem;
   background: rgba(6, 20, 16, 0.65);
@@ -207,7 +207,7 @@
 }
 
 .shop-banner-atelier-card__inner {
-  border: 1px solid rgba(198, 161, 91, 0.25);
+  border: 1px solid rgba(193, 145, 94, 0.25);
   padding: 1.25rem 1rem;
   text-align: center;
   display: flex;
@@ -218,7 +218,7 @@
 
 .shop-banner-atelier-eyebrow {
   margin: 0;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.62rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
@@ -238,7 +238,7 @@
 .shop-banner-atelier-line {
   width: 2.2rem;
   height: 1px;
-  background: rgba(198, 161, 91, 0.4);
+  background: rgba(193, 145, 94, 0.4);
   margin: 0.35rem 0;
 }
 
@@ -253,7 +253,7 @@
 
 .shop-banner-atelier-tag {
   margin: 0;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.56rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -275,7 +275,7 @@
   border: 1px solid var(--color-champagne);
   border-radius: 9999px;
   padding: 0.75rem 2.25rem;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.74rem;
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -293,7 +293,7 @@
   color: #071914;
   border-color: var(--color-champagne);
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(198, 161, 91, 0.35);
+  box-shadow: 0 8px 26px rgba(193, 145, 94, 0.35);
 }
 
 .shop-banner-btn-arrow {
@@ -317,7 +317,7 @@
     justify-content: space-between;
     gap: 1.5rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(198, 161, 91, 0.2);
+    border-top: 1px solid rgba(193, 145, 94, 0.2);
   }
 
   .shop-banner-atelier-card {
@@ -370,7 +370,7 @@
     flex-direction: column;
     gap: 1.25rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(198, 161, 91, 0.2);
+    border-top: 1px solid rgba(193, 145, 94, 0.2);
   }
 
   .shop-banner-atelier-card {
@@ -390,8 +390,8 @@
 .shop-main-canvas {
   background-color: var(--color-ivory);
   background-image:
-    radial-gradient(ellipse 40% 30% at 10% 20%, rgba(198, 161, 91, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 90% 70%, rgba(18, 60, 50, 0.03) 0%, transparent 60%);
+    radial-gradient(ellipse 40% 30% at 10% 20%, rgba(193, 145, 94, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 90% 70%, rgba(24, 67, 67, 0.03) 0%, transparent 60%);
   color: var(--color-charcoal);
   padding: clamp(1.75rem, 3.5vh, 2.75rem) 0 clamp(4rem, 8vh, 6rem);
   min-height: 70vh;
@@ -405,7 +405,7 @@
   position: relative;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.22);
+  border-bottom: 1px solid rgba(193, 145, 94, 0.22);
 }
 
 .shop-categories-rail {
@@ -440,10 +440,10 @@
   align-items: center;
   gap: 0.45rem;
   background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(193, 145, 94, 0.3);
   border-radius: 9999px;
   padding: 0.48rem 1rem;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.76rem;
   font-weight: 400;
   letter-spacing: 0.06em;
@@ -467,7 +467,7 @@
   color: var(--color-ivory);
   border-color: var(--color-emerald);
   font-weight: 500;
-  box-shadow: 0 3px 12px rgba(18, 60, 50, 0.22);
+  box-shadow: 0 3px 12px rgba(24, 67, 67, 0.22);
 }
 
 .shop-cat-btn__count {
@@ -480,7 +480,7 @@
 }
 
 .shop-cat-btn.is-active .shop-cat-btn__count {
-  background: rgba(198, 161, 91, 0.28);
+  background: rgba(193, 145, 94, 0.28);
   color: var(--color-champagne);
 }
 
@@ -496,7 +496,7 @@
   margin-bottom: 1.5rem;
   padding: 0.85rem 1.25rem;
   background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.25);
+  border: 1px solid rgba(193, 145, 94, 0.25);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
@@ -541,7 +541,7 @@
   width: 100%;
   padding: 0.52rem 2.2rem 0.52rem 2.15rem;
   background: #faf7f2;
-  border: 1px solid rgba(198, 161, 91, 0.32);
+  border: 1px solid rgba(193, 145, 94, 0.32);
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.8rem;
   color: var(--color-charcoal);
@@ -553,7 +553,7 @@
 .shop-search-input:focus {
   border-color: var(--color-champagne);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.14);
+  box-shadow: 0 0 0 3px rgba(193, 145, 94, 0.14);
 }
 
 .shop-search-icon {
@@ -589,7 +589,7 @@
 .shop-filter-select {
   padding: 0.52rem 2rem 0.52rem 0.85rem;
   background: #faf7f2 url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20viewBox%3D%220%200%2010%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%201L5%205L9%201%22%20stroke%3D%22%23202722%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") no-repeat right 0.75rem center;
-  border: 1px solid rgba(198, 161, 91, 0.32);
+  border: 1px solid rgba(193, 145, 94, 0.32);
   border-radius: 2px;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.76rem;
@@ -602,11 +602,11 @@
 
 .shop-filter-select:focus {
   border-color: var(--color-champagne);
-  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.14);
+  box-shadow: 0 0 0 3px rgba(193, 145, 94, 0.14);
 }
 
 .shop-count-label {
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.76rem;
   color: #667269;
   letter-spacing: 0.04em;
@@ -685,8 +685,8 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.28rem 0.65rem;
-  background: rgba(18, 60, 50, 0.07);
-  border: 1px solid rgba(18, 60, 50, 0.22);
+  background: rgba(24, 67, 67, 0.07);
+  border: 1px solid rgba(24, 67, 67, 0.22);
   color: var(--color-emerald);
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.7rem;
@@ -707,7 +707,7 @@
   background: none;
   border: none;
   color: #7b857e;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.7rem;
   text-decoration: underline;
   cursor: pointer;
@@ -726,7 +726,7 @@
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: rgba(11, 33, 28, 0.65);
+  background: rgba(24, 67, 67, 0.65);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: flex-end;
@@ -750,7 +750,7 @@
   max-width: 32rem;
   max-height: 86vh;
   border-radius: 20px 20px 0 0;
-  border: 1px solid rgba(198, 161, 91, 0.35);
+  border: 1px solid rgba(193, 145, 94, 0.35);
   border-bottom: none;
   box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.28);
   display: flex;
@@ -781,7 +781,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.2);
+  border-bottom: 1px solid rgba(193, 145, 94, 0.2);
 }
 
 .shop-drawer-title {
@@ -793,14 +793,14 @@
 }
 
 .shop-drawer-subtitle {
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
   color: #7b857e;
 }
 
 .shop-drawer-close {
   background: #faf7f2;
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(193, 145, 94, 0.3);
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -842,7 +842,7 @@
   gap: 0.4rem;
   padding: 0.45rem 0.85rem;
   background: #faf7f2;
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(193, 145, 94, 0.3);
   border-radius: 9999px;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.75rem;
@@ -856,7 +856,7 @@
   color: var(--color-ivory);
   border-color: var(--color-emerald);
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(18, 60, 50, 0.25);
+  box-shadow: 0 2px 8px rgba(24, 67, 67, 0.25);
 }
 
 .shop-drawer-chip-count {
@@ -867,13 +867,13 @@
 }
 
 .shop-drawer-chip.is-active .shop-drawer-chip-count {
-  background: rgba(198, 161, 91, 0.3);
+  background: rgba(193, 145, 94, 0.3);
   color: var(--color-champagne);
 }
 
 .shop-drawer-footer {
   padding: 1rem 1.25rem;
-  border-top: 1px solid rgba(198, 161, 91, 0.2);
+  border-top: 1px solid rgba(193, 145, 94, 0.2);
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -883,8 +883,8 @@
 .shop-drawer-reset-btn {
   padding: 0.75rem 1rem;
   background: transparent;
-  border: 1px solid rgba(198, 161, 91, 0.4);
-  font-family: var(--font-outfit), sans-serif;
+  border: 1px solid rgba(193, 145, 94, 0.4);
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -905,7 +905,7 @@
   background: var(--color-emerald);
   color: var(--color-ivory);
   border: 1px solid var(--color-champagne);
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -961,7 +961,7 @@
 .prod-card {
   position: relative;
   background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.32);
+  border: 1px solid rgba(193, 145, 94, 0.32);
   border-radius: clamp(10px, 1.2vw, 14px);
   display: flex;
   flex-direction: column;
@@ -969,19 +969,19 @@
   overflow: hidden;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow:
-    0 4px 16px -2px rgba(18, 60, 50, 0.05),
+    0 4px 16px -2px rgba(24, 67, 67, 0.05),
     0 8px 24px -4px rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(198, 161, 91, 0.12);
+    0 0 0 1px rgba(193, 145, 94, 0.12);
 }
 
 .prod-card:hover {
-  border-color: rgba(198, 161, 91, 0.85);
+  border-color: rgba(193, 145, 94, 0.85);
   transform: translateY(-5px);
   box-shadow:
-    0 20px 40px -8px rgba(18, 60, 50, 0.14),
+    0 20px 40px -8px rgba(24, 67, 67, 0.14),
     0 10px 20px -4px rgba(0, 0, 0, 0.06),
-    0 0 24px rgba(198, 161, 91, 0.25),
-    0 0 0 1px rgba(198, 161, 91, 0.45);
+    0 0 24px rgba(193, 145, 94, 0.25),
+    0 0 0 1px rgba(193, 145, 94, 0.45);
 }
 
 .prod-card__figure {
@@ -993,7 +993,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.18);
+  border-bottom: 1px solid rgba(193, 145, 94, 0.18);
 }
 
 .prod-card__img-link {
@@ -1021,12 +1021,12 @@
   transform: translate(-50%, 8px);
   opacity: 0;
   visibility: hidden;
-  background: rgba(18, 60, 50, 0.94);
+  background: rgba(24, 67, 67, 0.94);
   color: var(--color-ivory);
-  border: 1px solid rgba(198, 161, 91, 0.7);
+  border: 1px solid rgba(193, 145, 94, 0.7);
   border-radius: 9999px;
   padding: 0.35rem 0.85rem;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -1123,11 +1123,11 @@
   justify-content: space-between;
   padding-top: 0.4rem;
   margin-top: 0.25rem;
-  border-top: 1px solid rgba(198, 161, 91, 0.12);
+  border-top: 1px solid rgba(193, 145, 94, 0.12);
 }
 
 .prod-card__price-label {
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -1175,7 +1175,7 @@
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(193, 145, 94, 0.3);
   padding: 0.55rem 0.85rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
@@ -1197,9 +1197,9 @@
   height: 36px;
   padding: 0 0.75rem;
   background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(193, 145, 94, 0.3);
   color: var(--color-charcoal);
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.76rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1246,7 +1246,7 @@
   text-align: center;
   padding: 4.5rem 1.5rem;
   background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.25);
+  border: 1px solid rgba(193, 145, 94, 0.25);
   max-width: 34rem;
   margin: 2rem auto;
 }
@@ -1277,7 +1277,7 @@
   background: var(--color-emerald);
   color: var(--color-ivory);
   border: 1px solid var(--color-champagne);
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -1299,7 +1299,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(11, 33, 28, 0.75);
+  background: rgba(24, 67, 67, 0.75);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -1311,10 +1311,10 @@
 .qv-modal {
   position: relative;
   background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.5);
+  border: 1px solid rgba(193, 145, 94, 0.5);
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.35),
-    0 0 20px rgba(198, 161, 91, 0.2);
+    0 0 20px rgba(193, 145, 94, 0.2);
   width: min(54rem, 100%);
   max-height: 90vh;
   overflow-y: auto;
@@ -1340,7 +1340,7 @@
   height: 34px;
   border-radius: 50%;
   background: #faf7f2;
-  border: 1px solid rgba(198, 161, 91, 0.35);
+  border: 1px solid rgba(193, 145, 94, 0.35);
   color: var(--color-charcoal);
   display: flex;
   align-items: center;
@@ -1367,7 +1367,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   background: #faf7f2;
-  border: 1px solid rgba(198, 161, 91, 0.2);
+  border: 1px solid rgba(193, 145, 94, 0.2);
   overflow: hidden;
 }
 
@@ -1387,7 +1387,7 @@
   width: 54px;
   height: 54px;
   background: #faf7f2;
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(193, 145, 94, 0.3);
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
@@ -1395,7 +1395,7 @@
 
 .qv-thumb-btn.is-active {
   border-color: var(--color-champagne);
-  box-shadow: 0 0 0 2px rgba(198, 161, 91, 0.4);
+  box-shadow: 0 0 0 2px rgba(193, 145, 94, 0.4);
 }
 
 .qv-details {
@@ -1451,7 +1451,7 @@
 }
 
 .qv-specs-table tr {
-  border-bottom: 1px solid rgba(198, 161, 91, 0.15);
+  border-bottom: 1px solid rgba(193, 145, 94, 0.15);
 }
 
 .qv-specs-table th {
@@ -1486,7 +1486,7 @@
   background: var(--color-emerald);
   color: var(--color-ivory);
   border: 1px solid var(--color-champagne);
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -1499,7 +1499,7 @@
 .qv-inquire-btn:hover {
   background: #184c3f;
   color: #ffffff;
-  box-shadow: 0 4px 16px rgba(18, 60, 50, 0.3);
+  box-shadow: 0 4px 16px rgba(24, 67, 67, 0.3);
 }
 
 .qv-pdp-link {
@@ -1510,7 +1510,7 @@
   width: 100%;
   padding: 0.7rem 1.5rem;
   background: transparent;
-  border: 1px solid rgba(198, 161, 91, 0.4);
+  border: 1px solid rgba(193, 145, 94, 0.4);
   color: var(--color-charcoal);
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
