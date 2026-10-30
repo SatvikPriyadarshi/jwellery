@@ -303,58 +303,50 @@
   max-width: 32rem;
 }
 
-/* Direct Atelier Concierge VIP Card (Fills space and eliminates blank void) */
-.contact-concierge-card {
-  background: #ffffff;
-  border: 1px solid rgba(198, 161, 91, 0.42);
-  border-radius: 6px;
-  padding: 1.15rem 1.35rem;
-  box-shadow:
-    0 10px 24px rgba(18, 36, 30, 0.05),
-    0 2px 6px rgba(198, 161, 91, 0.08);
+/* Direct Atelier Concierge — Clean, Simple, Non-Boxy Luxury Editorial */
+.contact-concierge-direct {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.45rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(198, 161, 91, 0.28);
+  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
   max-width: 32rem;
 }
 
-.contact-concierge-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.2);
-}
-
-.contact-concierge-card__badge-wrap {
+.contact-concierge-direct__top {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.55rem;
+  flex-wrap: wrap;
 }
 
-.contact-concierge-card__pulse-dot {
+.contact-concierge-direct__dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: #25d366;
-  box-shadow: 0 0 8px rgba(37, 211, 102, 0.7);
+  box-shadow: 0 0 6px rgba(37, 211, 102, 0.6);
   flex-shrink: 0;
 }
 
-.contact-concierge-card__badge {
+.contact-concierge-direct__badge {
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #8a7344;
 }
 
-.contact-concierge-card__phone {
+.contact-concierge-direct__sep {
+  color: rgba(198, 161, 91, 0.6);
+  font-size: 0.85rem;
+}
+
+.contact-concierge-direct__phone {
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.84rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #123c32;
   text-decoration: none;
@@ -362,52 +354,46 @@
   transition: color 0.2s ease;
 }
 
-.contact-concierge-card__phone:hover {
+.contact-concierge-direct__phone:hover {
   color: #8a7344;
 }
 
-.contact-concierge-card__text {
+.contact-concierge-direct__text {
   margin: 0;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 350;
-  line-height: 1.5;
+  line-height: 1.55;
   color: #4a5148;
 }
 
-.contact-concierge-card__wa-btn {
+.contact-concierge-direct__wa-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  background: #123c32;
-  color: #f7f3ea;
-  border: 1px solid #123c32;
-  border-radius: 4px;
-  padding: 0.62rem 1.25rem;
+  gap: 0.45rem;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: #123c32;
   text-decoration: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  width: 100%;
-  box-sizing: border-box;
+  border-bottom: 1.5px solid #123c32;
+  padding-bottom: 0.15rem;
+  width: fit-content;
+  margin-top: 0.25rem;
+  transition: all 0.2s ease;
 }
 
-.contact-concierge-card__wa-btn:hover {
-  background: #0b211c;
+.contact-concierge-direct__wa-btn:hover {
+  color: #8a7344;
   border-color: #8a7344;
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(18, 60, 50, 0.2);
+  transform: translateX(3px);
 }
 
-.contact-concierge-card__wa-icon {
-  width: 0.95rem;
-  height: 0.95rem;
+.contact-concierge-direct__wa-icon {
+  width: 0.85rem;
+  height: 0.85rem;
   fill: currentColor;
   flex-shrink: 0;
 }

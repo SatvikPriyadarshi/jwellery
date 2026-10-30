@@ -323,23 +323,22 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
             </p>
           </div>
 
-          {/* 2. Direct Atelier Concierge VIP Card (Exact Design Reference) */}
-          <div className="contact-concierge-card">
-            <div className="contact-concierge-card__top">
-              <div className="contact-concierge-card__badge-wrap">
-                <span className="contact-concierge-card__pulse-dot" aria-hidden="true" />
-                <span className="contact-concierge-card__badge">DIRECT CONCIERGE</span>
-              </div>
+          {/* 2. Direct Atelier Concierge — Simple & Non-Boxy */}
+          <div className="contact-concierge-direct">
+            <div className="contact-concierge-direct__top">
+              <span className="contact-concierge-direct__dot" aria-hidden="true" />
+              <span className="contact-concierge-direct__badge">DIRECT CONCIERGE</span>
+              <span className="contact-concierge-direct__sep" aria-hidden="true">·</span>
               <a
                 href="tel:+917568042023"
-                className="contact-concierge-card__phone"
+                className="contact-concierge-direct__phone"
                 aria-label="Direct Phone Line +91 75680 42023"
               >
                 +91 75680 42023
               </a>
             </div>
 
-            <p className="contact-concierge-card__text">
+            <p className="contact-concierge-direct__text">
               Connect directly with our master gemologists for instant gemstone videos, custom designs, and bespoke pricing.
             </p>
 
@@ -347,12 +346,11 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
               target="_blank"
               rel="noopener noreferrer"
-              className="contact-concierge-card__wa-btn"
+              className="contact-concierge-direct__wa-btn"
               aria-label="Chat on WhatsApp with master gemologists at +91 75680 42023"
             >
-              <WhatsAppIcon className="contact-concierge-card__wa-icon" />
-              <span>CHAT ON WHATSAPP</span>
-              <span aria-hidden="true">&rarr;</span>
+              <WhatsAppIcon className="contact-concierge-direct__wa-icon" />
+              <span>CHAT ON WHATSAPP &rarr;</span>
             </a>
           </div>
 
