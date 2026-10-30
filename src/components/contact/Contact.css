@@ -249,11 +249,11 @@
 .contact-experience__inner {
   position: relative;
   z-index: 2;
-  width: min(82rem, calc(100% - clamp(1.75rem, 4.5vw, 4.5rem)));
+  width: min(80rem, calc(100% - clamp(2rem, 5vw, 5rem)));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 27rem);
-  gap: clamp(2rem, 4vw, 3.75rem);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
   align-items: start;
 }
 
@@ -303,93 +303,6 @@
   max-width: 32rem;
 }
 
-/* VIP WhatsApp Direct Concierge Card */
-.contact-concierge-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 243, 234, 0.9) 100%);
-  border: 1px solid rgba(198, 161, 91, 0.42);
-  border-radius: 8px;
-  padding: 1.15rem 1.3rem;
-  box-shadow:
-    0 10px 24px rgba(18, 36, 30, 0.04),
-    0 2px 6px rgba(198, 161, 91, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.contact-concierge-card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.contact-concierge-card__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #9c8052;
-}
-
-.contact-concierge-card__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #25d366;
-  box-shadow: 0 0 6px rgba(37, 211, 102, 0.6);
-  flex-shrink: 0;
-}
-
-.contact-concierge-card__tel {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.76rem;
-  font-weight: 500;
-  color: #123c32;
-  letter-spacing: 0.04em;
-}
-
-.contact-concierge-card__desc {
-  margin: 0;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.8rem;
-  font-weight: 350;
-  line-height: 1.5;
-  color: #556057;
-}
-
-.contact-concierge-card__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  background: #123c32;
-  color: #f7f3ea;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0.65rem 1.25rem;
-  border-radius: 4px;
-  border: 1px solid #123c32;
-  box-shadow: 0 4px 14px rgba(18, 60, 50, 0.18);
-  transition: all 0.25s ease;
-  margin-top: 0.2rem;
-}
-
-.contact-concierge-card__btn:hover {
-  background: #0b211c;
-  color: #ffffff;
-  border-color: #c6a15b;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(18, 60, 50, 0.28);
-}
 
 /* Contact details on left */
 .contact-details-stack {
@@ -467,6 +380,31 @@
 .contact-detail-row__link:hover {
   color: #9c8052;
   border-bottom-color: #9c8052;
+}
+
+.contact-detail-row__wa-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #123c32;
+  background: rgba(198, 161, 91, 0.16);
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  border-radius: 9999px;
+  padding: 0.25rem 0.65rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contact-detail-row__wa-pill:hover {
+  background: #123c32;
+  color: #f7f3ea;
+  border-color: #123c32;
+  transform: translateY(-1px);
 }
 
 /* Floral Emblem Tagline */
@@ -587,6 +525,16 @@
   color: #12241e;
 }
 
+.contact-map-header__address {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  color: #12241e;
+  font-style: normal;
+  letter-spacing: 0.01em;
+}
+
 .contact-map-header__desc {
   margin: 0;
   font-family: var(--font-outfit), sans-serif;
@@ -596,26 +544,79 @@
   color: #556057;
 }
 
+.contact-map-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1.35rem;
+}
+
+.contact-map-btn-clean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #123c32;
+  color: #f7f3ea;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 4px;
+  border: 1px solid #123c32;
+  box-shadow: 0 4px 14px rgba(18, 60, 50, 0.14);
+  transition: all 0.25s ease;
+}
+
+.contact-map-btn-clean:hover {
+  background: #0b211c;
+  border-color: #c6a15b;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(18, 60, 50, 0.22);
+}
+
+.contact-map-btn-wa-clean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #123c32;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(198, 161, 91, 0.55);
+  transition: all 0.25s ease;
+}
+
+.contact-map-btn-wa-clean:hover {
+  background: rgba(198, 161, 91, 0.12);
+  border-color: #9c8052;
+  color: #0b211c;
+  transform: translateY(-1px);
+}
+
 /* Centered Panoramic Map Showcase */
 .contact-map-showcase {
   position: relative;
   width: 100%;
-  height: clamp(420px, 50vh, 520px);
+  height: clamp(400px, 48vh, 500px);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(198, 161, 91, 0.45);
+  border: 1px solid rgba(198, 161, 91, 0.35);
   box-shadow:
-    0 24px 60px rgba(18, 36, 30, 0.09),
-    0 4px 18px rgba(198, 161, 91, 0.12);
+    0 20px 50px rgba(18, 36, 30, 0.08),
+    0 2px 10px rgba(198, 161, 91, 0.08);
   background: #f4efe4;
-}
-
-.contact-map-frame-centered {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
 }
 
 .contact-map-iframe-centered {
@@ -625,146 +626,22 @@
   display: block;
 }
 
-/* Floating Luxury Atelier Card (Desktop) */
-.contact-map-floating-card {
-  position: absolute;
-  top: 1.75rem;
-  left: 1.75rem;
-  z-index: 10;
-  width: min(340px, calc(100% - 3.5rem));
-  background: rgba(253, 251, 247, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(198, 161, 91, 0.5);
-  border-radius: 8px;
-  padding: 1.35rem 1.4rem;
-  box-shadow:
-    0 18px 42px rgba(18, 36, 30, 0.16),
-    0 2px 8px rgba(198, 161, 91, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.contact-map-floating-card__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.contact-map-floating-card__pin {
-  font-size: 0.85rem;
-  line-height: 1;
-}
-
-.contact-map-floating-card__badge-text {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: #9c8052;
-}
-
-.contact-map-floating-card__title {
-  margin: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.45rem;
-  font-weight: 400;
-  color: #12241e;
-  line-height: 1.15;
-}
-
-.contact-map-floating-card__address {
-  margin: 0;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.82rem;
-  font-weight: 350;
-  line-height: 1.45;
-  color: #556057;
-  font-style: normal;
-}
-
-.contact-map-floating-card__timing {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.74rem;
-  font-weight: 450;
-  color: #123c32;
-  padding: 0.35rem 0;
-  border-top: 1px solid rgba(198, 161, 91, 0.25);
-  border-bottom: 1px solid rgba(198, 161, 91, 0.25);
-}
-
-.contact-map-floating-card__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  margin-top: 0.25rem;
-}
-
-.contact-map-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0.6rem 1rem;
-  border-radius: 4px;
-  transition: all 0.25s ease;
-}
-
-.contact-map-btn--primary {
-  background: #123c32;
-  color: #f7f3ea;
-  border: 1px solid #123c32;
-  box-shadow: 0 4px 12px rgba(18, 60, 50, 0.18);
-}
-
-.contact-map-btn--primary:hover {
-  background: #0b211c;
-  border-color: #c6a15b;
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.contact-map-btn--wa {
-  background: transparent;
-  color: #123c32;
-  border: 1px solid rgba(198, 161, 91, 0.55);
-}
-
-.contact-map-btn--wa:hover {
-  background: rgba(198, 161, 91, 0.12);
-  border-color: #9c8052;
-  color: #0b211c;
-}
-
 /* RIGHT COLUMN — Dedicated Ivory Consultation Form (Refined, Minimal, Luxury) */
 .contact-form-panel {
-  grid-area: form;
   position: relative;
   background-color: #faf7f2;
   color: #12241e;
-  border-radius: 3px;
-  padding: 1.35rem 1.65rem;
+  border-radius: 4px;
+  padding: clamp(1.4rem, 2.2vw, 1.85rem) clamp(1.4rem, 2.4vw, 1.95rem);
   box-shadow:
-    0 14px 35px rgba(18, 36, 30, 0.05),
-    0 2px 5px rgba(18, 36, 30, 0.02);
-  border: 1px solid rgba(198, 161, 91, 0.32);
+    0 16px 40px rgba(18, 36, 30, 0.06),
+    0 2px 6px rgba(18, 36, 30, 0.02);
+  border: 1px solid rgba(198, 161, 91, 0.35);
   width: 100%;
-  max-width: 26.5rem;
-  margin-left: auto;
+  max-width: 28rem;
+  margin: 0 0 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 /* Luxury double-hairline inner stationery border */
@@ -1655,28 +1532,24 @@
     font-size: clamp(1.85rem, 6.5vw, 2.25rem);
   }
 
-  .contact-map-showcase {
-    display: flex;
+  .contact-map-header__actions {
     flex-direction: column;
-    height: auto;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .contact-map-btn-clean,
+  .contact-map-btn-wa-clean {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .contact-map-showcase {
+    width: 100%;
+    height: 340px;
     border-radius: 8px;
-  }
-
-  .contact-map-floating-card {
-    position: static;
-    width: 100%;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(198, 161, 91, 0.35);
-    padding: 1.25rem 1.15rem;
-    box-shadow: none;
-  }
-
-  .contact-map-frame-centered {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: 330px;
   }
 
   /* SECTION C: BESPOKE CONSULTATION ON MOBILE */
