@@ -11,9 +11,9 @@ function PinIcon() {
         d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10z"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.3"
+        strokeWidth="1.4"
       />
-      <circle cx="12" cy="11" r="1.8" fill="none" stroke="currentColor" strokeWidth="1.3" />
+      <circle cx="12" cy="11" r="2" fill="none" stroke="currentColor" strokeWidth="1.4" />
     </svg>
   );
 }
@@ -25,7 +25,7 @@ function PhoneIcon() {
         d="M8 5h2l1 2.6-1.4.9a9 9 0 0 0 4.9 4.9l.9-1.4L18 13v2a1.6 1.6 0 0 1-1.8 1.6A12.5 12.5 0 0 1 6.4 6.8 1.6 1.6 0 0 1 8 5z"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.3"
+        strokeWidth="1.4"
         strokeLinejoin="round"
       />
     </svg>
@@ -46,8 +46,8 @@ function WhatsAppIcon() {
 function MailIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className="site-footer__icon-svg">
-      <rect x="4" y="6.5" width="16" height="11" rx="1.4" fill="none" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M5 8l7 5 7-5" fill="none" stroke="currentColor" strokeWidth="1.3" />
+      <rect x="4" y="6.5" width="16" height="11" rx="1.4" fill="none" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M5 8l7 5 7-5" fill="none" stroke="currentColor" strokeWidth="1.4" />
     </svg>
   );
 }
@@ -61,13 +61,13 @@ function ArrowUpIcon() {
 }
 
 export default function SiteFooter() {
-  const [emailInput, setEmailInput] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (emailInput.trim()) {
-      setSubscribed(true);
+    if (email.trim()) {
+      setIsSubscribed(true);
     }
   };
 
@@ -77,211 +77,144 @@ export default function SiteFooter() {
 
   return (
     <footer id="contact" className="site-footer" aria-label="Uni Fine Jewelry Grand Maison Footer">
-      <div className="site-footer__window-container">
+      <div className="site-footer__inner">
         {/* =================================================================
-            1. TOP CHAMBER: The Private Client Gazette (Architectural Ribbon)
+            TOP TIER: Brand Hallmark & Direct Atelier Concierge
             ================================================================= */}
-        <div className="site-footer__gazette-ribbon">
-          <div className="site-footer__gazette-info">
-            <span className="site-footer__gazette-eyebrow">ATELIER COMMUNIQUÉ · PRIVATE CLIENT PRIVILEGE</span>
-            <h3 className="site-footer__gazette-heading">Join The Private Client Gazette</h3>
-            <p className="site-footer__gazette-desc">
-              Receive private salon invitations, bespoke gemstone dossiers, and exclusive atelier collection previews.
-            </p>
-          </div>
-
-          <div className="site-footer__gazette-action">
-            {subscribed ? (
-              <div className="site-footer__gazette-success" role="status">
-                <span className="site-footer__gazette-success-dot" aria-hidden="true">✓</span>
-                <span>You are registered for private atelier communications.</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="site-footer__gazette-form">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email address..."
-                  value={emailInput}
-                  onChange={(e) => setEmailInput(e.target.value)}
-                  className="site-footer__gazette-input"
-                  aria-label="Email address for Private Client Gazette"
-                />
-                <button type="submit" className="site-footer__gazette-btn">
-                  <span>JOIN GAZETTE</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-
-        {/* =================================================================
-            2. MIDDLE CHAMBER: The 4-Column Luxury Maison Matrix
-            ================================================================= */}
-        <div className="site-footer__matrix">
-          {/* Column 1: Maison Heritage & Direct Concierge */}
-          <div className="site-footer__col site-footer__col--heritage">
-            <div className="site-footer__crest-mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" className="site-footer__crest-svg">
-                <polygon points="20 4 36 14 36 26 20 36 4 26 4 14" fill="none" stroke="currentColor" strokeWidth="1.2" />
-                <polygon points="20 10 30 16 30 24 20 30 10 24 10 16" fill="none" stroke="currentColor" strokeWidth="1" />
+        <div className="site-footer__header">
+          <div className="site-footer__brand-block">
+            <div className="site-footer__brand-mark">
+              <svg viewBox="0 0 36 36" className="site-footer__crest-svg" aria-hidden="true">
+                <polygon points="18 3 33 12 33 24 18 33 3 24 3 12" fill="none" stroke="currentColor" strokeWidth="1.3" />
+                <polygon points="18 9 27 14 27 22 18 27 9 22 9 14" fill="none" stroke="currentColor" strokeWidth="1.1" />
               </svg>
+              <div>
+                <h2 className="site-footer__brand-name">UNI FINE JEWELRY</h2>
+                <p className="site-footer__brand-sub">EST. 1965 · JAIPUR · KUALA LUMPUR</p>
+              </div>
             </div>
-
-            <h2 className="site-footer__brand-title">UNI FINE JEWELRY</h2>
-            <p className="site-footer__brand-est">ESTABLISHED 1965 · JAIPUR, INDIA</p>
-            <p className="site-footer__brand-narrative">
-              Handcrafted high jewellery and certified gemstone mastery, carrying forward three generations
-              of royal Rajasthani goldsmith artistry.
+            <p className="site-footer__brand-statement">
+              Master gemstone cutters and royal Rajasthani goldsmiths crafting one-of-a-kind high jewellery,
+              certified solitaires, and bespoke heirloom commissions for generations.
             </p>
+          </div>
 
-            {/* Live Concierge Availability Badge */}
-            <div className="site-footer__concierge-status">
-              <span className="site-footer__pulse-dot" aria-hidden="true" />
-              <span>Concierge Active · Mon–Sat 10:30 AM – 7:30 PM IST</span>
+          <div className="site-footer__concierge-box">
+            <div className="site-footer__concierge-top">
+              <span className="site-footer__concierge-badge">
+                <span className="site-footer__pulse-dot" aria-hidden="true" />
+                <span>DIRECT ATELIER CONCIERGE</span>
+              </span>
+              <span className="site-footer__concierge-timing">Mon – Sat · 10:30 AM – 7:30 PM IST</span>
             </div>
 
-            <div className="site-footer__touchpoints">
+            <div className="site-footer__concierge-links">
               <a
                 href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%20Concierge%2C%20I%20would%20like%20to%20inquire%20about%20your%20fine%20jewelry%20collections."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="site-footer__direct-touch"
-                aria-label="Connect on WhatsApp Concierge at +91 75680 42023"
+                className="site-footer__concierge-btn site-footer__concierge-btn--primary"
+                aria-label="Direct WhatsApp Consultation at +91 75680 42023"
               >
                 <WhatsAppIcon />
-                <span>WhatsApp Concierge: +91 75680 42023</span>
+                <span>Chat on WhatsApp (+91 75680 42023)</span>
+                <span aria-hidden="true">&rarr;</span>
               </a>
 
               <a
                 href="mailto:info@unifinejewelry.com"
-                className="site-footer__direct-touch"
-                aria-label="Email Uni Fine Jewelry"
+                className="site-footer__concierge-btn site-footer__concierge-btn--secondary"
+                aria-label="Email Uni Fine Jewelry Concierge"
               >
                 <MailIcon />
                 <span>info@unifinejewelry.com</span>
               </a>
             </div>
           </div>
+        </div>
 
-          {/* Column 2: World Ateliers & Salons */}
+        {/* =================================================================
+            MIDDLE TIER: 4 Symmetrical Organized Luxury Columns
+            ================================================================= */}
+        <div className="site-footer__matrix">
+          {/* Column 1: Ateliers & Salons */}
           <div className="site-footer__col">
-            <h3 className="site-footer__col-heading">WORLD ATELIERS</h3>
-            <div className="site-footer__salon-card">
-              <div className="site-footer__salon-header">
+            <h3 className="site-footer__heading">ATELIERS &amp; SALONS</h3>
+            <div className="site-footer__salon-item">
+              <div className="site-footer__salon-title-wrap">
                 <PinIcon />
-                <strong className="site-footer__salon-title">Jaipur Flagship Atelier &amp; Salon</strong>
+                <strong>Jaipur Flagship Salon</strong>
               </div>
-              <p className="site-footer__salon-address">
-                N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd, Jaipur, Rajasthan 302001, India
+              <p className="site-footer__salon-desc">
+                N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd, Jaipur 302001, India
               </p>
-              <div className="site-footer__salon-links">
-                <a href="tel:+917568042023" className="site-footer__salon-tel">
+              <div className="site-footer__salon-sublinks">
+                <a href="tel:+917568042023" className="site-footer__tel-link">
                   <PhoneIcon /> +91 75680 42023
                 </a>
-                <Link href="/contact#atelier-map" className="site-footer__salon-maplink">
-                  <span>View On Map</span>
-                  <span aria-hidden="true">&rarr;</span>
+                <Link href="/contact#atelier-map" className="site-footer__map-link">
+                  View Map &darr;
                 </Link>
               </div>
             </div>
 
-            <div className="site-footer__salon-card">
-              <div className="site-footer__salon-header">
+            <div className="site-footer__salon-item">
+              <div className="site-footer__salon-title-wrap">
                 <PinIcon />
-                <strong className="site-footer__salon-title">Malaysia Private Suite</strong>
+                <strong>Malaysia Private Suite</strong>
               </div>
-              <p className="site-footer__salon-address">
-                8-12-2, Menara Mutiara Bangsar, Jalan Liku, 59100 Kuala Lumpur, Malaysia
+              <p className="site-footer__salon-desc">
+                8-12-2, Menara Mutiara Bangsar, Jalan Liku, 59100 Kuala Lumpur
               </p>
-              <div className="site-footer__salon-links">
-                <a href="tel:+60122032941" className="site-footer__salon-tel">
+              <div className="site-footer__salon-sublinks">
+                <a href="tel:+60122032941" className="site-footer__tel-link">
                   <PhoneIcon /> +60 122032941
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Column 3: The Collections & Curations */}
+          {/* Column 2: The Collections */}
           <div className="site-footer__col">
-            <h3 className="site-footer__col-heading">THE COLLECTIONS</h3>
-            <ul className="site-footer__nav-tree">
-              <li>
-                <Link href="/shop" prefetch={false}>
-                  Solitaires &amp; Heirloom Rings
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop" prefetch={false}>
-                  High Jewellery Necklaces
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop" prefetch={false}>
-                  Diamond &amp; Gemstone Bracelets
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop" prefetch={false}>
-                  Certified Drop Earrings
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" prefetch={false}>
-                  Bespoke Design Commissions
-                </Link>
-              </li>
-              <li>
-                <Link href="/about#legacy" prefetch={false}>
-                  Jaipur Gemological Legacy
-                </Link>
-              </li>
+            <h3 className="site-footer__heading">THE COLLECTIONS</h3>
+            <ul className="site-footer__nav-list">
+              <li><Link href="/shop" prefetch={false}>Solitaires &amp; Heirloom Rings</Link></li>
+              <li><Link href="/shop" prefetch={false}>Statement High Jewellery Necklaces</Link></li>
+              <li><Link href="/shop" prefetch={false}>Diamond &amp; Gemstone Bracelets</Link></li>
+              <li><Link href="/shop" prefetch={false}>Certified Drop &amp; Stud Earrings</Link></li>
+              <li><Link href="/contact" prefetch={false}>Bespoke Design Commissions</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Client Services & Assurance */}
+          {/* Column 3: The Maison Heritage */}
           <div className="site-footer__col">
-            <h3 className="site-footer__col-heading">CLIENT ASSURANCE</h3>
-            <ul className="site-footer__nav-tree">
-              <li>
-                <Link href="/contact" prefetch={false}>
-                  Schedule Private Consultation
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" prefetch={false}>
-                  Ethical &amp; Certified Gemstones
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" prefetch={false}>
-                  Worldwide Insured Delivery
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" prefetch={false}>
-                  Return &amp; Sizing Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" prefetch={false}>
-                  Privacy &amp; Data Security
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" prefetch={false}>
-                  Terms &amp; Conditions
-                </Link>
-              </li>
+            <h3 className="site-footer__heading">THE MAISON</h3>
+            <ul className="site-footer__nav-list">
+              <li><Link href="/about" prefetch={false}>Our Sixty-Year Heritage</Link></li>
+              <li><Link href="/about#legacy" prefetch={false}>Jaipur Gemological Mastery</Link></li>
+              <li><Link href="/about" prefetch={false}>Certified Ethical Sourcing</Link></li>
+              <li><Link href="/contact" prefetch={false}>Private Salon Appointment</Link></li>
+              <li><Link href="/about" prefetch={false}>Master Goldsmith Craft</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Client Care & Policies */}
+          <div className="site-footer__col">
+            <h3 className="site-footer__heading">CLIENT SERVICES</h3>
+            <ul className="site-footer__nav-list">
+              <li><Link href="/contact" prefetch={false}>Contact Atelier Concierge</Link></li>
+              <li><Link href="/terms" prefetch={false}>Complimentary Insured Shipping</Link></li>
+              <li><Link href="/terms" prefetch={false}>Bespoke Sizing &amp; Service</Link></li>
+              <li><Link href="/privacy" prefetch={false}>Privacy Policy</Link></li>
+              <li><Link href="/terms" prefetch={false}>Terms of Service</Link></li>
               <li>
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="site-footer__ig-link"
+                  className="site-footer__social-link"
                 >
-                  Follow On Instagram ↗
+                  Follow on Instagram ↗
                 </a>
               </li>
             </ul>
@@ -289,21 +222,49 @@ export default function SiteFooter() {
         </div>
 
         {/* =================================================================
-            3. LOWER CHAMBER: Monumental Architectural Brand Watermark
+            NEWSLETTER RIBBON: The Private Atelier Gazette
             ================================================================= */}
-        <div className="site-footer__watermark-wrap" aria-hidden="true">
-          <span className="site-footer__watermark">UNI FINE JEWELRY</span>
+        <div className="site-footer__gazette">
+          <div className="site-footer__gazette-copy">
+            <span className="site-footer__gazette-tag">THE PRIVATE GAZETTE</span>
+            <p className="site-footer__gazette-text">
+              Join our private list to receive exclusive salon invitations, gemstone monographs, and bespoke previews.
+            </p>
+          </div>
+
+          {isSubscribed ? (
+            <div className="site-footer__gazette-thankyou">
+              <span className="site-footer__gazette-check">✓</span>
+              <span>Thank you. You are enrolled in the Private Client Gazette.</span>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="site-footer__gazette-form">
+              <input
+                type="email"
+                required
+                placeholder="Enter your email address..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="site-footer__gazette-input"
+                aria-label="Email address for Private Atelier Gazette"
+              />
+              <button type="submit" className="site-footer__gazette-btn">
+                <span>REQUEST INVITATION</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </form>
+          )}
         </div>
 
         {/* =================================================================
-            4. BASELINE CHAMBER: Hallmark & Scroll-To-Top
+            BOTTOM BASELINE: Hallmark & Scroll To Top
             ================================================================= */}
         <div className="site-footer__baseline">
-          <p className="site-footer__hallmark-copy">
+          <p className="site-footer__copyright">
             © 2026 UNI FINE JEWELRY · HANDCRAFTED IN JAIPUR · ALL RIGHTS RESERVED
           </p>
 
-          <div className="site-footer__hallmark-cities">
+          <div className="site-footer__hallmark">
             <span>JAIPUR</span>
             <span className="site-footer__dot" aria-hidden="true">·</span>
             <span>KUALA LUMPUR</span>

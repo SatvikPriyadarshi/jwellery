@@ -1,243 +1,125 @@
 /* =========================================================================
-   UNI FINE JEWELRY — GRAND MAISON ARCHITECTURAL FOOTER
-   Full-window immersive presence, meticulously organized with 30+ year luxury craft.
+   UNI FINE JEWELRY — ARCHITECTURAL MAISON FOOTER
+   Warm Linen Ivory (#f7f4ec) Luxury Aesthetic · 30+ Year Experience Polish
+   High Contrast, Crisp Typography & Expansive Window Space
    ========================================================================= */
 
 .site-footer {
   position: relative;
   width: 100%;
-  min-height: 85vh;
-  background:
-    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(198, 161, 91, 0.14) 0%, transparent 70%),
-    radial-gradient(circle at 10% 80%, rgba(18, 60, 50, 0.35) 0%, transparent 60%),
-    linear-gradient(180deg, #071713 0%, #040e0b 100%);
-  color: #f7f3ea;
-  border-top: 1px solid rgba(198, 161, 91, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background-color: #f7f4ec;
+  color: #12241e;
+  border-top: 1px solid rgba(198, 161, 91, 0.35);
+  box-sizing: border-box;
   overflow: hidden;
-  box-sizing: border-box;
 }
 
-.site-footer__window-container {
-  width: min(84rem, calc(100% - clamp(1.75rem, 4.5vw, 4.5rem)));
+.site-footer__inner {
+  width: min(84rem, calc(100% - clamp(2rem, 5vw, 4.5rem)));
   margin: 0 auto;
-  padding: clamp(3rem, 5.5vh, 4.75rem) 0 clamp(1.5rem, 2.5vh, 2.25rem);
+  padding: clamp(3.5rem, 5.5vh, 4.75rem) 0 clamp(1.75rem, 3vh, 2.5rem);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-between;
+  gap: clamp(2.5rem, 4.5vh, 3.5rem);
   box-sizing: border-box;
 }
 
 /* =========================================================================
-   1. TOP CHAMBER: THE PRIVATE CLIENT GAZETTE RIBBON
+   1. TOP TIER: BRAND HALLMARK & CONCIERGE STATIONERY BOX
    ========================================================================= */
 
-.site-footer__gazette-ribbon {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding-bottom: clamp(2rem, 3.5vh, 3rem);
-  border-bottom: 1px solid rgba(198, 161, 91, 0.22);
-  margin-bottom: clamp(2.5rem, 4.5vh, 3.75rem);
-}
-
-.site-footer__gazette-info {
-  max-width: 38rem;
-}
-
-.site-footer__gazette-eyebrow {
-  display: block;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: #c6a15b;
-  margin-bottom: 0.45rem;
-}
-
-.site-footer__gazette-heading {
-  margin: 0 0 0.45rem;
-  font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
-  font-size: clamp(1.65rem, 2.3vw, 2.15rem);
-  font-weight: 350;
-  line-height: 1.15;
-  color: #f7f3ea;
-  letter-spacing: -0.01em;
-}
-
-.site-footer__gazette-desc {
-  margin: 0;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
-  font-weight: 300;
-  line-height: 1.5;
-  color: rgba(247, 243, 234, 0.72);
-}
-
-.site-footer__gazette-action {
-  flex-shrink: 0;
-}
-
-.site-footer__gazette-form {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(198, 161, 91, 0.45);
-  border-radius: 4px;
-  padding: 0.35rem 0.35rem 0.35rem 1rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.site-footer__gazette-form:focus-within {
-  border-color: #c6a15b;
-  box-shadow: 0 6px 24px rgba(198, 161, 91, 0.18);
-}
-
-.site-footer__gazette-input {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #f7f3ea;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.84rem;
-  width: clamp(14rem, 18vw, 20rem);
-}
-
-.site-footer__gazette-input::placeholder {
-  color: rgba(247, 243, 234, 0.4);
-}
-
-.site-footer__gazette-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: #c6a15b;
-  color: #071713;
-  border: none;
-  border-radius: 3px;
-  padding: 0.65rem 1.15rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-
-.site-footer__gazette-btn:hover {
-  background: #dfbc7a;
-  color: #040e0b;
-  transform: translateY(-1px);
-}
-
-.site-footer__gazette-success {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.82rem;
-  color: #c6a15b;
-  background: rgba(198, 161, 91, 0.1);
-  border: 1px solid rgba(198, 161, 91, 0.4);
-  padding: 0.6rem 1.15rem;
-  border-radius: 4px;
-}
-
-.site-footer__gazette-success-dot {
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
-  background: #c6a15b;
-  color: #071713;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
-  font-weight: bold;
-}
-
-/* =========================================================================
-   2. MIDDLE CHAMBER: THE 4-COLUMN LUXURY MATRIX
-   ========================================================================= */
-
-.site-footer__matrix {
+.site-footer__header {
   display: grid;
-  grid-template-columns: 1.3fr 1.25fr 0.85fr 0.85fr;
-  gap: clamp(2rem, 3.8vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 26rem);
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: start;
-  margin-bottom: clamp(2.5rem, 4.5vh, 4rem);
+  padding-bottom: clamp(2rem, 3.5vh, 2.75rem);
+  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
 }
 
-.site-footer__col {
+.site-footer__brand-block {
   display: flex;
   flex-direction: column;
+  gap: 0.85rem;
 }
 
-/* Col 1: Heritage & Concierge */
-.site-footer__crest-mark {
-  margin-bottom: 0.75rem;
-  color: #c6a15b;
+.site-footer__brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .site-footer__crest-svg {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.35rem;
+  height: 2.35rem;
+  color: #9c8052;
+  flex-shrink: 0;
 }
 
-.site-footer__brand-title {
+.site-footer__brand-name {
   margin: 0;
   font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
-  font-size: 1.45rem;
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
   font-weight: 400;
-  letter-spacing: 0.12em;
-  color: #f7f3ea;
+  letter-spacing: 0.14em;
+  color: #123c32;
   line-height: 1.1;
 }
 
-.site-footer__brand-est {
-  margin: 0.35rem 0 0.75rem;
+.site-footer__brand-sub {
+  margin: 0.2rem 0 0;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.64rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #c6a15b;
+  color: #8a7344;
 }
 
-.site-footer__brand-narrative {
-  margin: 0 0 1.15rem;
+.site-footer__brand-statement {
+  margin: 0;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.82rem;
-  font-weight: 300;
-  line-height: 1.55;
-  color: rgba(247, 243, 234, 0.72);
-  max-width: 22rem;
+  font-size: clamp(0.85rem, 0.95vw, 0.92rem);
+  font-weight: 350;
+  line-height: 1.6;
+  color: #4a5148;
+  max-width: 32rem;
 }
 
-.site-footer__concierge-status {
+/* Luxury Stationery Concierge Box */
+.site-footer__concierge-box {
+  background: #ffffff;
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  border-radius: 6px;
+  padding: 1.25rem 1.4rem;
+  box-shadow:
+    0 10px 28px rgba(18, 36, 30, 0.05),
+    0 2px 6px rgba(198, 161, 91, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.site-footer__concierge-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.22);
+}
+
+.site-footer__concierge-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: #e6dfd1;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(198, 161, 91, 0.35);
-  border-radius: 9999px;
-  padding: 0.25rem 0.75rem;
-  margin-bottom: 0.95rem;
-  width: fit-content;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a7344;
 }
 
 .site-footer__pulse-dot {
@@ -245,151 +127,195 @@
   height: 6px;
   border-radius: 50%;
   background: #25d366;
-  box-shadow: 0 0 8px rgba(37, 211, 102, 0.8);
+  box-shadow: 0 0 6px rgba(37, 211, 102, 0.6);
   flex-shrink: 0;
 }
 
-.site-footer__touchpoints {
+.site-footer__concierge-timing {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: #727c73;
+}
+
+.site-footer__concierge-links {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.55rem;
 }
 
-.site-footer__direct-touch {
+.site-footer__concierge-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 450;
-  color: rgba(247, 243, 234, 0.85);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-decoration: none;
-  transition: all 0.2s ease;
-  width: fit-content;
+  transition: all 0.25s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.site-footer__direct-touch:hover {
-  color: #c6a15b;
-  transform: translateX(2px);
-}
-
-.site-footer__direct-touch .site-footer__icon-svg {
+.site-footer__concierge-btn .site-footer__icon-svg {
   width: 0.85rem;
   height: 0.85rem;
-  color: #c6a15b;
   flex-shrink: 0;
 }
 
-/* Headings for Col 2, 3, 4 */
-.site-footer__col-heading {
-  margin: 0 0 1.15rem;
+.site-footer__concierge-btn--primary {
+  background: #123c32;
+  color: #f7f3ea;
+  border: 1px solid #123c32;
+  box-shadow: 0 3px 10px rgba(18, 60, 50, 0.14);
+}
+
+.site-footer__concierge-btn--primary:hover {
+  background: #0b211c;
+  border-color: #9c8052;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.site-footer__concierge-btn--secondary {
+  background: transparent;
+  color: #123c32;
+  border: 1px solid rgba(198, 161, 91, 0.5);
+}
+
+.site-footer__concierge-btn--secondary:hover {
+  background: rgba(198, 161, 91, 0.12);
+  border-color: #8a7344;
+  color: #0b211c;
+}
+
+/* =========================================================================
+   2. MIDDLE TIER: 4 SYMMETRICAL ORGANIZED LUXURY COLUMNS
+   ========================================================================= */
+
+.site-footer__matrix {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr 1fr;
+  gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  align-items: start;
+}
+
+.site-footer__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer__heading {
+  margin: 0 0 1rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #c6a15b;
+  color: #8a7344;
   padding-bottom: 0.45rem;
   border-bottom: 1px solid rgba(198, 161, 91, 0.35);
   display: inline-block;
   width: fit-content;
 }
 
-/* Col 2: Salons */
-.site-footer__salon-card {
+/* Col 1: Salon Items */
+.site-footer__salon-item {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   margin-bottom: 1.15rem;
 }
 
-.site-footer__salon-card:last-child {
+.site-footer__salon-item:last-child {
   margin-bottom: 0;
 }
 
-.site-footer__salon-header {
+.site-footer__salon-title-wrap {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: #f7f3ea;
+  color: #123c32;
 }
 
-.site-footer__salon-header .site-footer__icon-svg {
-  width: 0.82rem;
-  height: 0.82rem;
-  color: #c6a15b;
+.site-footer__salon-title-wrap .site-footer__icon-svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  color: #9c8052;
   flex-shrink: 0;
 }
 
-.site-footer__salon-title {
+.site-footer__salon-title-wrap strong {
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  color: #f7f3ea;
+  color: #123c32;
 }
 
-.site-footer__salon-address {
+.site-footer__salon-desc {
   margin: 0;
-  padding-left: 1.25rem;
+  padding-left: 1.3rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.78rem;
-  font-weight: 300;
+  font-weight: 350;
   line-height: 1.45;
-  color: rgba(247, 243, 234, 0.7);
+  color: #556057;
 }
 
-.site-footer__salon-links {
+.site-footer__salon-sublinks {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  padding-left: 1.25rem;
-  margin-top: 0.15rem;
+  padding-left: 1.3rem;
+  margin-top: 0.2rem;
 }
 
-.site-footer__salon-tel {
+.site-footer__tel-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.76rem;
-  font-weight: 450;
-  color: #c6a15b;
+  font-weight: 500;
+  color: #123c32;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.site-footer__salon-tel:hover {
-  color: #dfbc7a;
+.site-footer__tel-link:hover {
+  color: #8a7344;
 }
 
-.site-footer__salon-tel .site-footer__icon-svg {
+.site-footer__tel-link .site-footer__icon-svg {
   width: 0.75rem;
   height: 0.75rem;
+  color: #8a7344;
 }
 
-.site-footer__salon-maplink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
+.site-footer__map-link {
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(247, 243, 234, 0.6);
+  color: #8a7344;
   text-decoration: none;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.4);
+  border-bottom: 1px solid rgba(198, 161, 91, 0.45);
   padding-bottom: 0.05rem;
   transition: all 0.2s ease;
 }
 
-.site-footer__salon-maplink:hover {
-  color: #f7f3ea;
-  border-color: #c6a15b;
+.site-footer__map-link:hover {
+  color: #123c32;
+  border-color: #123c32;
 }
 
-/* Col 3 & 4: Navigation Trees */
-.site-footer__nav-tree {
+/* Nav Lists */
+.site-footer__nav-list {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -398,54 +324,152 @@
   gap: 0.55rem;
 }
 
-.site-footer__nav-tree a {
+.site-footer__nav-list a {
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.82rem;
-  font-weight: 300;
-  color: rgba(247, 243, 234, 0.78);
+  font-weight: 350;
+  color: #4a5148;
   text-decoration: none;
   transition: all 0.2s ease;
   display: inline-block;
   width: fit-content;
 }
 
-.site-footer__nav-tree a:hover {
-  color: #c6a15b;
+.site-footer__nav-list a:hover {
+  color: #123c32;
   transform: translateX(2px);
 }
 
-.site-footer__ig-link {
-  color: #c6a15b !important;
-  font-weight: 450 !important;
+.site-footer__social-link {
+  color: #8a7344 !important;
+  font-weight: 500 !important;
+}
+
+.site-footer__social-link:hover {
+  color: #123c32 !important;
 }
 
 /* =========================================================================
-   3. LOWER CHAMBER: MONUMENTAL ARCHITECTURAL WATERMARK
+   3. NEWSLETTER RIBBON: THE PRIVATE ATELIER GAZETTE
    ========================================================================= */
 
-.site-footer__watermark-wrap {
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
-  padding: clamp(0.75rem, 1.8vh, 1.5rem) 0;
-  user-select: none;
-  pointer-events: none;
+.site-footer__gazette {
+  background: #ffffff;
+  border: 1px solid rgba(198, 161, 91, 0.38);
+  border-radius: 6px;
+  padding: 1.25rem 1.65rem;
+  box-shadow: 0 6px 20px rgba(18, 36, 30, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.site-footer__watermark {
-  font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
-  font-size: clamp(2.8rem, 7.5vw, 6.8rem);
-  font-weight: 350;
+.site-footer__gazette-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 36rem;
+}
+
+.site-footer__gazette-tag {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
   letter-spacing: 0.22em;
-  color: rgba(198, 161, 91, 0.08);
   text-transform: uppercase;
+  color: #8a7344;
+}
+
+.site-footer__gazette-text {
+  margin: 0;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 350;
+  line-height: 1.45;
+  color: #4a5148;
+}
+
+.site-footer__gazette-form {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.site-footer__gazette-input {
+  background: #faf7f2;
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.82rem;
+  color: #12241e;
+  width: clamp(14rem, 18vw, 20rem);
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.site-footer__gazette-input:focus {
+  background: #ffffff;
+  border-color: #123c32;
+}
+
+.site-footer__gazette-input::placeholder {
+  color: #8d8678;
+}
+
+.site-footer__gazette-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #123c32;
+  color: #f7f3ea;
+  border: 1px solid #123c32;
+  border-radius: 4px;
+  padding: 0.65rem 1.15rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
   white-space: nowrap;
-  display: inline-block;
-  line-height: 1;
+}
+
+.site-footer__gazette-btn:hover {
+  background: #0b211c;
+  border-color: #9c8052;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.site-footer__gazette-thankyou {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 450;
+  color: #123c32;
+}
+
+.site-footer__gazette-check {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: #123c32;
+  color: #f7f3ea;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: bold;
 }
 
 /* =========================================================================
-   4. BASELINE CHAMBER: HALLMARK & SCROLL-TO-TOP
+   4. BASELINE TIER: HALLMARK & SCROLL TO TOP
    ========================================================================= */
 
 .site-footer__baseline {
@@ -453,33 +477,33 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-top: clamp(1rem, 2vh, 1.5rem);
-  border-top: 1px solid rgba(198, 161, 91, 0.2);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(198, 161, 91, 0.25);
   flex-wrap: wrap;
 }
 
-.site-footer__hallmark-copy {
+.site-footer__copyright {
   margin: 0;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.72rem;
   font-weight: 350;
-  color: rgba(247, 243, 234, 0.55);
+  color: #727c73;
   letter-spacing: 0.04em;
 }
 
-.site-footer__hallmark-cities {
+.site-footer__hallmark {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  color: #c6a15b;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #8a7344;
 }
 
 .site-footer__dot {
-  color: rgba(198, 161, 91, 0.45);
+  color: rgba(198, 161, 91, 0.6);
 }
 
 .site-footer__scroll-top {
@@ -487,12 +511,12 @@
   align-items: center;
   gap: 0.45rem;
   background: transparent;
-  border: 1px solid rgba(198, 161, 91, 0.35);
+  border: 1px solid rgba(198, 161, 91, 0.45);
   border-radius: 9999px;
   padding: 0.35rem 0.85rem;
-  color: rgba(247, 243, 234, 0.7);
+  color: #123c32;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -501,8 +525,8 @@
 }
 
 .site-footer__scroll-top:hover {
-  background: rgba(198, 161, 91, 0.15);
-  border-color: #c6a15b;
+  background: #123c32;
+  border-color: #123c32;
   color: #f7f3ea;
   transform: translateY(-2px);
 }
@@ -510,31 +534,16 @@
 .site-footer__scroll-top .site-footer__icon-svg {
   width: 0.75rem;
   height: 0.75rem;
-  color: #c6a15b;
 }
 
 /* =========================================================================
-   RESPONSIVE DESIGN: TABLET & MOBILE (< 1024px & < 640px)
+   RESPONSIVE DESIGN: TABLETS & MOBILE (< 1024px & < 768px)
    ========================================================================= */
 
 @media (max-width: 1024px) {
-  .site-footer {
-    min-height: auto;
-  }
-
-  .site-footer__gazette-ribbon {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-
-  .site-footer__gazette-action,
-  .site-footer__gazette-form {
-    width: 100%;
-  }
-
-  .site-footer__gazette-input {
-    width: 100%;
+  .site-footer__header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .site-footer__matrix {
@@ -542,27 +551,25 @@
     gap: 2.5rem 2rem;
   }
 
-  .site-footer__watermark {
-    font-size: 4.5rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .site-footer__window-container {
-    padding: 2.5rem 0 1.5rem;
+  .site-footer__gazette {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 
   .site-footer__gazette-form {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0.75rem;
-    gap: 0.75rem;
+    width: 100%;
   }
 
-  .site-footer__gazette-btn {
+  .site-footer__gazette-input {
     width: 100%;
-    justify-content: center;
-    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-footer__inner {
+    padding: 2.75rem 0 1.75rem;
+    gap: 2.25rem;
   }
 
   .site-footer__matrix {
@@ -570,8 +577,20 @@
     gap: 2rem;
   }
 
-  .site-footer__watermark {
-    font-size: 3rem;
+  .site-footer__concierge-box {
+    padding: 1.15rem 1rem;
+  }
+
+  .site-footer__gazette-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .site-footer__gazette-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
   }
 
   .site-footer__baseline {
