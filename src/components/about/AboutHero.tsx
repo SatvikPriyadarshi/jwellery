@@ -162,10 +162,10 @@ export default function AboutHero() {
   return (
     <section
       ref={rootRef}
-      className="relative overflow-hidden bg-gradient-to-b from-[#0b211c] via-[#102a31] to-[#0c241c] pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[var(--color-ivory)]"
+      className="relative overflow-hidden bg-gradient-to-b from-[#184343] via-[#184343] to-[#184343] pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[var(--color-ivory)]"
     >
       {/* Caustic Lighting Ambient Glow */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(198,161,91,0.14)_0%,transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(193, 145, 94,0.14)_0%,transparent_70%)] blur-3xl" />
       <div className="pointer-events-none absolute top-1/2 right-0 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(18,60,50,0.45)_0%,transparent_70%)] blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
@@ -199,7 +199,7 @@ export default function AboutHero() {
         {/* Heritage Stats Strip with GSAP Animated Counters */}
         <div className="mt-16 sm:mt-20">
           {/* Animated Gold Hairline Divider */}
-          <div className="hero-stats-divider h-px w-full bg-[rgba(198,161,91,0.25)] origin-left mb-10" />
+          <div className="hero-stats-divider h-px w-full bg-[rgba(193, 145, 94,0.25)] origin-left mb-10" />
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="hero-stat">

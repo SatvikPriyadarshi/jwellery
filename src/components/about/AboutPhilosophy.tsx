@@ -26,7 +26,7 @@ function AdamasCrest() {
         points="50,22 78,50 50,78 22,50"
         strokeWidth="1"
         strokeLinejoin="round"
-        fill="rgba(198,161,91,0.06)"
+        fill="rgba(193, 145, 94,0.06)"
       />
       <circle cx="50" cy="50" r="8" strokeWidth="1" fill="rgba(18,60,50,0.12)" />
       <circle cx="50" cy="50" r="2" fill="currentColor" />
@@ -133,7 +133,7 @@ export default function AboutPhilosophy() {
         </div>
 
         {/* Adamas Callout Banner */}
-        <div className="phil-banner mt-16 relative bg-[#0b211c] text-[var(--color-ivory)] border border-[var(--color-champagne)]/35 rounded-lg p-5 sm:p-12 lg:p-16 shadow-2xl shadow-[#102a31]/20">
+        <div className="phil-banner mt-16 relative bg-[#184343] text-[var(--color-ivory)] border border-[var(--color-champagne)]/35 rounded-lg p-5 sm:p-12 lg:p-16 shadow-2xl shadow-[#184343]/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-4">
@@ -167,7 +167,7 @@ export default function AboutPhilosophy() {
                 sizes="(max-width: 1024px) 100vw, 320px"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b211c]/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#184343]/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 inset-x-3 text-center text-[10px] tracking-widest uppercase text-[var(--color-champagne)] font-sans">
                 Handcrafted Heirloom
               </div>

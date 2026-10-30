@@ -179,7 +179,6 @@ export default function AboutCraftsmanship() {
             </p>
             <Link href="#who-we-are" prefetch={false} className="pillars-story-link">
               <span>SEE OUR STORY</span>
-              <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </header>

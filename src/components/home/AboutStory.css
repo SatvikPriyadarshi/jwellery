@@ -8,10 +8,10 @@
   background:
     radial-gradient(
       ellipse 50% 80% at 12% 0%,
-      rgba(198, 161, 91, 0.16) 0%,
+      rgba(193, 145, 94, 0.16) 0%,
       transparent 62%
     ),
-    linear-gradient(105deg, #0c241c 0%, #123c32 48%, #0a1c17 100%);
+    linear-gradient(105deg, #184343 0%, #184343 48%, #0a1c17 100%);
   color: var(--color-ivory);
   overflow: hidden;
 }
@@ -32,7 +32,7 @@
   gap: 0.85rem;
   margin: 0;
   color: var(--color-champagne);
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.32em;
@@ -95,7 +95,7 @@
 .about-cta:hover,
 .about-cta:focus-visible {
   background: var(--color-champagne);
-  color: #123c32;
+  color: #184343;
   outline: 2px solid var(--color-champagne);
   outline-offset: 3px;
 }
@@ -291,7 +291,7 @@
     gap: 0.7rem;
     margin: 0;
     color: var(--color-champagne);
-    font-family: var(--font-outfit), sans-serif;
+    font-family: var(--font-subtitle), sans-serif;
     font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.28em;
@@ -347,7 +347,7 @@
     gap: 0.85rem;
     padding: 0.65rem 1.45rem;
     border-radius: 999px;
-    border: 1px solid rgba(198, 161, 91, 0.8);
+    border: 1px solid rgba(193, 145, 94, 0.8);
     background: rgba(7, 22, 17, 0.45);
     backdrop-filter: blur(8px);
     color: var(--color-ivory);
@@ -363,7 +363,7 @@
   .about-mob-cta:active,
   .about-mob-cta:hover {
     border-color: var(--color-ivory);
-    background: rgba(198, 161, 91, 0.25);
+    background: rgba(193, 145, 94, 0.25);
   }
 
   .about-mob-cta__arrow {
@@ -384,7 +384,7 @@
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 50%;
-    border: 1px solid rgba(198, 161, 91, 0.7);
+    border: 1px solid rgba(193, 145, 94, 0.7);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -403,20 +403,20 @@
   .about-mob-chapter__divider {
     width: 0.95rem;
     height: 1px;
-    background: rgba(198, 161, 91, 0.6);
+    background: rgba(193, 145, 94, 0.6);
     margin: 2px 0;
   }
 
   .about-mob-chapter__line {
     width: 1px;
     height: 1.85rem;
-    background: rgba(198, 161, 91, 0.6);
+    background: rgba(193, 145, 94, 0.6);
     flex-shrink: 0;
   }
 
   .about-mob-chapter__label {
     color: var(--color-champagne);
-    font-family: var(--font-outfit), sans-serif;
+    font-family: var(--font-subtitle), sans-serif;
     font-size: 0.62rem;
     font-weight: 500;
     letter-spacing: 0.22em;

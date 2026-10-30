@@ -33,7 +33,7 @@ const slides: CollectionSlide[] = [
     squarePosition: "center center",
     circlePosition: "44% 60%",
     bgColor: "#BF9B6A",
-    accentColor: "#0B211C",
+    accentColor: "#184343",
     surfaceColor: "#B08A56",
     copy: "Emerald cut for the hand. Gold that warms as you wear it.",
     note: "Emerald halo · 18k gold",
@@ -47,7 +47,7 @@ const slides: CollectionSlide[] = [
     squarePosition: "52% 46%",
     circlePosition: "52% 62%",
     bgColor: "#0A1F26",
-    accentColor: "#C6A15B",
+    accentColor: "#C1915E",
     surfaceColor: "#122E38",
     copy: "A collar that sits where it should. Quiet, balanced, kept.",
     note: "Graduated emerald · 18k gold",
@@ -376,7 +376,7 @@ export default function CollectionStage() {
                   <p className="cs-slide__copy">{slide.copy}</p>
                   <p className="cs-slide__note">{slide.note}</p>
                   <Link href={slide.href} className="cs-slide__cta">
-                    {slide.cta} &rarr;
+                    {slide.cta}
                   </Link>
                 </div>
 

@@ -90,7 +90,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="mx-auto flex max-w-[36rem] flex-col items-center justify-center text-center"
         >
-          <p className="font-[family-name:var(--font-outfit)] text-[0.68rem] font-medium tracking-[0.28em] text-[#C6A15B] uppercase">
+          <p className="font-[family-name:var(--font-outfit)] text-[0.68rem] font-medium tracking-[0.28em] text-[#C1915E] uppercase">
             Testimonial
           </p>
           <h2

@@ -179,7 +179,6 @@ export default function PopularJewelry() {
         </div>
         <a href="#collection" className="pj-view-all">
           View All Collections
-          <span aria-hidden="true">→</span>
         </a>
       </header>
 
@@ -209,13 +208,8 @@ export default function PopularJewelry() {
                 <div className="pj-card__info">
                   <h3 className="pj-card__name">{product.name}</h3>
                   <p className="pj-card__category">{product.category}</p>
-                  <span className="pj-card__rule" aria-hidden="true" />
                   <p className="pj-card__price">{product.priceLabel}</p>
                 </div>
-
-                <span className="pj-card__arrow" aria-hidden="true">
-                  <span className="pj-card__arrow-icon">→</span>
-                </span>
               </div>
             </a>
           </li>

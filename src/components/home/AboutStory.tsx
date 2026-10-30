@@ -198,7 +198,6 @@ export default function AboutStory() {
       <div className="about-shell about-desktop-only">
         <div className="about-copycol">
           <p className="about-eyebrow">
-            <span className="about-eyebrow__bar" aria-hidden="true" />
             About Us
           </p>
           <h2 id="about-heading" className="about-title">
@@ -216,9 +215,6 @@ export default function AboutStory() {
           </p>
           <Link href="/about" prefetch={false} className="about-cta">
             <span>View More</span>
-            <span className="about-cta__arrow" aria-hidden="true">
-              →
-            </span>
           </Link>
         </div>
 
@@ -232,7 +228,7 @@ export default function AboutStory() {
           >
             <path
               d="M148 8C78 8 18 68 18 148"
-              stroke="#C6A15B"
+              stroke="#C1915E"
               strokeWidth="1"
             />
           </svg>
@@ -276,7 +272,6 @@ export default function AboutStory() {
 
           <div className="about-mob-hero__content">
             <p className="about-mob-eyebrow">
-              <span className="about-mob-eyebrow__bar" aria-hidden="true" />
               <span>About Us</span>
             </p>
 
@@ -303,9 +298,6 @@ export default function AboutStory() {
                 aria-label="See more about our journey"
               >
                 <span>SEE MORE</span>
-                <span className="about-mob-cta__arrow" aria-hidden="true">
-                  →
-                </span>
               </Link>
 
               <div

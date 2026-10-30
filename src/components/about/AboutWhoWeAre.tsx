@@ -129,13 +129,6 @@ export default function AboutWhoWeAre() {
               <span>{isExpanded ? "SEE LESS" : "SEE MORE"}</span>
             </button>
           </div>
-
-          {/* Decorative Gold Diamond Ornament */}
-          <div className="who-ornament" aria-hidden="true">
-            <span className="who-ornament__line" />
-            <span className="who-ornament__diamond" />
-            <span className="who-ornament__line" />
-          </div>
         </div>
 
         {/* Right Column: Editorial Visual Composition */}

@@ -47,7 +47,7 @@ export default function AboutPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-[#0b211c] relative">
+    <main className="min-h-screen bg-[#184343] relative">
       {/* Structured Data */}
       <script
         type="application/ld+json"

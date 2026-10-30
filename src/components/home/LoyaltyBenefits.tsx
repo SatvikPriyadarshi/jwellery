@@ -247,9 +247,6 @@ export default function LoyaltyBenefits() {
               <p className="lb-card__copy">{service.description}</p>
               <a href="#contact" className="lb-card__cta">
                 Contact Us
-                <span className="lb-card__arrow" aria-hidden="true">
-                  →
-                </span>
               </a>
             </li>
           ))}

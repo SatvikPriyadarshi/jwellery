@@ -12,10 +12,10 @@
   justify-content: center;
   padding: clamp(2.5rem, 4.5vh, 4rem) clamp(1rem, 3.5vw, 4rem);
   background:
-    radial-gradient(ellipse 65% 55% at 50% 30%, rgba(18, 60, 50, 0.48) 0%, transparent 75%),
+    radial-gradient(ellipse 65% 55% at 50% 30%, rgba(24, 67, 67, 0.48) 0%, transparent 75%),
     radial-gradient(circle at 8% 88%, rgba(14, 45, 38, 0.85) 0%, transparent 55%),
     radial-gradient(circle at 94% 12%, rgba(18, 55, 45, 0.65) 0%, transparent 50%),
-    linear-gradient(180deg, #061612 0%, #0b211c 50%, #051410 100%);
+    linear-gradient(180deg, #061612 0%, #184343 50%, #051410 100%);
   color: #f7f3ea;
   overflow: hidden;
 }
@@ -66,7 +66,7 @@
 
 .pillars-eyebrow {
   margin: 0;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.28em;
@@ -118,7 +118,7 @@
   text-transform: uppercase;
   color: var(--color-champagne);
   text-decoration: none;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.6);
+  border-bottom: 1px solid rgba(193, 145, 94, 0.6);
   padding-bottom: 2px;
   transition: all 0.25s ease;
   align-self: flex-start;
@@ -149,8 +149,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(11, 33, 28, 0.6);
-  border: 1px solid rgba(198, 161, 91, 0.4);
+  background: rgba(24, 67, 67, 0.6);
+  border: 1px solid rgba(193, 145, 94, 0.4);
   color: var(--color-champagne);
   cursor: pointer;
   flex-shrink: 0;
@@ -166,10 +166,10 @@
 
 .pillars-nav-btn:hover {
   background: var(--color-champagne);
-  color: #0b211c;
+  color: #184343;
   border-color: var(--color-champagne);
   transform: scale(1.08);
-  box-shadow: 0 0 16px rgba(198, 161, 91, 0.4);
+  box-shadow: 0 0 16px rgba(193, 145, 94, 0.4);
 }
 
 .pillars-grid {
@@ -184,7 +184,7 @@
 .pillar-card {
   position: relative;
   background: rgba(6, 20, 16, 0.75);
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(193, 145, 94, 0.3);
   padding: clamp(0.85rem, 1.2vw, 1.15rem);
   display: flex;
   flex-direction: column;
@@ -193,16 +193,16 @@
   backdrop-filter: blur(10px);
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(198, 161, 91, 0.15);
+    inset 0 1px 0 rgba(193, 145, 94, 0.15);
 }
 
 .pillar-card:hover {
-  border-color: rgba(198, 161, 91, 0.7);
+  border-color: rgba(193, 145, 94, 0.7);
   transform: translateY(-4px);
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(198, 161, 91, 0.18),
-    inset 0 1px 0 rgba(198, 161, 91, 0.35);
+    0 0 20px rgba(193, 145, 94, 0.18),
+    inset 0 1px 0 rgba(193, 145, 94, 0.35);
 }
 
 /* Card Photo Window */
@@ -213,7 +213,7 @@
   margin: 0 0 clamp(0.65rem, 1vw, 0.85rem);
   overflow: hidden;
   border-radius: 4px;
-  border: 1px solid rgba(198, 161, 91, 0.22);
+  border: 1px solid rgba(193, 145, 94, 0.22);
   background: #040e0b;
 }
 
@@ -290,7 +290,7 @@
 .pillar-card__action {
   margin-top: clamp(0.65rem, 1vw, 0.85rem);
   display: block;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), sans-serif;
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.22em;
