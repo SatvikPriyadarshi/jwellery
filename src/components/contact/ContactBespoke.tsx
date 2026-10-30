@@ -106,7 +106,6 @@ export default function ContactBespoke({ onBespokeClick }: ContactBespokeProps) 
             className="contact-bespoke__cta"
           >
             <span>ENQUIRE ABOUT BESPOKE DESIGN</span>
-            <span aria-hidden="true">→</span>
           </button>
         </div>
 

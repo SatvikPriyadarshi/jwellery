@@ -103,7 +103,6 @@ export default function ContactStudio() {
               aria-label="Get directions to Uni Fine Jewelry Jaipur office on Google Maps"
             >
               <span>GET DIRECTIONS</span>
-              <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>

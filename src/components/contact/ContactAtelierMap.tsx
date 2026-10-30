@@ -11,9 +11,7 @@ export default function ContactAtelierMap() {
         {/* Centered Editorial Header */}
         <div className="contact-map-header">
           <div className="contact-map-header__eyebrow-wrap">
-            <span className="contact-map-header__rule" aria-hidden="true" />
             <p className="contact-map-header__eyebrow">ATELIER LOCATION · JAIPUR, INDIA</p>
-            <span className="contact-map-header__rule" aria-hidden="true" />
           </div>
 
           <h2 className="contact-map-header__title">
@@ -37,7 +35,6 @@ export default function ContactAtelierMap() {
               aria-label="Open N K Towers Jaipur location in Google Maps"
             >
               <span>GET DIRECTIONS ON GOOGLE MAPS</span>
-              <span aria-hidden="true">&rarr;</span>
             </a>
             <a
               href="https://wa.me/917568042023?text=Hello%20Uni%20Fine%20Jewelry%2C%20I%20would%20like%20to%20schedule%20a%20private%20visit%20to%20your%20Jaipur%20office%20at%20N%20K%20Towers."
@@ -47,7 +44,6 @@ export default function ContactAtelierMap() {
               aria-label="Book visit on WhatsApp"
             >
               <span>BOOK PRIVATE VISIT</span>
-              <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </div>

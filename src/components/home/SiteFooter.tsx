@@ -104,7 +104,7 @@ export default function SiteFooter() {
                     <PhoneIcon /> +91 75680 42023
                   </a>
                   <Link href="/contact#atelier-map" className="site-footer__map-link">
-                    View Map &darr;
+                    View Map
                   </Link>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function SiteFooter() {
                   rel="noopener noreferrer"
                   className="site-footer__social-link"
                 >
-                  Follow on Instagram ↗
+                  Follow on Instagram
                 </a>
               </li>
             </ul>
@@ -202,7 +202,6 @@ export default function SiteFooter() {
               />
               <button type="submit" className="site-footer__gazette-btn">
                 <span>REQUEST INVITATION</span>
-                <span aria-hidden="true">&rarr;</span>
               </button>
             </form>
           )}

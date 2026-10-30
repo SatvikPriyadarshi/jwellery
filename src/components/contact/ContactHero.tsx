@@ -98,7 +98,7 @@ export default function ContactHero() {
               href="#contact-form"
               className="contact-hero__quick-btn contact-hero__quick-btn--gold"
             >
-              <span>Consultation Form &darr;</span>
+              <span>Consultation Form</span>
             </a>
           </div>
         </div>
@@ -121,11 +121,6 @@ export default function ContactHero() {
             <span className="contact-hero__consult-text">
               CUSTOM<br />JEWELLERY<br />CONSULTATION
             </span>
-            <div className="contact-hero__consult-divider">
-              <span className="contact-hero__consult-line" />
-              <span className="contact-hero__consult-diamond">◇</span>
-              <span className="contact-hero__consult-line" />
-            </div>
           </div>
         </div>
       </div>
