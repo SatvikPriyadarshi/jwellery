@@ -88,38 +88,40 @@ export default function SiteFooter() {
             ================================================================= */}
         <div className="site-footer__matrix">
           {/* Column 1: Ateliers & Salons */}
-          <div className="site-footer__col">
+          <div className="site-footer__col site-footer__col--ateliers">
             <h3 className="site-footer__heading">ATELIERS &amp; SALONS</h3>
-            <div className="site-footer__salon-item">
-              <div className="site-footer__salon-title-wrap">
-                <PinIcon />
-                <strong>Jaipur Flagship Salon</strong>
+            <div className="site-footer__salons-wrap">
+              <div className="site-footer__salon-item">
+                <div className="site-footer__salon-title-wrap">
+                  <PinIcon />
+                  <strong>Jaipur Flagship Salon</strong>
+                </div>
+                <p className="site-footer__salon-desc">
+                  N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd, Jaipur 302001, India
+                </p>
+                <div className="site-footer__salon-sublinks">
+                  <a href="tel:+917568042023" className="site-footer__tel-link">
+                    <PhoneIcon /> +91 75680 42023
+                  </a>
+                  <Link href="/contact#atelier-map" className="site-footer__map-link">
+                    View Map &darr;
+                  </Link>
+                </div>
               </div>
-              <p className="site-footer__salon-desc">
-                N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd, Jaipur 302001, India
-              </p>
-              <div className="site-footer__salon-sublinks">
-                <a href="tel:+917568042023" className="site-footer__tel-link">
-                  <PhoneIcon /> +91 75680 42023
-                </a>
-                <Link href="/contact#atelier-map" className="site-footer__map-link">
-                  View Map &darr;
-                </Link>
-              </div>
-            </div>
 
-            <div className="site-footer__salon-item">
-              <div className="site-footer__salon-title-wrap">
-                <PinIcon />
-                <strong>Malaysia Private Suite</strong>
-              </div>
-              <p className="site-footer__salon-desc">
-                8-12-2, Menara Mutiara Bangsar, Jalan Liku, 59100 Kuala Lumpur
-              </p>
-              <div className="site-footer__salon-sublinks">
-                <a href="tel:+60122032941" className="site-footer__tel-link">
-                  <PhoneIcon /> +60 122032941
-                </a>
+              <div className="site-footer__salon-item">
+                <div className="site-footer__salon-title-wrap">
+                  <PinIcon />
+                  <strong>Malaysia Private Suite</strong>
+                </div>
+                <p className="site-footer__salon-desc">
+                  8-12-2, Menara Mutiara Bangsar, Jalan Liku, 59100 Kuala Lumpur
+                </p>
+                <div className="site-footer__salon-sublinks">
+                  <a href="tel:+60122032941" className="site-footer__tel-link">
+                    <PhoneIcon /> +60 122032941
+                  </a>
+                </div>
               </div>
             </div>
           </div>
