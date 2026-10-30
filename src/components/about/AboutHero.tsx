@@ -38,7 +38,6 @@ export default function AboutHero() {
       const eyebrow = root.querySelector(".hero-eyebrow");
       const titleLines = root.querySelectorAll(".hero-title-line");
       const copy = root.querySelector(".hero-copy");
-      const ctas = root.querySelectorAll(".hero-cta");
       const divider = root.querySelector(".hero-stats-divider");
       const statBlocks = root.querySelectorAll(".hero-stat");
       const statLabels = root.querySelectorAll(".hero-stat-label");
@@ -73,14 +72,7 @@ export default function AboutHero() {
           { autoAlpha: 1, y: 0, duration: 1.1 },
           "-=0.7"
         )
-        // 4. CTA Buttons: Glide up with soft stagger
-        .fromTo(
-          ctas,
-          { autoAlpha: 0, y: 16 },
-          { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.15 },
-          "-=0.6"
-        )
-        // 5. Stats Divider Bar: Hairline unrolls horizontally from left
+        // 4. Stats Divider Bar: Hairline unrolls horizontally from left
         .fromTo(
           divider,
           { scaleX: 0, autoAlpha: 0 },
@@ -183,8 +175,7 @@ export default function AboutHero() {
         </p>
 
         {/* Hero Title & Opening Statement */}
-        <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
+        <div className="mt-6">
             <h1 className="hero-title font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[var(--color-ivory)]">
               <span className="hero-title-line block">
                 A Legacy of
@@ -203,24 +194,6 @@ export default function AboutHero() {
               into breathtaking fine jewelry designed to become an indelible part
               of your story.
             </p>
-          </div>
-
-          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4 sm:items-center lg:items-start lg:justify-end">
-            <a
-              href="#timeline"
-              className="hero-cta inline-flex items-center justify-center gap-3 border border-[var(--color-champagne)] px-7 py-3.5 text-xs tracking-[0.24em] uppercase text-[var(--color-champagne)] transition-all duration-300 hover:bg-[var(--color-champagne)] hover:text-[#0b211c] w-full sm:w-auto"
-            >
-              <span>Explore The Journey</span>
-              <span aria-hidden="true" className="text-sm">↓</span>
-            </a>
-            <a
-              href="#who-we-are"
-              className="hero-cta inline-flex items-center justify-center gap-2 text-xs tracking-[0.2em] uppercase text-[var(--color-ivory)]/70 hover:text-[var(--color-champagne)] transition-colors py-2 px-2"
-            >
-              <span>Who We Are</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
         </div>
 
         {/* Heritage Stats Strip with GSAP Animated Counters */}

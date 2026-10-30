@@ -3,6 +3,7 @@ import SiteNav from "@/components/nav/SiteNav";
 import SiteFooter from "@/components/home/SiteFooter";
 import AboutHero from "@/components/about/AboutHero";
 import AboutWhoWeAre from "@/components/about/AboutWhoWeAre";
+import AboutPeople from "@/components/about/AboutPeople";
 import AboutTimeline from "@/components/about/AboutTimeline";
 import AboutPhilosophy from "@/components/about/AboutPhilosophy";
 import AboutCraftsmanship from "@/components/about/AboutCraftsmanship";
@@ -60,10 +61,8 @@ export default function AboutPage() {
       <SiteNav activeHref="/about" />
       <AboutHero />
 
-      {/* 2. Who We Are: Deep Family Stewardship & Narrative */}
       <AboutWhoWeAre />
-
-      {/* 3. The Heritage Chronology Timeline (Core Interactive Showcase) */}
+      <AboutPeople />
       <AboutTimeline />
 
       {/* 4. More Than Jewelry. A Legacy. (The Adamas Philosophy) */}
