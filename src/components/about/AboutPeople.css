@@ -4,7 +4,7 @@
   overflow: visible;
   scroll-behavior: auto;
   background: #184343;
-  color: var(--color-ivory);
+  color: #c1915e;
   padding: clamp(4.5rem, 9vh, 6.5rem) 0 clamp(4rem, 8vh, 5.5rem);
 }
 
@@ -34,7 +34,7 @@
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: var(--color-ivory);
+  color: #c1915e;
 }
 
 .people-lead {
@@ -44,7 +44,7 @@
   font-size: 0.86rem;
   font-weight: 300;
   line-height: 1.5;
-  color: rgba(247, 243, 234, 0.7);
+  color: rgba(193, 145, 94, 0.7);
 }
 
 .people-accordion {
@@ -74,7 +74,7 @@
   gap: 1rem;
   padding-top: 1.05rem;
   padding-bottom: 1.05rem;
-  color: var(--color-ivory);
+  color: #c1915e;
   transition: color 0.2s ease;
 }
 
@@ -102,7 +102,7 @@
   font-size: 1.35rem;
   font-weight: 500;
   line-height: 1.1;
-  color: var(--color-ivory);
+  color: #c1915e;
 }
 
 .people-acc-role {
@@ -117,7 +117,7 @@
 .people-acc-content {
   overflow: visible;
   padding-left: 4.25rem;
-  color: rgba(247, 243, 234, 0.78);
+  color: rgba(193, 145, 94, 0.78);
 }
 
 .people-acc-content p {
@@ -138,7 +138,7 @@
   font-size: 0.98rem;
   font-style: italic;
   line-height: 1.35;
-  color: rgba(247, 243, 234, 0.62);
+  color: rgba(193, 145, 94, 0.62);
 }
 
 @media (max-width: 640px) {

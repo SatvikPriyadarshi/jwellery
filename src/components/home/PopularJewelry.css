@@ -94,9 +94,9 @@
   min-height: 13rem;
   border-radius: 6px;
   overflow: hidden;
-  background: #0b1914;
+  background: #184343;
   text-decoration: none;
-  color: var(--color-ivory);
+  color: #c1915e;
 }
 
 .pj-card__link:focus-visible {
@@ -132,13 +132,13 @@
   padding: 0.28rem 0.65rem;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--color-champagne) 70%, transparent);
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.56rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  background: rgba(10, 24, 19, 0.55);
+  background: rgba(24, 67, 67, 0.55);
   backdrop-filter: blur(4px);
 }
 
@@ -161,7 +161,7 @@
 
 .pj-card__name {
   margin: 0;
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1rem, 1.2vw, 1.2rem);
   font-weight: 400;
@@ -173,7 +173,7 @@
 
 .pj-card__category {
   margin: 0.15rem 0 0;
-  color: color-mix(in srgb, var(--color-ivory) 65%, transparent);
+  color: color-mix(in srgb, #c1915e 65%, transparent);
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
   font-weight: 300;
@@ -189,7 +189,7 @@
 
 .pj-card__price {
   margin: 0;
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.74rem;
   font-weight: 400;

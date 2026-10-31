@@ -11,8 +11,8 @@
       rgba(193, 145, 94, 0.16) 0%,
       transparent 62%
     ),
-    linear-gradient(105deg, #184343 0%, #184343 48%, #0a1c17 100%);
-  color: var(--color-ivory);
+    linear-gradient(105deg, #184343 0%, #184343 100%);
+  color: #c1915e;
   overflow: hidden;
 }
 
@@ -47,7 +47,7 @@
 
 .about-title {
   margin: 1.1rem 0 0;
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   font-size: clamp(2.4rem, 4.2vw, 3.75rem);
   font-weight: 500;
@@ -64,7 +64,7 @@
 .about-copy {
   margin: 1.5rem 0 0;
   max-width: 34rem;
-  color: color-mix(in srgb, var(--color-ivory) 82%, transparent);
+  color: color-mix(in srgb, #c1915e 82%, transparent);
   font-family: var(--font-outfit), sans-serif;
   font-size: clamp(0.95rem, 1.05vw, 1.05rem);
   font-weight: 300;
@@ -80,7 +80,7 @@
   padding: 0.7rem 1.15rem;
   background: transparent;
   border: 1px solid var(--color-champagne);
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
@@ -137,7 +137,7 @@
   right: -12%;
   bottom: -8%;
   width: 46%;
-  background: #071612;
+  background: #184343;
 }
 
 .about-arc {
@@ -159,9 +159,9 @@
   aspect-ratio: 1;
   margin: 0;
   border: 1px solid var(--color-champagne);
-  background: #0b1914;
+  background: #184343;
   overflow: hidden;
-  box-shadow: 0 12px 28px rgba(18, 36, 28, 0.18);
+  box-shadow: 0 12px 28px rgba(24, 67, 67, 0.18);
 }
 
 .about-inset__img {
@@ -177,7 +177,7 @@
   left: 12%;
   margin: 0;
   overflow: hidden;
-  background: #0b1914;
+  background: #184343;
 }
 
 .about-photo__img {
@@ -216,7 +216,7 @@
     height: auto;
     min-height: 0;
     padding: 0;
-    background: #071712;
+    background: #184343;
     overflow: hidden;
   }
 
@@ -228,8 +228,8 @@
     display: block;
     width: 100%;
     position: relative;
-    background: #071712;
-    color: var(--color-ivory);
+    background: #184343;
+    color: #c1915e;
   }
 
   /* --- Top Hero Stage: Model Photo Background + Scrim + Content --- */
@@ -273,7 +273,7 @@
         rgba(5, 14, 10, 0.45) 0%,
         transparent 28%,
         rgba(5, 16, 12, 0.72) 80%,
-        #071712 100%
+        #184343 100%
       );
   }
 
@@ -307,7 +307,7 @@
 
   .about-mob-title {
     margin: 0.95rem 0 0;
-    color: var(--color-ivory);
+    color: #c1915e;
     font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
     font-size: clamp(2.35rem, 9.2vw, 3.2rem);
     font-weight: 400;
@@ -324,7 +324,7 @@
   .about-mob-copy {
     margin: 1.15rem 0 0;
     max-width: 22.5rem;
-    color: color-mix(in srgb, var(--color-ivory) 88%, transparent);
+    color: color-mix(in srgb, #c1915e 88%, transparent);
     font-family: var(--font-outfit), sans-serif;
     font-size: clamp(0.82rem, 3.2vw, 0.92rem);
     font-weight: 300;
@@ -350,7 +350,7 @@
     border: 1px solid rgba(193, 145, 94, 0.8);
     background: rgba(7, 22, 17, 0.45);
     backdrop-filter: blur(8px);
-    color: var(--color-ivory);
+    color: #c1915e;
     font-family: var(--font-outfit), sans-serif;
     font-size: 0.66rem;
     font-weight: 500;
@@ -391,7 +391,7 @@
     justify-content: center;
     background: rgba(7, 22, 17, 0.45);
     backdrop-filter: blur(6px);
-    color: var(--color-ivory);
+    color: #c1915e;
     font-family: var(--font-outfit), sans-serif;
     font-size: 0.62rem;
     font-weight: 500;

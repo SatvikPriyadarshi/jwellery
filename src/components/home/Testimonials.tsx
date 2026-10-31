@@ -95,7 +95,7 @@ export default function Testimonials() {
           </p>
           <h2
             id="testimonial-heading"
-            className="mt-3 font-[family-name:var(--font-cormorant)] text-[clamp(2.1rem,4vw,3.4rem)] leading-none font-medium tracking-tight text-[#123C32]"
+            className="mt-3 font-[family-name:var(--font-cormorant)] text-[clamp(2.1rem,4vw,3.4rem)] leading-none font-medium tracking-tight text-[#184343]"
           >
             What Customers Say About Us
           </h2>

@@ -15,11 +15,11 @@ export default function ShopHero() {
     <section className="shop-hero" aria-label="The Atelier Collection">
       {/* Subtle Caustic Lighting Ambient Glow */}
       <div
-        className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(193, 145, 94,0.12)_0%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(193,145,94,0.12)_0%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute top-1/2 right-0 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(18,60,50,0.45)_0%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute top-1/2 right-0 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(24,67,67,0.45)_0%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
 

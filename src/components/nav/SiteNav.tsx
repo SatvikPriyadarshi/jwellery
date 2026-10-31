@@ -94,16 +94,12 @@ export default function SiteNav({
           >
             <Image
               src="/images/Logo.webp"
-              alt="Uni Fine Jewelry Logo"
-              width={38}
-              height={38}
+              alt="Uni Fine Jewelry"
+              width={798}
+              height={335}
               className="site-nav-brand__logo"
               priority
             />
-            <div className="site-nav-brand__text">
-              <span className="site-nav-brand__name">Uni Fine Jewelry</span>
-              <span className="site-nav-brand__est">Est. 1965</span>
-            </div>
           </Link>
 
           {/* Right Side: Just the Collapsible Menu / Close Button at Identical Coordinates */}

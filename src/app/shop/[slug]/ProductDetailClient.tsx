@@ -56,18 +56,18 @@ export default function ProductDetailClient({
     <div className="py-8 sm:py-14">
       <div className="shop-container">
         {/* Main Product Presentation Master Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start bg-[#ffffff] p-5 sm:p-10 lg:p-12 border border-[rgba(193, 145, 94,0.32)] shadow-[0_20px_50px_rgba(14,42,34,0.06)] rounded-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start bg-[#ffffff] p-5 sm:p-10 lg:p-12 border border-[rgba(193,145,94,0.32)] shadow-[0_20px_50px_rgba(14,42,34,0.06)] rounded-xl">
           {/* Left Column: Gallery & Photography Showcase */}
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <div className="relative aspect-square w-full bg-gradient-to-b from-[#ffffff] via-[#ffffff] to-[#faf8f4] border border-[rgba(193, 145, 94,0.25)] rounded-lg overflow-hidden flex items-center justify-center p-6 sm:p-12 shadow-[inset_0_0_40px_rgba(193, 145, 94,0.05)] group">
+            <div className="relative aspect-square w-full bg-gradient-to-b from-[#ffffff] via-[#ffffff] to-[#faf8f4] border border-[rgba(193,145,94,0.25)] rounded-lg overflow-hidden flex items-center justify-center p-6 sm:p-12 shadow-[inset_0_0_40px_rgba(193,145,94,0.05)] group">
               {/* Corner Filigree Brackets */}
-              <span className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[rgba(193, 145, 94,0.5)] rounded-tl-sm pointer-events-none" />
-              <span className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[rgba(193, 145, 94,0.5)] rounded-tr-sm pointer-events-none" />
-              <span className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[rgba(193, 145, 94,0.5)] rounded-bl-sm pointer-events-none" />
-              <span className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[rgba(193, 145, 94,0.5)] rounded-br-sm pointer-events-none" />
+              <span className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[rgba(193,145,94,0.5)] rounded-tl-sm pointer-events-none" />
+              <span className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[rgba(193,145,94,0.5)] rounded-tr-sm pointer-events-none" />
+              <span className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[rgba(193,145,94,0.5)] rounded-bl-sm pointer-events-none" />
+              <span className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[rgba(193,145,94,0.5)] rounded-br-sm pointer-events-none" />
 
               {/* Atelier Masterpiece Badge */}
-              <div className="absolute top-5 left-5 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[rgba(11,33,28,0.88)] backdrop-blur-md border border-[rgba(193, 145, 94,0.4)] text-[var(--color-champagne)] font-sans text-[10px] tracking-[0.2em] uppercase font-semibold shadow-sm">
+              <div className="absolute top-5 left-5 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[rgba(11,33,28,0.88)] backdrop-blur-md border border-[rgba(193,145,94,0.4)] text-[var(--color-champagne)] font-sans text-[10px] tracking-[0.2em] uppercase font-semibold shadow-sm">
                 <span className="text-[10px]">❖</span>
                 <span>Atelier Masterpiece</span>
               </div>
@@ -88,7 +88,7 @@ export default function ProductDetailClient({
               <button
                 type="button"
                 onClick={() => setIsZoomOpen(true)}
-                className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(255,255,255,0.92)] hover:bg-white text-[var(--color-emerald)] border border-[rgba(193, 145, 94,0.4)] text-[11px] font-sans font-medium tracking-wider shadow-md transition-all hover:scale-105"
+                className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(255,255,255,0.92)] hover:bg-white text-[var(--color-emerald)] border border-[rgba(193,145,94,0.4)] text-[11px] font-sans font-medium tracking-wider shadow-md transition-all hover:scale-105"
                 aria-label="Inspect high resolution details"
               >
                 <svg
@@ -122,8 +122,8 @@ export default function ProductDetailClient({
                     onClick={() => setActiveImage(img)}
                     className={`relative w-20 h-20 rounded-md bg-[#faf8f4] border p-1 transition-all ${
                       activeImage === img
-                        ? "border-[var(--color-champagne)] shadow-md ring-2 ring-[rgba(193, 145, 94,0.35)]"
-                        : "border-[rgba(193, 145, 94,0.25)] hover:border-[var(--color-champagne)] opacity-75 hover:opacity-100"
+                        ? "border-[var(--color-champagne)] shadow-md ring-2 ring-[rgba(193,145,94,0.35)]"
+                        : "border-[rgba(193,145,94,0.25)] hover:border-[var(--color-champagne)] opacity-75 hover:opacity-100"
                     }`}
                     aria-label={`View angle ${i + 1}`}
                   >
@@ -146,7 +146,7 @@ export default function ProductDetailClient({
               {/* Category Eyebrow with gold divider */}
               <p className="font-sans text-[11px] tracking-[0.32em] uppercase text-[var(--color-champagne)] font-semibold mb-2 flex items-center gap-2">
                 <span>UNI HAUTE JOAILLERIE</span>
-                <span className="w-6 h-[1px] bg-[rgba(193, 145, 94,0.4)]" />
+                <span className="w-6 h-[1px] bg-[rgba(193,145,94,0.4)]" />
                 <span>{product.category.toUpperCase()}</span>
               </p>
 
@@ -157,7 +157,7 @@ export default function ProductDetailClient({
 
               {/* Price & Reference Line */}
               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 mb-6">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(18,60,50,0.06)] border border-[rgba(18,60,50,0.22)] text-[var(--color-emerald)] font-sans text-xs font-semibold tracking-wider uppercase">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(24,67,67,0.06)] border border-[rgba(24,67,67,0.22)] text-[var(--color-emerald)] font-sans text-xs font-semibold tracking-wider uppercase">
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-emerald)] animate-pulse" />
                   {product.priceLabel}
                 </span>
@@ -165,7 +165,7 @@ export default function ProductDetailClient({
                 <button
                   type="button"
                   onClick={handleCopyRef}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fbf9f5] border border-[rgba(193, 145, 94,0.3)] text-stone-600 font-mono text-[11px] hover:border-[var(--color-champagne)] hover:text-[var(--color-emerald)] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fbf9f5] border border-[rgba(193,145,94,0.3)] text-stone-600 font-mono text-[11px] hover:border-[var(--color-champagne)] hover:text-[var(--color-emerald)] transition-colors"
                   title="Click to copy piece reference"
                 >
                   <span>Ref: {product.id}</span>
@@ -183,15 +183,15 @@ export default function ProductDetailClient({
               </div>
 
               {/* Verified Product Specifications Passport Card */}
-              <div className="bg-[#faf8f4] border border-[rgba(193, 145, 94,0.28)] rounded-lg p-5 mb-7">
-                <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-[rgba(193, 145, 94,0.2)]">
+              <div className="bg-[#faf8f4] border border-[rgba(193,145,94,0.28)] rounded-lg p-5 mb-7">
+                <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-[rgba(193,145,94,0.2)]">
                   <div className="flex items-center gap-2">
                     <span className="text-[var(--color-champagne)] text-sm">❖</span>
                     <h2 className="font-serif text-base text-[var(--color-charcoal)] font-medium tracking-wide">
                       Piece Specifications & Provenance
                     </h2>
                   </div>
-                  <span className="text-[10px] font-sans tracking-[0.2em] uppercase font-semibold text-[var(--color-emerald)] bg-[rgba(18,60,50,0.08)] px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-sans tracking-[0.2em] uppercase font-semibold text-[var(--color-emerald)] bg-[rgba(24,67,67,0.08)] px-2 py-0.5 rounded">
                     Atelier Certified
                   </span>
                 </div>
@@ -254,7 +254,7 @@ export default function ProductDetailClient({
                 href={mailtoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-4 px-6 bg-[var(--color-emerald)] hover:bg-[#184c3f] text-[var(--color-ivory)] border border-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.22em] uppercase rounded-md transition-all shadow-[0_4px_16px_rgba(18,60,50,0.25)] hover:shadow-[0_6px_22px_rgba(18,60,50,0.35)] hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                className="w-full text-center py-4 px-6 bg-[var(--color-emerald)] hover:bg-[#123636] text-[#c1915e] border border-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.22em] uppercase rounded-md transition-all shadow-[0_4px_16px_rgba(24,67,67,0.25)] hover:shadow-[0_6px_22px_rgba(24,67,67,0.35)] hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
                 <span>Inquire with Atelier Concierge</span>
               </a>
@@ -263,7 +263,7 @@ export default function ProductDetailClient({
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3.5 px-6 bg-[#faf7f2] hover:bg-[#ffffff] text-[var(--color-charcoal)] hover:text-[var(--color-emerald)] border border-[rgba(193, 145, 94,0.45)] hover:border-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.18em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-sm"
+                className="w-full text-center py-3.5 px-6 bg-[#faf7f2] hover:bg-[#ffffff] text-[var(--color-charcoal)] hover:text-[var(--color-emerald)] border border-[rgba(193,145,94,0.45)] hover:border-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.18em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-sm"
               >
                 <svg className="w-4 h-4 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
@@ -276,8 +276,8 @@ export default function ProductDetailClient({
               </p>
 
               {/* 4 Luxury Atelier Assurances */}
-              <div className="mt-5 pt-5 border-t border-[rgba(193, 145, 94,0.2)] grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
-                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193, 145, 94,0.18)]">
+              <div className="mt-5 pt-5 border-t border-[rgba(193,145,94,0.2)] grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193,145,94,0.18)]">
                   <p className="font-serif text-xs sm:text-sm text-[var(--color-charcoal)] font-medium">
                     Atelier Sourced
                   </p>
@@ -285,7 +285,7 @@ export default function ProductDetailClient({
                     100% Conflict Free
                   </p>
                 </div>
-                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193, 145, 94,0.18)]">
+                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193,145,94,0.18)]">
                   <p className="font-serif text-xs sm:text-sm text-[var(--color-charcoal)] font-medium">
                     Bespoke Sizing
                   </p>
@@ -293,7 +293,7 @@ export default function ProductDetailClient({
                     Complimentary
                   </p>
                 </div>
-                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193, 145, 94,0.18)]">
+                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193,145,94,0.18)]">
                   <p className="font-serif text-xs sm:text-sm text-[var(--color-charcoal)] font-medium">
                     Insured Transit
                   </p>
@@ -301,7 +301,7 @@ export default function ProductDetailClient({
                     Worldwide Armored
                   </p>
                 </div>
-                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193, 145, 94,0.18)]">
+                <div className="p-2.5 rounded-md bg-[#faf8f4] border border-[rgba(193,145,94,0.18)]">
                   <p className="font-serif text-xs sm:text-sm text-[var(--color-charcoal)] font-medium">
                     Lifetime Care
                   </p>
@@ -312,7 +312,7 @@ export default function ProductDetailClient({
               </div>
 
               {/* Collapsible Luxury Accordion (Craftsmanship, Packaging, Care) */}
-              <div className="mt-6 border-t border-[rgba(193, 145, 94,0.2)] pt-2 divide-y divide-[rgba(193, 145, 94,0.16)]">
+              <div className="mt-6 border-t border-[rgba(193,145,94,0.2)] pt-2 divide-y divide-[rgba(193,145,94,0.16)]">
                 {/* Accordion Item 1 */}
                 <div className="py-3">
                   <button
@@ -376,7 +376,7 @@ export default function ProductDetailClient({
 
         {/* Related Pieces Showcase */}
         {related.length > 0 && (
-          <div className="mt-16 sm:mt-24 pt-10 sm:pt-14 border-t border-[rgba(193, 145, 94,0.25)]">
+          <div className="mt-16 sm:mt-24 pt-10 sm:pt-14 border-t border-[rgba(193,145,94,0.25)]">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
               <div>
                 <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[var(--color-champagne)] font-semibold mb-1">
@@ -437,7 +437,7 @@ export default function ProductDetailClient({
             <button
               type="button"
               onClick={() => setIsZoomOpen(false)}
-              className="w-10 h-10 rounded-full border border-[rgba(193, 145, 94,0.4)] flex items-center justify-center text-[var(--color-champagne)] hover:bg-[rgba(193, 145, 94,0.15)] transition-colors text-lg"
+              className="w-10 h-10 rounded-full border border-[rgba(193,145,94,0.4)] flex items-center justify-center text-[var(--color-champagne)] hover:bg-[rgba(193,145,94,0.15)] transition-colors text-lg"
               aria-label="Close magnification modal"
             >
               ✕

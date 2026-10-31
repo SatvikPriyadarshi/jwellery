@@ -2,7 +2,7 @@
    UNI FINE JEWELRY — CONTACT US EXPERIENCE
    Exact Architectural Fidelity to Luxury Brand Reference
    Palette:
-     Deep Forest Green: #071914 / #061511
+     Deep Forest Green: #184343 / #184343
      Warm Linen Ivory:  #F3EFE4 / #F5F0E6
      Panel Ivory:       #FAF7F2 / #FFFFFF
      Champagne Gold:    #C1915E / #9C8052
@@ -17,8 +17,8 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: #071914;
-  color: #f7f3ea;
+  background-color: #184343;
+  color: #c1915e;
   overflow-x: clip;
 }
 
@@ -31,7 +31,7 @@
   min-height: clamp(60vh, 70vh, 80vh);
   display: flex;
   align-items: center;
-  background-color: #061511;
+  background-color: #184343;
   background-image:
     radial-gradient(ellipse 65% 75% at 20% 35%, rgba(24, 67, 67, 0.35) 0%, transparent 70%),
     radial-gradient(circle at 80% 70%, rgba(193, 145, 94, 0.06) 0%, transparent 60%);
@@ -77,7 +77,7 @@
   font-weight: 350;
   line-height: 1.1;
   letter-spacing: -0.01em;
-  color: #f7f3ea;
+  color: #c1915e;
   margin: 0 0 1.5rem;
 }
 
@@ -115,7 +115,7 @@
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(193, 145, 94, 0.35);
-  color: #f7f3ea;
+  color: #c1915e;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
@@ -160,7 +160,7 @@
 
 .contact-hero__quick-btn--gold:hover {
   background: #c1915e;
-  color: #071914;
+  color: #184343;
 }
 
 .contact-hero__visual-wrap {
@@ -194,7 +194,7 @@
   align-items: center;
   text-align: center;
   gap: 0.35rem;
-  background: rgba(7, 25, 20, 0.94);
+  background: rgba(24, 67, 67, 0.94);
   padding: 0.9rem 1.4rem;
   border-radius: 2px;
   border: 1px solid rgba(193, 145, 94, 0.3);
@@ -241,7 +241,7 @@
   width: 100%;
   background-color: #f3efe4;
   color: #184343;
-  padding: clamp(2.75rem, 4.5vh, 4rem) 0;
+  padding: clamp(3.5rem, 6vh, 5.25rem) 0 clamp(3rem, 5vh, 4.5rem);
   overflow: hidden;
   border-bottom: 1px solid rgba(193, 145, 94, 0.2);
 }
@@ -401,7 +401,7 @@
 
 .contact-detail-row__wa-pill:hover {
   background: #184343;
-  color: #f7f3ea;
+  color: #c1915e;
   border-color: #184343;
   transform: translateY(-1px);
 }
@@ -468,8 +468,8 @@
   background:
     radial-gradient(ellipse 70% 45% at 50% 0%, rgba(193, 145, 94, 0.14) 0%, transparent 70%),
     radial-gradient(circle at 10% 90%, rgba(24, 67, 67, 0.4) 0%, transparent 50%),
-    linear-gradient(180deg, #091c16 0%, #061511 100%);
-  color: #f7f3ea;
+    linear-gradient(180deg, #184343 0%, #184343 100%);
+  color: #c1915e;
   padding: clamp(4rem, 6.5vh, 5.5rem) 0 clamp(4.5rem, 7vh, 6rem);
   border-top: 1px solid rgba(193, 145, 94, 0.28);
   border-bottom: 1px solid rgba(193, 145, 94, 0.28);
@@ -525,7 +525,7 @@
   font-weight: 350;
   line-height: 1.15;
   letter-spacing: -0.015em;
-  color: #f7f3ea;
+  color: #c1915e;
 }
 
 .contact-map-header__address {
@@ -544,7 +544,7 @@
   font-size: clamp(0.85rem, 0.95vw, 0.94rem);
   font-weight: 300;
   line-height: 1.6;
-  color: rgba(247, 243, 234, 0.72);
+  color: rgba(193, 145, 94, 0.72);
 }
 
 .contact-map-header__actions {
@@ -561,7 +561,7 @@
   align-items: center;
   gap: 0.5rem;
   background: #c1915e;
-  color: #071713;
+  color: #184343;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
@@ -577,7 +577,7 @@
 
 .contact-map-btn-clean:hover {
   background: #dfbc7a;
-  color: #05110d;
+  color: #184343;
   border-color: #dfbc7a;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(193, 145, 94, 0.35);
@@ -588,7 +588,7 @@
   align-items: center;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.05);
-  color: #f7f3ea;
+  color: #c1915e;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
@@ -619,7 +619,7 @@
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.5),
     0 0 40px rgba(193, 145, 94, 0.1);
-  background: #061511;
+  background: #184343;
 }
 
 .contact-map-iframe-centered {
@@ -829,8 +829,8 @@
 .contact-form__submit-btn {
   position: relative;
   width: 100%;
-  background-color: #0c251f;
-  color: #f7f3ea;
+  background-color: #184343;
+  color: #c1915e;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.74rem;
   font-weight: 600;
@@ -850,7 +850,7 @@
 }
 
 .contact-form__submit-btn:hover:not(:disabled) {
-  background-color: #061511;
+  background-color: #184343;
   border-color: #c1915e;
   box-shadow: 0 6px 18px rgba(12, 37, 31, 0.3);
   transform: translateY(-1px);
@@ -904,7 +904,7 @@
   height: 3.25rem;
   border-radius: 50%;
   background: rgba(12, 37, 31, 0.1);
-  color: #0c251f;
+  color: #184343;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -957,7 +957,7 @@
   font-family: monospace;
   font-size: 0.92rem;
   font-weight: 700;
-  color: #0c251f;
+  color: #184343;
 }
 
 .contact-form-success__wa-btn {
@@ -994,8 +994,8 @@
 
 .contact-form-success__reset-btn {
   background: transparent;
-  color: #0c251f;
-  border: 1px solid #0c251f;
+  color: #184343;
+  border: 1px solid #184343;
   padding: 0.7rem 1.4rem;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
@@ -1008,8 +1008,8 @@
 }
 
 .contact-form-success__reset-btn:hover {
-  background: #0c251f;
-  color: #f7f3ea;
+  background: #184343;
+  color: #c1915e;
 }
 
 /* -------------------------------------------------------------------------
@@ -1018,7 +1018,7 @@
 .contact-bespoke {
   position: relative;
   width: 100%;
-  background-color: #071914;
+  background-color: #184343;
   background-image:
     radial-gradient(ellipse 60% 70% at 75% 30%, rgba(24, 67, 67, 0.4) 0%, transparent 70%),
     radial-gradient(circle at 15% 75%, rgba(193, 145, 94, 0.06) 0%, transparent 60%);
@@ -1048,7 +1048,7 @@
   font-size: clamp(2.25rem, 4.2vw, 3.4rem);
   font-weight: 350;
   line-height: 1.1;
-  color: #f7f3ea;
+  color: #c1915e;
   margin: 0 0 1.35rem;
 }
 
@@ -1083,7 +1083,7 @@
 }
 
 .contact-bespoke__cta:hover {
-  color: #f7f3ea;
+  color: #c1915e;
   border-bottom-color: #f7f3ea;
   transform: translateX(4px);
 }
@@ -1361,7 +1361,7 @@
     bottom: -12px;
     right: 12px;
     padding: 0.55rem 0.95rem;
-    background: rgba(7, 25, 20, 0.94);
+    background: rgba(24, 67, 67, 0.94);
     border: 1px solid rgba(193, 145, 94, 0.45);
     border-radius: 3px;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
@@ -1641,8 +1641,8 @@
     width: 100%;
     min-height: 48px;
     justify-content: center;
-    background: #0c251f;
-    color: #f7f3ea;
+    background: #184343;
+    color: #c1915e;
     border: 1px solid #c1915e;
     border-radius: 3px;
     font-size: 0.72rem;

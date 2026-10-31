@@ -40,7 +40,7 @@ export default function ContactPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-[#184343]">
+    <main className="min-h-screen bg-[#f3efe4]">
       {/* ContactPage & Breadcrumb Structured Data */}
       <script
         type="application/ld+json"

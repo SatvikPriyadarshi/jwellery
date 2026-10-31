@@ -17,8 +17,8 @@
   background:
     radial-gradient(ellipse 60% 70% at 50% 15%, rgba(24, 67, 67, 0.45) 0%, transparent 75%),
     radial-gradient(circle at 10% 85%, rgba(193, 145, 94, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, #071914 0%, #0c2620 50%, #184343 100%);
-  color: var(--color-ivory);
+    linear-gradient(180deg, #184343 0%, #184343 100%);
+  color: #c1915e;
   padding: clamp(5.25rem, 7.5vw, 6.75rem) 0 clamp(1.75rem, 3vw, 2.75rem);
   border-bottom: 1px solid rgba(193, 145, 94, 0.25);
   overflow: hidden;
@@ -34,7 +34,7 @@
 .shop-banner-card {
   position: relative;
   background:
-    radial-gradient(ellipse 70% 65% at 50% 30%, #0d2e24 0%, #081c15 70%, #05140f 100%);
+    radial-gradient(ellipse 70% 65% at 50% 30%, #184343 0%, #123333 70%, #0d2424 100%);
   border: 1px solid rgba(193, 145, 94, 0.35);
   border-radius: 10px;
   box-shadow:
@@ -106,7 +106,7 @@
   font-weight: 300;
   line-height: 1.12;
   letter-spacing: -0.015em;
-  color: var(--color-ivory);
+  color: #c1915e;
 }
 
 .shop-banner-title-italic {
@@ -122,7 +122,7 @@
   font-size: clamp(0.82rem, 0.95vw, 0.92rem);
   font-weight: 300;
   line-height: 1.6;
-  color: rgba(247, 243, 234, 0.84);
+  color: rgba(193, 145, 94, 0.84);
 }
 
 .shop-banner-features {
@@ -202,7 +202,7 @@
   border: 1px solid rgba(193, 145, 94, 0.55);
   border-radius: 4px;
   padding: 0.35rem;
-  background: rgba(6, 20, 16, 0.65);
+  background: rgba(24, 67, 67, 0.65);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
@@ -231,7 +231,7 @@
   font-size: 1.35rem;
   font-weight: 400;
   letter-spacing: 0.08em;
-  color: var(--color-ivory);
+  color: #c1915e;
   line-height: 1.15;
 }
 
@@ -248,7 +248,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(247, 243, 234, 0.88);
+  color: rgba(193, 145, 94, 0.88);
 }
 
 .shop-banner-atelier-tag {
@@ -281,7 +281,7 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--color-ivory);
+  color: #c1915e;
   background: rgba(12, 38, 32, 0.65);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -290,7 +290,7 @@
 
 .shop-banner-btn:hover {
   background: var(--color-champagne);
-  color: #071914;
+  color: #184343;
   border-color: var(--color-champagne);
   transform: translateY(-2px);
   box-shadow: 0 8px 26px rgba(193, 145, 94, 0.35);
@@ -464,7 +464,7 @@
 
 .shop-cat-btn.is-active {
   background: var(--color-emerald);
-  color: var(--color-ivory);
+  color: #c1915e;
   border-color: var(--color-emerald);
   font-weight: 500;
   box-shadow: 0 3px 12px rgba(24, 67, 67, 0.22);
@@ -633,7 +633,7 @@
   align-items: center;
   gap: 0.45rem;
   background: var(--color-emerald);
-  color: var(--color-ivory);
+  color: #c1915e;
   border: 1px solid var(--color-champagne);
   border-radius: 2px;
   padding: 0.52rem 0.85rem;
@@ -658,7 +658,7 @@
   height: 16px;
   border-radius: 9999px;
   background: var(--color-champagne);
-  color: #0c2620;
+  color: #184343;
   font-size: 0.65rem;
   font-weight: 600;
   padding: 0 4px;
@@ -853,7 +853,7 @@
 
 .shop-drawer-chip.is-active {
   background: var(--color-emerald);
-  color: var(--color-ivory);
+  color: #c1915e;
   border-color: var(--color-emerald);
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(24, 67, 67, 0.25);
@@ -903,7 +903,7 @@
   flex: 1;
   padding: 0.75rem 1.25rem;
   background: var(--color-emerald);
-  color: var(--color-ivory);
+  color: #c1915e;
   border: 1px solid var(--color-champagne);
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.75rem;
@@ -916,7 +916,7 @@
 }
 
 .shop-drawer-apply-btn:hover {
-  background: #194e41;
+  background: #184343;
 }
 
 /* =========================================================================
@@ -1022,7 +1022,7 @@
   opacity: 0;
   visibility: hidden;
   background: rgba(24, 67, 67, 0.94);
-  color: var(--color-ivory);
+  color: #c1915e;
   border: 1px solid rgba(193, 145, 94, 0.7);
   border-radius: 9999px;
   padding: 0.35rem 0.85rem;
@@ -1214,7 +1214,7 @@
 .shop-page-btn.is-active {
   background: var(--color-emerald);
   border-color: var(--color-emerald);
-  color: var(--color-ivory);
+  color: #c1915e;
   font-weight: 500;
 }
 
@@ -1275,7 +1275,7 @@
 .shop-reset-btn {
   padding: 0.65rem 1.4rem;
   background: var(--color-emerald);
-  color: var(--color-ivory);
+  color: #c1915e;
   border: 1px solid var(--color-champagne);
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.7rem;
@@ -1287,7 +1287,7 @@
 }
 
 .shop-reset-btn:hover {
-  background: #194e41;
+  background: #184343;
   color: #ffffff;
 }
 
@@ -1484,7 +1484,7 @@
   width: 100%;
   padding: 0.8rem 1.5rem;
   background: var(--color-emerald);
-  color: var(--color-ivory);
+  color: #c1915e;
   border: 1px solid var(--color-champagne);
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
@@ -1497,7 +1497,7 @@
 }
 
 .qv-inquire-btn:hover {
-  background: #184c3f;
+  background: #184343;
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(24, 67, 67, 0.3);
 }

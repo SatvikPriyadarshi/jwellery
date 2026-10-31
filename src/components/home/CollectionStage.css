@@ -6,15 +6,15 @@
 
 .cs-stage {
   --cs-accent: #c1915e;
-  --cs-surface: #142d21;
+  --cs-surface: #184343;
   position: relative;
   width: 100%;
   height: 100vh;
   height: 100dvh;
   min-height: 42rem;
   overflow: hidden;
-  color: var(--color-ivory);
-  background-color: #0e2118;
+  color: #c1915e;
+  background-color: #184343;
   user-select: none;
   perspective: 1200px;
   transition: background-color 0.8s ease;
@@ -56,7 +56,7 @@
 
 .cs-topbar__title {
   margin: 0;
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-cormorant), "Palatino Linotype", Palatino, serif;
   font-size: clamp(1.65rem, 2.5vw, 2.4rem);
   font-weight: 700;
@@ -67,7 +67,7 @@
 .cs-topbar__title em {
   font-style: italic;
   font-weight: 300;
-  color: color-mix(in srgb, var(--color-ivory) 88%, var(--cs-accent));
+  color: color-mix(in srgb, #c1915e 88%, var(--cs-accent));
 }
 
 .cs-nav {
@@ -84,7 +84,7 @@
   background: transparent;
   border: none;
   padding: 0.4rem 0;
-  color: color-mix(in srgb, var(--color-ivory) 55%, transparent);
+  color: color-mix(in srgb, #c1915e 55%, transparent);
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
@@ -96,12 +96,12 @@
 
 .cs-nav__item:hover,
 .cs-nav__item:focus-visible {
-  color: var(--color-ivory);
+  color: #c1915e;
   outline: none;
 }
 
 .cs-nav__item--active {
-  color: var(--color-ivory);
+  color: #c1915e;
 }
 
 .cs-nav__diamond {
@@ -188,7 +188,7 @@
 /* Large editorial display title with letter masks - ample vertical room for glyph descenders (g, y, p, q) */
 .cs-slide__category {
   margin: 0;
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-cormorant), "Palatino Linotype", Palatino, serif;
   font-size: clamp(3.75rem, 8vw, 6.75rem);
   font-weight: 700;
@@ -222,7 +222,7 @@
 .cs-slide__copy {
   margin: 1.5rem 0 0;
   max-width: 24rem;
-  color: color-mix(in srgb, var(--color-ivory) 88%, transparent);
+  color: color-mix(in srgb, #c1915e 88%, transparent);
   font-family: var(--font-giva), var(--font-cormorant), "Lato", sans-serif;
   font-size: clamp(1.15rem, 1.8vw, 1.45rem);
   font-weight: 300;
@@ -249,7 +249,7 @@
   align-self: flex-start;
   margin-top: 1.35rem;
   padding-bottom: 0.35rem;
-  color: var(--color-ivory);
+  color: #c1915e;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.74rem;
   font-weight: 500;
@@ -311,7 +311,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #0b1410;
+  background: #184343;
 }
 
 .cs-media-square__img {
@@ -355,7 +355,7 @@
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background: #0b1410;
+  background: #184343;
 }
 
 .cs-media-circle__img {
@@ -395,7 +395,7 @@
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid color-mix(in srgb, var(--color-ivory) 25%, transparent);
-  color: var(--color-ivory);
+  color: #c1915e;
   font-size: 1.15rem;
   line-height: 1;
   cursor: pointer;
@@ -405,7 +405,7 @@
 
 .cs-bottombar__arrow:hover:not(:disabled) {
   background: var(--cs-accent);
-  color: #0b1410;
+  color: #184343;
   border-color: var(--cs-accent);
   transform: scale(1.08);
 }
@@ -440,7 +440,7 @@
 }
 
 .cs-bottombar__hint {
-  color: color-mix(in srgb, var(--color-ivory) 54%, transparent);
+  color: color-mix(in srgb, #c1915e 54%, transparent);
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.64rem;
   font-weight: 400;
@@ -538,7 +538,7 @@
 
 .cs-stage--light .cs-bottombar__arrow:hover:not(:disabled) {
   background: #184343;
-  color: #f7f3ea;
+  color: #c1915e;
   border-color: #184343;
 }
 

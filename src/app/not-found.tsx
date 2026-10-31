@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#184343] text-[var(--color-ivory)] flex flex-col justify-between">
+    <main className="min-h-screen bg-[#184343] text-[#c1915e] flex flex-col justify-between">
       <SiteNav activeHref="/" solid />
 
       <div className="py-24 sm:py-32 px-6 max-w-2xl mx-auto text-center">
@@ -22,7 +22,7 @@ export default function NotFound() {
           Error 404 &bull; Archived Entry
         </span>
 
-        <h1 className="font-serif text-3xl sm:text-5xl text-[var(--color-ivory)] font-light leading-tight mb-4">
+        <h1 className="font-serif text-3xl sm:text-5xl text-[#c1915e] font-light leading-tight mb-4">
           Piece Not Found in Vault
         </h1>
 
@@ -41,7 +41,7 @@ export default function NotFound() {
           <Link
             href="/"
             prefetch={false}
-            className="px-6 py-3.5 border border-[rgba(193, 145, 94,0.5)] text-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.18em] uppercase rounded hover:bg-[rgba(193, 145, 94,0.12)] transition-all"
+            className="px-6 py-3.5 border border-[rgba(193,145,94,0.5)] text-[var(--color-champagne)] font-sans text-xs font-semibold tracking-[0.18em] uppercase rounded hover:bg-[rgba(193,145,94,0.12)] transition-all"
           >
             Return to Atelier Home
           </Link>

@@ -162,11 +162,11 @@ export default function AboutHero() {
   return (
     <section
       ref={rootRef}
-      className="relative overflow-hidden bg-gradient-to-b from-[#184343] via-[#184343] to-[#184343] pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[var(--color-ivory)]"
+      className="relative overflow-hidden bg-gradient-to-b from-[#184343] via-[#184343] to-[#184343] pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[#c1915e]"
     >
       {/* Caustic Lighting Ambient Glow */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(193, 145, 94,0.14)_0%,transparent_70%)] blur-3xl" />
-      <div className="pointer-events-none absolute top-1/2 right-0 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(18,60,50,0.45)_0%,transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(193,145,94,0.14)_0%,transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute top-1/2 right-0 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(24,67,67,0.45)_0%,transparent_70%)] blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-14">
         {/* Eyebrow - Clean Typographic Badge */}
@@ -176,7 +176,7 @@ export default function AboutHero() {
 
         {/* Hero Title & Opening Statement */}
         <div className="mt-6">
-            <h1 className="hero-title font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[var(--color-ivory)]">
+            <h1 className="hero-title font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-[#c1915e]">
               <span className="hero-title-line block">
                 A Legacy of
               </span>
@@ -187,7 +187,7 @@ export default function AboutHero() {
                 Since 1965
               </span>
             </h1>
-            <p className="hero-copy mt-6 max-w-2xl font-sans text-base sm:text-lg text-[var(--color-ivory)]/80 leading-relaxed font-light">
+            <p className="hero-copy mt-6 max-w-2xl font-sans text-base sm:text-lg text-[#c1915e]/80 leading-relaxed font-light">
               Built on a foundation of passion, expertise, and an enduring
               reverence for nature’s most extraordinary creations. For three
               generations, we have sourced, cut, and transformed rough gemstones
@@ -199,14 +199,14 @@ export default function AboutHero() {
         {/* Heritage Stats Strip with GSAP Animated Counters */}
         <div className="mt-16 sm:mt-20">
           {/* Animated Gold Hairline Divider */}
-          <div className="hero-stats-divider h-px w-full bg-[rgba(193, 145, 94,0.25)] origin-left mb-10" />
+          <div className="hero-stats-divider h-px w-full bg-[rgba(193,145,94,0.25)] origin-left mb-10" />
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="hero-stat">
               <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)] font-light tracking-wide">
                 <span ref={yearCountRef} className="hero-stat-number inline-block tabular-nums">1965</span>
               </div>
-              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/65 font-sans">
+              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[#c1915e]/65 font-sans">
                 Founded in Jaipur
               </p>
             </div>
@@ -216,7 +216,7 @@ export default function AboutHero() {
                 <span ref={experienceCountRef} className="hero-stat-number inline-block tabular-nums">60</span>
                 <span className="hero-stat-suffix">+ Years</span>
               </div>
-              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/65 font-sans">
+              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[#c1915e]/65 font-sans">
                 Gemstone Mastery
               </p>
             </div>
@@ -225,7 +225,7 @@ export default function AboutHero() {
               <div className="font-serif text-3xl sm:text-4xl text-[var(--color-champagne)] font-light tracking-wide">
                 <span className="hero-stat-word inline-block">Zambian</span>
               </div>
-              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/65 font-sans">
+              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[#c1915e]/65 font-sans">
                 Emerald Specialization
               </p>
             </div>
@@ -235,7 +235,7 @@ export default function AboutHero() {
                 <span ref={genCountRef} className="hero-stat-number inline-block tabular-nums">3</span>
                 <span className="hero-stat-suffix">&nbsp;Generations</span>
               </div>
-              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[var(--color-ivory)]/65 font-sans">
+              <p className="hero-stat-label mt-1 text-xs tracking-wider uppercase text-[#c1915e]/65 font-sans">
                 Family Stewardship
               </p>
             </div>

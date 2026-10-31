@@ -112,7 +112,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       <SiteNav activeHref="/shop" solid />
 
       {/* Breadcrumb Navigation Bar */}
-      <div className="bg-[#ffffff] border-b border-[rgba(193, 145, 94,0.22)] py-3 sm:py-3.5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+      <div className="bg-[#ffffff] border-b border-[rgba(193,145,94,0.22)] py-3 sm:py-3.5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
         <div className="shop-container flex items-center justify-between">
           <nav
             aria-label="Breadcrumb"

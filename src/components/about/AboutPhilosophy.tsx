@@ -26,9 +26,9 @@ function AdamasCrest() {
         points="50,22 78,50 50,78 22,50"
         strokeWidth="1"
         strokeLinejoin="round"
-        fill="rgba(193, 145, 94,0.06)"
+        fill="rgba(193,145,94,0.06)"
       />
-      <circle cx="50" cy="50" r="8" strokeWidth="1" fill="rgba(18,60,50,0.12)" />
+      <circle cx="50" cy="50" r="8" strokeWidth="1" fill="rgba(24,67,67,0.12)" />
       <circle cx="50" cy="50" r="2" fill="currentColor" />
     </svg>
   );
@@ -133,33 +133,33 @@ export default function AboutPhilosophy() {
         </div>
 
         {/* Adamas Callout Banner */}
-        <div className="phil-banner mt-16 relative bg-[#184343] text-[var(--color-ivory)] border border-[var(--color-champagne)]/35 rounded-lg p-5 sm:p-12 lg:p-16 shadow-2xl shadow-[#184343]/20">
+        <div className="phil-banner mt-16 relative bg-[#184343] text-[#c1915e] border border-[var(--color-champagne)]/35 rounded-lg p-5 sm:p-12 lg:p-16 shadow-2xl shadow-[#184343]/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-4">
               <p className="text-[var(--color-champagne)] text-xs tracking-[0.28em] uppercase font-sans font-medium">
                 Etymology &bull; Adamas (ἀδάμας)
               </p>
-              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light leading-tight text-[var(--color-ivory)]">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light leading-tight text-[#c1915e]">
                 &ldquo;Indestructible. Unconquerable. <br className="hidden sm:inline" />
                 <span className="italic font-normal text-[var(--color-champagne)]">
                   The Spirit of Brilliance.
                 </span>&rdquo;
               </h3>
-              <p className="font-sans text-sm sm:text-base text-[var(--color-ivory)]/85 font-light leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#c1915e]/85 font-light leading-relaxed">
                 The word <em className="text-[var(--color-champagne)] not-italic font-medium">diamond</em> originates
                 from the Greek word <em className="text-[var(--color-champagne)] not-italic font-medium">adamas</em>,
                 meaning unconquerable or indestructible. To us, this meaning embodies the spirit of
                 the individuals who wear our creations: their strength, resilience, brilliance, and individuality.
               </p>
-              <p className="font-sans text-sm sm:text-base text-[var(--color-ivory)]/85 font-light leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#c1915e]/85 font-light leading-relaxed">
                 We believe that every person has a story worth celebrating and a brilliance entirely their own.
                 Our jewelry is created to honour that spirit — a reminder of how far you have come,
                 what you stand for, and the possibilities that lie ahead.
               </p>
             </div>
 
-            <div className="lg:col-span-4 relative aspect-[4/5] sm:aspect-square max-w-none lg:max-w-[320px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#071612]">
+            <div className="lg:col-span-4 relative aspect-[4/5] sm:aspect-square max-w-none lg:max-w-[320px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#184343]">
               <Image
                 src="/images/jewellery/double-strand-necklace.jpg"
                 alt="Exquisite double strand diamond and gemstone necklace"

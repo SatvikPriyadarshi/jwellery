@@ -11,7 +11,7 @@
   --color-warm-stone: #e7e0d3;
   --color-deep-teal: #184343;
   --background: var(--color-tiber);
-  --foreground: var(--color-ivory);
+  --foreground: #c1915e;
 
   /* Logo and titles: Cormorant SC 700. Subtitles: Montserrat 500, Verdana fallback. Body: Palatino Linotype. */
   --font-display: var(--font-cormorant-sc), "Palatino Linotype", Palatino, "Book Antiqua", serif;
@@ -116,5 +116,5 @@ label {
 
 ::selection {
   background: color-mix(in srgb, var(--color-champagne) 35%, transparent);
-  color: var(--color-ivory);
+  color: #c1915e;
 }
