@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -60,6 +60,7 @@ const PEOPLE: readonly Person[] = [
 ];
 
 export default function AboutPeople() {
+  const [activePerson, setActivePerson] = useState<string>("govind-gupta");
   const refreshTimer = useRef<number | null>(null);
 
   const refreshAfterToggle = () => {
@@ -69,6 +70,11 @@ export default function AboutPeople() {
     refreshTimer.current = window.setTimeout(() => {
       ScrollTrigger.refresh();
     }, 360);
+  };
+
+  const handleHover = (id: string) => {
+    setActivePerson(id);
+    refreshAfterToggle();
   };
 
   return (
@@ -94,16 +100,24 @@ export default function AboutPeople() {
           type="single"
           collapsible
           className="people-accordion"
-          defaultValue="govind-gupta"
-          onValueChange={refreshAfterToggle}
+          value={activePerson}
+          onValueChange={(val) => {
+            setActivePerson(val);
+            refreshAfterToggle();
+          }}
         >
           {PEOPLE.map((person) => (
             <AccordionItem
               key={person.id}
               value={person.id}
               className="people-acc-item"
+              onMouseEnter={() => handleHover(person.id)}
             >
-              <AccordionTrigger className="people-acc-trigger items-center hover:no-underline">
+              <AccordionTrigger
+                className="people-acc-trigger items-center hover:no-underline"
+                onMouseEnter={() => handleHover(person.id)}
+                onFocus={() => handleHover(person.id)}
+              >
                 <span className="flex items-center gap-4 text-left">
                   <Avatar className="people-avatar">
                     {person.photo ? (

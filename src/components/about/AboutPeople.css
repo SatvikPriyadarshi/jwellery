@@ -41,10 +41,10 @@
   margin: 0.55rem 0 0;
   max-width: 40rem;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.86rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: rgba(193, 145, 94, 0.7);
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #c1915e;
 }
 
 .people-accordion {
@@ -76,6 +76,7 @@
   padding-bottom: 1.05rem;
   color: #c1915e;
   transition: color 0.2s ease;
+  cursor: pointer;
 }
 
 .people-acc-trigger svg {
@@ -117,15 +118,16 @@
 .people-acc-content {
   overflow: visible;
   padding-left: 4.25rem;
-  color: rgba(193, 145, 94, 0.78);
+  color: #c1915e;
 }
 
 .people-acc-content p {
   margin: 0;
   font-family: var(--font-outfit), sans-serif;
-  font-size: 0.9rem;
-  font-weight: 300;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #c1915e;
 }
 
 .people-acc-content p + p {
@@ -135,10 +137,10 @@
 .people-close {
   margin: clamp(1.4rem, 3vh, 2rem) 0 0;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 0.98rem;
+  font-size: 1.02rem;
   font-style: italic;
-  line-height: 1.35;
-  color: rgba(193, 145, 94, 0.62);
+  line-height: 1.4;
+  color: #c1915e;
 }
 
 @media (max-width: 640px) {
