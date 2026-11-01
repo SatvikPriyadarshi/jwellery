@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" fill="none">
+  <polygon points="20,7 32,22 20,37 8,22" stroke="#C1915E" stroke-width="1.8" fill="rgba(193,145,94,0.12)"/>
+  <line x1="8" y1="22" x2="32" y2="22" stroke="#C1915E" stroke-width="1.2"/>
+  <line x1="20" y1="7" x2="20" y2="37" stroke="#C1915E" stroke-width="1.2"/>
+  <text x="44" y="20" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="700" letter-spacing="2.5" fill="#F7F3EA">DE BEERS GROUP</text>
+  <text x="44" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="500" letter-spacing="1.8" fill="#C1915E">INSTITUTE OF DIAMONDS</text>
+</svg>

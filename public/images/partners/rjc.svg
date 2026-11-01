@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225 44" fill="none">
+  <circle cx="20" cy="22" r="14" stroke="#C1915E" stroke-width="1.8" fill="rgba(193,145,94,0.1)"/>
+  <circle cx="20" cy="22" r="9" stroke="#C1915E" stroke-width="1.2" stroke-dasharray="2 2"/>
+  <circle cx="20" cy="22" r="4" fill="#C1915E"/>
+  <text x="44" y="27" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" letter-spacing="2.5" fill="#C1915E">RJC</text>
+  <line x1="102" y1="10" x2="102" y2="34" stroke="#C1915E" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="112" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" fill="#F7F3EA">RESPONSIBLE</text>
+  <text x="112" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="500" letter-spacing="1.2" fill="#C1915E">JEWELLERY COUNCIL</text>
+</svg>

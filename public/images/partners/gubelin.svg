@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 44" fill="none">
+  <polygon points="18,7 28,15 28,32 18,37 8,32 8,15" stroke="#C1915E" stroke-width="1.6" fill="rgba(193,145,94,0.12)"/>
+  <line x1="18" y1="16" x2="18" y2="28" stroke="#C1915E" stroke-width="1.5"/>
+  <line x1="12" y1="22" x2="24" y2="22" stroke="#C1915E" stroke-width="1.5"/>
+  <text x="38" y="27" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" letter-spacing="2.2" fill="#C1915E">GÜBELIN</text>
+  <line x1="134" y1="10" x2="134" y2="34" stroke="#C1915E" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="144" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#F7F3EA">SWISS LAB</text>
+  <text x="144" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="500" letter-spacing="1.2" fill="#C1915E">EST. 1854</text>
+</svg>

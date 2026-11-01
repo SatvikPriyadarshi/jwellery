@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 44" fill="none">
+  <polygon points="20,8 32,8 38,18 26,36 14,36 8,18" stroke="#C1915E" stroke-width="1.8" fill="rgba(193,145,94,0.12)"/>
+  <polyline points="8,18 38,18" stroke="#C1915E" stroke-width="1.2"/>
+  <polyline points="14,36 20,8 26,36 32,8" stroke="#C1915E" stroke-width="1"/>
+  <text x="50" y="27" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" letter-spacing="3" fill="#C1915E">GIA</text>
+  <line x1="108" y1="10" x2="108" y2="34" stroke="#C1915E" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="118" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#F7F3EA">CERTIFIED</text>
+  <text x="118" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="500" letter-spacing="1.2" fill="#C1915E">LABORATORY</text>
+</svg>

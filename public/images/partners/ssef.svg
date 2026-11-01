@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 44" fill="none">
+  <circle cx="20" cy="22" r="14" stroke="#C1915E" stroke-width="1.6" fill="rgba(193,145,94,0.12)"/>
+  <polygon points="20,12 26,18 20,24 14,18" fill="#C1915E"/>
+  <polygon points="20,22 25,26 20,31 15,26" stroke="#C1915E" stroke-width="1" fill="none"/>
+  <text x="44" y="27" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" letter-spacing="2.5" fill="#C1915E">SSEF</text>
+  <line x1="112" y1="10" x2="112" y2="34" stroke="#C1915E" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="122" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#F7F3EA">SWISS GEM</text>
+  <text x="122" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="500" letter-spacing="1.2" fill="#C1915E">INSTITUTE</text>
+</svg>

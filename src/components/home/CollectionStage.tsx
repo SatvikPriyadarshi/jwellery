@@ -43,7 +43,7 @@ const slides: CollectionSlide[] = [
   {
     name: "Necklaces",
     href: "/shop?category=Necklaces",
-    image: "/images/collection-necklaces.jpg",
+    image: "/images/collection-necklaces-v2.jpg",
     squarePosition: "52% 46%",
     circlePosition: "52% 62%",
     bgColor: "#184343",

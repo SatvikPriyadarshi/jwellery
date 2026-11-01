@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
 import "./Lookbook.css";
 
-const PHOTO = "/images/jewellery-hero.jpg";
+const PHOTO = "/images/jewellery-hero-v2.jpg";
 
 type Face =
   | {
@@ -54,7 +54,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/collection-necklaces.jpg",
+      src: "/images/collection-necklaces-v2.jpg",
       position: "center 40%",
       alt: "Emerald collar necklace",
       title: "A collar, made to be kept",
@@ -159,7 +159,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/collection-necklaces.jpg",
+      src: "/images/collection-necklaces-v2.jpg",
       position: "center 42%",
       alt: "Emerald earrings and collar necklace",
       title: "The last page",
