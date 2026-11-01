@@ -6,7 +6,7 @@
   height: 100svh;
   min-height: 100svh;
   overflow: hidden;
-  background: #184343;
+  background: #0E3B28;
   color: #c1915e;
 }
 
@@ -79,7 +79,7 @@
   align-items: center;
   justify-content: center;
   padding: 1.15rem 1.75rem 1.35rem;
-  background-color: #184343; /* Solid signature deep pine teal - Zero photo bleed */
+  background-color: #0E3B28; /* Solid signature deep pine teal - Zero photo bleed */
   border-top: 1px solid rgba(193, 145, 94, 0.35);
   box-shadow: 
     0 -14px 36px rgba(0, 0, 0, 0.45),
@@ -190,7 +190,7 @@
   .hero__partners {
     position: relative;
     bottom: auto;
-    background: #184343;
+    background: #0E3B28;
     padding: 1.15rem 1rem 1.35rem;
     border-top: 1px solid rgba(193, 145, 94, 0.28);
     box-shadow: none;

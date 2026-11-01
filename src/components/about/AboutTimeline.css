@@ -4,7 +4,7 @@
   background:
     radial-gradient(ellipse 42% 28% at 50% 0%, rgba(193, 145, 94, 0.14), transparent 70%),
     #f7f3ea;
-  color: #184343;
+  color: #0E3B28;
   padding: clamp(4.5rem, 9vh, 7.5rem) 0 clamp(5rem, 10vh, 8rem);
   overflow: clip;
 }
@@ -37,13 +37,13 @@
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .vtl-title em {
   font-style: italic;
   font-weight: 400;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .vtl-lead {
@@ -82,7 +82,7 @@
 }
 
 .vtl-line__fill {
-  background: linear-gradient(#c1915e, #184343);
+  background: linear-gradient(#c1915e, #0E3B28);
   transform-origin: top center;
   transform: scaleY(0);
 }
@@ -94,7 +94,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #184343;
+  background: #0E3B28;
   transform: translateX(-50%);
 }
 
@@ -117,19 +117,19 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  border: 1.5px solid #184343;
+  border: 1.5px solid #0E3B28;
   background: #f7f3ea;
   box-shadow: 0 0 0 8px #f7f3ea;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: 1.45rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .vtl-stop.is-lit .vtl-node {
   border-color: #c1915e;
-  color: #184343;
+  color: #0E3B28;
   box-shadow:
     0 0 0 8px #f7f3ea,
     0 10px 28px rgba(24, 67, 67, 0.12);
@@ -158,7 +158,7 @@
   font-size: clamp(1.55rem, 2.2vw, 2.05rem);
   font-weight: 500;
   line-height: 1.15;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .vtl-copy p {

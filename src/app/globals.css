@@ -2,14 +2,14 @@
 @import "tw-animate-css";
 
 :root {
-  --color-tiber: #184343;
-  --color-emerald: #184343;
-  --color-dark-forest: #184343;
+  --color-tiber: #0E3B28;
+  --color-emerald: #0E3B28;
+  --color-dark-forest: #0E3B28;
   --color-champagne: #c1915e;
   --color-ivory: #f7f3ea;
   --color-charcoal: #202722;
   --color-warm-stone: #e7e0d3;
-  --color-deep-teal: #184343;
+  --color-deep-teal: #0E3B28;
   --background: var(--color-tiber);
   --foreground: #c1915e;
 

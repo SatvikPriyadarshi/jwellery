@@ -133,7 +133,7 @@ export default function AboutPhilosophy() {
         </div>
 
         {/* Adamas Callout Banner */}
-        <div className="phil-banner mt-16 relative bg-[#184343] text-[#c1915e] border border-[var(--color-champagne)]/35 rounded-lg p-5 sm:p-12 lg:p-16 shadow-2xl shadow-[#184343]/20">
+        <div className="phil-banner mt-16 relative bg-[#0E3B28] text-[#c1915e] border border-[var(--color-champagne)]/35 rounded-lg p-5 sm:p-12 lg:p-16 shadow-2xl shadow-[#0E3B28]/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-4">
@@ -159,7 +159,7 @@ export default function AboutPhilosophy() {
               </p>
             </div>
 
-            <div className="lg:col-span-4 relative aspect-[4/5] sm:aspect-square max-w-none lg:max-w-[320px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#184343]">
+            <div className="lg:col-span-4 relative aspect-[4/5] sm:aspect-square max-w-none lg:max-w-[320px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#0E3B28]">
               <Image
                 src="/images/IndestructibleUnconquerable.jpg"
                 alt="Adamas - Indestructible and unconquerable diamond and gemstone creations"
@@ -167,7 +167,7 @@ export default function AboutPhilosophy() {
                 sizes="(max-width: 1024px) 100vw, 320px"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#184343]/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E3B28]/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-3 inset-x-3 text-center text-[10px] tracking-widest uppercase text-[var(--color-champagne)] font-sans">
                 Handcrafted Heirloom
               </div>

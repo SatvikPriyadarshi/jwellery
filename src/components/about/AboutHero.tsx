@@ -162,7 +162,7 @@ export default function AboutHero() {
   return (
     <section
       ref={rootRef}
-      className="relative overflow-hidden bg-gradient-to-b from-[#184343] via-[#184343] to-[#184343] pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[#c1915e]"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0E3B28] via-[#0E3B28] to-[#0E3B28] pt-24 pb-16 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-32 text-[#c1915e]"
     >
       {/* Caustic Lighting Ambient Glow */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(193,145,94,0.14)_0%,transparent_70%)] blur-3xl" />

@@ -52,7 +52,7 @@ export const TestimonialsColumn = (props: {
                       <div className="font-[family-name:var(--font-outfit)] text-sm font-medium leading-5 tracking-tight">
                         {name}
                       </div>
-                      <div className="font-[family-name:var(--font-outfit)] text-xs leading-5 tracking-[0.14em] text-[#184343]/70 uppercase">
+                      <div className="font-[family-name:var(--font-outfit)] text-xs leading-5 tracking-[0.14em] text-[#0E3B28]/70 uppercase">
                         {role}
                       </div>
                     </div>

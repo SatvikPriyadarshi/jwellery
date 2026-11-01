@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Bespoke high jewelry, ethical Zambian emeralds, and diamond heirlooms handcrafted since 1965.",
     start_url: "/",
     display: "standalone",
-    background_color: "#184343",
-    theme_color: "#184343",
+    background_color: "#0E3B28",
+    theme_color: "#0E3B28",
     icons: [
       {
         src: "/icon-192.png",

@@ -6,7 +6,7 @@
 
 .cs-stage {
   --cs-accent: #c1915e;
-  --cs-surface: #184343;
+  --cs-surface: #0E3B28;
   position: relative;
   width: 100%;
   height: 100vh;
@@ -14,7 +14,7 @@
   min-height: 42rem;
   overflow: hidden;
   color: #c1915e;
-  background-color: #184343;
+  background-color: #0E3B28;
   user-select: none;
   perspective: 1200px;
   transition: background-color 0.8s ease;
@@ -311,7 +311,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #184343;
+  background: #0E3B28;
 }
 
 .cs-media-square__img {
@@ -355,7 +355,7 @@
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background: #184343;
+  background: #0E3B28;
 }
 
 .cs-media-circle__img {
@@ -405,7 +405,7 @@
 
 .cs-bottombar__arrow:hover:not(:disabled) {
   background: var(--cs-accent);
-  color: #184343;
+  color: #0E3B28;
   border-color: var(--cs-accent);
   transform: scale(1.08);
 }
@@ -456,15 +456,15 @@
 }
 
 .cs-stage--light .cs-topbar__eyebrow {
-  color: #184343;
+  color: #0E3B28;
 }
 
 .cs-stage--light .cs-topbar__title {
-  color: #184343;
+  color: #0E3B28;
 }
 
 .cs-stage--light .cs-topbar__title em {
-  color: #184343;
+  color: #0E3B28;
 }
 
 .cs-stage--light .cs-nav__item {
@@ -474,25 +474,25 @@
 .cs-stage--light .cs-nav__item:hover,
 .cs-stage--light .cs-nav__item:focus-visible,
 .cs-stage--light .cs-nav__item--active {
-  color: #184343;
+  color: #0E3B28;
 }
 
 .cs-stage--light .cs-nav__diamond {
-  border-color: #184343;
+  border-color: #0E3B28;
 }
 
 .cs-stage--light .cs-nav__item--active .cs-nav__diamond {
-  background: #184343;
-  border-color: #184343;
+  background: #0E3B28;
+  border-color: #0E3B28;
 }
 
 .cs-stage--light .cs-nav__item--active::after {
-  background: #184343;
+  background: #0E3B28;
 }
 
 /* Slide Content on Light / Skin-Gold Background */
 .cs-slide__inner--light .cs-slide__category {
-  color: #184343;
+  color: #0E3B28;
 }
 
 .cs-slide__inner--light .cs-slide__copy {
@@ -500,19 +500,19 @@
 }
 
 .cs-slide__inner--light .cs-slide__note {
-  color: #184343;
+  color: #0E3B28;
   border-top-color: rgba(24, 67, 67, 0.22);
 }
 
 .cs-slide__inner--light .cs-slide__cta {
-  color: #184343;
-  border-bottom-color: #184343;
+  color: #0E3B28;
+  border-bottom-color: #0E3B28;
 }
 
 .cs-slide__inner--light .cs-slide__cta:hover,
 .cs-slide__inner--light .cs-slide__cta:focus-visible {
-  color: #184343;
-  border-bottom-color: #184343;
+  color: #0E3B28;
+  border-bottom-color: #0E3B28;
 }
 
 .cs-slide__inner--light .cs-media-square {
@@ -533,13 +533,13 @@
 .cs-stage--light .cs-bottombar__arrow {
   background: rgba(24, 67, 67, 0.08);
   border-color: rgba(24, 67, 67, 0.25);
-  color: #184343;
+  color: #0E3B28;
 }
 
 .cs-stage--light .cs-bottombar__arrow:hover:not(:disabled) {
-  background: #184343;
+  background: #0E3B28;
   color: #c1915e;
-  border-color: #184343;
+  border-color: #0E3B28;
 }
 
 .cs-stage--light .cs-bottombar__arrow:disabled {
@@ -551,7 +551,7 @@
 }
 
 .cs-stage--light .cs-bottombar__tick--active {
-  background: #184343;
+  background: #0E3B28;
 }
 
 .cs-stage--light .cs-bottombar__hint {

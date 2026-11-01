@@ -23,7 +23,7 @@ const montserrat = Montserrat({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#184343",
+  themeColor: "#0E3B28",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

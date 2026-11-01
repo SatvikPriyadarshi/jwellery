@@ -219,34 +219,12 @@ export default function AboutStory() {
         </div>
 
         <div className="about-visual">
-          <div className="about-panel" aria-hidden="true" />
-          <svg
-            className="about-arc"
-            viewBox="0 0 160 160"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M148 8C78 8 18 68 18 148"
-              stroke="#C1915E"
-              strokeWidth="1"
-            />
-          </svg>
-          <figure className="about-inset">
-            <Image
-              src="/images/jewellery/about-emerald-detail.jpg"
-              alt="A single emerald-cut green gemstone"
-              fill
-              sizes="140px"
-              className="about-inset__img"
-            />
-          </figure>
           <figure className="about-photo">
             <Image
               src="/images/aboutHero.jpg"
               alt="Emerald and diamond earrings, ring, and bracelet worn with deep green velvet"
               fill
-              sizes="(max-width: 900px) 100vw, 48vw"
+              sizes="(max-width: 900px) 100vw, 50vw"
               className="about-photo__img"
             />
           </figure>

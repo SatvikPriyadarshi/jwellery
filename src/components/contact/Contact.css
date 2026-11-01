@@ -2,7 +2,7 @@
    UNI FINE JEWELRY — CONTACT US EXPERIENCE
    Exact Architectural Fidelity to Luxury Brand Reference
    Palette:
-     Deep Forest Green: #184343 / #184343
+     Deep Forest Green: #0E3B28 / #0E3B28
      Warm Linen Ivory:  #F3EFE4 / #F5F0E6
      Panel Ivory:       #FAF7F2 / #FFFFFF
      Champagne Gold:    #C1915E / #9C8052
@@ -17,7 +17,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: #184343;
+  background-color: #0E3B28;
   color: #c1915e;
   overflow-x: clip;
 }
@@ -31,7 +31,7 @@
   min-height: clamp(60vh, 70vh, 80vh);
   display: flex;
   align-items: center;
-  background-color: #184343;
+  background-color: #0E3B28;
   background-image:
     radial-gradient(ellipse 65% 75% at 20% 35%, rgba(24, 67, 67, 0.35) 0%, transparent 70%),
     radial-gradient(circle at 80% 70%, rgba(193, 145, 94, 0.06) 0%, transparent 60%);
@@ -160,7 +160,7 @@
 
 .contact-hero__quick-btn--gold:hover {
   background: #c1915e;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .contact-hero__visual-wrap {
@@ -240,7 +240,7 @@
   position: relative;
   width: 100%;
   background-color: #f3efe4;
-  color: #184343;
+  color: #0E3B28;
   padding: clamp(3.5rem, 6vh, 5.25rem) 0 clamp(3rem, 5vh, 4.5rem);
   overflow: hidden;
   border-bottom: 1px solid rgba(193, 145, 94, 0.2);
@@ -283,14 +283,14 @@
   font-size: clamp(1.95rem, 2.7vw, 2.45rem);
   font-weight: 350;
   line-height: 1.12;
-  color: #184343;
+  color: #0E3B28;
   margin: 0 0 0.55rem;
 }
 
 .contact-info__heading-italic {
   font-style: italic;
   font-weight: 400;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .contact-info__desc {
@@ -356,7 +356,7 @@
   font-size: 0.82rem;
   font-weight: 400;
   line-height: 1.45;
-  color: #184343;
+  color: #0E3B28;
   font-style: normal;
   margin: 0;
 }
@@ -365,7 +365,7 @@
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.86rem;
   font-weight: 500;
-  color: #184343;
+  color: #0E3B28;
   text-decoration: none;
   border-bottom: 1px solid #c1915e;
   display: inline-flex;
@@ -390,7 +390,7 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #184343;
+  color: #0E3B28;
   background: rgba(193, 145, 94, 0.16);
   border: 1px solid rgba(193, 145, 94, 0.45);
   border-radius: 9999px;
@@ -400,9 +400,9 @@
 }
 
 .contact-detail-row__wa-pill:hover {
-  background: #184343;
+  background: #0E3B28;
   color: #c1915e;
-  border-color: #184343;
+  border-color: #0E3B28;
   transform: translateY(-1px);
 }
 
@@ -453,7 +453,7 @@
 }
 
 .contact-map-directions-inline:hover {
-  color: #184343;
+  color: #0E3B28;
   transform: translateY(1px);
 }
 
@@ -468,7 +468,7 @@
   background:
     radial-gradient(ellipse 70% 45% at 50% 0%, rgba(193, 145, 94, 0.14) 0%, transparent 70%),
     radial-gradient(circle at 10% 90%, rgba(24, 67, 67, 0.4) 0%, transparent 50%),
-    linear-gradient(180deg, #184343 0%, #184343 100%);
+    linear-gradient(180deg, #0E3B28 0%, #0E3B28 100%);
   color: #c1915e;
   padding: clamp(4rem, 6.5vh, 5.5rem) 0 clamp(4.5rem, 7vh, 6rem);
   border-top: 1px solid rgba(193, 145, 94, 0.28);
@@ -561,7 +561,7 @@
   align-items: center;
   gap: 0.5rem;
   background: #c1915e;
-  color: #184343;
+  color: #0E3B28;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
@@ -577,7 +577,7 @@
 
 .contact-map-btn-clean:hover {
   background: #dfbc7a;
-  color: #184343;
+  color: #0E3B28;
   border-color: #dfbc7a;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(193, 145, 94, 0.35);
@@ -619,7 +619,7 @@
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.5),
     0 0 40px rgba(193, 145, 94, 0.1);
-  background: #184343;
+  background: #0E3B28;
 }
 
 .contact-map-iframe-centered {
@@ -633,7 +633,7 @@
 .contact-form-panel {
   position: relative;
   background-color: #faf7f2;
-  color: #184343;
+  color: #0E3B28;
   border-radius: 6px;
   padding: clamp(1.4rem, 2.2vw, 1.85rem) clamp(1.4rem, 2.4vw, 1.95rem);
   box-shadow:
@@ -688,7 +688,7 @@
   font-size: 1.45rem;
   font-weight: 500;
   line-height: 1.15;
-  color: #184343;
+  color: #0E3B28;
   margin: 0 0 0.25rem;
 }
 
@@ -740,7 +740,7 @@
   width: 100%;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.82rem;
-  color: #184343;
+  color: #0E3B28;
   background-color: #ffffff;
   border: 1px solid rgba(193, 145, 94, 0.28);
   border-radius: 2px;
@@ -763,7 +763,7 @@
 .contact-field__input:-webkit-autofill:focus,
 .contact-field__input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
-  -webkit-text-fill-color: #184343 !important;
+  -webkit-text-fill-color: #0E3B28 !important;
   border-color: rgba(193, 145, 94, 0.35) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -829,7 +829,7 @@
 .contact-form__submit-btn {
   position: relative;
   width: 100%;
-  background-color: #184343;
+  background-color: #0E3B28;
   color: #c1915e;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.74rem;
@@ -850,7 +850,7 @@
 }
 
 .contact-form__submit-btn:hover:not(:disabled) {
-  background-color: #184343;
+  background-color: #0E3B28;
   border-color: #c1915e;
   box-shadow: 0 6px 18px rgba(12, 37, 31, 0.3);
   transform: translateY(-1px);
@@ -904,7 +904,7 @@
   height: 3.25rem;
   border-radius: 50%;
   background: rgba(12, 37, 31, 0.1);
-  color: #184343;
+  color: #0E3B28;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -921,7 +921,7 @@
   font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
   font-size: clamp(1.75rem, 2.3vw, 2.15rem);
   font-weight: 450;
-  color: #184343;
+  color: #0E3B28;
   margin: 0 0 0.65rem;
 }
 
@@ -957,7 +957,7 @@
   font-family: monospace;
   font-size: 0.92rem;
   font-weight: 700;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .contact-form-success__wa-btn {
@@ -994,8 +994,8 @@
 
 .contact-form-success__reset-btn {
   background: transparent;
-  color: #184343;
-  border: 1px solid #184343;
+  color: #0E3B28;
+  border: 1px solid #0E3B28;
   padding: 0.7rem 1.4rem;
   font-family: var(--font-subtitle), sans-serif;
   font-size: 0.72rem;
@@ -1008,7 +1008,7 @@
 }
 
 .contact-form-success__reset-btn:hover {
-  background: #184343;
+  background: #0E3B28;
   color: #c1915e;
 }
 
@@ -1018,7 +1018,7 @@
 .contact-bespoke {
   position: relative;
   width: 100%;
-  background-color: #184343;
+  background-color: #0E3B28;
   background-image:
     radial-gradient(ellipse 60% 70% at 75% 30%, rgba(24, 67, 67, 0.4) 0%, transparent 70%),
     radial-gradient(circle at 15% 75%, rgba(193, 145, 94, 0.06) 0%, transparent 60%);
@@ -1118,7 +1118,7 @@
   position: relative;
   width: 100%;
   background-color: #f3efe4;
-  color: #184343;
+  color: #0E3B28;
   padding: clamp(5rem, 8vh, 7rem) 0;
   border-bottom: 1px solid rgba(193, 145, 94, 0.2);
 }
@@ -1154,7 +1154,7 @@
   font-size: clamp(2.25rem, 3.8vw, 3.15rem);
   font-weight: 350;
   line-height: 1.1;
-  color: #184343;
+  color: #0E3B28;
   margin: 0 0 1.15rem;
 }
 
@@ -1188,7 +1188,7 @@
   font-size: 0.84rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #184343;
+  color: #0E3B28;
   font-style: normal;
   margin: 0;
 }
@@ -1211,8 +1211,8 @@
 }
 
 .contact-studio__directions-link:hover {
-  color: #184343;
-  border-bottom-color: #184343;
+  color: #0E3B28;
+  border-bottom-color: #0E3B28;
 }
 
 .contact-studio__visual {
@@ -1641,7 +1641,7 @@
     width: 100%;
     min-height: 48px;
     justify-content: center;
-    background: #184343;
+    background: #0E3B28;
     color: #c1915e;
     border: 1px solid #c1915e;
     border-radius: 3px;

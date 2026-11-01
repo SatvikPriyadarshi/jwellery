@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#184343] text-[#c1915e] flex flex-col justify-between">
+    <main className="min-h-screen bg-[#0E3B28] text-[#c1915e] flex flex-col justify-between">
       <SiteNav activeHref="/" solid />
 
       <div className="py-24 sm:py-32 px-6 max-w-2xl mx-auto text-center">
@@ -34,7 +34,7 @@ export default function NotFound() {
           <Link
             href="/shop"
             prefetch={false}
-            className="px-6 py-3.5 bg-[var(--color-champagne)] text-[#184343] font-sans text-xs font-semibold tracking-[0.2em] uppercase rounded hover:bg-[#d4ae78] transition-all"
+            className="px-6 py-3.5 bg-[var(--color-champagne)] text-[#0E3B28] font-sans text-xs font-semibold tracking-[0.2em] uppercase rounded hover:bg-[#d4ae78] transition-all"
           >
             Explore The Collection
           </Link>

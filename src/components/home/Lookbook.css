@@ -10,7 +10,7 @@
   width: 100%;
   min-height: 100svh;
   overflow: hidden;
-  background: #184343;
+  background: #0E3B28;
 }
 
 .lookbook-scene {
@@ -48,7 +48,7 @@
   width: min(1080px, calc(100% - 9rem));
   height: min(72svh, 640px);
   margin: 0 auto;
-  background: #184343;
+  background: #0E3B28;
   perspective: 2000px;
   box-shadow:
     0 36px 70px rgba(0, 0, 0, 0.55),
@@ -143,7 +143,7 @@
   top: 0;
   height: 100%;
   width: calc(50% + 4px);
-  background: #184343;
+  background: #0E3B28;
   color: #c1915e;
   overflow: hidden;
   z-index: 1;
@@ -167,7 +167,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #184343;
+  background: #0E3B28;
   color: #c1915e;
   overflow: hidden;
   backface-visibility: hidden;
@@ -229,7 +229,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 60% 40%, #184343 0%, #123333 100%);
+  background: radial-gradient(circle at 60% 40%, #0E3B28 0%, #0A2A1D 100%);
   color: #c1915e;
   border-radius: 0 4px 4px 0;
   box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
@@ -448,7 +448,7 @@
   flex-direction: column;
   justify-content: center;
   padding: clamp(2.5rem, 6vw, 4.5rem) clamp(2rem, 5vw, 4rem);
-  background: #184343;
+  background: #0E3B28;
   color: #c1915e;
   z-index: 2;
 }
@@ -830,7 +830,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #184343;
+  background: #0E3B28;
   border-radius: 10px;
   overflow: hidden;
   box-shadow:
@@ -861,7 +861,7 @@
   -webkit-backface-visibility: hidden;
   border-radius: 10px;
   overflow: hidden;
-  background: #184343;
+  background: #0E3B28;
   box-shadow:
     0 24px 50px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(193, 145, 94, 0.3);
@@ -873,7 +873,7 @@
 
 .lookbook-m-face--back {
   transform: rotateY(180deg);
-  background: radial-gradient(circle at 40% 50%, #184343 0%, #123333 100%);
+  background: radial-gradient(circle at 40% 50%, #0E3B28 0%, #0A2A1D 100%);
   z-index: 1;
 }
 
@@ -993,7 +993,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 45% 50%, #184343 0%, #123333 100%);
+  background: radial-gradient(circle at 45% 50%, #0E3B28 0%, #0A2A1D 100%);
   border: 1px solid rgba(193, 145, 94, 0.35);
   padding: 2rem;
 }
@@ -1080,7 +1080,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 35%, #184343 0%, #123333 100%);
+  background: radial-gradient(circle at 50% 35%, #0E3B28 0%, #0A2A1D 100%);
   padding: 1.25rem;
 }
 
@@ -1188,7 +1188,7 @@
 
 .lookbook-m-cover-cta:hover {
   background: #c1915e;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .lookbook-m-swipe-hint {
@@ -1281,7 +1281,7 @@
   padding: 0.7rem 0.85rem;
   border-radius: 4px;
   background: #c1915e;
-  color: #184343;
+  color: #0E3B28;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
@@ -1314,7 +1314,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.35rem 1.35rem 1.25rem;
-  background: #184343;
+  background: #0E3B28;
   overflow-y: auto;
 }
 
@@ -1360,7 +1360,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.35rem 1.35rem 1.25rem;
-  background: #184343;
+  background: #0E3B28;
 }
 
 .lookbook-m-columns-list {
@@ -1417,7 +1417,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.35rem 1.35rem 1.25rem;
-  background: #184343;
+  background: #0E3B28;
 }
 
 .lookbook-m-text-cover-body {
@@ -1563,7 +1563,7 @@
   z-index: 2;
   width: 100%;
   max-height: 78svh;
-  background: #184343;
+  background: #0E3B28;
   border-top: 1px solid #c1915e;
   border-radius: 18px 18px 0 0;
   padding: 1.4rem 1.25rem 2rem;

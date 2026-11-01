@@ -11,7 +11,7 @@
   background-image:
     radial-gradient(ellipse 55% 60% at 20% 40%, rgba(255, 255, 255, 0.7) 0%, transparent 75%),
     radial-gradient(circle at 5% 90%, rgba(193, 145, 94, 0.08) 0%, transparent 60%);
-  color: #184343;
+  color: #0E3B28;
   padding: clamp(4.5rem, 8vh, 7rem) 0;
   overflow: hidden;
 }
@@ -59,7 +59,7 @@
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.015em;
-  color: #184343;
+  color: #0E3B28;
 }
 
 .who-title__mid {
@@ -125,7 +125,7 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.78rem 1.65rem;
-  background: #184343;
+  background: #0E3B28;
   border: 1px solid rgba(193, 145, 94, 0.55);
   color: var(--color-champagne);
   font-family: var(--font-subtitle), sans-serif;
@@ -139,7 +139,7 @@
 }
 
 .who-more-btn:hover {
-  background: #184343;
+  background: #0E3B28;
   color: #ffffff;
   border-color: var(--color-champagne);
   box-shadow: 0 6px 20px rgba(24, 67, 67, 0.28);
@@ -216,7 +216,7 @@
   z-index: 2;
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: #184343;
+  background: #0E3B28;
   overflow: hidden;
   border: 1px solid rgba(193, 145, 94, 0.4);
   box-shadow:
