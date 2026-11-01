@@ -84,17 +84,17 @@ export default function SiteFooter() {
         </div>
 
         {/* =================================================================
-            MIDDLE TIER: 4 Organized, Symmetrical Columns
+            MIDDLE TIER: 3 Organized, Symmetrical Columns
             ================================================================= */}
         <div className="site-footer__matrix">
-          {/* Column 1: Ateliers & Salons */}
+          {/* Column 1: Ateliers & Stores */}
           <div className="site-footer__col site-footer__col--ateliers">
-            <h3 className="site-footer__heading">ATELIERS &amp; SALONS</h3>
+            <h3 className="site-footer__heading">ATELIERS &amp; STORES</h3>
             <div className="site-footer__salons-wrap">
               <div className="site-footer__salon-item">
                 <div className="site-footer__salon-title-wrap">
                   <PinIcon />
-                  <strong>Jaipur Flagship Salon</strong>
+                  <strong>Jaipur Flagship Store</strong>
                 </div>
                 <p className="site-footer__salon-desc">
                   N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd, Jaipur 302001, India
@@ -138,19 +138,7 @@ export default function SiteFooter() {
             </ul>
           </div>
 
-          {/* Column 3: The Maison Heritage */}
-          <div className="site-footer__col">
-            <h3 className="site-footer__heading">THE MAISON</h3>
-            <ul className="site-footer__nav-list">
-              <li><Link href="/about" prefetch={false}>Our Sixty-Year Heritage</Link></li>
-              <li><Link href="/about#legacy" prefetch={false}>Jaipur Gemological Mastery</Link></li>
-              <li><Link href="/about" prefetch={false}>Certified Ethical Sourcing</Link></li>
-              <li><Link href="/contact" prefetch={false}>Private Salon Appointment</Link></li>
-              <li><Link href="/about" prefetch={false}>Master Goldsmith Craft</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Client Services & Policies */}
+          {/* Column 3: Client Services & Policies */}
           <div className="site-footer__col">
             <h3 className="site-footer__heading">CLIENT SERVICES</h3>
             <ul className="site-footer__nav-list">
@@ -161,12 +149,12 @@ export default function SiteFooter() {
               <li><Link href="/terms" prefetch={false}>Terms of Service</Link></li>
               <li>
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/unifinejewelry.gram"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="site-footer__social-link"
                 >
-                  Follow on Instagram
+                  Follow on Instagram (@unifinejewelry.gram)
                 </a>
               </li>
             </ul>
@@ -180,7 +168,7 @@ export default function SiteFooter() {
           <div className="site-footer__gazette-copy">
             <span className="site-footer__gazette-tag">THE PRIVATE GAZETTE</span>
             <p className="site-footer__gazette-text">
-              Join our private list to receive exclusive salon invitations, gemstone monographs, and bespoke previews.
+              Join our private list to receive exclusive store invitations, gemstone monographs, and bespoke previews.
             </p>
           </div>
 

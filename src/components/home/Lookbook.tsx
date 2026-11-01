@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
 import "./Lookbook.css";
 
-const PHOTO = "/images/jewellery-hero-v2.jpg";
+const PHOTO = "/images/jewellery-hero.jpg";
 
 type Face =
   | {
@@ -54,7 +54,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/collection-necklaces-v2.jpg",
+      src: "/images/collection-necklaces.jpg",
       position: "center 40%",
       alt: "Emerald collar necklace",
       title: "A collar, made to be kept",
@@ -69,7 +69,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/collection-rings.jpg",
+      src: "/images/Ring.jpg",
       position: "center 45%",
       alt: "Emerald ring",
       title: "Set close to the hand",
@@ -96,7 +96,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/collection-earrings.jpg",
+      src: "/images/Earings.jpg",
       position: "center 40%",
       alt: "Emerald drop earring",
       title: "Earrings that catch the light",
@@ -111,7 +111,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/collection-bracelets.jpg",
+      src: "/images/bracelets.jpg",
       position: "center 50%",
       alt: "Emerald bracelet",
       title: "Links that follow the wrist",
@@ -129,7 +129,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/jewellery/about-us-editorial.jpg",
+      src: "/images/aboutHero.jpg",
       position: "center 35%",
       alt: "Emerald jewellery worn at the neck",
       title: "Made to be worn",
@@ -159,7 +159,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/collection-necklaces-v2.jpg",
+      src: "/images/collection-necklaces.jpg",
       position: "center 42%",
       alt: "Emerald earrings and collar necklace",
       title: "The last page",

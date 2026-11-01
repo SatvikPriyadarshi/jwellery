@@ -272,7 +272,7 @@ export default function ProductDetailClient({
               </a>
 
               <p className="text-[11px] font-sans text-stone-500 text-center tracking-wide mt-0.5">
-                Private salon viewings in Jaipur & Kuala Lumpur or virtual video appointments available.
+                Private store viewings in Jaipur & Kuala Lumpur or virtual video appointments available.
               </p>
 
               {/* 4 Luxury Atelier Assurances */}

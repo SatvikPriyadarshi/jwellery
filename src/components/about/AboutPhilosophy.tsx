@@ -161,8 +161,8 @@ export default function AboutPhilosophy() {
 
             <div className="lg:col-span-4 relative aspect-[4/5] sm:aspect-square max-w-none lg:max-w-[320px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#184343]">
               <Image
-                src="/images/jewellery/double-strand-necklace.jpg"
-                alt="Exquisite double strand diamond and gemstone necklace"
+                src="/images/IndestructibleUnconquerable.jpg"
+                alt="Adamas - Indestructible and unconquerable diamond and gemstone creations"
                 fill
                 sizes="(max-width: 1024px) 100vw, 320px"
                 className="object-cover transition-transform duration-700 hover:scale-105"

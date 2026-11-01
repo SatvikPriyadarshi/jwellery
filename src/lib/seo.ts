@@ -26,7 +26,7 @@ export const SITE_CONFIG = {
   email: "concierge@unifinejewelry.com",
   phone: "+91 75680 42023",
   social: {
-    instagram: "https://instagram.com/unifinejewelry",
+    instagram: "https://instagram.com/unifinejewelry.gram",
   },
   locations: [
     {

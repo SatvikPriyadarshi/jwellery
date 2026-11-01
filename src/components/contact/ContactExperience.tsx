@@ -334,7 +334,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 </svg>
               </span>
               <div className="contact-detail-row__body">
-                <p className="contact-detail-row__label">JAIPUR OFFICE &amp; SALON</p>
+                <p className="contact-detail-row__label">JAIPUR OFFICE &amp; STORE</p>
                 <address className="contact-detail-row__address">
                   N K Towers, Purohit Ji Ka Bagh, Mirza Ismail Rd,<br />
                   Jaipur, Rajasthan 302001, India
@@ -391,7 +391,7 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
                 <p className="contact-detail-row__label">HOURS &amp; APPOINTMENTS</p>
                 <p className="contact-detail-row__address">
                   Monday – Saturday: 10:30 AM – 7:30 PM IST <br />
-                  <span className="text-[12px] text-[#727c73]">Private Salon Viewings by Appointment</span>
+                  <span className="text-[12px] text-[#727c73]">Private Store Viewings by Appointment</span>
                 </p>
               </div>
             </div>
@@ -428,12 +428,13 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
               <div className="contact-detail-row__body">
                 <p className="contact-detail-row__label">FOLLOW US</p>
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/unifinejewelry.gram"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-detail-row__link"
+                  aria-label="Follow Uni Fine Jewelry on Instagram @unifinejewelry.gram"
                 >
-                  <span>Instagram</span>
+                  <span>@unifinejewelry.gram</span>
                 </a>
               </div>
             </div>

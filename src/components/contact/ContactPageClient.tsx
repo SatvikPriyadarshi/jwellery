@@ -20,7 +20,7 @@ export default function ContactPageClient() {
       {/* Main Contact Experience & Direct Consultation Form */}
       <ContactExperience ref={experienceRef} />
 
-      {/* Flagship Jaipur Atelier & Salon Map Showcase */}
+      {/* Flagship Jaipur Atelier & Store Map Showcase */}
       <ContactAtelierMap />
 
       {/* Shared Global Footer */}

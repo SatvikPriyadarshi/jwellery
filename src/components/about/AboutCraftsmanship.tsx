@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -168,18 +167,6 @@ export default function AboutCraftsmanship() {
                 The Four Pillars of Mastery
               </span>
             </h2>
-          </div>
-
-          <div className="pillars-header__narrative">
-            <p className="pillars-narrative-text">
-              Our heritage is our foundation, our expertise is our strength, and
-              our commitment to excellence guides everything we do. Every stage of
-              our evolution has been shaped by a deep respect for the materials we
-              work with and the people who place their trust in us.
-            </p>
-            <Link href="#who-we-are" prefetch={false} className="pillars-story-link">
-              <span>SEE OUR STORY</span>
-            </Link>
           </div>
         </header>
 

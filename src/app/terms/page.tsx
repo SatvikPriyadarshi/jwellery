@@ -68,7 +68,7 @@ export default function TermsPage() {
               3. Complimentary Sizing &amp; Inspection
             </h2>
             <p>
-              All rings include one complimentary bespoke sizing adjustment within six months of acquisition. Clients enjoy lifetime annual cleaning and microscopic prong inspection at our salons.
+              All rings include one complimentary bespoke sizing adjustment within six months of acquisition. Clients enjoy lifetime annual cleaning and microscopic prong inspection at our stores.
             </p>
           </section>
 

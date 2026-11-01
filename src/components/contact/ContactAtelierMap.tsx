@@ -5,17 +5,17 @@ export default function ContactAtelierMap() {
     <section
       id="atelier-map"
       className="contact-map-section"
-      aria-label="Visit Our Jaipur Atelier & Salon"
+      aria-label="Visit Our Jaipur Atelier & Store"
     >
       <div className="contact-map-container">
         {/* Centered Editorial Header */}
         <div className="contact-map-header">
           <div className="contact-map-header__eyebrow-wrap">
-            <p className="contact-map-header__eyebrow">ATELIER LOCATION · JAIPUR, INDIA</p>
+            <p className="contact-map-header__eyebrow">STORE LOCATION · JAIPUR, INDIA</p>
           </div>
 
           <h2 className="contact-map-header__title">
-            Visit Our Jaipur Salon
+            Visit Our Jaipur Store
           </h2>
 
           <address className="contact-map-header__address">

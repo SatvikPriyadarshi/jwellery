@@ -73,7 +73,7 @@ export default function ContactStudio() {
         <div className="contact-studio__copy">
           <p className="contact-studio__eyebrow">VISIT US IN JAIPUR</p>
 
-          <h2 className="contact-studio__title">Jaipur Office &amp; Salon</h2>
+          <h2 className="contact-studio__title">Jaipur Office &amp; Store</h2>
 
           <p className="contact-studio__desc">
             We welcome clients to our Jaipur office for collection viewings,
@@ -112,7 +112,7 @@ export default function ContactStudio() {
           <div className="contact-studio__image-frame">
             <Image
               src="/images/contact/jaipur-showroom.jpg"
-              alt="Uni Fine Jewelry private salon and consultation lounge in Jaipur with floral display and brand emblem"
+              alt="Uni Fine Jewelry private store and consultation lounge in Jaipur with floral display and brand emblem"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
               className="contact-studio__img"

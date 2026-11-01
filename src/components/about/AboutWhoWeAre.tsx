@@ -139,8 +139,8 @@ export default function AboutWhoWeAre() {
           {/* Main Editorial High-Jewelry Photograph */}
           <div className="who-main-frame">
             <Image
-              src="/images/jewellery/about-us-editorial.jpg"
-              alt="High jewelry emerald earrings, ring, and bracelet worn with dark velvet gown"
+              src="/images/FamilyDevotion.jpg"
+              alt="Uni Fine Jewelry master craftsmanship and family devotion to fine jewelry"
               fill
               priority
               sizes="(max-width: 900px) 100vw, 48vw"

@@ -101,7 +101,7 @@
 
 .site-footer__matrix {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: clamp(2rem, 3.8vw, 3.5rem);
   align-items: start;
 }

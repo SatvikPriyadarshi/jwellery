@@ -163,9 +163,9 @@ export default function SiteNav({
 
           <div className="site-menu-aside">
             <div>
-              <h4>Private Salons</h4>
+              <h4>Private Stores</h4>
               <p>Jaipur Atelier &bull; Purohit Ji Ka Bagh, M.I. Road</p>
-              <p>Kuala Lumpur Salon &bull; Menara Mutiara Bangsar</p>
+              <p>Kuala Lumpur Store &bull; Menara Mutiara Bangsar</p>
             </div>
             <div>
               <h4>Direct Inquiries</h4>
