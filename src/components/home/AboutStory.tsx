@@ -243,7 +243,7 @@ export default function AboutStory() {
           </figure>
           <figure className="about-photo">
             <Image
-              src="/images/jewellery/about-us-editorial.jpg"
+              src="/images/aboutHero.jpg"
               alt="Emerald and diamond earrings, ring, and bracelet worn with deep green velvet"
               fill
               sizes="(max-width: 900px) 100vw, 48vw"
@@ -259,7 +259,7 @@ export default function AboutStory() {
         <div className="about-mob-hero">
           <div className="about-mob-hero__media">
             <Image
-              src="/images/jewellery/about-us-editorial.jpg"
+              src="/images/aboutHero.jpg"
               alt="Model wearing emerald earrings, ring, and bracelet with emerald velvet dress"
               fill
               priority
