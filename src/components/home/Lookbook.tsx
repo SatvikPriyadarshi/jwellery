@@ -55,7 +55,7 @@ const spreads: { left: Face; right: Face }[] = [
     right: {
       kind: "photo",
       src: "/images/collection-necklaces.jpg",
-      position: "center 40%",
+      position: "25% 40%",
       alt: "Emerald collar necklace",
       title: "A collar, made to be kept",
     },
@@ -160,7 +160,7 @@ const spreads: { left: Face; right: Face }[] = [
     right: {
       kind: "photo",
       src: "/images/collection-necklaces.jpg",
-      position: "center 42%",
+      position: "25% 42%",
       alt: "Emerald earrings and collar necklace",
       title: "The last page",
     },
