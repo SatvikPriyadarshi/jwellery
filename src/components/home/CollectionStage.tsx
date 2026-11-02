@@ -32,7 +32,7 @@ const slides: CollectionSlide[] = [
     href: "/shop?category=Rings",
     image: "/images/Ring.jpg",
     squarePosition: "45% 50%",
-    circlePosition: "44% 52%",
+    circlePosition: "62% 48%",
     bgColor: "#0E1824",
     accentColor: "#C5A059",
     surfaceColor: "#172331",
@@ -156,7 +156,7 @@ export default function CollectionStage() {
 
       if (reduce) return;
 
-      const isMobile = window.innerWidth < 768;
+      const isMobile = window.innerWidth <= 960;
       // Natural responsive scrub: quick and natural tracking without dragging lag
       const scrubSpeed = isMobile ? 0.7 : 0.9;
       // Normal scroll distance: 3.0x desktop / 2.2x mobile keeps scroll fast & fluid

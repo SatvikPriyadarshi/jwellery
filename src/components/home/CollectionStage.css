@@ -349,12 +349,26 @@
     box-shadow 0.6s ease;
 }
 
-.cs-media-square:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow:
-    0 42px 100px -10px rgba(0, 0, 0, 0.8),
-    0 0 70px 0 var(--gem-glow, rgba(193, 145, 94, 0.45)),
-    0 0 130px -10px var(--gem-glow, rgba(193, 145, 94, 0.35));
+@media (hover: hover) and (pointer: fine) {
+  .cs-media-square:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+      0 42px 100px -10px rgba(0, 0, 0, 0.8),
+      0 0 70px 0 var(--gem-glow, rgba(193, 145, 94, 0.45)),
+      0 0 130px -10px var(--gem-glow, rgba(193, 145, 94, 0.35));
+  }
+
+  .cs-media-square:hover .cs-media-square__img {
+    transform: scale(1.045);
+  }
+
+  .cs-media-circle:hover {
+    transform: scale(1.08) translateY(-4px);
+    box-shadow:
+      0 34px 85px rgba(0, 0, 0, 0.8),
+      0 0 60px var(--gem-glow, rgba(193, 145, 94, 0.55)),
+      inset 0 0 0 1.5px rgba(255, 255, 255, 0.7);
+  }
 }
 
 .cs-media-square__inner {
@@ -373,10 +387,6 @@
   object-fit: cover;
   display: block;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.cs-media-square:hover .cs-media-square__img {
-  transform: scale(1.045);
 }
 
 .cs-media-circle {
@@ -404,14 +414,6 @@
   transition:
     transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.6s ease;
-}
-
-.cs-media-circle:hover {
-  transform: scale(1.08) translateY(-4px);
-  box-shadow:
-    0 34px 85px rgba(0, 0, 0, 0.8),
-    0 0 60px var(--gem-glow, rgba(193, 145, 94, 0.55)),
-    inset 0 0 0 1.5px rgba(255, 255, 255, 0.7);
 }
 
 .cs-media-circle::after {
@@ -655,16 +657,18 @@
   .cs-topbar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.55rem;
-    padding: 0.95rem var(--mobile-gutter, 1.15rem) 0.65rem;
+    gap: 0.45rem;
+    padding: clamp(0.75rem, 2svh, 1rem) var(--mobile-gutter, 1.15rem) 0.5rem;
   }
 
   .cs-topbar__eyebrow {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
   }
 
   .cs-topbar__title {
-    font-size: 1.45rem;
+    font-size: clamp(1.35rem, 4.2vw, 1.65rem);
+    line-height: 1.1;
   }
 
   .cs-nav {
@@ -674,6 +678,7 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    padding-bottom: 0.25rem;
   }
 
   .cs-nav::-webkit-scrollbar {
@@ -684,105 +689,197 @@
     flex: 0 0 auto;
     font-size: 0.62rem;
     letter-spacing: 0.14em;
-    min-height: 38px;
+    min-height: 36px;
     padding: 0.25rem 0.5rem;
   }
 
   .cs-nav__item::after {
-    bottom: -0.65rem;
+    bottom: -0.45rem;
   }
 
   .cs-slide__layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 0.65rem;
-    padding: 5.25rem 0 3.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: clamp(5.4rem, 13svh, 6.4rem) var(--mobile-gutter, 1.15rem) clamp(3.2rem, 8svh, 4rem);
+    box-sizing: border-box;
+    gap: 0;
   }
 
   .cs-slide__visual {
-    grid-row: 1 / 2;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: min(34svh, 230px);
-    min-height: 150px;
+    flex: 0 0 auto;
+    height: clamp(190px, 32svh, 245px);
+    margin: 0;
   }
 
   .cs-media-pair {
-    width: 100%;
+    position: relative;
+    width: min(88vw, 310px);
     height: 100%;
-    min-height: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   .cs-media-square {
-    width: auto;
-    height: 100%;
+    width: clamp(185px, 54vw, 220px);
+    height: clamp(185px, 54vw, 220px);
     aspect-ratio: 1 / 1;
-    max-width: min(72vw, 230px);
-    margin: 0 auto;
-    padding: 3px;
-    border-radius: 16px;
+    margin: 0;
+    margin-right: clamp(2rem, 7vw, 3.2rem);
+    padding: 2.5px;
+    border-radius: 20px;
     background: linear-gradient(
       135deg,
       rgba(250, 230, 185, 0.95) 0%,
-      rgba(195, 150, 85, 0.55) 30%,
+      rgba(195, 150, 85, 0.6) 28%,
+      rgba(135, 95, 45, 0.25) 50%,
       rgba(255, 238, 195, 0.95) 75%,
-      rgba(180, 135, 70, 0.6) 100%
+      rgba(180, 135, 70, 0.65) 100%
     );
     box-shadow:
-      0 16px 40px rgba(0, 0, 0, 0.6),
-      0 0 30px var(--gem-glow, rgba(193, 145, 94, 0.3));
+      0 22px 55px -10px rgba(0, 0, 0, 0.8),
+      0 0 35px -5px var(--gem-glow, rgba(193, 145, 94, 0.35));
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
 
   .cs-media-square__inner {
-    border-radius: 13px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 17.5px;
+    overflow: hidden;
+    background: var(--cs-surface, #0E3B28);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+      inset 0 0 24px rgba(0, 0, 0, 0.4);
   }
 
+  .cs-media-square__img {
+    object-fit: cover;
+    display: block;
+  }
+
+  /* The Signature Jeweler's Loupe Circle on Mobile - fully restored & exquisitely framed */
   .cs-media-circle {
-    display: none;
+    display: block !important;
+    position: absolute;
+    right: 0.35rem;
+    bottom: -0.35rem;
+    z-index: 3;
+    width: clamp(92px, 27vw, 118px);
+    height: clamp(92px, 27vw, 118px);
+    aspect-ratio: 1 / 1;
+    padding: 2.5px;
+    border-radius: 50%;
+    background: linear-gradient(
+      145deg,
+      #fae2ad 0%,
+      #caa05a 28%,
+      #7d521c 52%,
+      #fde7b7 78%,
+      #b58235 100%
+    );
+    box-shadow:
+      0 18px 45px rgba(0, 0, 0, 0.85),
+      0 0 32px var(--gem-glow, rgba(193, 145, 94, 0.45)),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .cs-media-circle::after {
+    content: "";
+    position: absolute;
+    inset: 2.5px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.05) 38%,
+      transparent 60%
+    );
+    z-index: 4;
+  }
+
+  .cs-media-circle__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--cs-surface, #0E3B28);
+    box-shadow:
+      inset 0 0 18px rgba(0, 0, 0, 0.55),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .cs-media-circle__img {
+    object-fit: cover;
+    display: block;
+    transform: scale(1.42);
+    transform-origin: center;
   }
 
   .cs-slide__text {
-    grid-row: 2 / 3;
     max-width: 100%;
     padding: 0 var(--mobile-gutter, 1.15rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    flex: 0 0 auto;
+    margin-top: 0.25rem;
   }
 
   .cs-slide__category {
-    font-size: clamp(2.1rem, 10vw, 3.1rem);
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
     font-weight: 700;
-    line-height: 1.15;
-    padding-bottom: 0.15em;
+    line-height: 1.12;
+    padding-bottom: 0.12em;
     overflow: visible;
   }
 
   .cs-slide__copy {
-    margin-top: 0.4rem;
-    max-width: 24rem;
-    font-size: clamp(0.92rem, 3.3vw, 1.15rem);
+    margin-top: 0.25rem;
+    max-width: 22rem;
+    font-size: clamp(0.92rem, 3.4vw, 1.08rem);
+    line-height: 1.45;
+    font-style: italic;
+    color: #e5c59e;
   }
 
   .cs-slide__note {
-    margin-top: 0.45rem;
-    padding-top: 0.45rem;
+    margin-top: 0.4rem;
+    padding-top: 0;
     font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c1915e;
+    opacity: 0.9;
   }
 
   .cs-slide__cta {
     align-self: center;
-    margin-top: 0.65rem;
-    font-size: 0.7rem;
+    margin-top: 0.55rem;
+    padding-bottom: 0.2rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    border-bottom: 1px solid var(--cs-accent);
   }
 
   .cs-bottombar {
     left: var(--mobile-gutter, 1.15rem);
     right: var(--mobile-gutter, 1.15rem);
-    bottom: 0.85rem;
+    bottom: clamp(0.65rem, 2svh, 1rem);
     justify-content: center;
   }
 
@@ -795,6 +892,47 @@
 
   .cs-bottombar__hint {
     display: none;
+  }
+}
+
+/* Compact Mobile Screens (< 720px height) */
+@media (max-width: 960px) and (max-height: 720px) {
+  .cs-slide__layout {
+    padding: 4.6rem var(--mobile-gutter, 1rem) 2.8rem;
+  }
+
+  .cs-slide__visual {
+    height: 180px;
+  }
+
+  .cs-media-square {
+    width: 165px;
+    height: 165px;
+    margin-right: 2rem;
+  }
+
+  .cs-media-circle {
+    width: 86px;
+    height: 86px;
+  }
+
+  .cs-slide__category {
+    font-size: 1.85rem;
+  }
+
+  .cs-slide__copy {
+    font-size: 0.88rem;
+    margin-top: 0.15rem;
+  }
+
+  .cs-slide__note {
+    margin-top: 0.25rem;
+    font-size: 0.58rem;
+  }
+
+  .cs-slide__cta {
+    margin-top: 0.35rem;
+    font-size: 0.64rem;
   }
 }
 
