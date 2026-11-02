@@ -9,6 +9,32 @@
     clamp(0.75rem, 1.6vh, 1.25rem);
   background: var(--color-ivory);
   color: var(--color-charcoal);
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+.pj-section ::selection {
+  background: #0E3B28 !important;
+  color: #ffffff !important;
+}
+
+.pj-section ::-moz-selection {
+  background: #0E3B28 !important;
+  color: #ffffff !important;
+}
+
+.pj-heading,
+.pj-heading__left,
+.pj-eyebrow,
+.pj-title,
+.pj-view-all,
+.pj-card__info,
+.pj-card__name,
+.pj-card__category,
+.pj-card__price,
+.pj-card__badge {
+  user-select: text !important;
+  -webkit-user-select: text !important;
 }
 
 .pj-heading {
@@ -97,6 +123,8 @@
   background: #0E3B28;
   text-decoration: none;
   color: #c1915e;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .pj-card__link:focus-visible {
@@ -108,6 +136,9 @@
   object-fit: cover;
   object-position: center 35%;
   will-change: transform;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
 
 /* Bottom dark vignette like reference cards */
@@ -173,10 +204,12 @@
 
 .pj-card__category {
   margin: 0.15rem 0 0;
-  color: color-mix(in srgb, #c1915e 65%, transparent);
+  color: #d8af7a;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.68rem;
-  font-weight: 300;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .pj-card__rule {
@@ -184,16 +217,17 @@
   width: 2.25rem;
   height: 1px;
   margin: 0.45rem 0;
-  background: color-mix(in srgb, var(--color-champagne) 45%, transparent);
+  background: color-mix(in srgb, var(--color-champagne) 60%, transparent);
 }
 
 .pj-card__price {
   margin: 0;
-  color: #c1915e;
+  color: #e5c59e;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.74rem;
   font-weight: 400;
   letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .pj-card__arrow {

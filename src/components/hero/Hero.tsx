@@ -73,10 +73,10 @@ export default function Hero() {
               fontSize={360}
               lineHeight={0.9}
               letterSpacing={0}
-              colors={["#F7F3EA", "#F6E2B8"]}
-              sheen={1.2}
-              gloss={0.6}
-              iridescence={0.35}
+              colors={["#c1915e", "#c1915e"]}
+              sheen={0.9}
+              gloss={0.5}
+              iridescence={0}
               wind={0.8}
               windAngle={-15}
               turbulence={0.4}
@@ -86,7 +86,11 @@ export default function Hero() {
               intro={true}
               introDuration={1.8}
               className="hero__mesh-lettering"
-            />
+            >
+              <span className="hero__copyable-title">
+                Bespoke designs for unique moments
+              </span>
+            </MeshLettering>
           </div>
         </div>
       </div>

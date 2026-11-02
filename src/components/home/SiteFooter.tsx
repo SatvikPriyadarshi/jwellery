@@ -207,8 +207,6 @@ export default function SiteFooter() {
             <span>JAIPUR</span>
             <span className="site-footer__dot" aria-hidden="true">·</span>
             <span>KUALA LUMPUR</span>
-            <span className="site-footer__dot" aria-hidden="true">·</span>
-            <span>GENEVA</span>
           </div>
 
           <button

@@ -114,7 +114,41 @@ label {
   }
 }
 
+/* Ensure text across all sections is freely selectable and copyable */
+html,
+body,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+a,
+div,
+blockquote,
+article,
+section {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Prevent native image/link ghost drag from blocking text selection */
+a,
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* High-contrast, radiant luxury gold text selection */
 ::selection {
-  background: color-mix(in srgb, var(--color-champagne) 35%, transparent);
-  color: #c1915e;
+  background: #c1915e !important;
+  color: #ffffff !important;
+}
+
+::-moz-selection {
+  background: #c1915e !important;
+  color: #ffffff !important;
 }

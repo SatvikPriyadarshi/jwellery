@@ -16,6 +16,7 @@ export interface JewelryProduct {
   image: string;
   priceLabel: string;
   badge?: string;
+  imagePosition?: string;
 }
 
 const products: JewelryProduct[] = [
@@ -23,30 +24,34 @@ const products: JewelryProduct[] = [
     name: "The Drop Emerald And Diamond",
     category: "Earrings",
     href: "#collection-earrings",
-    image: "/images/jewellery/drop-emerald-earrings.jpg",
+    image: "/images/TheDropEmeraldAndDiamond.jpg",
     priceLabel: "Contact for Pricing",
     badge: "Bestseller",
+    imagePosition: "center 45%",
   },
   {
     name: "Classic Diamond Tennis",
     category: "Bracelet",
     href: "#collection-bracelets",
-    image: "/images/jewellery/diamond-tennis-bracelet.jpg",
+    image: "/images/ClassicDiamondTennis.jpg",
     priceLabel: "Contact for Pricing",
+    imagePosition: "center 50%",
   },
   {
     name: "Multicolor Tourmaline",
     category: "Necklace",
     href: "#collection-necklaces",
-    image: "/images/jewellery/tourmaline-necklace.jpg",
+    image: "/images/MulticolorTourmaline.jpg",
     priceLabel: "Contact for Pricing",
+    imagePosition: "center 48%",
   },
   {
     name: "Elegant Double-Strand",
     category: "Necklace",
     href: "#collection-necklaces",
-    image: "/images/jewellery/double-strand-necklace.jpg",
+    image: "/images/IndestructibleUnconquerable.jpg",
     priceLabel: "Contact for Pricing",
+    imagePosition: "center 45%",
   },
 ];
 
@@ -196,6 +201,11 @@ export default function PopularJewelry() {
                 fill
                 sizes="(max-width: 720px) 50vw, (max-width: 1024px) 46vw, 24vw"
                 className="pj-card__img"
+                style={
+                  product.imagePosition
+                    ? { objectPosition: product.imagePosition }
+                    : undefined
+                }
               />
 
               <span className="pj-card__scrim" aria-hidden="true" />

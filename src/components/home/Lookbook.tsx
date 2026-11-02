@@ -15,7 +15,15 @@ type Face =
       note?: string;
       logo?: boolean;
     }
-  | { kind: "photo"; src: string; position: string; alt: string; title?: string }
+  | {
+      kind: "photo";
+      src: string;
+      position: string;
+      alt: string;
+      title?: string;
+      suite?: string;
+      specs?: string;
+    }
   | {
       kind: "story";
       title: string;
@@ -34,148 +42,174 @@ const spreads: { left: Face; right: Face }[] = [
     left: {
       kind: "cover",
       folio: "1 2",
-      title: "The latest in emerald and diamond",
+      title: "The High Jewellery Folio",
+      note: "Zambian Emeralds, Rare Gemstones & Heirlooms Since 1965",
       logo: true,
     },
     right: {
       kind: "photo",
-      src: "/images/jewellery/lookbook-portrait.jpg",
-      position: "center 30%",
-      alt: "Emerald necklace, earrings, and ring",
-      title: "Custom-made especially for you",
+      src: "/images/jewellery-hero.jpg",
+      position: "center 22%",
+      alt: "High jewellery emerald and diamond collar necklace statement suite",
+      title: "Bespoke creations for unique moments",
+      suite: "Grand High Jewellery Folio",
+      specs: "Hand-selected natural Zambian emeralds, brilliant-cut diamonds, mounted in platinum and 18k yellow gold.",
     },
   },
   {
     left: {
       kind: "story",
-      title: "The Emerald Suite",
-      copy: "A collar of Colombian emeralds and brilliant diamonds, sculpted to sit close to the skin and catch the light with every movement.",
-      position: "62% 18%",
+      title: "The Royal Emerald Suite",
+      copy: "Selected for extraordinary green saturation and natural crystal clarity, each Zambian emerald is cut by hand in our atelier to preserve its inner fire. Outlined in micro-pavé diamonds, this suite embodies sixty years of lapidary distinction.",
+      position: "50% 50%",
     },
     right: {
       kind: "photo",
-      src: "/images/collection-necklaces.jpg",
-      position: "25% 40%",
-      alt: "Emerald collar necklace",
-      title: "A collar, made to be kept",
+      src: "/images/TheDropEmeraldAndDiamond.jpg",
+      position: "center 45%",
+      alt: "Pear-cut Zambian emerald drop earrings framed in halo diamonds",
+      title: "Sculpted for radiant movement",
+      suite: "The Royal Emerald Suite",
+      specs: "Pear-cut Zambian emerald drop earrings outlined in dual-tier pavé halo diamonds.",
     },
   },
   {
     left: {
       kind: "cover",
-      folio: "4 5",
-      title: "Pieces made to be kept",
-      note: "Gold, emerald, and diamond",
+      folio: "5 6",
+      title: "Pieces sculpted to be kept",
+      note: "Zambian emerald, 18k yellow gold, and brilliant diamonds",
     },
     right: {
       kind: "photo",
       src: "/images/Ring.jpg",
-      position: "center 45%",
-      alt: "Emerald ring",
+      position: "center 48%",
+      alt: "Emerald-cut Zambian emerald ring with diamond halo in 18k gold",
       title: "Set close to the hand",
+      suite: "Emerald Solitaire Halo",
+      specs: "Octagonal step-cut Zambian emerald in an 18k gold cathedral setting with micro-pavé band.",
     },
   },
   {
     left: {
       kind: "columns",
-      folio: "6 7",
+      folio: "7 8",
       items: [
         {
-          title: "Timeless",
-          copy: "Classic stones, set to be worn long after the season.",
+          title: "Adamas",
+          copy: "From the ancient Greek for unconquerable—diamonds and gemstones chosen for enduring resilience.",
         },
         {
-          title: "Ingenious",
-          copy: "Settings shaped by hand, balanced for light and wear.",
+          title: "Burmese Rubies",
+          copy: "Deep crimson corundum, each stone graduated and matched by hue and saturation.",
         },
         {
-          title: "Precious",
-          copy: "Emerald, diamond, and gold finished as heirlooms.",
+          title: "Articulated Pavé",
+          copy: "Platinum and gold settings articulated to rest smoothly along the décolletage.",
         },
       ],
     },
     right: {
       kind: "photo",
-      src: "/images/Earings.jpg",
-      position: "center 40%",
-      alt: "Emerald drop earring",
-      title: "Earrings that catch the light",
+      src: "/images/IndestructibleUnconquerable.jpg",
+      position: "center 45%",
+      alt: "Graduated ruby and brilliant diamond collar necklace",
+      title: "Indestructible & unconquerable",
+      suite: "Burmese Ruby & Adamas Suite",
+      specs: "Graduated Burmese rubies, articulated diamond pavé drops, platinum décolletage collar.",
     },
   },
   {
     left: {
       kind: "story",
-      title: "Cut in Jaipur",
-      copy: "Each stone is chosen, set, and finished in the workshop, then checked by hand before it leaves.",
-      position: "80% 70%",
+      title: "Rare Colored Gemstones",
+      copy: "Nature's spectrum captured in a single composition. Natural multicolor tourmalines, pink rubellites, and verdant beryls arranged with lustrous South Sea pearls, shaped into a festive cascade of joyful luxury.",
+      position: "50% 50%",
     },
     right: {
       kind: "photo",
-      src: "/images/bracelets.jpg",
+      src: "/images/MulticolorTourmaline.jpg",
+      position: "65% 48%",
+      alt: "Multicolor tourmaline festoon necklace with South Sea pearls",
+      title: "A symphony of natural colour",
+      suite: "Chromatic Tourmaline Suite",
+      specs: "Natural pink rubellite, verdant green tourmaline, beryls, and lustrous South Sea pearls.",
+    },
+  },
+  {
+    left: {
+      kind: "columns",
+      folio: "11 12",
+      items: [
+        {
+          title: "Fluid Links",
+          copy: "Individually hand-hinged links engineered for silk-like drape and effortless wrist movement.",
+        },
+        {
+          title: "Certified Diamonds",
+          copy: "Hand-selected stones rated D through F color and VS clarity for maximum scintillation.",
+        },
+        {
+          title: "Precious Metals",
+          copy: "18k yellow gold and platinum alloyed in-house for warmth and everlasting resilience.",
+        },
+      ],
+    },
+    right: {
+      kind: "photo",
+      src: "/images/ClassicDiamondTennis.jpg",
       position: "center 50%",
-      alt: "Emerald bracelet",
-      title: "Links that follow the wrist",
-    },
-  },
-  {
-    left: {
-      kind: "columns",
-      folio: "10 11",
-      items: [
-        { title: "Emerald", copy: "Deep green, cut to hold colour in daylight." },
-        { title: "Diamond", copy: "Small stones set to outline every emerald." },
-        { title: "Gold", copy: "A warm setting, finished smooth against the skin." },
-      ],
-    },
-    right: {
-      kind: "photo",
-      src: "/images/aboutHero.jpg",
-      position: "center 35%",
-      alt: "Emerald jewellery worn at the neck",
-      title: "Made to be worn",
+      alt: "Classic diamond and ruby tennis bracelet with articulated links",
+      title: "Grace that follows the wrist",
+      suite: "Articulated Tennis Suite",
+      specs: "Hand-hinged articulated platinum links, D-F color certified brilliant-cut diamonds and rubies.",
     },
   },
   {
     left: {
       kind: "story",
-      title: "The house of Uni",
-      copy: "A family workshop for custom pieces, care, and certificates, from Jaipur and Kuala Lumpur.",
-      position: "30% 55%",
+      title: "The Hands Behind Our Legacy",
+      copy: "Founded in Jaipur in 1965, the house of Uni brings together three generations of lapidary mastery and goldsmithing. From rough gemstone sourcing in Africa to precision faceting and custom mounting, every jewel carries our family's signature devotion.",
+      position: "50% 50%",
     },
     right: {
       kind: "photo",
-      src: "/images/jewellery/lookbook-portrait.jpg",
-      position: "center 28%",
-      alt: "Emerald suite worn together",
-      title: "Worn for a lifetime",
+      src: "/images/FamilyDevotion.jpg",
+      position: "center 42%",
+      alt: "Three generations of lapidary mastery and family craftsmanship in Jaipur atelier",
+      title: "Crafted with devotion since 1965",
+      suite: "Jaipur Atelier Heritage",
+      specs: "Three generations of lapidary faceting and goldsmithing in our Jaipur atelier.",
     },
   },
   {
     left: {
       kind: "cover",
-      folio: "14 15",
-      title: "Turn the page, then the next",
-      note: "Eight spreads in this book",
+      folio: "15 16",
+      title: "Heirlooms for generations to come",
+      note: "Catalogue Raisonné • Eight Curated Suites",
     },
     right: {
       kind: "photo",
       src: "/images/collection-necklaces.jpg",
       position: "25% 42%",
-      alt: "Emerald earrings and collar necklace",
-      title: "The last page",
+      alt: "Uni Fine Jewelry grand high jewellery heirloom necklace",
+      title: "Worn for a lifetime",
+      suite: "Catalogue Raisonné Statement Suite",
+      specs: "Masterpiece heirloom necklace, certified emeralds and diamonds crafted for private collections.",
     },
   },
 ];
 
 const chapters = [
   { page: 0, title: "Cover & Inscription", subtitle: "Hardcover Edition" },
-  { page: 1, title: "I. The Emerald Suite", subtitle: "High Jewellery (P. 1–2)" },
-  { page: 3, title: "II. Emerald Collar", subtitle: "Crafted to be Kept (P. 3–4)" },
-  { page: 5, title: "III. Rings & Stones", subtitle: "Set Close to the Hand (P. 5–6)" },
-  { page: 7, title: "IV. Drop Earrings & Craft", subtitle: "Three Pillars of Mastery (P. 7–8)" },
-  { page: 9, title: "V. Cut in Jaipur", subtitle: "Lapidary Precision (P. 9–10)" },
-  { page: 11, title: "VI. Precious Materials", subtitle: "Emerald, Diamond, Gold (P. 11–12)" },
-  { page: 13, title: "VII. House of Uni", subtitle: "Atelier Heritage (P. 13–14)" },
+  { page: 1, title: "I. The High Jewellery Folio", subtitle: "Grand Suite (P. 1–2)" },
+  { page: 3, title: "II. The Royal Emerald Suite", subtitle: "Zambian Mastery (P. 3–4)" },
+  { page: 5, title: "III. Rings of Distinction", subtitle: "Set for the Hand (P. 5–6)" },
+  { page: 7, title: "IV. Adamas & Rubies", subtitle: "Heirlooms of Fire (P. 7–8)" },
+  { page: 9, title: "V. Chromatic Tourmaline", subtitle: "Rare Colored Gems (P. 9–10)" },
+  { page: 11, title: "VI. Artisanal Goldsmithing", subtitle: "The Tennis Suite (P. 11–12)" },
+  { page: 13, title: "VII. Three Generations", subtitle: "Atelier Heritage (P. 13–14)" },
   { page: 15, title: "VIII. The Cherished Heirloom", subtitle: "Catalogue Raisonné (P. 15–16)" },
 ];
 
@@ -292,6 +326,8 @@ function FaceView({
   page: number;
   pages: number;
 }) {
+  const [showProvenance, setShowProvenance] = useState(false);
+
   if (face.kind === "cover") {
     return (
       <>
@@ -322,17 +358,79 @@ function FaceView({
 
   if (face.kind === "photo") {
     return (
-      <>
+      <div className="lookbook-photo-wrap">
         <Photo src={face.src} position={face.position} alt={face.alt} />
-        {face.title ? (
-          <div className="lookbook-gutter lookbook-gutter-right">
-            <h2>{face.title}</h2>
+        <div className="lookbook-photo-scrim" />
+
+        {/* Monograph Editorial Baseline Bar (Clean, integrated printed book margin) */}
+        <div className="lookbook-monograph-bar">
+          <div className="lookbook-monograph-left">
+            <span className="lookbook-monograph-mark">❖</span>
+            {face.title ? (
+              <span className="lookbook-monograph-title">{face.title}</span>
+            ) : null}
+
+            {face.specs ? (
+              <button
+                type="button"
+                className={`lookbook-provenance-btn ${showProvenance ? "lookbook-provenance-btn--active" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowProvenance((v) => !v);
+                }}
+                aria-label={showProvenance ? "Close provenance note" : "View jewelry provenance"}
+                title={showProvenance ? "Close details" : "View suite details"}
+              >
+                <span>✦ Provenance</span>
+              </button>
+            ) : null}
+          </div>
+
+          <span className="lookbook-monograph-page">
+            {page} / {pages}
+          </span>
+        </div>
+
+        {/* Interactive Atelier Provenance Card (revealed only on click) */}
+        {showProvenance && face.specs ? (
+          <div
+            className="lookbook-provenance-sheet"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="lookbook-provenance-header">
+              <div className="lookbook-provenance-tag">
+                <span>✦ ATELIER PROVENANCE</span>
+                {face.suite ? <span className="lookbook-provenance-suite">• {face.suite}</span> : null}
+              </div>
+              <button
+                type="button"
+                className="lookbook-provenance-close"
+                onClick={() => setShowProvenance(false)}
+                aria-label="Close provenance card"
+              >
+                ✕
+              </button>
+            </div>
+
+            <h3 className="lookbook-provenance-title">{face.title}</h3>
+            <p className="lookbook-provenance-specs">{face.specs}</p>
+
+            <div className="lookbook-provenance-footer">
+              <span className="lookbook-provenance-origin">Jaipur Atelier • Est. 1965</span>
+              <Link
+                href="/contact"
+                className="lookbook-provenance-inquire"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <span>Inquire with Concierge</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
         ) : null}
-        <span className="lookbook-page lookbook-page--right">
-          {page} / {pages}
-        </span>
-      </>
+      </div>
     );
   }
 

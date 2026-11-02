@@ -348,6 +348,14 @@
 }
 
 /* Interior Pages Content (Desktop) */
+.lookbook-photo-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .lookbook-photo {
   position: absolute;
   inset: 0;
@@ -355,6 +363,21 @@
 
 .lookbook-photo img {
   object-fit: cover;
+}
+
+.lookbook-photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 17, 14, 0.2) 0%,
+    rgba(6, 17, 14, 0.0) 30%,
+    rgba(6, 17, 14, 0.0) 65%,
+    rgba(6, 17, 14, 0.45) 85%,
+    rgba(6, 17, 14, 0.95) 100%
+  );
 }
 
 .lookbook-mark {
@@ -395,11 +418,6 @@
   text-shadow: 0 1px 2px rgba(24, 67, 67, 0.45);
 }
 
-.lookbook-page--right {
-  left: auto;
-  right: 1.1rem;
-}
-
 .lookbook-gutter {
   position: absolute;
   top: 50%;
@@ -411,16 +429,9 @@
 .lookbook-gutter-left {
   left: 50%;
   right: auto;
-  width: min(16rem, 78%);
+  width: min(18rem, 85%);
   text-align: center;
   transform: translate(-50%, -50%);
-}
-
-.lookbook-gutter-right {
-  right: 1.4rem;
-  left: auto;
-  width: min(9rem, 42%);
-  text-align: right;
 }
 
 .lookbook-gutter h2 {
@@ -429,16 +440,242 @@
   border: 0;
   color: #c1915e;
   font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
-  font-size: clamp(1.6rem, 2.4vw, 2.15rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.95rem);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
 }
 
 .lookbook-gutter p {
   margin: 0.7rem 0 0;
-  color: #c1915e;
+  color: #d8af7a;
   font-size: 0.95rem;
-  opacity: 0.7;
+  opacity: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* =============================================================
+   Monograph Editorial Baseline Bar (Printed Monograph Footer)
+   Clean, integrated into the page margin with ZERO floating boxes
+   ============================================================= */
+.lookbook-monograph-bar {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3.1rem;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  border-top: 1px solid rgba(193, 145, 94, 0.22);
+  background: linear-gradient(
+    to top,
+    rgba(7, 22, 18, 0.96) 0%,
+    rgba(7, 22, 18, 0.72) 65%,
+    rgba(7, 22, 18, 0.0) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: auto;
+}
+
+.lookbook-monograph-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.lookbook-monograph-mark {
+  color: #c1915e;
+  font-size: 0.75rem;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.lookbook-monograph-title {
+  color: #c1915e;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
+  font-size: clamp(0.92rem, 1.3vw, 1.15rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Interactive Provenance Button */
+.lookbook-provenance-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid rgba(193, 145, 94, 0.35);
+  border-radius: 12px;
+  background: rgba(193, 145, 94, 0.1);
+  color: #d8af7a;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.lookbook-provenance-btn:hover,
+.lookbook-provenance-btn--active {
+  background: rgba(193, 145, 94, 0.25);
+  border-color: #c1915e;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(193, 145, 94, 0.3);
+}
+
+.lookbook-monograph-page {
+  color: #d8af7a;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95);
+  flex-shrink: 0;
+}
+
+/* Interactive Atelier Provenance Card (revealed only on click) */
+.lookbook-provenance-sheet {
+  position: absolute;
+  z-index: 10;
+  left: 1rem;
+  right: 1rem;
+  bottom: 3.4rem;
+  padding: 1.1rem 1.35rem;
+  background: rgba(7, 22, 18, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(193, 145, 94, 0.38);
+  border-radius: 4px;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.8),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+  animation: lookbookProvenanceIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto;
+}
+
+@keyframes lookbookProvenanceIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lookbook-provenance-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(193, 145, 94, 0.2);
+}
+
+.lookbook-provenance-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #c1915e;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.lookbook-provenance-suite {
+  color: #d8af7a;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.lookbook-provenance-close {
+  padding: 0.2rem 0.4rem;
+  background: none;
+  border: none;
+  color: #c1915e;
+  font-size: 0.85rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.lookbook-provenance-close:hover {
+  color: #fff;
+  transform: scale(1.15);
+}
+
+.lookbook-provenance-title {
+  margin: 0.75rem 0 0.35rem;
+  color: #e5c59e;
+  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.lookbook-provenance-specs {
+  margin: 0 0 0.85rem;
+  color: #d8af7a;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.lookbook-provenance-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(193, 145, 94, 0.15);
+}
+
+.lookbook-provenance-origin {
+  color: #c1915e;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.lookbook-provenance-inquire {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #e5c59e;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.lookbook-provenance-inquire:hover {
+  color: #fff;
+  gap: 0.6rem;
 }
 
 .lookbook-story-page {
@@ -480,12 +717,13 @@
 .lookbook-story-copy {
   margin: 0;
   max-width: 24rem;
-  color: color-mix(in srgb, #c1915e 88%, transparent);
+  color: #e5c59e;
   font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
-  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.42rem);
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.58;
   font-style: italic;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
 }
 
 .lookbook-headline {
@@ -559,23 +797,23 @@
   gap: 1.4rem;
 }
 
-.lookbook-columns h3,
-.lookbook-columns p {
-  margin: 0;
-  color: #c1915e;
-}
-
 .lookbook-columns h3 {
+  margin: 0;
   font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
   font-size: 1.7rem;
   font-weight: 500;
+  color: #c1915e;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .lookbook-columns p {
-  max-width: 16rem;
-  font-size: 0.82rem;
-  line-height: 1.5;
-  opacity: 0.9;
+  margin: 0.35rem 0 0;
+  max-width: 17rem;
+  color: #e5c59e;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  opacity: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 /* Desktop Nav Buttons & Caption */
@@ -596,6 +834,9 @@
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.95),
+    0 0 10px rgba(0, 0, 0, 0.85);
 }
 
 .lookbook-caption-center {
@@ -799,8 +1040,8 @@
   margin: 0.25rem auto 0.75rem;
   perspective: 1800px;
   -webkit-perspective: 1800px;
-  user-select: none;
-  -webkit-user-select: none;
+  user-select: text;
+  -webkit-user-select: text;
   touch-action: pan-y;
 }
 
@@ -1245,22 +1486,24 @@
 
 .lookbook-m-photo-alt {
   margin: 0.35rem 0 0;
-  color: #c1915e;
-  opacity: 0.8;
+  color: #e5c59e;
+  opacity: 0.95;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.78rem;
   line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .lookbook-m-tap-cue {
   display: block;
   margin-top: 0.85rem;
-  color: #c1915e;
-  opacity: 0.7;
+  color: #e5c59e;
+  opacity: 0.85;
   font-family: var(--font-outfit), sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .lookbook-m-last-actions {

@@ -19,6 +19,7 @@ interface CollectionSlide {
   bgColor: string;
   accentColor: string;
   surfaceColor: string;
+  gemGlow: string;
   copy: string;
   note: string;
   cta: string;
@@ -35,6 +36,7 @@ const slides: CollectionSlide[] = [
     bgColor: "#0E1824",
     accentColor: "#C5A059",
     surfaceColor: "#172331",
+    gemGlow: "rgba(50, 115, 220, 0.35)",
     copy: "Emerald cut for the hand. Gold that warms as you wear it.",
     note: "Emerald halo · 18k gold",
     cta: "Explore Rings Collection",
@@ -46,11 +48,12 @@ const slides: CollectionSlide[] = [
     image: "/images/collection-necklaces.jpg",
     squarePosition: "16% 45%",
     circlePosition: "38% 46%",
-    bgColor: "#0E3B28",
+    bgColor: "#230712",
     accentColor: "#D4AF37",
-    surfaceColor: "#0A2A1D",
+    surfaceColor: "#17040B",
+    gemGlow: "rgba(225, 25, 80, 0.42)",
     copy: "A collar that sits where it should. Quiet, balanced, kept.",
-    note: "Graduated emerald · 18k gold",
+    note: "Graduated ruby · Brilliant diamond",
     cta: "Explore Necklaces Collection",
   },
   {
@@ -62,6 +65,7 @@ const slides: CollectionSlide[] = [
     bgColor: "#0B2D1F",
     accentColor: "#C1915E",
     surfaceColor: "#082117",
+    gemGlow: "rgba(20, 150, 85, 0.38)",
     copy: "Links that follow the wrist. Soft. Exact. Nothing forced.",
     note: "Flexible links · Custom size",
     cta: "Explore Bracelets Collection",
@@ -76,6 +80,7 @@ const slides: CollectionSlide[] = [
     bgColor: "#142526",
     accentColor: "#D4B07B",
     surfaceColor: "#1D3234",
+    gemGlow: "rgba(30, 170, 150, 0.36)",
     copy: "Pear drops that catch the light when you turn.",
     note: "Pear emerald · Diamond",
     cta: "Explore Earrings Collection",
@@ -365,7 +370,14 @@ export default function CollectionStage() {
           <div className="cs-slide__outer">
             <div
               className={`cs-slide__inner ${slide.isLight ? "cs-slide__inner--light" : ""}`}
-              style={{ backgroundColor: slide.bgColor }}
+              style={
+                {
+                  backgroundColor: slide.bgColor,
+                  "--cs-surface": slide.surfaceColor,
+                  "--cs-accent": slide.accentColor,
+                  "--gem-glow": slide.gemGlow,
+                } as React.CSSProperties
+              }
             >
               <div className="cs-slide__layout">
                 {/* Left: Text & Typography Column */}
