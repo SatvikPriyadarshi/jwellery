@@ -23,7 +23,7 @@ export const SITE_CONFIG = {
     "Explore Uni Fine Jewelry: family-owned high jewelry atelier since 1965. Handcrafted Zambian emeralds, rare colored gemstones, and bespoke diamond heirlooms shaped through generations of Jaipur lapidary artistry.",
   ogImage: `${SITE_URL}/og-image.jpg`,
   logo: `${SITE_URL}/images/Logo.webp`,
-  email: "concierge@unifinejewelry.com",
+  email: "info@unifinejewelry.com",
   phone: "+91 75680 42023",
   social: {
     instagram: "https://instagram.com/unifinejewelry.gram",

@@ -976,7 +976,6 @@
 
 .prod-card:hover {
   border-color: rgba(193, 145, 94, 0.85);
-  transform: translateY(-5px);
   box-shadow:
     0 20px 40px -8px rgba(24, 67, 67, 0.14),
     0 10px 20px -4px rgba(0, 0, 0, 0.06),
@@ -988,7 +987,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf6ef 70%, #f4eee2 100%);
+  background: #ffffff;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -1005,12 +1004,7 @@
 
 .prod-card__img {
   object-fit: contain;
-  padding: 0;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.prod-card:hover .prod-card__img {
-  transform: scale(1.08);
+  object-position: center center;
 }
 
 /* Floating Quick View button (Desktop) */
@@ -1366,14 +1360,14 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: #faf7f2;
+  background: #ffffff;
   border: 1px solid rgba(193, 145, 94, 0.2);
   overflow: hidden;
 }
 
 .qv-main-img {
   object-fit: contain;
-  padding: 1rem;
+  object-position: center center;
 }
 
 .qv-thumbs {

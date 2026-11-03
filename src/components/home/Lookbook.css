@@ -200,19 +200,7 @@
 }
 
 .lookbook-leaf-crease {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 20px;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.45) 0%,
-    rgba(0, 0, 0, 0.12) 40%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 5;
+  display: none;
 }
 
 /* Hardcover Front Leaf */
@@ -229,47 +217,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 60% 40%, #0E3B28 0%, #0A2A1D 100%);
+  background: #184343;
   color: #c1915e;
   border-radius: 0 4px 4px 0;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-}
-
-/* Leather spine hinge shading on left edge of cover */
-.lookbook-cover-front::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 22px;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(255, 255, 255, 0.06) 45%,
-    rgba(0, 0, 0, 0.25) 85%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 10;
 }
 
 .lookbook-cover-border {
   position: absolute;
-  inset: 22px;
-  border: 1px solid rgba(193, 145, 94, 0.45);
+  inset: 1.5rem;
+  border: 1px solid rgba(193, 145, 94, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-}
-
-.lookbook-cover-border::before {
-  content: "";
-  position: absolute;
-  inset: 5px;
-  border: 1px solid rgba(193, 145, 94, 0.2);
 }
 
 .lookbook-cover-inner {
@@ -279,12 +240,12 @@
   justify-content: center;
   text-align: center;
   padding: 2rem 1.5rem;
-  max-width: 82%;
+  max-width: 78%;
+  gap: 1.35rem;
 }
 
 .lookbook-cover-logo-wrap {
-  width: min(16rem, 75%);
-  margin-bottom: 1.25rem;
+  width: min(15rem, 72%);
 }
 
 .lookbook-cover__logo {
@@ -297,63 +258,49 @@
 .lookbook-cover-sub {
   margin: 0;
   color: #c1915e;
-  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
-  font-size: 1.35rem;
+  font-family: var(--font-subtitle), Verdana, sans-serif;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.lookbook-cover-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0.9rem 0;
-  color: #c1915e;
-  font-size: 0.85rem;
-  opacity: 0.75;
-}
-
-.lookbook-cover-vol {
-  margin: 0;
-  color: #c1915e;
-  opacity: 0.75;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
 .lookbook-cover-cta {
-  margin-top: 2rem;
+  margin-top: 0.35rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1.15rem;
-  border: 1px solid rgba(193, 145, 94, 0.5);
-  border-radius: 20px;
-  background: rgba(24, 67, 67, 0.7);
+  gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(193, 145, 94, 0.55);
+  border-radius: 0;
+  background: transparent;
   color: #c1915e;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  font-family: var(--font-subtitle), Verdana, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .lookbook-leaf--cover:hover .lookbook-cover-cta {
-  background: rgba(193, 145, 94, 0.18);
+  background: #c1915e;
+  color: #184343;
   border-color: #c1915e;
-  box-shadow: 0 0 16px rgba(193, 145, 94, 0.25);
 }
 
 /* Interior Pages Content (Desktop) */
+.lookbook-face:has(.lookbook-photo-wrap) {
+  background: #111;
+}
+
 .lookbook-photo-wrap {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: #111;
 }
 
 .lookbook-photo {
@@ -363,21 +310,6 @@
 
 .lookbook-photo img {
   object-fit: cover;
-}
-
-.lookbook-photo-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(6, 17, 14, 0.2) 0%,
-    rgba(6, 17, 14, 0.0) 30%,
-    rgba(6, 17, 14, 0.0) 65%,
-    rgba(6, 17, 14, 0.45) 85%,
-    rgba(6, 17, 14, 0.95) 100%
-  );
 }
 
 .lookbook-mark {
@@ -473,12 +405,10 @@
   border-top: 1px solid rgba(193, 145, 94, 0.22);
   background: linear-gradient(
     to top,
-    rgba(7, 22, 18, 0.96) 0%,
-    rgba(7, 22, 18, 0.72) 65%,
-    rgba(7, 22, 18, 0.0) 100%
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.4) 65%,
+    rgba(0, 0, 0, 0) 100%
   );
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   pointer-events: auto;
 }
 
@@ -1321,7 +1251,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 35%, #0E3B28 0%, #0A2A1D 100%);
+  background: #184343;
   padding: 1.25rem;
 }
 
@@ -1329,19 +1259,11 @@
   position: relative;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(193, 145, 94, 0.45);
+  border: 1px solid rgba(193, 145, 94, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem 1rem;
-}
-
-.lookbook-m-cover-border::before {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(193, 145, 94, 0.2);
-  pointer-events: none;
 }
 
 .lookbook-m-cover-inner {
@@ -1351,16 +1273,16 @@
   justify-content: center;
   text-align: center;
   max-width: 90%;
+  gap: 1.25rem;
 }
 
 .lookbook-m-cover-logo {
-  width: min(13rem, 72%);
-  margin: 1.25rem 0 0.85rem;
+  width: min(12.5rem, 70%);
 }
 
 .lookbook-m-cover-logo-img {
   width: 100%;
-    height: auto;
+  height: auto;
   display: block;
   object-fit: contain;
 }
@@ -1378,28 +1300,28 @@
 .lookbook-m-cover-title {
   margin: 0;
   color: #c1915e;
-  font-family: var(--font-book), var(--font-cormorant-serif), Georgia, serif;
-  font-size: 1.35rem;
+  font-family: var(--font-subtitle), Verdana, sans-serif;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
 .lookbook-m-cover-sub {
-  margin: 0.35rem 0 0;
+  margin: 0;
   color: #c1915e;
   opacity: 0.8;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-subtitle), Verdana, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
 }
 
 .lookbook-m-cover-desc {
-  margin: 1.15rem 0 0;
+  margin: 0;
   color: #c1915e;
   opacity: 0.75;
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-body), "Palatino Linotype", Palatino, serif;
   font-size: 0.78rem;
   line-height: 1.55;
   max-width: 16rem;
@@ -1408,35 +1330,35 @@
 .lookbook-m-cover-cta {
   position: relative;
   z-index: 30;
-  margin-top: 1.75rem;
+  margin-top: 0.35rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.4rem;
-  border: 1px solid #c1915e;
-  border-radius: 24px;
-  background: rgba(193, 145, 94, 0.15);
+  gap: 0.45rem;
+  padding: 0.7rem 1.35rem;
+  border: 1px solid rgba(193, 145, 94, 0.55);
+  border-radius: 0;
+  background: transparent;
   color: #c1915e;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-family: var(--font-subtitle), Verdana, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  transition: all 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .lookbook-m-cover-cta:hover {
   background: #c1915e;
-  color: #0E3B28;
+  color: #184343;
+  border-color: #c1915e;
 }
 
 .lookbook-m-swipe-hint {
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
   color: #c1915e;
-  opacity: 0.6;
-  font-family: var(--font-outfit), sans-serif;
+  opacity: 0.55;
+  font-family: var(--font-subtitle), Verdana, sans-serif;
   font-size: 0.62rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1450,23 +1372,11 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1.25rem 1.25rem 1.5rem;
+  background: #111;
 }
 
 .lookbook-m-photo-img {
   object-fit: cover;
-}
-
-.lookbook-m-photo-scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(10, 26, 21, 0.75) 0%,
-    rgba(10, 26, 21, 0.1) 22%,
-    rgba(10, 26, 21, 0.15) 55%,
-    rgba(10, 26, 21, 0.96) 100%
-  );
-  pointer-events: none;
 }
 
 .lookbook-m-photo-caption {

@@ -30,14 +30,14 @@ export default function ProductDetailClient({
   const inquiryBody = encodeURIComponent(
     `Hello Uni Fine Jewelry Concierge,\n\nI am interested in acquiring or commissioning:\nPiece: ${product.name}\nReference: ${product.id}\nCategory: ${product.category}\n\nPlease share current availability, pricing details, and private appointment options.\n\nThank you.`
   );
-  const mailtoUrl = `mailto:concierge@unifinejewelry.com?subject=${inquirySubject}&body=${inquiryBody}`;
+  const mailtoUrl = `mailto:info@unifinejewelry.com?subject=${inquirySubject}&body=${inquiryBody}`;
   const whatsappUrl = `https://wa.me/917568042023?text=${encodeURIComponent(
     `Hello Uni Fine Jewelry Concierge,\n\nI am inquiring about:\n*Piece:* ${product.name}\n*Reference:* ${product.id}\n*Category:* ${product.category}\n*Link:* https://jwellery-lilac.vercel.app/shop/${product.slug}\n\nPlease share current pricing, certificate details, and private appointment options.\n\nThank you.`
   )}`;
 
   const getFittedImage = (img: string) =>
     img && img.startsWith("/images/shop/")
-      ? img.replace("/images/shop/", "/images/shop-fitted/")
+      ? img.replace("/images/shop/", "/images/shop-v2/")
       : img;
 
   const handleCopyRef = () => {
@@ -80,7 +80,7 @@ export default function ProductDetailClient({
                 priority
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 quality={95}
-                className="object-contain p-4 sm:p-8 transition-transform duration-700 ease-out group-hover:scale-105 cursor-zoom-in"
+                className="object-contain object-center cursor-zoom-in"
                 onClick={() => setIsZoomOpen(true)}
               />
 

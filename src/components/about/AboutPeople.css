@@ -2,8 +2,7 @@
   box-sizing: border-box;
   width: 100%;
   overflow: visible;
-  scroll-behavior: auto;
-  background: #0E3B28;
+  background: #184343;
   color: #c1915e;
   padding: clamp(4.5rem, 9vh, 6.5rem) 0 clamp(4rem, 8vh, 5.5rem);
 }
@@ -14,137 +13,195 @@
 }
 
 .people-head {
-  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+  margin-bottom: clamp(1.5rem, 3.2vh, 2.25rem);
 }
 
 .people-eyebrow {
-  margin: 0 0 0.4rem;
-  font-family: var(--font-subtitle), sans-serif;
+  margin: 0 0 0.45rem;
+  font-family: var(--font-subtitle), Verdana, sans-serif;
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--color-champagne);
+  color: #c1915e;
 }
 
 .people-title {
   margin: 0;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-display), var(--font-cormorant), Georgia, serif;
   font-size: clamp(1.85rem, 2.6vw, 2.55rem);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: #c1915e;
 }
 
 .people-lead {
-  margin: 0.55rem 0 0;
+  margin: 0.65rem 0 0;
   max-width: 40rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.94rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #c1915e;
-}
-
-.people-accordion {
-  overflow: visible;
-}
-
-.people-acc-item > [role="region"][data-state="open"] {
-  animation: accordion-down 0.38s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.people-acc-item > [role="region"][data-state="closed"] {
-  animation: accordion-up 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .people-acc-item > [role="region"][data-state="open"],
-  .people-acc-item > [role="region"][data-state="closed"] {
-    animation: none;
-  }
-}
-
-.people-acc-item {
-  border-color: rgba(193, 145, 94, 0.28);
-}
-
-.people-acc-trigger {
-  gap: 1rem;
-  padding-top: 1.05rem;
-  padding-bottom: 1.05rem;
-  color: #c1915e;
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-
-.people-acc-trigger svg {
-  color: var(--color-champagne);
-}
-
-.people-avatar {
-  width: 3.25rem;
-  height: 3.25rem;
-  border: 1px solid rgba(193, 145, 94, 0.7);
-  background: #0E3B28;
-}
-
-.people-avatar__fallback {
-  background: #0E3B28;
-  color: var(--color-champagne);
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
-}
-
-.people-acc-name {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 500;
-  line-height: 1.1;
-  color: #c1915e;
-}
-
-.people-acc-role {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-champagne);
-}
-
-.people-acc-content {
-  overflow: visible;
-  padding-left: 4.25rem;
-  color: #c1915e;
-}
-
-.people-acc-content p {
-  margin: 0;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.95rem;
+  font-family: var(--font-body), "Palatino Linotype", Palatino, serif;
+  font-size: 0.98rem;
   font-weight: 400;
   line-height: 1.65;
   color: #c1915e;
 }
 
+.people-accordion {
+  border-top: 1px solid rgba(193, 145, 94, 0.22);
+}
+
+.people-acc-item {
+  border-bottom: 1px solid rgba(193, 145, 94, 0.22);
+}
+
+/* Grid rows animate height without measuring or clipping mid-tween. */
+.people-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.people-acc-panel.is-open {
+  grid-template-rows: 1fr;
+}
+
+.people-acc-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.15rem 0;
+  border: 0;
+  background: transparent;
+  color: #c1915e;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+}
+
+.people-acc-chevron {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: #c1915e;
+  opacity: 0.75;
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+}
+
+.people-acc-trigger[aria-expanded="true"] .people-acc-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .people-acc-panel,
+  .people-acc-chevron {
+    transition: none;
+  }
+}
+
+.people-acc-identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  min-width: 0;
+}
+
+.people-acc-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.people-avatar {
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1px solid rgba(193, 145, 94, 0.55);
+  background: #184343;
+  flex-shrink: 0;
+}
+
+.people-avatar__fallback {
+  background: #184343;
+  color: #c1915e;
+  font-family: var(--font-display), var(--font-cormorant), Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.people-acc-name {
+  font-family: var(--font-display), var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #c1915e;
+}
+
+.people-acc-role {
+  font-family: var(--font-subtitle), Verdana, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c1915e;
+  opacity: 0.82;
+}
+
+.people-acc-clip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.people-acc-content {
+  padding: 0 0 1.15rem 4.25rem;
+  color: #c1915e;
+}
+
+.people-acc-content p {
+  margin: 0;
+  font-family: var(--font-body), "Palatino Linotype", Palatino, serif;
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #c1915e;
+}
+
 .people-acc-content p + p {
-  margin-top: 0.75rem;
+  margin-top: 0.85rem;
 }
 
 .people-close {
-  margin: clamp(1.4rem, 3vh, 2rem) 0 0;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.02rem;
+  margin: clamp(1.6rem, 3.2vh, 2.25rem) 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(193, 145, 94, 0.18);
+  font-family: var(--font-display), var(--font-cormorant), Georgia, serif;
+  font-size: 1.05rem;
   font-style: italic;
-  line-height: 1.4;
+  font-weight: 400;
+  line-height: 1.45;
   color: #c1915e;
 }
 
 @media (max-width: 640px) {
   .people-acc-content {
     padding-left: 0;
+  }
+
+  .people-acc-trigger {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .people-avatar {
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .people-acc-name {
+    font-size: 1.15rem;
   }
 }

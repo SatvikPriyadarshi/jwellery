@@ -131,49 +131,16 @@
 }
 
 /* =========================================================================
-   MIDDLE CARDS ROW FLANKED BY NAVIGATION ARROWS
+   MIDDLE CARDS ROW
    ========================================================================= */
 
 .pillars-row-wrapper {
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  gap: clamp(0.75rem, 1.5vw, 1.5rem);
-}
-
-.pillars-nav-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(24, 67, 67, 0.6);
-  border: 1px solid rgba(193, 145, 94, 0.4);
-  color: var(--color-champagne);
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(6px);
-}
-
-@media (min-width: 1120px) {
-  .pillars-nav-btn {
-    display: flex;
-  }
-}
-
-.pillars-nav-btn:hover {
-  background: var(--color-champagne);
-  color: #0E3B28;
-  border-color: var(--color-champagne);
-  transform: scale(1.08);
-  box-shadow: 0 0 16px rgba(193, 145, 94, 0.4);
 }
 
 .pillars-grid {
-  flex: 1;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(0.75rem, 1.5vw, 1.25rem);

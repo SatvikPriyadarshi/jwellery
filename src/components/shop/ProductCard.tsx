@@ -22,7 +22,7 @@ export default function ProductCard({
 
   // Use fitted high-res image asset with extra whitespace cropped
   const imageSrc = product.image.startsWith("/images/shop/")
-    ? product.image.replace("/images/shop/", "/images/shop-fitted/")
+    ? product.image.replace("/images/shop/", "/images/shop-v2/")
     : product.image;
 
   return (

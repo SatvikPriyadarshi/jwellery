@@ -111,7 +111,7 @@ const spreads: { left: Face; right: Face }[] = [
     },
     right: {
       kind: "photo",
-      src: "/images/IndestructibleUnconquerable.jpg",
+      src: "/images/IndestructibleUnconquerable-2.jpg",
       position: "center 45%",
       alt: "Graduated ruby and brilliant diamond collar necklace",
       title: "Indestructible & unconquerable",
@@ -360,7 +360,6 @@ function FaceView({
     return (
       <div className="lookbook-photo-wrap">
         <Photo src={face.src} position={face.position} alt={face.alt} />
-        <div className="lookbook-photo-scrim" />
 
         {/* Monograph Editorial Baseline Bar (Clean, integrated printed book margin) */}
         <div className="lookbook-monograph-bar">
@@ -499,7 +498,6 @@ function MobilePageContent({
       <div className="lookbook-m-cover">
         <div className="lookbook-m-cover-border">
           <div className="lookbook-m-cover-inner">
-            <span className="lookbook-m-badge">EST. 1965 • JAIPUR & KUALA LUMPUR</span>
             <div className="lookbook-m-cover-logo">
               <Image
                 src="/images/Logo.webp"
@@ -510,16 +508,7 @@ function MobilePageContent({
                 className="lookbook-m-cover-logo-img"
               />
             </div>
-            <div className="lookbook-m-cover-divider">
-              <span className="lookbook-m-diamond">❖</span>
-            </div>
-            <h2 className="lookbook-m-cover-title">THE UNI COLLECTION</h2>
-            <p className="lookbook-m-cover-sub">
-              Catalogue Raisonné • Volume I
-            </p>
-            <p className="lookbook-m-cover-desc">
-              Eight curated spreads of high jewelry, ethical emeralds, and generations of atelier craftsmanship.
-            </p>
+            <h2 className="lookbook-m-cover-title">Lookbook</h2>
             {onOpenCover ? (
               <button
                 type="button"
@@ -529,15 +518,12 @@ function MobilePageContent({
                   onOpenCover();
                 }}
               >
-                <span>Begin Reading</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <span>Open</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
             ) : null}
-            <span className="lookbook-m-swipe-hint">
-              Swipe left or tap right to turn page
-            </span>
           </div>
         </div>
       </div>
@@ -560,7 +546,6 @@ function MobilePageContent({
           className="lookbook-m-photo-img"
           style={{ objectFit: "cover", objectPosition: face.position }}
         />
-        <div className="lookbook-m-photo-scrim" />
         <div className="lookbook-m-top-bar">
           <span className="lookbook-m-badge">PAGE {pageIndex} / 16</span>
           <span className="lookbook-m-chapter-tag">Uni Lookbook</span>
@@ -655,7 +640,6 @@ function MobilePageContent({
           className="lookbook-m-photo-img"
           style={{ objectFit: "cover", objectPosition: face.position }}
         />
-        <div className="lookbook-m-photo-scrim" />
         <div className="lookbook-m-top-bar">
           <span className="lookbook-m-badge">PAGE {pageIndex} / 16</span>
           <span className="lookbook-m-chapter-tag">Uni Lookbook</span>
@@ -951,15 +935,10 @@ export default function Lookbook() {
                       className="lookbook-cover__logo"
                     />
                   </div>
-                  <p className="lookbook-cover-sub">THE UNI COLLECTION</p>
-                  <div className="lookbook-cover-divider">
-                    <span>❖</span>
-                  </div>
-                  <p className="lookbook-cover-vol">Catalogue Raisonné • Volume I</p>
-
+                  <p className="lookbook-cover-sub">Lookbook</p>
                   <div className="lookbook-cover-cta">
-                    <span>Click to Open Lookbook</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <span>Open</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -987,8 +966,8 @@ export default function Lookbook() {
 
           <div className="lookbook-caption-center">
             {closed
-              ? "Hardcover Edition • Click Cover or Next"
-              : `Spread ${turned + 1} of ${spreads.length} • Pages ${turned * 2 + 1} & ${turned * 2 + 2}`}
+              ? "Open the lookbook"
+              : `${turned + 1} / ${spreads.length}`}
           </div>
 
           <button

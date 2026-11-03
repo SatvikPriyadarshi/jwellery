@@ -59,7 +59,6 @@ const PILLARS_DATA: PillarItem[] = [
 
 export default function AboutCraftsmanship() {
   const rootRef = useRef<HTMLElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
 
   const toggleCard = (id: string) => {
@@ -140,13 +139,6 @@ export default function AboutCraftsmanship() {
     { scope: rootRef }
   );
 
-  const handleScroll = (direction: "left" | "right") => {
-    if (!gridRef.current) return;
-    const cardWidth = gridRef.current.clientWidth / 4;
-    const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
-    gridRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  };
-
   return (
     <section
       ref={rootRef}
@@ -170,30 +162,8 @@ export default function AboutCraftsmanship() {
           </div>
         </header>
 
-        {/* 4 Pillars Vitrine Row Flanked by Nav Outline Arrows */}
         <div className="pillars-row-wrapper">
-          <button
-            type="button"
-            className="pillars-nav-btn"
-            aria-label="Previous pillar"
-            onClick={() => handleScroll("left")}
-          >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-
-          <div ref={gridRef} className="pillars-grid" role="list">
+          <div className="pillars-grid" role="list">
             {PILLARS_DATA.map((pillar) => {
               const isExpanded = Boolean(expandedCards[pillar.id]);
 
@@ -244,27 +214,6 @@ export default function AboutCraftsmanship() {
               );
             })}
           </div>
-
-          <button
-            type="button"
-            className="pillars-nav-btn"
-            aria-label="Next pillar"
-            onClick={() => handleScroll("right")}
-          >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
         </div>
 
         {/* Bottom Editorial Quote */}

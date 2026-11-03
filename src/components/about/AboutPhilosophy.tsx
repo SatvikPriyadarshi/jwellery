@@ -161,14 +161,13 @@ export default function AboutPhilosophy() {
 
             <div className="lg:col-span-4 relative aspect-[4/5] sm:aspect-square max-w-none lg:max-w-[320px] mx-auto w-full border border-[var(--color-champagne)]/30 overflow-hidden bg-[#0E3B28]">
               <Image
-                src="/images/IndestructibleUnconquerable.jpg"
+                src="/images/IndestructibleUnconquerable-2.jpg"
                 alt="Adamas - Indestructible and unconquerable diamond and gemstone creations"
                 fill
                 sizes="(max-width: 1024px) 100vw, 320px"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0E3B28]/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 inset-x-3 text-center text-[10px] tracking-widest uppercase text-[var(--color-champagne)] font-sans">
+              <div className="absolute bottom-3 inset-x-3 text-center text-[10px] tracking-widest uppercase text-[var(--color-champagne)] font-sans drop-shadow-[0_1px_2px_rgba(0,0,0,0.55)]">
                 Handcrafted Heirloom
               </div>
             </div>

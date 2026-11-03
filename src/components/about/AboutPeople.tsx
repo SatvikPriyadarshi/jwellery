@@ -1,18 +1,13 @@
 "use client";
 
-import { useState, useRef } from "react";
-import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import gsap from "gsap";
+import { ChevronDown } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import "./AboutPeople.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Person = {
   id: string;
@@ -52,29 +47,48 @@ const PEOPLE: readonly Person[] = [
     role: "Partner & Senior Advisor",
     initials: "BG",
     paragraphs: [
-      "Mr. Banwari Lal Gupta represents the foundation of the Gupta family’s longstanding association with the precious and semi-precious gemstone industry, a legacy that dates back to 1975.",
+      "Mr. Banwari Lal Gupta represents the foundation of the Gupta family’s longstanding association with the precious and semi-precious gemstone industry, a legacy that dates back to 1968.",
       "Having been involved in the family enterprise for decades, he has contributed significantly to its growth and development. His experience spans the gemstone trade, business management, and legal and financial advisory matters.",
       "As a senior partner and advisor, he continues to provide valuable guidance, bringing decades of industry knowledge, business insight and perspective to the enterprise. His contribution reflects the values on which the family business was built: integrity, trust, experience and enduring relationships.",
+    ],
+  },
+  {
+    id: "pranava-gupta",
+    name: "Pranava Gupta",
+    role: "Partner | Third-Generation Jeweller",
+    initials: "PG",
+    paragraphs: [
+      "Representing the next generation of the family’s jewellery legacy, Pranava Gupta brings a contemporary perspective to a business built on decades of experience in gemstones, diamonds and fine jewellery. With a degree in Operations and Supply Chain Management from Babson College and professional training in Diamonds and Diamond Grading from GIA, he combines formal business education with technical knowledge of the jewellery industry.",
+      "As a Partner, Pranava oversees the company's manufacturing facility, with a focus on production processes, quality control, operational efficiency and product development. He is also actively involved in business development, international market expansion and exploring new opportunities across India, Southeast Asia and the Middle East.",
+      "With an understanding of evolving consumer preferences and modern jewellery aesthetics, he aims to build on the family's established expertise while bringing fresh perspectives to its continued growth and evolution.",
     ],
   },
 ];
 
 export default function AboutPeople() {
   const [activePerson, setActivePerson] = useState<string>("govind-gupta");
-  const refreshTimer = useRef<number | null>(null);
+  const refreshTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const refreshAfterToggle = () => {
-    if (refreshTimer.current !== null) {
-      window.clearTimeout(refreshTimer.current);
-    }
-    refreshTimer.current = window.setTimeout(() => {
+  useEffect(() => {
+    return () => {
+      if (refreshTimer.current) clearTimeout(refreshTimer.current);
+    };
+  }, []);
+
+  const scheduleLayoutRefresh = () => {
+    const root = document.documentElement;
+    const previous = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    if (refreshTimer.current) clearTimeout(refreshTimer.current);
+    refreshTimer.current = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 360);
+      root.style.scrollBehavior = previous;
+    }, 460);
   };
 
-  const handleHover = (id: string) => {
-    setActivePerson(id);
-    refreshAfterToggle();
+  const togglePerson = (id: string) => {
+    setActivePerson((current) => (current === id ? "" : id));
+    scheduleLayoutRefresh();
   };
 
   return (
@@ -96,51 +110,51 @@ export default function AboutPeople() {
           </p>
         </header>
 
-        <Accordion
-          type="single"
-          collapsible
-          className="people-accordion"
-          value={activePerson}
-          onValueChange={(val) => {
-            setActivePerson(val);
-            refreshAfterToggle();
-          }}
-        >
-          {PEOPLE.map((person) => (
-            <AccordionItem
-              key={person.id}
-              value={person.id}
-              className="people-acc-item"
-              onMouseEnter={() => handleHover(person.id)}
-            >
-              <AccordionTrigger
-                className="people-acc-trigger items-center hover:no-underline"
-                onMouseEnter={() => handleHover(person.id)}
-                onFocus={() => handleHover(person.id)}
-              >
-                <span className="flex items-center gap-4 text-left">
-                  <Avatar className="people-avatar">
-                    {person.photo ? (
-                      <AvatarImage src={person.photo} alt="" />
-                    ) : null}
-                    <AvatarFallback className="people-avatar__fallback">
-                      {person.initials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <span className="flex flex-col gap-1">
-                    <span className="people-acc-name">{person.name}</span>
-                    <span className="people-acc-role">{person.role}</span>
+        <div className="people-accordion">
+          {PEOPLE.map((person) => {
+            const open = activePerson === person.id;
+            return (
+              <div key={person.id} className="people-acc-item">
+                <button
+                  type="button"
+                  className="people-acc-trigger"
+                  aria-expanded={open}
+                  aria-controls={`person-${person.id}`}
+                  onClick={() => togglePerson(person.id)}
+                >
+                  <span className="people-acc-identity">
+                    <Avatar className="people-avatar">
+                      {person.photo ? (
+                        <AvatarImage src={person.photo} alt="" />
+                      ) : null}
+                      <AvatarFallback className="people-avatar__fallback">
+                        {person.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="people-acc-meta">
+                      <span className="people-acc-name">{person.name}</span>
+                      <span className="people-acc-role">{person.role}</span>
+                    </span>
                   </span>
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="people-acc-content">
-                {person.paragraphs.map((paragraph) => (
-                  <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-                ))}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+                  <ChevronDown className="people-acc-chevron" aria-hidden="true" />
+                </button>
+                <div
+                  id={`person-${person.id}`}
+                  className={`people-acc-panel${open ? " is-open" : ""}`}
+                  role="region"
+                >
+                  <div className="people-acc-clip">
+                    <div className="people-acc-content">
+                      {person.paragraphs.map((paragraph, index) => (
+                        <p key={`${person.id}-${index}`}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
 
         <p className="people-close">
           Three generations of knowledge, one shared commitment to

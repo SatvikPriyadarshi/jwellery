@@ -78,8 +78,8 @@ export default function PrivacyPage() {
             </h2>
             <p>
               For inquiries regarding your stored preferences or to request data removal, please contact{" "}
-              <a href="mailto:concierge@unifinejewelry.com" className="text-[var(--color-emerald)] font-medium underline">
-                concierge@unifinejewelry.com
+              <a href="mailto:info@unifinejewelry.com" className="text-[var(--color-emerald)] font-medium underline">
+                info@unifinejewelry.com
               </a>.
             </p>
           </section>

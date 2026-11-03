@@ -49,7 +49,7 @@ const products: JewelryProduct[] = [
     name: "Elegant Double-Strand",
     category: "Necklace",
     href: "/contact?piece=Elegant+Double-Strand&category=Necklace",
-    image: "/images/IndestructibleUnconquerable.jpg",
+    image: "/images/IndestructibleUnconquerable-2.jpg",
     priceLabel: "Contact for Pricing",
     imagePosition: "center 45%",
   },
