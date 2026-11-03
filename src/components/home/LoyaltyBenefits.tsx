@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -245,9 +246,9 @@ export default function LoyaltyBenefits() {
               </span>
               <h3 className="lb-card__title">{service.title}</h3>
               <p className="lb-card__copy">{service.description}</p>
-              <a href="#contact" className="lb-card__cta">
+              <Link href="/contact" className="lb-card__cta">
                 Contact Us
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
