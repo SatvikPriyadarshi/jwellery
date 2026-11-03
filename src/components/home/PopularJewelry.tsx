@@ -26,7 +26,6 @@ const products: JewelryProduct[] = [
     href: "#collection-earrings",
     image: "/images/TheDropEmeraldAndDiamond.jpg",
     priceLabel: "Contact for Pricing",
-    badge: "Bestseller",
     imagePosition: "center 45%",
   },
   {
