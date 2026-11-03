@@ -112,6 +112,22 @@ export default function ShopPage() {
     return list;
   }, [filteredProducts, sortBy]);
 
+  // Read category from URL parameter on initial mount (e.g. /shop?category=Earrings)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("category");
+    if (cat) {
+      const validCategories = ["Rings", "Earrings", "Necklaces", "Bracelets", "Bangles"];
+      const matched = validCategories.find(
+        (c) => c.toLowerCase() === cat.trim().toLowerCase()
+      );
+      if (matched) {
+        setSelectedCategory(matched);
+      }
+    }
+  }, []);
+
   // Reset to page 1 on filter or search change
   useEffect(() => {
     setCurrentPage(1);

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useRef, useImperativeHandle, forwardRef } from "react";
+import { useState, useRef, useImperativeHandle, forwardRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -82,6 +82,25 @@ const ContactExperience = forwardRef<ContactExperienceHandle, {}>((_props, ref) 
       }
     },
   }));
+
+  // Pre-populate inquiry if routed with piece and/or category query params
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const piece = params.get("piece");
+    const category = params.get("category");
+    if (piece) {
+      setFormData((prev) => ({
+        ...prev,
+        enquiryType: "Product Enquiry",
+        message:
+          prev.message ||
+          `Hello Uni Fine Jewelry Concierge,\n\nI am inquiring about pricing, specifications, and availability for "${piece}"${
+            category ? ` (${category})` : ""
+          }.\n\nPlease share current pricing details and private appointment options.`,
+      }));
+    }
+  }, []);
 
   // Subtle GSAP entrance animation on scroll
   useGSAP(

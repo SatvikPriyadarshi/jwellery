@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -23,7 +24,7 @@ const products: JewelryProduct[] = [
   {
     name: "The Drop Emerald And Diamond",
     category: "Earrings",
-    href: "#collection-earrings",
+    href: "/contact?piece=The+Drop+Emerald+And+Diamond&category=Earrings",
     image: "/images/TheDropEmeraldAndDiamond.jpg",
     priceLabel: "Contact for Pricing",
     imagePosition: "center 45%",
@@ -31,7 +32,7 @@ const products: JewelryProduct[] = [
   {
     name: "Classic Diamond Tennis",
     category: "Bracelet",
-    href: "#collection-bracelets",
+    href: "/contact?piece=Classic+Diamond+Tennis&category=Bracelet",
     image: "/images/ClassicDiamondTennis.jpg",
     priceLabel: "Contact for Pricing",
     imagePosition: "center 50%",
@@ -39,7 +40,7 @@ const products: JewelryProduct[] = [
   {
     name: "Multicolor Tourmaline",
     category: "Necklace",
-    href: "#collection-necklaces",
+    href: "/contact?piece=Multicolor+Tourmaline&category=Necklace",
     image: "/images/MulticolorTourmaline.jpg",
     priceLabel: "Contact for Pricing",
     imagePosition: "center 48%",
@@ -47,7 +48,7 @@ const products: JewelryProduct[] = [
   {
     name: "Elegant Double-Strand",
     category: "Necklace",
-    href: "#collection-necklaces",
+    href: "/contact?piece=Elegant+Double-Strand&category=Necklace",
     image: "/images/IndestructibleUnconquerable.jpg",
     priceLabel: "Contact for Pricing",
     imagePosition: "center 45%",
@@ -181,15 +182,15 @@ export default function PopularJewelry() {
             Popular Jewelry
           </h2>
         </div>
-        <a href="#collection" className="pj-view-all">
+        <Link href="/shop" className="pj-view-all">
           View All Collections
-        </a>
+        </Link>
       </header>
 
       <ul className="pj-grid">
         {products.map((product) => (
           <li key={product.name} className="pj-card">
-            <a
+            <Link
               href={product.href}
               className="pj-card__link"
               aria-label={`${product.name} — ${product.category}. ${product.priceLabel}`}
@@ -220,7 +221,7 @@ export default function PopularJewelry() {
                   <p className="pj-card__price">{product.priceLabel}</p>
                 </div>
               </div>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

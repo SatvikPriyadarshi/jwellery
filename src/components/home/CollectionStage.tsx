@@ -327,7 +327,7 @@ export default function CollectionStage() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Top Bar: Brand Wordmark & Collection Category Nav */}
+      {/* Top Bar: Brand Wordmark */}
       <div className="cs-topbar">
         <div className="cs-topbar__brand">
           <span className="cs-topbar__eyebrow">Collection</span>
@@ -335,25 +335,6 @@ export default function CollectionStage() {
             Made <em>for you</em>
           </h2>
         </div>
-
-        <nav className="cs-nav" aria-label="Collection categories">
-          {slides.map((slide, idx) => {
-            const isActive = activeIdx === idx;
-            return (
-              <button
-                key={slide.name}
-                type="button"
-                onClick={() => gotoSlide(idx)}
-                className={`cs-nav__item ${
-                  isActive ? "cs-nav__item--active" : ""
-                }`}
-              >
-                <span className="cs-nav__diamond" aria-hidden="true" />
-                <span className="cs-nav__label">{slide.name}</span>
-              </button>
-            );
-          })}
-        </nav>
       </div>
 
       {/* The 4 Curated Slides Stacked with 3D Perspective Scaling */}
