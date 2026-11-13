@@ -37,7 +37,7 @@ export default function ProductDetailClient({
 
   const getFittedImage = (img: string) =>
     img && img.startsWith("/images/shop/")
-      ? img.replace("/images/shop/", "/images/shop-v3/")
+      ? img.replace("/images/shop/", "/images/shop-v4/")
       : img;
 
   const handleCopyRef = () => {
