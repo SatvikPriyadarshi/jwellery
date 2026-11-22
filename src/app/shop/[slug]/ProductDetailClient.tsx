@@ -72,9 +72,9 @@ export default function ProductDetailClient({
                 src={activeImage}
                 alt={`${product.name} — high jewelry showcase`}
                 fill
+                unoptimized
                 priority
                 sizes="(max-width: 1024px) 100vw, 55vw"
-                quality={95}
                 className="object-contain object-center cursor-zoom-in"
                 onClick={() => setIsZoomOpen(true)}
               />
@@ -126,6 +126,7 @@ export default function ProductDetailClient({
                       src={img}
                       alt=""
                       fill
+                      unoptimized
                       sizes="80px"
                       className="object-contain p-1"
                     />
@@ -448,7 +449,7 @@ export default function ProductDetailClient({
               src={activeImage}
               alt={product.name}
               fill
-              quality={100}
+              unoptimized
               className="object-contain drop-shadow-2xl"
             />
           </div>

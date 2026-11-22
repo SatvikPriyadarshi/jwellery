@@ -101,8 +101,8 @@ export default function ProductQuickView({
               src={activeImage || product.image}
               alt={product.name}
               fill
+              unoptimized
               sizes="(max-width: 768px) 90vw, 400px"
-              quality={90}
               className="qv-main-img"
             />
           </div>
@@ -121,6 +121,7 @@ export default function ProductQuickView({
                     src={img}
                     alt=""
                     fill
+                    unoptimized
                     sizes="56px"
                     className="object-contain p-1"
                   />

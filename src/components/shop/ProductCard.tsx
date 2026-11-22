@@ -35,8 +35,8 @@ export default function ProductCard({
             src={product.image}
             alt={`${product.name} — ${product.category}`}
             fill
+            unoptimized
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-            quality={90}
             priority={priority}
             className="prod-card__img"
           />
