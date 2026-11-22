@@ -3,7 +3,7 @@
 import { useMemo, useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import PRODUCTS, { type Product } from "@/data/products";
+import PRODUCTS, { CATEGORIES, type Product } from "@/data/products";
 import ShopFilters from "./ShopFilters";
 import ProductCard from "./ProductCard";
 import ProductQuickView from "./ProductQuickView";

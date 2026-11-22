@@ -20,11 +20,6 @@ export default function ProductCard({
     ? product.visualAttributes.visibleStone.replace(/\bgemstone\b/i, "").trim()
     : "";
 
-  // Use fitted high-res image asset with extra whitespace cropped
-  const imageSrc = product.image.startsWith("/images/shop/")
-    ? product.image.replace("/images/shop/", "/images/shop-v4/")
-    : product.image;
-
   return (
     <article className="prod-card" data-product-id={product.id}>
       {/* Vitrine Photograph Window */}
@@ -37,7 +32,7 @@ export default function ProductCard({
           aria-hidden="true"
         >
           <Image
-            src={imageSrc}
+            src={product.image}
             alt={`${product.name} — ${product.category}`}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
@@ -72,12 +67,6 @@ export default function ProductCard({
               </>
             )}
           </p>
-
-          <h3 className="prod-card__title">
-            <Link href={`/shop/${product.slug}`} prefetch={false}>
-              {product.name}
-            </Link>
-          </h3>
         </div>
 
         <div className="prod-card__footer">

@@ -59,11 +59,6 @@ export default function ProductQuickView({
     `Hello Uni Fine Jewelry Concierge,\n\nI am inquiring about:\n*Piece:* ${product.name}\n*Reference:* ${product.id}\n*Category:* ${product.category}\n*Link:* https://jwellery-lilac.vercel.app/shop/${product.slug}\n\nPlease share availability, pricing, and bespoke viewing options.\n\nThank you.`
   )}`;
 
-  const getFittedImage = (img: string) =>
-    img && img.startsWith("/images/shop/")
-      ? img.replace("/images/shop/", "/images/shop-v4/")
-      : img;
-
   return (
     <div
       className="qv-overlay"
@@ -103,7 +98,7 @@ export default function ProductQuickView({
         <div className="qv-gallery">
           <div className="qv-main-image-wrap">
             <Image
-              src={getFittedImage(activeImage || product.image)}
+              src={activeImage || product.image}
               alt={product.name}
               fill
               sizes="(max-width: 768px) 90vw, 400px"

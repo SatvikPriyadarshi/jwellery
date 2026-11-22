@@ -94,75 +94,7 @@
   color: #071612 !important;
 }
 
-/* =========================================================================
-   ARCHITECTURAL LUXURY TRUSTED PARTNERS MARQUEE
-   ========================================================================= */
-.hero__partners {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.15rem 1.75rem 1.35rem;
-  background-color: #0E3B28; /* Solid signature deep pine teal - Zero photo bleed */
-  border-top: 1px solid rgba(193, 145, 94, 0.35);
-  box-shadow: 
-    0 -14px 36px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(193, 145, 94, 0.18);
-  pointer-events: auto;
-}
-
-.hero__partners-header {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.hero__partners-badge {
-  font-family: var(--font-subtitle), Verdana, sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #c1915e;
-  padding: 0.22rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(193, 145, 94, 0.12);
-  border: 1px solid rgba(193, 145, 94, 0.35);
-  line-height: 1.1;
-}
-
-.hero__partners-dot {
-  color: rgba(193, 145, 94, 0.6);
-  font-size: 0.85rem;
-  line-height: 1;
-}
-
-.hero__partners-title {
-  margin: 0;
-  font-family: var(--font-subtitle), Verdana, sans-serif;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(247, 243, 234, 0.88);
-  line-height: 1.2;
-}
-
-.hero__partners-marquee {
-  width: 100%;
-  max-width: 84rem;
-  padding: 0.25rem 0;
-}
-
-/* Phones: wide banner ratio (1983×793) with partners bar seamlessly below */
+/* Phones: wide banner ratio (1983×793) */
 @media (max-width: 768px) {
   .hero {
     height: auto;

@@ -4,21 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import AcidSquares from "@/components/effects/AcidSquares";
 import MeshLettering from "@/components/ui/mesh-lettering";
-// import { LogoMarquee, Logo } from "@/components/ui/logo-marquee";
 import "./Hero.css";
-
-/* Preserved for future use: Trusted Partners Logos
-const TRUSTED_PARTNERS: Logo[] = [
-  { src: "/images/partners/gia.svg", alt: "GIA Gemological Institute of America" },
-  { src: "/images/partners/igi.svg", alt: "IGI International Gemological Institute" },
-  { src: "/images/partners/gubelin.svg", alt: "Gübelin Swiss Gemmological Laboratory" },
-  { src: "/images/partners/ssef.svg", alt: "SSEF Swiss Gemmological Institute" },
-  { src: "/images/partners/debeers.svg", alt: "De Beers Group Institute of Diamonds" },
-  { src: "/images/partners/rjc.svg", alt: "Responsible Jewellery Council Member" },
-  { src: "/images/partners/kimberley.svg", alt: "Kimberley Process Ethical Sourcing" },
-  { src: "/images/partners/gjepc.svg", alt: "GJEPC India Lapidary Guild" },
-];
-*/
 
 export default function Hero() {
   const [enableEffect, setEnableEffect] = useState(false);

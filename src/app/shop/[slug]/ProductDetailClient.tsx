@@ -35,11 +35,6 @@ export default function ProductDetailClient({
     `Hello Uni Fine Jewelry Concierge,\n\nI am inquiring about:\n*Piece:* ${product.name}\n*Reference:* ${product.id}\n*Category:* ${product.category}\n*Link:* https://jwellery-lilac.vercel.app/shop/${product.slug}\n\nPlease share current pricing, certificate details, and private appointment options.\n\nThank you.`
   )}`;
 
-  const getFittedImage = (img: string) =>
-    img && img.startsWith("/images/shop/")
-      ? img.replace("/images/shop/", "/images/shop-v4/")
-      : img;
-
   const handleCopyRef = () => {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard.writeText(product.id);
@@ -74,7 +69,7 @@ export default function ProductDetailClient({
 
               {/* Main Photo with smooth hover zoom */}
               <Image
-                src={getFittedImage(activeImage)}
+                src={activeImage}
                 alt={`${product.name} — high jewelry showcase`}
                 fill
                 priority
@@ -450,7 +445,7 @@ export default function ProductDetailClient({
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={getFittedImage(activeImage)}
+              src={activeImage}
               alt={product.name}
               fill
               quality={100}

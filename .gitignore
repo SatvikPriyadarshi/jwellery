@@ -44,3 +44,6 @@ next-env.d.ts
 __pycache__/
 *.pyc
 
+
+# original catalogue photos kept off the public site
+/catalog-source/
